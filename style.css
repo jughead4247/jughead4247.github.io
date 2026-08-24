@@ -74,136 +74,16 @@ body {
 
 .hero {
     position: relative;
-    min-height: 600px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    min-height: 560px;
 
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(80, 80, 80, 0.22),
-            rgba(0, 0, 0, 0.92) 70%
-        ),
-        linear-gradient(
-            180deg,
-            #202020 0%,
-            #0b0b0b 100%
-        );
+    background-image: url("hero-apocalypse.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 
     overflow: hidden;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.04) 25%,
-            transparent 25%
-        );
-
-    opacity: 0.25;
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.05),
-            rgba(0, 0, 0, 0.55)
-        );
-}
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-
-    width: min(100% - 32px, 800px);
-    padding: 80px 20px;
-
-    color: #ffffff;
-}
-.hero-content h1 {
-    color: #ffffff;
-}
-
-.hero-content .eyebrow {
-    color: #ffffff;
-}
-
-.hero-content .subtitle {
-    color: #e0e0e0;
-}
-
-.hero .eyebrow {
-    margin-bottom: 18px;
-}
-
-.eyebrow {
-    margin: 0 0 12px;
-
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-
-    color: #bdbdbd;
-}
-
-.hero h1 {
-    margin: 0;
-
-    font-size: clamp(3rem, 8vw, 6rem);
-    line-height: 0.98;
-    letter-spacing: -2px;
-
-    color: #ffffff;
-}
-
-.subtitle {
-    max-width: 680px;
-    margin: 28px auto 0;
-
-    font-size: 1.12rem;
-    color: #e0e0e0;
-}
-
-/* ===============================
-   HERO BUTTON
-   =============================== */
-
-.hero-button {
-    display: inline-block;
-
-    margin-top: 34px;
-    padding: 15px 26px;
-
-    border-radius: 8px;
-
-    background: #eeeeee;
-    color: #111111;
-
-    text-decoration: none;
-    font-weight: 800;
-    letter-spacing: 0.4px;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-}
-
-.hero-button:hover {
-    transform: translateY(-3px);
-    background: #ffffff;
 }
 
 
@@ -694,8 +574,8 @@ body {
 @media (max-width: 800px) {
 
     .hero {
-        min-height: 520px;
-    }
+    min-height: 420px;
+}
 
     .quiz-grid {
         grid-template-columns: 1fr;
@@ -731,21 +611,13 @@ body {
     }
 
     .hero {
-        min-height: 500px;
-    }
-
-    .hero-content {
-        padding: 60px 10px;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-        letter-spacing: -1px;
-    }
-
-    .subtitle {
-        font-size: 1rem;
-    }
+    min-height: 320px;
+}
+    .hero {
+    min-height: 320px;
+    background-size: cover;
+    background-position: center center;
+}
 
     .quiz-section,
     .how-it-works,
