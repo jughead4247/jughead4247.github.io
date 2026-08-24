@@ -220,6 +220,18 @@ body {
     margin: 18px auto 0;
     color: #666666;
 }
+.quiz-section .eyebrow,
+.how-it-works .eyebrow {
+    color: #666666;
+}
+
+.quiz-section h2 {
+    color: #171717;
+}
+
+.how-it-works .section-heading h2 {
+    color: #171717;
+}
 
 
 /* ===============================
@@ -457,80 +469,45 @@ body {
 
     color: #666666;
 }
-
 /* ===============================
    INFORMATION
    =============================== */
 
-/* ===============================
-   HOW IT WORKS
-   =============================== */
-
-.how-it-works {
+.home-info {
     padding: 90px 0;
 
-    background: #f5f5f5;
+    background: #ffffff;
     color: #171717;
 
-    border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
 }
 
-.steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
+.home-info h2 {
+    margin: 0 0 20px;
 
-.step {
-    padding: 30px;
-
-    border: 1px solid #dddddd;
-    border-radius: 16px;
-
-    background: #ffffff;
-
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.step:hover {
-    transform: translateY(-4px);
-
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
-}
-
-.step-number {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 20px;
-
-    border-radius: 50%;
-
-    background: #171717;
-    color: #ffffff;
-
-    font-weight: 800;
-}
-
-.step h3 {
-    margin: 0 0 10px;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    line-height: 1.15;
 
     color: #171717;
 }
 
-.step p {
-    margin: 0;
+.home-info h3 {
+    margin-top: 32px;
+    margin-bottom: 8px;
 
-    color: #666666;
+    color: #171717;
+}
+
+.home-info p {
+    max-width: 820px;
+
+    color: #555555;
+}
+
+/* Survival Decisions section */
+
+.home-info + .home-info {
+    background: #f5f5f5;
 }
 
 
@@ -549,12 +526,12 @@ body {
 .feature-list span {
     padding: 9px 15px;
 
-    border: 1px solid #333333;
+    border: 1px solid #d6d6d6;
     border-radius: 999px;
 
-    background: #141414;
+    background: #ffffff;
 
-    color: #cccccc;
+    color: #444444;
     font-size: 0.9rem;
 }
 
