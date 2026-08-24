@@ -120,16 +120,29 @@ body {
         linear-gradient(
             to bottom,
             rgba(0, 0, 0, 0.05),
-            rgba(0, 0, 0, 0.75)
+            rgba(0, 0, 0, 0.55)
         );
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
+    z-index: 10;
 
     width: min(100% - 32px, 800px);
     padding: 80px 20px;
+
+    color: #ffffff;
+}
+.hero-content h1 {
+    color: #ffffff;
+}
+
+.hero-content .eyebrow {
+    color: #ffffff;
+}
+
+.hero-content .subtitle {
+    color: #e0e0e0;
 }
 
 .hero .eyebrow {
