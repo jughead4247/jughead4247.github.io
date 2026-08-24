@@ -152,6 +152,8 @@ body {
     font-size: clamp(3rem, 8vw, 6rem);
     line-height: 0.98;
     letter-spacing: -2px;
+
+    color: #ffffff;
 }
 
 .subtitle {
@@ -159,9 +161,8 @@ body {
     margin: 28px auto 0;
 
     font-size: 1.12rem;
-    color: #cccccc;
+    color: #e0e0e0;
 }
-
 
 /* ===============================
    HERO BUTTON
@@ -222,7 +223,7 @@ body {
 }
 .quiz-section .eyebrow,
 .how-it-works .eyebrow {
-    color: #666666;
+    color: #444444;
 }
 
 .quiz-section h2 {
