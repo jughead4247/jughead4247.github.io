@@ -462,28 +462,75 @@ body {
    INFORMATION
    =============================== */
 
-.home-info {
-    padding: 80px 0;
+/* ===============================
+   HOW IT WORKS
+   =============================== */
 
-    border-bottom: 1px solid #292929;
+.how-it-works {
+    padding: 90px 0;
+
+    background: #f5f5f5;
+    color: #171717;
+
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
-.home-info h2 {
-    margin: 0 0 20px;
-
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    line-height: 1.15;
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
 }
 
-.home-info h3 {
-    margin-top: 32px;
-    margin-bottom: 8px;
+.step {
+    padding: 30px;
+
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.home-info p {
-    max-width: 820px;
+.step:hover {
+    transform: translateY(-4px);
 
-    color: #bdbdbd;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+}
+
+.step-number {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    background: #171717;
+    color: #ffffff;
+
+    font-weight: 800;
+}
+
+.step h3 {
+    margin: 0 0 10px;
+
+    color: #171717;
+}
+
+.step p {
+    margin: 0;
+
+    color: #666666;
 }
 
 
@@ -517,11 +564,22 @@ body {
    =============================== */
 
 .coming-soon {
-    padding: 80px 20px;
+    padding: 90px 20px;
 
     text-align: center;
 
+    background: #111111;
+    color: #ffffff;
+
     border-bottom: 1px solid #292929;
+}
+
+.coming-soon .eyebrow {
+    color: #aaaaaa;
+}
+
+.coming-soon h2 {
+    color: #ffffff;
 }
 
 .coming-soon > p {
@@ -546,12 +604,23 @@ body {
 .future-quizzes div {
     padding: 24px 16px;
 
-    border: 1px solid #292929;
+    border: 1px solid #333333;
     border-radius: 14px;
 
-    background: #121212;
+    background: #181818;
+
+    color: #ffffff;
 
     font-size: 1.1rem;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.future-quizzes div:hover {
+    transform: translateY(-4px);
+    border-color: #666666;
 }
 
 .future-quizzes strong {
@@ -560,9 +629,9 @@ body {
     margin-top: 8px;
 
     font-size: 0.9rem;
+
     color: #bbbbbb;
 }
-
 
 /* ===============================
    FAQ
