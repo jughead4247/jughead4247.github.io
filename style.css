@@ -294,8 +294,8 @@ body {
 
     border-radius: 8px;
 
-    background: #eeeeee;
-    color: #111111;
+    background: #d00000;
+    color: #ffffff;
 
     text-decoration: none;
     font-weight: 800;
@@ -307,13 +307,13 @@ body {
 
 .quiz-button:hover {
     transform: translateY(-2px);
-    background: #ffffff;
+    background: #ff0000;
 }
 
 .featured-button {
-    background: #ffffff;
+    background: #d00000;
+    color: #ffffff;
 }
-
 
 /* ===============================
    HOW IT WORKS
