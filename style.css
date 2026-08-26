@@ -662,3 +662,115 @@ body {
     }
 
 }
+
+/* ===============================
+   INFORMATION PAGES
+   =============================== */
+
+.info-page {
+    width: 100%;
+    max-width: 760px;
+    margin: 40px auto;
+
+    background: rgba(12, 12, 12, 0.96);
+
+    border: 1px solid #3a3a3a;
+
+    border-radius: 18px;
+
+    padding: 45px;
+
+    color: #f2f2f2;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.info-page h1 {
+    text-align: center;
+    margin-top: 0;
+    color: #f2f2f2;
+}
+
+.info-page h2 {
+    margin-top: 35px;
+    margin-bottom: 12px;
+    font-size: 24px;
+    color: #f2f2f2;
+}
+
+.info-page p {
+    color: #bbb;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.info-page a {
+    color: #d32929;
+    text-decoration: none;
+}
+
+.info-page a:hover {
+    text-decoration: underline;
+}
+
+
+/* ===============================
+   INFORMATION PAGE FOOTER
+   =============================== */
+
+.info-page + .site-footer,
+.site-footer {
+    position: relative;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.site-footer a {
+    color: #777;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: #ccc;
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 12px;
+    text-align: center;
+    color: #555;
+    font-size: 11px;
+}
+
+
+/* ===============================
+   INFORMATION PAGE MOBILE
+   =============================== */
+
+@media (max-width: 600px) {
+
+    .info-page {
+        margin: 20px auto;
+        padding: 30px 20px;
+        border-radius: 14px;
+    }
+
+    .info-page h1 {
+        font-size: 34px;
+    }
+
+    .info-page h2 {
+        font-size: 22px;
+    }
+
+    .info-page p {
+        font-size: 15px;
+    }
+}
