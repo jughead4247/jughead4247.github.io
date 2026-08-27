@@ -115,4 +115,17 @@
         <loc>https://apocalypsequizzes.com/nuclear-apocalypse-quiz/disclaimer.html</loc>
     </url>
 
+        <!-- The Walking Dead Knowledge Quiz -->
+
+    <url>
+        <loc>https://apocalypsequizzes.com/walking-dead-knowledge/</loc>
+    </url>
+
+
+    <!-- The 100 Knowledge Quiz -->
+
+    <url>
+        <loc>https://apocalypsequizzes.com/the-100-knowledge/</loc>
+    </url>
+
 </urlset>
