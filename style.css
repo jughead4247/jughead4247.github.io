@@ -437,17 +437,26 @@ body {
 
 
 /* ===============================
-   INFORMATION
+   INFORMATION / ABOUT / SURVIVAL
    =============================== */
 
 .home-info {
-    padding: 90px 0;
+    width: min(100% - 32px, 1100px);
 
-    background: transparent;
+    margin: 40px auto;
 
-    color: #171717;
+    padding: 70px 40px;
 
-    border-bottom: 1px solid rgba(80, 60, 35, 0.15);
+    background: #111111;
+
+    color: #ffffff;
+
+    border: 1px solid #292929;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.18);
 }
 
 .home-info h2 {
@@ -457,7 +466,7 @@ body {
 
     line-height: 1.15;
 
-    color: #171717;
+    color: #ffffff;
 }
 
 .home-info h3 {
@@ -465,20 +474,20 @@ body {
 
     margin-bottom: 8px;
 
-    color: #171717;
+    color: #ffffff;
 }
 
 .home-info p {
     max-width: 820px;
 
-    color: #555555;
+    color: #cccccc;
 }
 
 
 /* Survival Decisions section */
 
 .home-info + .home-info {
-    background: rgba(110, 85, 50, 0.06);
+    background: #111111;
 }
 
 
@@ -499,15 +508,57 @@ body {
 .feature-list span {
     padding: 9px 15px;
 
-    border: 1px solid #c9bda5;
+    border: 1px solid #555555;
 
     border-radius: 999px;
 
-    background: #e4d8bd;
+    background: #222222;
 
-    color: #40372b;
+    color: #eeeeee;
 
     font-size: 0.9rem;
+}
+
+
+/* ===============================
+   FAQ
+   =============================== */
+
+.faq {
+    width: min(100% - 32px, 1100px);
+
+    margin: 40px auto;
+
+    padding: 70px 40px;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    border: 1px solid #292929;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+.faq h2 {
+    color: #ffffff;
+}
+
+.faq h3 {
+    font-size: 1.1rem;
+
+    color: #ffffff;
+}
+
+.faq p {
+    color: #cccccc;
+}
+
+.faq a {
+    color: #ff4a4a;
 }
 
 
@@ -588,15 +639,6 @@ body {
     font-size: 0.9rem;
 
     color: #bbbbbb;
-}
-
-
-/* ===============================
-   FAQ
-   =============================== */
-
-.faq h3 {
-    font-size: 1.1rem;
 }
 
 
@@ -713,7 +755,6 @@ body {
 
     .quiz-section,
     .how-it-works,
-    .home-info,
     .coming-soon {
         padding-top: 60px;
 
@@ -730,6 +771,26 @@ body {
 
     .feature-list {
         gap: 8px;
+    }
+
+    .home-info {
+        width: calc(100% - 24px);
+
+        margin: 24px auto;
+
+        padding: 45px 24px;
+
+        border-radius: 16px;
+    }
+
+    .faq {
+        width: calc(100% - 24px);
+
+        margin: 24px auto;
+
+        padding: 45px 24px;
+
+        border-radius: 16px;
     }
 }
 
@@ -804,16 +865,6 @@ body {
 .info-page + .site-footer,
 .site-footer {
     position: relative;
-}
-
-.footer-links {
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 18px;
 }
 
 .site-footer a {
