@@ -10,21 +10,16 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 
-    /* Parchment background */
     background:
         radial-gradient(
             circle at 15% 20%,
-            rgba(120, 90, 50, 0.07),
+            rgba(120, 90, 50, 0.05),
             transparent 35%
         ),
         radial-gradient(
             circle at 85% 70%,
-            rgba(120, 90, 50, 0.06),
+            rgba(120, 90, 50, 0.04),
             transparent 40%
-        ),
-        linear-gradient(
-            rgba(255, 255, 255, 0.08),
-            rgba(120, 90, 50, 0.03)
         ),
         #eee4cf;
 
@@ -46,11 +41,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-
     background: rgba(11, 11, 11, 0.94);
-
     border-bottom: 1px solid #292929;
-
     backdrop-filter: blur(10px);
 }
 
@@ -62,14 +54,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 20px;
 }
 
 .nav-logo {
     color: #ffffff;
     text-decoration: none;
-
     font-weight: 700;
     letter-spacing: 0.3px;
 }
@@ -82,9 +72,7 @@ body {
 .nav-links a {
     color: #cccccc;
     text-decoration: none;
-
     font-weight: 600;
-
     transition: color 0.2s ease;
 }
 
@@ -108,7 +96,8 @@ body {
 
     padding: 32px 16px 45px;
 
-    background: #0b0b0b;
+    /* Same parchment colour as main page */
+    background: #eee4cf;
 
     overflow: hidden;
 }
@@ -135,14 +124,12 @@ body {
 
     background: transparent;
 
-    color: #2b261f;
+    color: #171717;
 }
 
 .section-heading {
     text-align: center;
-
     max-width: 720px;
-
     margin: 0 auto 42px;
 }
 
@@ -152,26 +139,25 @@ body {
     font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1.15;
 
-    color: #2b261f;
+    color: #171717;
 }
 
 .section-heading > p:last-child {
     margin: 18px auto 0;
-
-    color: #665d50;
+    color: #666666;
 }
 
 .quiz-section .eyebrow,
 .how-it-works .eyebrow {
-    color: #665d50;
+    color: #444444;
 }
 
 .quiz-section h2 {
-    color: #2b261f;
+    color: #171717;
 }
 
 .how-it-works .section-heading h2 {
-    color: #2b261f;
+    color: #171717;
 }
 
 
@@ -181,23 +167,29 @@ body {
 
 .quiz-grid {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
-
     gap: 26px;
 }
+
+
+/*
+   QUIZ CARDS
+   -------------------------------
+   KEPT AS ORIGINAL:
+   White cards
+   Black text
+   Red buttons
+*/
 
 .quiz-card {
     overflow: hidden;
 
-    border: 1px solid #c9bda5;
-
+    border: 1px solid #dddddd;
     border-radius: 18px;
 
-    background: rgba(250, 246, 235, 0.94);
+    background: #ffffff;
 
-    box-shadow:
-        0 8px 30px rgba(60, 45, 25, 0.12);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 
     transition:
         transform 0.25s ease,
@@ -206,12 +198,11 @@ body {
 
 .quiz-card:hover {
     transform: translateY(-5px);
-
-    border-color: #9f9179;
+    border-color: #999999;
 }
 
 .quiz-card.featured {
-    border-color: #8f8068;
+    border-color: #aaaaaa;
 }
 
 
@@ -227,16 +218,10 @@ body {
     justify-content: center;
 
     position: relative;
-
     overflow: hidden;
 
-    background:
-        radial-gradient(
-            circle at center,
-            #454545 0%,
-            #202020 45%,
-            #0c0c0c 100%
-        );
+    /* Changed from dark gradient to parchment */
+    background: #eee4cf;
 }
 
 .quiz-image::after {
@@ -246,25 +231,15 @@ body {
 .quiz-image img {
     width: 100%;
     height: 100%;
-
     object-fit: contain;
     object-position: center;
-
     display: block;
-
     position: relative;
-
     z-index: 0;
 }
 
 .ultimate-image {
-    background:
-        radial-gradient(
-            circle at center,
-            #555555 0%,
-            #222222 45%,
-            #080808 100%
-        );
+    background: #eee4cf;
 }
 
 
@@ -274,45 +249,42 @@ body {
 
 .quiz-card-content {
     padding: 30px;
+
+    /* Original white card content */
+    background: #ffffff;
 }
 
 .quiz-label {
     margin: 0 0 10px;
 
     font-size: 0.75rem;
-
     letter-spacing: 2px;
-
     font-weight: 700;
 
-    color: #756b5d;
+    color: #777777;
 }
 
 .quiz-card h2 {
     margin: 0;
 
     font-size: 1.65rem;
-
     line-height: 1.2;
 
-    color: #2b261f;
+    color: #171717;
 }
 
 .quiz-card p {
-    color: #665d50;
+    color: #555555;
 }
 
 .quiz-info {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 8px;
 
     margin: 22px 0;
 
-    color: #756b5d;
-
+    color: #666666;
     font-size: 0.88rem;
 }
 
@@ -329,11 +301,9 @@ body {
     border-radius: 8px;
 
     background: #d00000;
-
     color: #ffffff;
 
     text-decoration: none;
-
     font-weight: 800;
 
     transition:
@@ -343,13 +313,11 @@ body {
 
 .quiz-button:hover {
     transform: translateY(-2px);
-
     background: #ff0000;
 }
 
 .featured-button {
     background: #d00000;
-
     color: #ffffff;
 }
 
@@ -362,35 +330,36 @@ body {
     padding: 90px 0;
 
     background: rgba(110, 85, 50, 0.06);
-
     color: #2b261f;
 
     border-top: 1px solid rgba(80, 60, 35, 0.15);
-
     border-bottom: 1px solid rgba(80, 60, 35, 0.15);
 }
 
 .steps {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 24px;
 }
+
+
+/*
+   HOW IT WORKS CARDS
+   -------------------------------
+   Main card = black
+   Text = white
+*/
 
 .step {
     padding: 30px;
 
     border: 1px solid #3a3a3a;
-
     border-radius: 16px;
 
     background: #111111;
-
     color: #ffffff;
 
-    box-shadow:
-        0 8px 28px rgba(50, 35, 20, 0.18);
+    box-shadow: 0 8px 28px rgba(50, 35, 20, 0.18);
 
     transition:
         transform 0.2s ease,
@@ -400,8 +369,7 @@ body {
 .step:hover {
     transform: translateY(-4px);
 
-    box-shadow:
-        0 12px 32px rgba(50, 35, 20, 0.25);
+    box-shadow: 0 12px 32px rgba(50, 35, 20, 0.25);
 }
 
 .step-number {
@@ -417,7 +385,6 @@ body {
     border-radius: 50%;
 
     background: #eee4cf;
-
     color: #171717;
 
     font-weight: 800;
@@ -444,8 +411,7 @@ body {
     padding: 90px 0;
 
     background: transparent;
-
-    color: #2b261f;
+    color: #171717;
 
     border-bottom: 1px solid rgba(80, 60, 35, 0.15);
 }
@@ -454,25 +420,24 @@ body {
     margin: 0 0 20px;
 
     font-size: clamp(2rem, 5vw, 2.8rem);
-
     line-height: 1.15;
 
-    color: #2b261f;
+    color: #171717;
 }
 
 .home-info h3 {
     margin-top: 32px;
-
     margin-bottom: 8px;
 
-    color: #352e25;
+    color: #171717;
 }
 
 .home-info p {
     max-width: 820px;
 
-    color: #665d50;
+    color: #555555;
 }
+
 
 /* Survival Decisions section */
 
@@ -487,9 +452,7 @@ body {
 
 .feature-list {
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 10px;
 
     margin-top: 28px;
@@ -499,13 +462,11 @@ body {
     padding: 9px 15px;
 
     border: 1px solid #c9bda5;
-
     border-radius: 999px;
 
     background: #e4d8bd;
 
     color: #40372b;
-
     font-size: 0.9rem;
 }
 
@@ -520,7 +481,6 @@ body {
     text-align: center;
 
     background: #111111;
-
     color: #ffffff;
 
     border-bottom: 1px solid #292929;
@@ -536,7 +496,6 @@ body {
 
 .coming-soon > p {
     max-width: 650px;
-
     margin-left: auto;
     margin-right: auto;
 
@@ -545,7 +504,6 @@ body {
 
 .future-quizzes {
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
 
     gap: 16px;
@@ -559,7 +517,6 @@ body {
     padding: 24px 16px;
 
     border: 1px solid #333333;
-
     border-radius: 14px;
 
     background: #181818;
@@ -575,7 +532,6 @@ body {
 
 .future-quizzes div:hover {
     transform: translateY(-4px);
-
     border-color: #666666;
 }
 
@@ -605,7 +561,6 @@ body {
 
 .site-footer {
     margin-top: 0;
-
     padding: 45px 20px;
 
     background: #080808;
@@ -615,7 +570,6 @@ body {
 
 .footer-inner {
     width: min(100%, 1100px);
-
     margin: auto;
 
     text-align: center;
@@ -629,11 +583,8 @@ body {
 
 .footer-links {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 18px;
 
     margin-bottom: 20px;
@@ -641,7 +592,6 @@ body {
 
 .footer-links a {
     color: #aaaaaa;
-
     text-decoration: none;
 
     font-size: 0.9rem;
@@ -655,7 +605,6 @@ body {
 
 .copyright {
     color: #666666;
-
     font-size: 0.8rem;
 }
 
@@ -706,7 +655,6 @@ body {
         min-height: 320px;
 
         background-size: cover;
-
         background-position: center center;
     }
 
@@ -715,7 +663,6 @@ body {
     .home-info,
     .coming-soon {
         padding-top: 60px;
-
         padding-bottom: 60px;
     }
 
@@ -739,7 +686,6 @@ body {
 
 .info-page {
     width: 100%;
-
     max-width: 760px;
 
     margin: 40px auto;
@@ -769,7 +715,6 @@ body {
 
 .info-page h2 {
     margin-top: 35px;
-
     margin-bottom: 12px;
 
     font-size: 24px;
@@ -807,23 +752,18 @@ body {
 
 .footer-links {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 18px;
 }
 
 .site-footer a {
     color: #777;
-
     text-decoration: none;
 }
 
 .site-footer a:hover {
     color: #ccc;
-
     text-decoration: underline;
 }
 
