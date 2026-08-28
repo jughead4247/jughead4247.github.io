@@ -9,8 +9,26 @@ html {
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #171717;
+
+    /* Parchment background */
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(120, 90, 50, 0.07),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(120, 90, 50, 0.06),
+            transparent 40%
+        ),
+        linear-gradient(
+            rgba(255, 255, 255, 0.08),
+            rgba(120, 90, 50, 0.03)
+        ),
+        #eee4cf;
+
+    color: #2b261f;
     line-height: 1.6;
 }
 
@@ -28,8 +46,11 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+
     background: rgba(11, 11, 11, 0.94);
+
     border-bottom: 1px solid #292929;
+
     backdrop-filter: blur(10px);
 }
 
@@ -41,12 +62,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
 }
 
 .nav-logo {
     color: #ffffff;
     text-decoration: none;
+
     font-weight: 700;
     letter-spacing: 0.3px;
 }
@@ -59,13 +82,16 @@ body {
 .nav-links a {
     color: #cccccc;
     text-decoration: none;
+
     font-weight: 600;
+
     transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
     color: #ffffff;
 }
+
 
 /* ===============================
    HERO
@@ -106,13 +132,17 @@ body {
 
 .quiz-section {
     padding: 90px 0 80px;
-    background: #ffffff;
-    color: #171717;
+
+    background: transparent;
+
+    color: #2b261f;
 }
 
 .section-heading {
     text-align: center;
+
     max-width: 720px;
+
     margin: 0 auto 42px;
 }
 
@@ -121,23 +151,27 @@ body {
 
     font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1.15;
+
+    color: #2b261f;
 }
 
 .section-heading > p:last-child {
     margin: 18px auto 0;
-    color: #666666;
+
+    color: #665d50;
 }
+
 .quiz-section .eyebrow,
 .how-it-works .eyebrow {
-    color: #444444;
+    color: #665d50;
 }
 
 .quiz-section h2 {
-    color: #171717;
+    color: #2b261f;
 }
 
 .how-it-works .section-heading h2 {
-    color: #171717;
+    color: #2b261f;
 }
 
 
@@ -147,19 +181,23 @@ body {
 
 .quiz-grid {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 26px;
 }
 
 .quiz-card {
     overflow: hidden;
 
-    border: 1px solid #dddddd;
+    border: 1px solid #c9bda5;
+
     border-radius: 18px;
 
-    background: #ffffff;
+    background: rgba(250, 246, 235, 0.94);
 
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 8px 30px rgba(60, 45, 25, 0.12);
 
     transition:
         transform 0.25s ease,
@@ -168,11 +206,12 @@ body {
 
 .quiz-card:hover {
     transform: translateY(-5px);
-    border-color: #999999;
+
+    border-color: #9f9179;
 }
 
 .quiz-card.featured {
-    border-color: #aaaaaa;
+    border-color: #8f8068;
 }
 
 
@@ -188,6 +227,7 @@ body {
     justify-content: center;
 
     position: relative;
+
     overflow: hidden;
 
     background:
@@ -206,10 +246,14 @@ body {
 .quiz-image img {
     width: 100%;
     height: 100%;
+
     object-fit: contain;
     object-position: center;
+
     display: block;
+
     position: relative;
+
     z-index: 0;
 }
 
@@ -236,31 +280,39 @@ body {
     margin: 0 0 10px;
 
     font-size: 0.75rem;
+
     letter-spacing: 2px;
+
     font-weight: 700;
 
-    color: #777777;
+    color: #756b5d;
 }
 
 .quiz-card h2 {
     margin: 0;
 
     font-size: 1.65rem;
+
     line-height: 1.2;
+
+    color: #2b261f;
 }
 
 .quiz-card p {
-    color: #555555;
+    color: #665d50;
 }
 
 .quiz-info {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 8px;
 
     margin: 22px 0;
 
-    color: #666666;
+    color: #756b5d;
+
     font-size: 0.88rem;
 }
 
@@ -277,9 +329,11 @@ body {
     border-radius: 8px;
 
     background: #d00000;
+
     color: #ffffff;
 
     text-decoration: none;
+
     font-weight: 800;
 
     transition:
@@ -289,13 +343,16 @@ body {
 
 .quiz-button:hover {
     transform: translateY(-2px);
+
     background: #ff0000;
 }
 
 .featured-button {
     background: #d00000;
+
     color: #ffffff;
 }
+
 
 /* ===============================
    HOW IT WORKS
@@ -304,28 +361,36 @@ body {
 .how-it-works {
     padding: 90px 0;
 
-    background: #f5f5f5;
-    color: #171717;
+    background: rgba(110, 85, 50, 0.06);
 
-    border-top: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
+    color: #2b261f;
+
+    border-top: 1px solid rgba(80, 60, 35, 0.15);
+
+    border-bottom: 1px solid rgba(80, 60, 35, 0.15);
 }
 
 .steps {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 24px;
 }
 
 .step {
     padding: 30px;
 
-    border: 1px solid #dddddd;
+    border: 1px solid #3a3a3a;
+
     border-radius: 16px;
 
-    background: #ffffff;
+    background: #111111;
 
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 28px rgba(50, 35, 20, 0.18);
 
     transition:
         transform 0.2s ease,
@@ -335,7 +400,8 @@ body {
 .step:hover {
     transform: translateY(-4px);
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+    box-shadow:
+        0 12px 32px rgba(50, 35, 20, 0.25);
 }
 
 .step-number {
@@ -350,8 +416,9 @@ body {
 
     border-radius: 50%;
 
-    background: #171717;
-    color: #ffffff;
+    background: #eee4cf;
+
+    color: #171717;
 
     font-weight: 800;
 }
@@ -359,14 +426,16 @@ body {
 .step h3 {
     margin: 0 0 10px;
 
-    color: #171717;
+    color: #ffffff;
 }
 
 .step p {
     margin: 0;
 
-    color: #666666;
+    color: #bdbdbd;
 }
+
+
 /* ===============================
    INFORMATION
    =============================== */
@@ -374,38 +443,41 @@ body {
 .home-info {
     padding: 90px 0;
 
-    background: #ffffff;
-    color: #171717;
+    background: transparent;
 
-    border-bottom: 1px solid #e5e5e5;
+    color: #2b261f;
+
+    border-bottom: 1px solid rgba(80, 60, 35, 0.15);
 }
 
 .home-info h2 {
     margin: 0 0 20px;
 
     font-size: clamp(2rem, 5vw, 2.8rem);
+
     line-height: 1.15;
 
-    color: #171717;
+    color: #2b261f;
 }
 
 .home-info h3 {
     margin-top: 32px;
+
     margin-bottom: 8px;
 
-    color: #171717;
+    color: #352e25;
 }
 
 .home-info p {
     max-width: 820px;
 
-    color: #555555;
+    color: #665d50;
 }
 
 /* Survival Decisions section */
 
 .home-info + .home-info {
-    background: #f5f5f5;
+    background: rgba(110, 85, 50, 0.06);
 }
 
 
@@ -415,7 +487,9 @@ body {
 
 .feature-list {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 10px;
 
     margin-top: 28px;
@@ -424,12 +498,14 @@ body {
 .feature-list span {
     padding: 9px 15px;
 
-    border: 1px solid #d6d6d6;
+    border: 1px solid #c9bda5;
+
     border-radius: 999px;
 
-    background: #ffffff;
+    background: #e4d8bd;
 
-    color: #444444;
+    color: #40372b;
+
     font-size: 0.9rem;
 }
 
@@ -444,6 +520,7 @@ body {
     text-align: center;
 
     background: #111111;
+
     color: #ffffff;
 
     border-bottom: 1px solid #292929;
@@ -459,6 +536,7 @@ body {
 
 .coming-soon > p {
     max-width: 650px;
+
     margin-left: auto;
     margin-right: auto;
 
@@ -467,6 +545,7 @@ body {
 
 .future-quizzes {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
 
     gap: 16px;
@@ -480,6 +559,7 @@ body {
     padding: 24px 16px;
 
     border: 1px solid #333333;
+
     border-radius: 14px;
 
     background: #181818;
@@ -495,6 +575,7 @@ body {
 
 .future-quizzes div:hover {
     transform: translateY(-4px);
+
     border-color: #666666;
 }
 
@@ -507,6 +588,7 @@ body {
 
     color: #bbbbbb;
 }
+
 
 /* ===============================
    FAQ
@@ -523,6 +605,7 @@ body {
 
 .site-footer {
     margin-top: 0;
+
     padding: 45px 20px;
 
     background: #080808;
@@ -532,6 +615,7 @@ body {
 
 .footer-inner {
     width: min(100%, 1100px);
+
     margin: auto;
 
     text-align: center;
@@ -545,8 +629,11 @@ body {
 
 .footer-links {
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 18px;
 
     margin-bottom: 20px;
@@ -554,6 +641,7 @@ body {
 
 .footer-links a {
     color: #aaaaaa;
+
     text-decoration: none;
 
     font-size: 0.9rem;
@@ -567,6 +655,7 @@ body {
 
 .copyright {
     color: #666666;
+
     font-size: 0.8rem;
 }
 
@@ -578,8 +667,8 @@ body {
 @media (max-width: 800px) {
 
     .hero {
-    min-height: 420px;
-}
+        min-height: 420px;
+    }
 
     .quiz-grid {
         grid-template-columns: 1fr;
@@ -592,7 +681,6 @@ body {
     .future-quizzes {
         grid-template-columns: 1fr;
     }
-
 }
 
 
@@ -615,19 +703,19 @@ body {
     }
 
     .hero {
-    min-height: 320px;
-}
-    .hero {
-    min-height: 320px;
-    background-size: cover;
-    background-position: center center;
-}
+        min-height: 320px;
+
+        background-size: cover;
+
+        background-position: center center;
+    }
 
     .quiz-section,
     .how-it-works,
     .home-info,
     .coming-soon {
         padding-top: 60px;
+
         padding-bottom: 60px;
     }
 
@@ -642,8 +730,8 @@ body {
     .feature-list {
         gap: 8px;
     }
-
 }
+
 
 /* ===============================
    INFORMATION PAGES
@@ -651,45 +739,55 @@ body {
 
 .info-page {
     width: 100%;
+
     max-width: 760px;
+
     margin: 40px auto;
 
-    background: rgba(12, 12, 12, 0.96);
+    background: rgba(250, 246, 235, 0.96);
 
-    border: 1px solid #3a3a3a;
+    border: 1px solid #c9bda5;
 
     border-radius: 18px;
 
     padding: 45px;
 
-    color: #f2f2f2;
+    color: #2b261f;
 
     box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.8),
-        0 0 0 1px rgba(255,255,255,0.02);
+        0 25px 80px rgba(60, 45, 25, 0.18),
+        0 0 0 1px rgba(80, 60, 35, 0.04);
 }
 
 .info-page h1 {
     text-align: center;
+
     margin-top: 0;
-    color: #f2f2f2;
+
+    color: #2b261f;
 }
 
 .info-page h2 {
     margin-top: 35px;
+
     margin-bottom: 12px;
+
     font-size: 24px;
-    color: #f2f2f2;
+
+    color: #352e25;
 }
 
 .info-page p {
-    color: #bbb;
+    color: #665d50;
+
     font-size: 16px;
+
     line-height: 1.7;
 }
 
 .info-page a {
-    color: #d32929;
+    color: #b00000;
+
     text-decoration: none;
 }
 
@@ -709,25 +807,33 @@ body {
 
 .footer-links {
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 18px;
 }
 
 .site-footer a {
     color: #777;
+
     text-decoration: none;
 }
 
 .site-footer a:hover {
     color: #ccc;
+
     text-decoration: underline;
 }
 
 .copyright {
     margin-top: 12px;
+
     text-align: center;
+
     color: #555;
+
     font-size: 11px;
 }
 
@@ -740,7 +846,9 @@ body {
 
     .info-page {
         margin: 20px auto;
+
         padding: 30px 20px;
+
         border-radius: 14px;
     }
 
