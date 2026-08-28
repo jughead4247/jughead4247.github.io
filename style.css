@@ -10,10 +10,21 @@ body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 
-    background: #eee4cf;
+    /* Aged antique parchment */
+    background:
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(255, 248, 225, 0.35),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 75%,
+            rgba(120, 85, 45, 0.10),
+            transparent 40%
+        ),
+        #d4bd91;
 
     color: #2b261f;
-
     line-height: 1.6;
 }
 
@@ -41,41 +52,30 @@ body {
 
 .nav-inner {
     width: min(100% - 32px, 1100px);
-
     min-height: 64px;
-
     margin: auto;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     gap: 20px;
 }
 
 .nav-logo {
     color: #ffffff;
-
     text-decoration: none;
-
     font-weight: 700;
-
     letter-spacing: 0.3px;
 }
 
 .nav-links {
     display: flex;
-
     gap: 24px;
 }
 
 .nav-links a {
     color: #cccccc;
-
     text-decoration: none;
-
     font-weight: 600;
 
     transition: color 0.2s ease;
@@ -96,14 +96,12 @@ body {
     width: 100%;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
     padding: 32px 16px 45px;
 
-    background: #eee4cf;
+    background: #d4bd91;
 
     overflow: hidden;
 }
@@ -112,9 +110,7 @@ body {
     display: block;
 
     width: 100%;
-
     max-width: 1200px;
-
     height: auto;
 
     border-radius: 8px;
@@ -197,7 +193,6 @@ body {
     overflow: hidden;
 
     border: 1px solid #dddddd;
-
     border-radius: 18px;
 
     background: #ffffff;
@@ -229,16 +224,13 @@ body {
     height: 220px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     position: relative;
-
     overflow: hidden;
 
-    background: #eee4cf;
+    background: #d4bd91;
 }
 
 .quiz-image::after {
@@ -247,22 +239,19 @@ body {
 
 .quiz-image img {
     width: 100%;
-
     height: 100%;
 
     object-fit: contain;
-
     object-position: center;
 
     display: block;
 
     position: relative;
-
     z-index: 0;
 }
 
 .ultimate-image {
-    background: #eee4cf;
+    background: #d4bd91;
 }
 
 
@@ -280,9 +269,7 @@ body {
     margin: 0 0 10px;
 
     font-size: 0.75rem;
-
     letter-spacing: 2px;
-
     font-weight: 700;
 
     color: #777777;
@@ -304,7 +291,6 @@ body {
 
 .quiz-info {
     display: flex;
-
     flex-wrap: wrap;
 
     gap: 8px;
@@ -329,7 +315,6 @@ body {
     border-radius: 8px;
 
     background: #d00000;
-
     color: #ffffff;
 
     text-decoration: none;
@@ -349,7 +334,6 @@ body {
 
 .featured-button {
     background: #d00000;
-
     color: #ffffff;
 }
 
@@ -366,7 +350,6 @@ body {
     color: #ffffff;
 
     border-top: 1px solid #292929;
-
     border-bottom: 1px solid #292929;
 }
 
@@ -387,7 +370,6 @@ body {
     padding: 30px;
 
     border: 1px solid #dddddd;
-
     border-radius: 16px;
 
     background: #ffffff;
@@ -411,13 +393,11 @@ body {
 
 .step-number {
     width: 42px;
-
     height: 42px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     margin-bottom: 20px;
@@ -479,7 +459,6 @@ body {
 
 .home-info h3 {
     margin-top: 32px;
-
     margin-bottom: 8px;
 
     color: #ffffff;
@@ -600,7 +579,6 @@ body {
     max-width: 650px;
 
     margin-left: auto;
-
     margin-right: auto;
 
     color: #aaaaaa;
@@ -650,15 +628,6 @@ body {
     font-size: 0.9rem;
 
     color: #bbbbbb;
-}
-
-
-/* ===============================
-   FAQ
-   =============================== */
-
-.faq h3 {
-    font-size: 1.1rem;
 }
 
 
