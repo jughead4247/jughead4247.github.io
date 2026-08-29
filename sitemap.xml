@@ -115,7 +115,8 @@
         <loc>https://apocalypsequizzes.com/nuclear-apocalypse-quiz/disclaimer.html</loc>
     </url>
 
-        <!-- The Walking Dead Knowledge Quiz -->
+
+    <!-- The Walking Dead Knowledge Quiz -->
 
     <url>
         <loc>https://apocalypsequizzes.com/walking-dead-knowledge/</loc>
@@ -126,6 +127,20 @@
 
     <url>
         <loc>https://apocalypsequizzes.com/the-100-knowledge/</loc>
+    </url>
+
+
+    <!-- Resident Evil Quiz -->
+
+    <url>
+        <loc>https://apocalypsequizzes.com/resident-evil-quiz/</loc>
+    </url>
+
+
+    <!-- Love and Monsters Quiz -->
+
+    <url>
+        <loc>https://apocalypsequizzes.com/love-and-monsters-quiz/</loc>
     </url>
 
 </urlset>
