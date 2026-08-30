@@ -7,6 +7,9 @@
         <loc>https://apocalypsequizzes.com/</loc>
     </url>
 
+
+    <!-- Common Site Pages -->
+
     <url>
         <loc>https://apocalypsequizzes.com/about.html</loc>
     </url>
@@ -30,43 +33,11 @@
         <loc>https://apocalypsequizzes.com/zombie-quiz/</loc>
     </url>
 
-    <url>
-        <loc>https://apocalypsequizzes.com/zombie-quiz/about.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/zombie-quiz/privacy.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/zombie-quiz/contact.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/zombie-quiz/disclaimer.html</loc>
-    </url>
-
 
     <!-- Ultimate Zombie Survival Test -->
 
     <url>
         <loc>https://apocalypsequizzes.com/ultimate-zombie-survival-test/</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/ultimate-zombie-survival-test/about.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/ultimate-zombie-survival-test/privacy.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/ultimate-zombie-survival-test/contact.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/ultimate-zombie-survival-test/disclaimer.html</loc>
     </url>
 
 
@@ -76,43 +47,11 @@
         <loc>https://apocalypsequizzes.com/apocalypse-preparedness-quiz/</loc>
     </url>
 
-    <url>
-        <loc>https://apocalypsequizzes.com/apocalypse-preparedness-quiz/about.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/apocalypse-preparedness-quiz/privacy.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/apocalypse-preparedness-quiz/contact.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/apocalypse-preparedness-quiz/disclaimer.html</loc>
-    </url>
-
 
     <!-- Nuclear Apocalypse Survival Quiz -->
 
     <url>
         <loc>https://apocalypsequizzes.com/nuclear-apocalypse-quiz/</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/nuclear-apocalypse-quiz/about.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/nuclear-apocalypse-quiz/privacy.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/nuclear-apocalypse-quiz/contact.html</loc>
-    </url>
-
-    <url>
-        <loc>https://apocalypsequizzes.com/nuclear-apocalypse-quiz/disclaimer.html</loc>
     </url>
 
 
