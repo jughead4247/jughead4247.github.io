@@ -57,6 +57,7 @@
     <link rel="stylesheet"
         href="../style.css">
 
+
     <!-- Google Analytics -->
 
     <script async
@@ -84,560 +85,636 @@
 
 
     <!-- =========================================
+         GLOBAL SITE HEADER
+         ========================================= -->
+
+    <header class="site-header">
+
+        <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Open navigation"
+            aria-expanded="false"
+            aria-controls="site-menu">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+        <div class="site-title">
+            APOCALYPSE QUIZZES
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         GLOBAL SITE NAVIGATION
+         ========================================= -->
+
+    <nav
+        class="site-menu"
+        id="site-menu"
+        aria-label="Main navigation"
+        hidden>
+
+        <div class="menu-links">
+
+            <a href="/">
+                🏠 Home
+            </a>
+
+            <a href="/search/">
+                🔎 Search Quizzes
+            </a>
+
+            <a href="/categories/">
+                📂 Categories
+            </a>
+
+            <div class="menu-divider"></div>
+
+            <a href="/about.html">
+                About
+            </a>
+
+            <a href="/privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="/disclaimer.html">
+                Disclaimer
+            </a>
+
+            <a href="/contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================
          MAIN CONTENT
          ========================================= -->
 
     <main class="categories-page">
 
-    <section class="categories-header">
+        <section class="categories-header">
 
-        <p class="categories-eyebrow">
-            EXPLORE QUIZZES
-        </p>
+            <p class="categories-eyebrow">
+                EXPLORE QUIZZES
+            </p>
 
-        <h1>
-            Quiz Categories
-        </h1>
+            <h1>
+                Quiz Categories
+            </h1>
 
-        <p>
-            Find quizzes by topic, from zombies and survival
-            to your favorite movies and TV shows.
-        </p>
+            <p>
+                Find quizzes by topic, from zombies and survival
+                to your favorite movies and TV shows.
+            </p>
 
-    </section>
-
-
-    <section
-        class="categories-list"
-        aria-label="Quiz categories">
+        </section>
 
 
-        <!-- =====================================
-             ZOMBIE QUIZZES
-             ===================================== -->
+        <section
+            class="categories-list"
+            aria-label="Quiz categories">
 
-        <div class="category-accordion">
 
-            <button
-                class="category-toggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="zombie-quizzes">
+            <!-- =====================================
+                 ZOMBIE QUIZZES
+                 ===================================== -->
 
-                <div class="category-icon">
-                    🧟
+            <div class="category-accordion">
+
+                <button
+                    class="category-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="zombie-quizzes">
+
+                    <div class="category-icon">
+                        🧟
+                    </div>
+
+                    <div class="category-content">
+
+                        <h2>
+                            Zombie Quizzes
+                        </h2>
+
+                        <p>
+                            Zombies, outbreaks, undead worlds,
+                            and zombie survival.
+                        </p>
+
+                        <span>
+                            6 Quizzes
+                        </span>
+
+                    </div>
+
+                    <div class="category-arrow">
+                        ▶
+                    </div>
+
+                </button>
+
+
+                <div
+                    class="category-dropdown"
+                    id="zombie-quizzes"
+                    hidden>
+
+                    <a href="https://apocalypsequizzes.com/zombie-quiz/">
+                        Zombie Apocalypse Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
+                        Ultimate Zombie Apocalypse Survival Test
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
+                        The Walking Dead Knowledge Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
+                        Resident Evil Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/love-and-monsters-quiz/">
+                        Love and Monsters Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/izombie-quiz/">
+                        iZombie Quiz
+                    </a>
+
                 </div>
-
-                <div class="category-content">
-
-                    <h2>
-                        Zombie Quizzes
-                    </h2>
-
-                    <p>
-                        Zombies, outbreaks, undead worlds,
-                        and zombie survival.
-                    </p>
-
-                    <span>
-                        6 Quizzes
-                    </span>
-
-                </div>
-
-                <div class="category-arrow">
-                    ▶
-                </div>
-
-            </button>
-
-
-            <div
-                class="category-dropdown"
-                id="zombie-quizzes"
-                hidden>
-
-                <a href="https://apocalypsequizzes.com/zombie-quiz/">
-                    Zombie Apocalypse Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
-                    Ultimate Zombie Apocalypse Survival Test
-                </a>
-
-                <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
-                    The Walking Dead Knowledge Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
-                    Resident Evil Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/love-and-monsters-quiz/">
-                    Love and Monsters Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/izombie-quiz/">
-                    iZombie Quiz
-                </a>
 
             </div>
 
-        </div>
 
 
+            <!-- =====================================
+                 APOCALYPSE QUIZZES
+                 ===================================== -->
 
-        <!-- =====================================
-             APOCALYPSE QUIZZES
-             ===================================== -->
+            <div class="category-accordion">
 
-        <div class="category-accordion">
+                <button
+                    class="category-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="apocalypse-quizzes">
 
-            <button
-                class="category-toggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="apocalypse-quizzes">
+                    <div class="category-icon">
+                        ☢️
+                    </div>
 
-                <div class="category-icon">
-                    ☢️
+                    <div class="category-content">
+
+                        <h2>
+                            Apocalypse Quizzes
+                        </h2>
+
+                        <p>
+                            Test yourself against different
+                            apocalypse scenarios and threats.
+                        </p>
+
+                        <span>
+                            5 Quizzes
+                        </span>
+
+                    </div>
+
+                    <div class="category-arrow">
+                        ▶
+                    </div>
+
+                </button>
+
+
+                <div
+                    class="category-dropdown"
+                    id="apocalypse-quizzes"
+                    hidden>
+
+                    <a href="https://apocalypsequizzes.com/zombie-quiz/">
+                        Zombie Apocalypse Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
+                        Ultimate Zombie Apocalypse Survival Test
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/">
+                        How Prepared Are You for the Apocalypse?
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/nuclear-apocalypse-quiz/">
+                        Nuclear Apocalypse Survival Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
+                        Plague Outbreak Survival Quiz
+                    </a>
+
                 </div>
-
-                <div class="category-content">
-
-                    <h2>
-                        Apocalypse Quizzes
-                    </h2>
-
-                    <p>
-                        Test yourself against different
-                        apocalypse scenarios and threats.
-                    </p>
-
-                    <span>
-                        5 Quizzes
-                    </span>
-
-                </div>
-
-                <div class="category-arrow">
-                    ▶
-                </div>
-
-            </button>
-
-
-            <div
-                class="category-dropdown"
-                id="apocalypse-quizzes"
-                hidden>
-
-                <a href="https://apocalypsequizzes.com/zombie-quiz/">
-                    Zombie Apocalypse Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
-                    Ultimate Zombie Apocalypse Survival Test
-                </a>
-
-                <a href="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/">
-                    How Prepared Are You for the Apocalypse?
-                </a>
-
-                <a href="https://apocalypsequizzes.com/nuclear-apocalypse-quiz/">
-                    Nuclear Apocalypse Survival Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
-                    Plague Outbreak Survival Quiz
-                </a>
 
             </div>
 
-        </div>
 
 
+            <!-- =====================================
+                 SURVIVAL QUIZZES
+                 ===================================== -->
 
-        <!-- =====================================
-             SURVIVAL QUIZZES
-             ===================================== -->
+            <div class="category-accordion">
 
-        <div class="category-accordion">
+                <button
+                    class="category-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="survival-quizzes">
 
-            <button
-                class="category-toggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="survival-quizzes">
+                    <div class="category-icon">
+                        🛡️
+                    </div>
 
-                <div class="category-icon">
-                    🛡️
+                    <div class="category-content">
+
+                        <h2>
+                            Survival Quizzes
+                        </h2>
+
+                        <p>
+                            Survival decisions, preparedness,
+                            resources, and dangerous situations.
+                        </p>
+
+                        <span>
+                            4 Quizzes
+                        </span>
+
+                    </div>
+
+                    <div class="category-arrow">
+                        ▶
+                    </div>
+
+                </button>
+
+
+                <div
+                    class="category-dropdown"
+                    id="survival-quizzes"
+                    hidden>
+
+                    <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
+                        Ultimate Zombie Apocalypse Survival Test
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/">
+                        How Prepared Are You for the Apocalypse?
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/nuclear-apocalypse-quiz/">
+                        Nuclear Apocalypse Survival Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
+                        Plague Outbreak Survival Quiz
+                    </a>
+
                 </div>
-
-                <div class="category-content">
-
-                    <h2>
-                        Survival Quizzes
-                    </h2>
-
-                    <p>
-                        Survival decisions, preparedness,
-                        resources, and dangerous situations.
-                    </p>
-
-                    <span>
-                        4 Quizzes
-                    </span>
-
-                </div>
-
-                <div class="category-arrow">
-                    ▶
-                </div>
-
-            </button>
-
-
-            <div
-                class="category-dropdown"
-                id="survival-quizzes"
-                hidden>
-
-                <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
-                    Ultimate Zombie Apocalypse Survival Test
-                </a>
-
-                <a href="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/">
-                    How Prepared Are You for the Apocalypse?
-                </a>
-
-                <a href="https://apocalypsequizzes.com/nuclear-apocalypse-quiz/">
-                    Nuclear Apocalypse Survival Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
-                    Plague Outbreak Survival Quiz
-                </a>
 
             </div>
 
-        </div>
 
 
+            <!-- =====================================
+                 TV & SHOW QUIZZES
+                 ===================================== -->
 
-        <!-- =====================================
-             TV & SHOW QUIZZES
-             ===================================== -->
+            <div class="category-accordion">
 
-        <div class="category-accordion">
+                <button
+                    class="category-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="tv-quizzes">
 
-            <button
-                class="category-toggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="tv-quizzes">
+                    <div class="category-icon">
+                        📺
+                    </div>
 
-                <div class="category-icon">
-                    📺
+                    <div class="category-content">
+
+                        <h2>
+                            TV &amp; Show Quizzes
+                        </h2>
+
+                        <p>
+                            Test your knowledge of popular
+                            apocalypse and sci-fi shows.
+                        </p>
+
+                        <span>
+                            4 Quizzes
+                        </span>
+
+                    </div>
+
+                    <div class="category-arrow">
+                        ▶
+                    </div>
+
+                </button>
+
+
+                <div
+                    class="category-dropdown"
+                    id="tv-quizzes"
+                    hidden>
+
+                    <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
+                        The Walking Dead Knowledge Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/the-100-knowledge/">
+                        The 100 Knowledge Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/westworld-quiz/">
+                        Westworld Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/izombie-quiz/">
+                        iZombie Quiz
+                    </a>
+
                 </div>
-
-                <div class="category-content">
-
-                    <h2>
-                        TV &amp; Show Quizzes
-                    </h2>
-
-                    <p>
-                        Test your knowledge of popular
-                        apocalypse and sci-fi shows.
-                    </p>
-
-                    <span>
-                        4 Quizzes
-                    </span>
-
-                </div>
-
-                <div class="category-arrow">
-                    ▶
-                </div>
-
-            </button>
-
-
-            <div
-                class="category-dropdown"
-                id="tv-quizzes"
-                hidden>
-
-                <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
-                    The Walking Dead Knowledge Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/the-100-knowledge/">
-                    The 100 Knowledge Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/westworld-quiz/">
-                    Westworld Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/izombie-quiz/">
-                    iZombie Quiz
-                </a>
 
             </div>
 
-        </div>
 
 
+            <!-- =====================================
+                 MOVIE QUIZZES
+                 ===================================== -->
 
-        <!-- =====================================
-             MOVIE QUIZZES
-             ===================================== -->
+            <div class="category-accordion">
 
-        <div class="category-accordion">
+                <button
+                    class="category-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="movie-quizzes">
 
-            <button
-                class="category-toggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="movie-quizzes">
+                    <div class="category-icon">
+                        🎬
+                    </div>
 
-                <div class="category-icon">
-                    🎬
+                    <div class="category-content">
+
+                        <h2>
+                            Movie Quizzes
+                        </h2>
+
+                        <p>
+                            Quiz yourself on movies featuring
+                            apocalypse and survival stories.
+                        </p>
+
+                        <span>
+                            2 Quizzes
+                        </span>
+
+                    </div>
+
+                    <div class="category-arrow">
+                        ▶
+                    </div>
+
+                </button>
+
+
+                <div
+                    class="category-dropdown"
+                    id="movie-quizzes"
+                    hidden>
+
+                    <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
+                        Resident Evil Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/love-and-monsters-quiz/">
+                        Love and Monsters Quiz
+                    </a>
+
                 </div>
-
-                <div class="category-content">
-
-                    <h2>
-                        Movie Quizzes
-                    </h2>
-
-                    <p>
-                        Quiz yourself on movies featuring
-                        apocalypse and survival stories.
-                    </p>
-
-                    <span>
-                        2 Quizzes
-                    </span>
-
-                </div>
-
-                <div class="category-arrow">
-                    ▶
-                </div>
-
-            </button>
-
-
-            <div
-                class="category-dropdown"
-                id="movie-quizzes"
-                hidden>
-
-                <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
-                    Resident Evil Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/love-and-monsters-quiz/">
-                    Love and Monsters Quiz
-                </a>
 
             </div>
 
-        </div>
 
 
+            <!-- =====================================
+                 TRIVIA QUIZZES
+                 ===================================== -->
 
-        <!-- =====================================
-             TRIVIA QUIZZES
-             ===================================== -->
+            <div class="category-accordion">
 
-        <div class="category-accordion">
+                <button
+                    class="category-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="trivia-quizzes">
 
-            <button
-                class="category-toggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="trivia-quizzes">
+                    <div class="category-icon">
+                        🧠
+                    </div>
 
-                <div class="category-icon">
-                    🧠
+                    <div class="category-content">
+
+                        <h2>
+                            Trivia Quizzes
+                        </h2>
+
+                        <p>
+                            Test your knowledge of characters,
+                            stories, events, and fictional worlds.
+                        </p>
+
+                        <span>
+                            5 Quizzes
+                        </span>
+
+                    </div>
+
+                    <div class="category-arrow">
+                        ▶
+                    </div>
+
+                </button>
+
+
+                <div
+                    class="category-dropdown"
+                    id="trivia-quizzes"
+                    hidden>
+
+                    <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
+                        The Walking Dead Knowledge Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/the-100-knowledge/">
+                        The 100 Knowledge Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/westworld-quiz/">
+                        Westworld Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
+                        Resident Evil Quiz
+                    </a>
+
+                    <a href="https://apocalypsequizzes.com/izombie-quiz/">
+                        iZombie Quiz
+                    </a>
+
                 </div>
-
-                <div class="category-content">
-
-                    <h2>
-                        Trivia Quizzes
-                    </h2>
-
-                    <p>
-                        Test your knowledge of characters,
-                        stories, events, and fictional worlds.
-                    </p>
-
-                    <span>
-                        5 Quizzes
-                    </span>
-
-                </div>
-
-                <div class="category-arrow">
-                    ▶
-                </div>
-
-            </button>
-
-
-            <div
-                class="category-dropdown"
-                id="trivia-quizzes"
-                hidden>
-
-                <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
-                    The Walking Dead Knowledge Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/the-100-knowledge/">
-                    The 100 Knowledge Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/westworld-quiz/">
-                    Westworld Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
-                    Resident Evil Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/izombie-quiz/">
-                    iZombie Quiz
-                </a>
 
             </div>
 
-        </div>
 
 
+            <!-- =====================================
+                 CHARACTER QUIZZES
+                 ===================================== -->
 
-        <!-- =====================================
-             CHARACTER QUIZZES
-             ===================================== -->
+            <div class="category-accordion">
 
-        <div class="category-accordion">
+                <button
+                    class="category-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="character-quizzes">
 
-            <button
-                class="category-toggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="character-quizzes">
+                    <div class="category-icon">
+                        🧍
+                    </div>
 
-                <div class="category-icon">
-                    🧍
+                    <div class="category-content">
+
+                        <h2>
+                            Character Quizzes
+                        </h2>
+
+                        <p>
+                            Test your knowledge of memorable
+                            characters from popular worlds.
+                        </p>
+
+                        <span>
+                            1 Quiz
+                        </span>
+
+                    </div>
+
+                    <div class="category-arrow">
+                        ▶
+                    </div>
+
+                </button>
+
+
+                <div
+                    class="category-dropdown"
+                    id="character-quizzes"
+                    hidden>
+
+                    <a href="https://apocalypsequizzes.com/walking-dead-characters-quiz/">
+                        The Walking Dead Characters Quiz
+                    </a>
+
                 </div>
-
-                <div class="category-content">
-
-                    <h2>
-                        Character Quizzes
-                    </h2>
-
-                    <p>
-                        Test your knowledge of memorable
-                        characters from popular worlds.
-                    </p>
-
-                    <span>
-                        1 Quiz
-                    </span>
-
-                </div>
-
-                <div class="category-arrow">
-                    ▶
-                </div>
-
-            </button>
-
-
-            <div
-                class="category-dropdown"
-                id="character-quizzes"
-                hidden>
-
-                <a href="https://apocalypsequizzes.com/walking-dead-characters-quiz/">
-                    The Walking Dead Characters Quiz
-                </a>
 
             </div>
 
-        </div>
 
 
+            <!-- =====================================
+                 PLAGUE & PANDEMIC QUIZZES
+                 ===================================== -->
 
-        <!-- =====================================
-             PLAGUE & PANDEMIC QUIZZES
-             ===================================== -->
+            <div class="category-accordion">
 
-        <div class="category-accordion">
+                <button
+                    class="category-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="plague-quizzes">
 
-            <button
-                class="category-toggle"
-                type="button"
-                aria-expanded="false"
-                aria-controls="plague-quizzes">
+                    <div class="category-icon">
+                        🦠
+                    </div>
 
-                <div class="category-icon">
-                    🦠
+                    <div class="category-content">
+
+                        <h2>
+                            Plague &amp; Pandemic Quizzes
+                        </h2>
+
+                        <p>
+                            Outbreaks, pandemics, infectious
+                            diseases, and survival during crises.
+                        </p>
+
+                        <span>
+                            1 Quiz
+                        </span>
+
+                    </div>
+
+                    <div class="category-arrow">
+                        ▶
+                    </div>
+
+                </button>
+
+
+                <div
+                    class="category-dropdown"
+                    id="plague-quizzes"
+                    hidden>
+
+                    <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
+                        Plague Outbreak Survival Quiz
+                    </a>
+
                 </div>
-
-                <div class="category-content">
-
-                    <h2>
-                        Plague &amp; Pandemic Quizzes
-                    </h2>
-
-                    <p>
-                        Outbreaks, pandemics, infectious
-                        diseases, and survival during crises.
-                    </p>
-
-                    <span>
-                        1 Quiz
-                    </span>
-
-                </div>
-
-                <div class="category-arrow">
-                    ▶
-                </div>
-
-            </button>
-
-
-            <div
-                class="category-dropdown"
-                id="plague-quizzes"
-                hidden>
-
-                <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
-                    Plague Outbreak Survival Quiz
-                </a>
 
             </div>
 
-        </div>
 
+        </section>
 
-    </section>
+    </main>
 
-</main>
 
 
     <!-- =========================================
-         FOOTER
+         STANDARD FOOTER
          ========================================= -->
 
     <footer class="site-footer">
@@ -645,14 +722,10 @@
         <div class="footer-inner">
 
             <div class="footer-brand">
-                🧟 Apocalypse Quizzes
+                APOCALYPSE QUIZZES
             </div>
 
             <div class="footer-links">
-
-                <a href="/">
-                    Home
-                </a>
 
                 <a href="/about.html">
                     About
@@ -680,36 +753,182 @@
 
     </footer>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    const buttons = document.querySelectorAll(".category-toggle");
 
-    buttons.forEach(function (button) {
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
 
-        button.addEventListener("click", function () {
+    <script>
 
-            const dropdownId = button.getAttribute("aria-controls");
-            const dropdown = document.getElementById(dropdownId);
 
-            if (!dropdown) {
-                return;
+    // ===============================
+    // GLOBAL SITE MENU
+    // ===============================
+
+    const menuToggle =
+        document.getElementById("menu-toggle");
+
+    const siteMenu =
+        document.getElementById("site-menu");
+
+    if (menuToggle && siteMenu) {
+
+        // OPEN / CLOSE WITH HAMBURGER
+
+        menuToggle.addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+                const isOpen =
+                    menuToggle.getAttribute(
+                        "aria-expanded"
+                    ) === "true";
+
+                siteMenu.hidden = isOpen;
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(!isOpen)
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen
+                        ? "Open navigation"
+                        : "Close navigation"
+                );
+
             }
+        );
 
-            const isOpen = button.getAttribute("aria-expanded") === "true";
 
-            button.setAttribute(
-                "aria-expanded",
-                String(!isOpen)
+        // CLOSE WHEN CLICKING OUTSIDE
+
+        document.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    !siteMenu.hidden &&
+                    !siteMenu.contains(event.target) &&
+                    !menuToggle.contains(event.target)
+                ) {
+
+                    siteMenu.hidden = true;
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Open navigation"
+                    );
+
+                }
+
+            }
+        );
+
+
+        // CLOSE AFTER CLICKING A MENU LINK
+
+        siteMenu
+            .querySelectorAll("a")
+            .forEach(function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        siteMenu.hidden = true;
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+
+                    }
+                );
+
+            });
+
+    }
+
+
+
+    // ===============================
+    // CATEGORY ACCORDIONS
+    // ===============================
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        function () {
+
+            const buttons =
+                document.querySelectorAll(
+                    ".category-toggle"
+                );
+
+
+            buttons.forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const dropdownId =
+                                button.getAttribute(
+                                    "aria-controls"
+                                );
+
+                            const dropdown =
+                                document.getElementById(
+                                    dropdownId
+                                );
+
+
+                            if (!dropdown) {
+                                return;
+                            }
+
+
+                            const isOpen =
+                                button.getAttribute(
+                                    "aria-expanded"
+                                ) === "true";
+
+
+                            button.setAttribute(
+                                "aria-expanded",
+                                String(!isOpen)
+                            );
+
+
+                            dropdown.hidden =
+                                isOpen;
+
+                        }
+                    );
+
+                }
             );
 
-            dropdown.hidden = isOpen;
+        }
+    );
 
-        });
+    </script>
 
-    });
 
-});
-</script>
 </body>
 </html>
