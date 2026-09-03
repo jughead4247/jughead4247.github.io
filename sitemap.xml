@@ -2,14 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <!-- Main Homepage -->
-
     <url>
         <loc>https://apocalypsequizzes.com/</loc>
     </url>
 
-
     <!-- Common Site Pages -->
-
     <url>
         <loc>https://apocalypsequizzes.com/about.html</loc>
     </url>
@@ -26,86 +23,67 @@
         <loc>https://apocalypsequizzes.com/disclaimer.html</loc>
     </url>
 
+    <!-- Quiz Category Page -->
+    <url>
+        <loc>https://apocalypsequizzes.com/category/</loc>
+    </url>
 
     <!-- Zombie Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/zombie-quiz/</loc>
     </url>
 
-
     <!-- Ultimate Zombie Survival Test -->
-
     <url>
         <loc>https://apocalypsequizzes.com/ultimate-zombie-survival-test/</loc>
     </url>
 
-
     <!-- Apocalypse Preparedness Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/apocalypse-preparedness-quiz/</loc>
     </url>
 
-
     <!-- Nuclear Apocalypse Survival Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/nuclear-apocalypse-quiz/</loc>
     </url>
 
-
     <!-- The Walking Dead Knowledge Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/walking-dead-knowledge/</loc>
     </url>
 
-
     <!-- The 100 Knowledge Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/the-100-knowledge/</loc>
     </url>
 
-
     <!-- Resident Evil Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/resident-evil-quiz/</loc>
     </url>
 
-
     <!-- Love and Monsters Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/love-and-monsters-quiz/</loc>
     </url>
 
-
     <!-- iZombie Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/izombie-quiz/</loc>
     </url>
 
-
     <!-- The Walking Dead Characters Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/walking-dead-characters-quiz/</loc>
     </url>
 
-
     <!-- Plague Outbreak Survival Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/plague-survival-quiz/</loc>
     </url>
 
-
     <!-- Westworld Quiz -->
-
     <url>
         <loc>https://apocalypsequizzes.com/westworld-quiz/</loc>
     </url>
