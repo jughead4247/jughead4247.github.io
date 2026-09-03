@@ -149,43 +149,42 @@
          ===================================== -->
 
     <section
-        class="search-results"
-        aria-live="polite">
+    class="search-results"
+    aria-live="polite">
 
-        <div
-            class="search-results-header"
-            id="search-results-header">
+    <div
+        class="search-results-header"
+        id="search-results-header">
 
-            Showing all quizzes
+        Showing all quizzes
 
-        </div>
-
-
-        <div
-            class="search-grid"
-            id="search-grid">
-        </div>
+    </div>
 
 
-        <div
-            class="no-results"
-            id="no-results"
-            hidden>
+    <div
+        class="search-grid"
+        id="search-grid">
+    </div>
 
-            <h2>
-                No quizzes found
-            </h2>
 
-            <p>
-                Try searching for something else,
-                such as zombie, survival, Walking Dead,
-                nuclear, or TV.
-            </p>
+    <div
+        class="no-results"
+        id="no-results"
+        hidden>
 
-        </div>
+        <h2>
+            No quizzes found
+        </h2>
 
-    </section>
+        <p>
+            Try searching for something else,
+            such as zombie, survival, Walking Dead,
+            nuclear, or TV.
+        </p>
 
+    </div>
+
+</section>
 
 </main>
 
@@ -476,27 +475,15 @@
 
             card.innerHTML = `
 
-                <div class="search-card-content">
+    <div class="search-card-content">
 
-                    <h2>
-                        ${quiz.title}
-                    </h2>
+        <h2>
+            ${quiz.title}
+        </h2>
 
-                    <p>
-                        ${quiz.description}
-                    </p>
+    </div>
 
-                    <span>
-                        ${quiz.categories}
-                    </span>
-
-                </div>
-
-                <div class="search-card-arrow">
-                    →
-                </div>
-
-            `;
+`;
 
 
             searchGrid.appendChild(card);
