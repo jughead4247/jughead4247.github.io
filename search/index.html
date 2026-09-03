@@ -1,1 +1,576 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+<title>Search Quizzes – Apocalypse Quizzes</title>
+
+<meta name="description"
+    content="Search Apocalypse Quizzes. Find zombie, apocalypse, survival, TV, movie, trivia, and character quizzes.">
+
+<meta name="keywords"
+    content="search quizzes, zombie quizzes, apocalypse quizzes, survival quizzes, trivia quizzes">
+
+<meta name="author"
+    content="Apocalypse Quizzes">
+
+<meta name="robots"
+    content="index, follow">
+
+<link rel="canonical"
+    href="https://apocalypsequizzes.com/search/">
+
+<meta property="og:title"
+    content="Search Quizzes – Apocalypse Quizzes">
+
+<meta property="og:description"
+    content="Search and find your favorite Apocalypse Quizzes.">
+
+<meta property="og:url"
+    content="https://apocalypsequizzes.com/search/">
+
+<meta property="og:type"
+    content="website">
+
+<meta property="og:site_name"
+    content="Apocalypse Quizzes">
+
+<meta property="og:locale"
+    content="en_US">
+
+<meta name="twitter:card"
+    content="summary">
+
+<meta name="twitter:title"
+    content="Search Quizzes – Apocalypse Quizzes">
+
+<meta name="twitter:description"
+    content="Search Apocalypse Quizzes.">
+
+<link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧟</text></svg>">
+
+<link rel="stylesheet"
+    href="../style.css">
+
+
+<!-- Google Analytics -->
+
+<script async
+    src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST">
+</script>
+
+<script>
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-YC3ERJSBST');
+
+</script>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =========================================
+     SEARCH PAGE
+     ========================================= -->
+
+<main class="search-page">
+
+
+    <!-- =====================================
+         SEARCH HEADER
+         ===================================== -->
+
+    <section class="search-header">
+
+        <p class="search-eyebrow">
+            FIND A QUIZ
+        </p>
+
+        <h1>
+            Search Quizzes
+        </h1>
+
+        <p>
+            Search through our apocalypse, zombie,
+            survival, TV, movie, and trivia quizzes.
+        </p>
+
+
+        <form
+            class="quiz-search"
+            id="quiz-search">
+
+            <label
+                for="quiz-search-input"
+                class="search-label">
+                Search quizzes
+            </label>
+
+            <div class="search-box">
+
+                <input
+                    type="search"
+                    id="quiz-search-input"
+                    placeholder="Search quizzes..."
+                    autocomplete="off">
+
+                <button
+                    type="submit">
+                    Search
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =====================================
+         SEARCH RESULTS
+         ===================================== -->
+
+    <section
+        class="search-results"
+        aria-live="polite">
+
+        <div
+            class="search-results-header"
+            id="search-results-header">
+
+            Showing all quizzes
+
+        </div>
+
+
+        <div
+            class="search-grid"
+            id="search-grid">
+        </div>
+
+
+        <div
+            class="no-results"
+            id="no-results"
+            hidden>
+
+            <h2>
+                No quizzes found
+            </h2>
+
+            <p>
+                Try searching for something else,
+                such as zombie, survival, Walking Dead,
+                nuclear, or TV.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+     ========================================= -->
+
+<footer class="site-footer">
+
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            🧟 Apocalypse Quizzes
+        </div>
+
+        <div class="footer-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/categories/">
+                Categories
+            </a>
+
+            <a href="/about.html">
+                About
+            </a>
+
+            <a href="/privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="/disclaimer.html">
+                Disclaimer
+            </a>
+
+            <a href="/contact.html">
+                Contact
+            </a>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Apocalypse Quizzes
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     SEARCH JAVASCRIPT
+     ========================================= -->
+
+<script>
+
+    const quizzes = [
+
+        {
+            title: "Zombie Apocalypse Quiz",
+
+            description:
+                "Test your knowledge and instincts about surviving a zombie apocalypse.",
+
+            categories:
+                "zombie apocalypse survival",
+
+            url:
+                "https://apocalypsequizzes.com/zombie-quiz/"
+        },
+
+
+        {
+            title: "Ultimate Zombie Apocalypse Survival Test",
+
+            description:
+                "Put your survival skills, decisions, and preparation to the ultimate zombie apocalypse test.",
+
+            categories:
+                "zombie apocalypse survival",
+
+            url:
+                "https://apocalypsequizzes.com/ultimate-zombie-survival-test/"
+        },
+
+
+        {
+            title: "How Prepared Are You for the Apocalypse?",
+
+            description:
+                "Find out how prepared you are for different apocalypse scenarios.",
+
+            categories:
+                "apocalypse survival preparedness",
+
+            url:
+                "https://apocalypsequizzes.com/apocalypse-preparedness-quiz/"
+        },
+
+
+        {
+            title: "Nuclear Apocalypse Survival Quiz",
+
+            description:
+                "Test your knowledge of nuclear survival, fallout, shelter, and post-apocalyptic decisions.",
+
+            categories:
+                "apocalypse survival nuclear trivia",
+
+            url:
+                "https://apocalypsequizzes.com/nuclear-apocalypse-quiz/"
+        },
+
+
+        {
+            title: "The Walking Dead Knowledge Quiz",
+
+            description:
+                "Test your knowledge of The Walking Dead, its story, characters, and events.",
+
+            categories:
+                "zombie TV show trivia",
+
+            url:
+                "https://apocalypsequizzes.com/walking-dead-knowledge/"
+        },
+
+
+        {
+            title: "The 100 Knowledge Quiz",
+
+            description:
+                "Test your knowledge of The 100 and its characters, story, and post-apocalyptic world.",
+
+            categories:
+                "TV show trivia apocalypse",
+
+            url:
+                "https://apocalypsequizzes.com/the-100-knowledge/"
+        },
+
+
+        {
+            title: "Resident Evil Quiz",
+
+            description:
+                "Test your knowledge of Resident Evil, zombies, monsters, characters, and its dangerous world.",
+
+            categories:
+                "zombie movie trivia",
+
+            url:
+                "https://apocalypsequizzes.com/resident-evil-quiz/"
+        },
+
+
+        {
+            title: "Love and Monsters Quiz",
+
+            description:
+                "Test your knowledge of the post-apocalyptic world, monsters, and story of Love and Monsters.",
+
+            categories:
+                "zombie movie apocalypse trivia",
+
+            url:
+                "https://apocalypsequizzes.com/love-and-monsters-quiz/"
+        },
+
+
+        {
+            title: "iZombie Quiz",
+
+            description:
+                "Test your knowledge of iZombie, its characters, story, zombies, and TV world.",
+
+            categories:
+                "zombie TV show trivia",
+
+            url:
+                "https://apocalypsequizzes.com/izombie-quiz/"
+        },
+
+
+        {
+            title: "The Walking Dead Characters Quiz",
+
+            description:
+                "How well do you know the characters of The Walking Dead?",
+
+            categories:
+                "zombie TV show character trivia",
+
+            url:
+                "https://apocalypsequizzes.com/walking-dead-characters-quiz/"
+        },
+
+
+        {
+            title: "Plague Outbreak Survival Quiz",
+
+            description:
+                "Test your knowledge and survival decisions during a dangerous plague outbreak.",
+
+            categories:
+                "plague pandemic apocalypse survival",
+
+            url:
+                "https://apocalypsequizzes.com/plague-survival-quiz/"
+        },
+
+
+        {
+            title: "Westworld Quiz",
+
+            description:
+                "Test your knowledge of Westworld, its characters, hosts, story, and mysterious world.",
+
+            categories:
+                "TV show trivia science fiction",
+
+            url:
+                "https://apocalypsequizzes.com/westworld-quiz/"
+        }
+
+    ];
+
+
+
+    const searchInput =
+        document.getElementById("quiz-search-input");
+
+    const searchForm =
+        document.getElementById("quiz-search");
+
+    const searchGrid =
+        document.getElementById("search-grid");
+
+    const resultsHeader =
+        document.getElementById("search-results-header");
+
+    const noResults =
+        document.getElementById("no-results");
+
+
+
+    function displayQuizzes(results) {
+
+        searchGrid.innerHTML = "";
+
+
+        if (results.length === 0) {
+
+            noResults.hidden = false;
+
+            resultsHeader.textContent =
+                "No quizzes found";
+
+            return;
+
+        }
+
+
+        noResults.hidden = true;
+
+
+        resultsHeader.textContent =
+            results.length +
+            (results.length === 1
+                ? " quiz found"
+                : " quizzes found");
+
+
+        results.forEach(function (quiz) {
+
+            const card =
+                document.createElement("a");
+
+            card.className = "search-card";
+
+            card.href = quiz.url;
+
+
+            card.innerHTML = `
+
+                <div class="search-card-content">
+
+                    <h2>
+                        ${quiz.title}
+                    </h2>
+
+                    <p>
+                        ${quiz.description}
+                    </p>
+
+                    <span>
+                        ${quiz.categories}
+                    </span>
+
+                </div>
+
+                <div class="search-card-arrow">
+                    →
+                </div>
+
+            `;
+
+
+            searchGrid.appendChild(card);
+
+        });
+
+    }
+
+
+
+    function performSearch() {
+
+        const query =
+            searchInput.value
+                .toLowerCase()
+                .trim();
+
+
+        if (query === "") {
+
+            displayQuizzes(quizzes);
+
+            return;
+
+        }
+
+
+        const results =
+            quizzes.filter(function (quiz) {
+
+                const searchableText =
+                    (
+                        quiz.title +
+                        " " +
+                        quiz.description +
+                        " " +
+                        quiz.categories
+                    ).toLowerCase();
+
+
+                return searchableText.includes(query);
+
+            });
+
+
+        displayQuizzes(results);
+
+    }
+
+
+
+    searchForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            performSearch();
+
+        }
+    );
+
+
+    searchInput.addEventListener(
+        "input",
+        performSearch
+    );
+
+
+    displayQuizzes(quizzes);
+
+</script>
+```
+
+</body>
+</html>
 
