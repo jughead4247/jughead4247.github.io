@@ -89,44 +89,40 @@
 
     <main class="categories-page">
 
+    <section class="categories-header">
+
+        <p class="categories-eyebrow">
+            EXPLORE QUIZZES
+        </p>
+
+        <h1>
+            Quiz Categories
+        </h1>
+
+        <p>
+            Find quizzes by topic, from zombies and survival
+            to your favorite movies and TV shows.
+        </p>
+
+    </section>
+
+
+    <section
+        class="categories-list"
+        aria-label="Quiz categories">
+
 
         <!-- =====================================
-             PAGE HEADER
+             ZOMBIE QUIZZES
              ===================================== -->
 
-        <section class="categories-header">
+        <div class="category-accordion">
 
-            <p class="categories-eyebrow">
-                EXPLORE QUIZZES
-            </p>
-
-            <h1>
-                Quiz Categories
-            </h1>
-
-            <p>
-                Find quizzes by topic, from zombies and survival
-                to your favorite movies and TV shows.
-            </p>
-
-        </section>
-
-
-
-        <!-- =====================================
-             CATEGORY CARDS
-             ===================================== -->
-
-        <section
-            class="categories-grid"
-            aria-label="Quiz categories">
-
-
-            <!-- ZOMBIE -->
-
-            <a
-                class="category-card"
-                href="#zombie-quizzes">
+            <button
+                class="category-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="zombie-quizzes">
 
                 <div class="category-icon">
                     🧟
@@ -149,15 +145,59 @@
 
                 </div>
 
-            </a>
+                <div class="category-arrow">
+                    ▶
+                </div>
+
+            </button>
+
+
+            <div
+                class="category-dropdown"
+                id="zombie-quizzes"
+                hidden>
+
+                <a href="https://apocalypsequizzes.com/zombie-quiz/">
+                    Zombie Apocalypse Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
+                    Ultimate Zombie Apocalypse Survival Test
+                </a>
+
+                <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
+                    The Walking Dead Knowledge Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
+                    Resident Evil Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/love-and-monsters-quiz/">
+                    Love and Monsters Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/izombie-quiz/">
+                    iZombie Quiz
+                </a>
+
+            </div>
+
+        </div>
 
 
 
-            <!-- APOCALYPSE -->
+        <!-- =====================================
+             APOCALYPSE QUIZZES
+             ===================================== -->
 
-            <a
-                class="category-card"
-                href="#apocalypse-quizzes">
+        <div class="category-accordion">
+
+            <button
+                class="category-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="apocalypse-quizzes">
 
                 <div class="category-icon">
                     ☢️
@@ -180,15 +220,55 @@
 
                 </div>
 
-            </a>
+                <div class="category-arrow">
+                    ▶
+                </div>
+
+            </button>
+
+
+            <div
+                class="category-dropdown"
+                id="apocalypse-quizzes"
+                hidden>
+
+                <a href="https://apocalypsequizzes.com/zombie-quiz/">
+                    Zombie Apocalypse Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
+                    Ultimate Zombie Apocalypse Survival Test
+                </a>
+
+                <a href="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/">
+                    How Prepared Are You for the Apocalypse?
+                </a>
+
+                <a href="https://apocalypsequizzes.com/nuclear-apocalypse-quiz/">
+                    Nuclear Apocalypse Survival Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
+                    Plague Outbreak Survival Quiz
+                </a>
+
+            </div>
+
+        </div>
 
 
 
-            <!-- SURVIVAL -->
+        <!-- =====================================
+             SURVIVAL QUIZZES
+             ===================================== -->
 
-            <a
-                class="category-card"
-                href="#survival-quizzes">
+        <div class="category-accordion">
+
+            <button
+                class="category-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="survival-quizzes">
 
                 <div class="category-icon">
                     🛡️
@@ -211,15 +291,51 @@
 
                 </div>
 
-            </a>
+                <div class="category-arrow">
+                    ▶
+                </div>
+
+            </button>
+
+
+            <div
+                class="category-dropdown"
+                id="survival-quizzes"
+                hidden>
+
+                <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
+                    Ultimate Zombie Apocalypse Survival Test
+                </a>
+
+                <a href="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/">
+                    How Prepared Are You for the Apocalypse?
+                </a>
+
+                <a href="https://apocalypsequizzes.com/nuclear-apocalypse-quiz/">
+                    Nuclear Apocalypse Survival Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
+                    Plague Outbreak Survival Quiz
+                </a>
+
+            </div>
+
+        </div>
 
 
 
-            <!-- TV -->
+        <!-- =====================================
+             TV & SHOW QUIZZES
+             ===================================== -->
 
-            <a
-                class="category-card"
-                href="#tv-quizzes">
+        <div class="category-accordion">
+
+            <button
+                class="category-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="tv-quizzes">
 
                 <div class="category-icon">
                     📺
@@ -242,15 +358,51 @@
 
                 </div>
 
-            </a>
+                <div class="category-arrow">
+                    ▶
+                </div>
+
+            </button>
+
+
+            <div
+                class="category-dropdown"
+                id="tv-quizzes"
+                hidden>
+
+                <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
+                    The Walking Dead Knowledge Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/the-100-knowledge/">
+                    The 100 Knowledge Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/westworld-quiz/">
+                    Westworld Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/izombie-quiz/">
+                    iZombie Quiz
+                </a>
+
+            </div>
+
+        </div>
 
 
 
-            <!-- MOVIES -->
+        <!-- =====================================
+             MOVIE QUIZZES
+             ===================================== -->
 
-            <a
-                class="category-card"
-                href="#movie-quizzes">
+        <div class="category-accordion">
+
+            <button
+                class="category-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="movie-quizzes">
 
                 <div class="category-icon">
                     🎬
@@ -273,15 +425,43 @@
 
                 </div>
 
-            </a>
+                <div class="category-arrow">
+                    ▶
+                </div>
+
+            </button>
+
+
+            <div
+                class="category-dropdown"
+                id="movie-quizzes"
+                hidden>
+
+                <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
+                    Resident Evil Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/love-and-monsters-quiz/">
+                    Love and Monsters Quiz
+                </a>
+
+            </div>
+
+        </div>
 
 
 
-            <!-- TRIVIA -->
+        <!-- =====================================
+             TRIVIA QUIZZES
+             ===================================== -->
 
-            <a
-                class="category-card"
-                href="#trivia-quizzes">
+        <div class="category-accordion">
+
+            <button
+                class="category-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="trivia-quizzes">
 
                 <div class="category-icon">
                     🧠
@@ -304,15 +484,55 @@
 
                 </div>
 
-            </a>
+                <div class="category-arrow">
+                    ▶
+                </div>
+
+            </button>
+
+
+            <div
+                class="category-dropdown"
+                id="trivia-quizzes"
+                hidden>
+
+                <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
+                    The Walking Dead Knowledge Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/the-100-knowledge/">
+                    The 100 Knowledge Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/westworld-quiz/">
+                    Westworld Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
+                    Resident Evil Quiz
+                </a>
+
+                <a href="https://apocalypsequizzes.com/izombie-quiz/">
+                    iZombie Quiz
+                </a>
+
+            </div>
+
+        </div>
 
 
 
-            <!-- CHARACTERS -->
+        <!-- =====================================
+             CHARACTER QUIZZES
+             ===================================== -->
 
-            <a
-                class="category-card"
-                href="#character-quizzes">
+        <div class="category-accordion">
+
+            <button
+                class="category-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="character-quizzes">
 
                 <div class="category-icon">
                     🧍
@@ -325,7 +545,7 @@
                     </h2>
 
                     <p>
-                        Test how well you know memorable
+                        Test your knowledge of memorable
                         characters from popular worlds.
                     </p>
 
@@ -335,15 +555,39 @@
 
                 </div>
 
-            </a>
+                <div class="category-arrow">
+                    ▶
+                </div>
+
+            </button>
+
+
+            <div
+                class="category-dropdown"
+                id="character-quizzes"
+                hidden>
+
+                <a href="https://apocalypsequizzes.com/walking-dead-characters-quiz/">
+                    The Walking Dead Characters Quiz
+                </a>
+
+            </div>
+
+        </div>
 
 
 
-            <!-- PLAGUE -->
+        <!-- =====================================
+             PLAGUE & PANDEMIC QUIZZES
+             ===================================== -->
 
-            <a
-                class="category-card"
-                href="#plague-quizzes">
+        <div class="category-accordion">
+
+            <button
+                class="category-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="plague-quizzes">
 
                 <div class="category-icon">
                     🦠
@@ -366,105 +610,17 @@
 
                 </div>
 
-            </a>
+                <div class="category-arrow">
+                    ▶
+                </div>
 
-        </section>
-
-
-
-        <!-- =====================================
-             ZOMBIE QUIZZES
-             ===================================== -->
-
-        <section
-            class="category-results"
-            id="zombie-quizzes">
-
-            <div class="category-results-header">
-
-                <h2>
-                    🧟 Zombie Quizzes
-                </h2>
-
-                <p>
-                    Quizzes about zombies, outbreaks,
-                    and surviving the undead.
-                </p>
-
-            </div>
+            </button>
 
 
-            <div class="category-quiz-list">
-
-                <a href="https://apocalypsequizzes.com/zombie-quiz/">
-                    Zombie Apocalypse Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
-                    Ultimate Zombie Apocalypse Survival Test
-                </a>
-
-                <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
-                    The Walking Dead Knowledge Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
-                    Resident Evil Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/love-and-monsters-quiz/">
-                    Love and Monsters Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/izombie-quiz/">
-                    iZombie Quiz
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             APOCALYPSE QUIZZES
-             ===================================== -->
-
-        <section
-            class="category-results"
-            id="apocalypse-quizzes">
-
-            <div class="category-results-header">
-
-                <h2>
-                    ☢️ Apocalypse Quizzes
-                </h2>
-
-                <p>
-                    Different apocalypse scenarios,
-                    threats, and end-of-the-world situations.
-                </p>
-
-            </div>
-
-
-            <div class="category-quiz-list">
-
-                <a href="https://apocalypsequizzes.com/zombie-quiz/">
-                    Zombie Apocalypse Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
-                    Ultimate Zombie Apocalypse Survival Test
-                </a>
-
-                <a href="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/">
-                    How Prepared Are You for the Apocalypse?
-                </a>
-
-                <a href="https://apocalypsequizzes.com/nuclear-apocalypse-quiz/">
-                    Nuclear Apocalypse Survival Quiz
-                </a>
+            <div
+                class="category-dropdown"
+                id="plague-quizzes"
+                hidden>
 
                 <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
                     Plague Outbreak Survival Quiz
@@ -472,259 +628,12 @@
 
             </div>
 
-        </section>
+        </div>
 
 
+    </section>
 
-        <!-- =====================================
-             SURVIVAL QUIZZES
-             ===================================== -->
-
-        <section
-            class="category-results"
-            id="survival-quizzes">
-
-            <div class="category-results-header">
-
-                <h2>
-                    🛡️ Survival Quizzes
-                </h2>
-
-                <p>
-                    Test your survival instincts,
-                    preparation, and decision-making.
-                </p>
-
-            </div>
-
-
-            <div class="category-quiz-list">
-
-                <a href="https://apocalypsequizzes.com/ultimate-zombie-survival-test/">
-                    Ultimate Zombie Apocalypse Survival Test
-                </a>
-
-                <a href="https://apocalypsequizzes.com/apocalypse-preparedness-quiz/">
-                    How Prepared Are You for the Apocalypse?
-                </a>
-
-                <a href="https://apocalypsequizzes.com/nuclear-apocalypse-quiz/">
-                    Nuclear Apocalypse Survival Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
-                    Plague Outbreak Survival Quiz
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             TV & SHOW QUIZZES
-             ===================================== -->
-
-        <section
-            class="category-results"
-            id="tv-quizzes">
-
-            <div class="category-results-header">
-
-                <h2>
-                    📺 TV &amp; Show Quizzes
-                </h2>
-
-                <p>
-                    Test your knowledge of popular TV shows
-                    and fictional worlds.
-                </p>
-
-            </div>
-
-
-            <div class="category-quiz-list">
-
-                <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
-                    The Walking Dead Knowledge Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/the-100-knowledge/">
-                    The 100 Knowledge Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/westworld-quiz/">
-                    Westworld Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/izombie-quiz/">
-                    iZombie Quiz
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             MOVIE QUIZZES
-             ===================================== -->
-
-        <section
-            class="category-results"
-            id="movie-quizzes">
-
-            <div class="category-results-header">
-
-                <h2>
-                    🎬 Movie Quizzes
-                </h2>
-
-                <p>
-                    Test your knowledge of apocalypse,
-                    survival, and monster movies.
-                </p>
-
-            </div>
-
-
-            <div class="category-quiz-list">
-
-                <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
-                    Resident Evil Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/love-and-monsters-quiz/">
-                    Love and Monsters Quiz
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             TRIVIA QUIZZES
-             ===================================== -->
-
-        <section
-            class="category-results"
-            id="trivia-quizzes">
-
-            <div class="category-results-header">
-
-                <h2>
-                    🧠 Trivia Quizzes
-                </h2>
-
-                <p>
-                    Challenge yourself with detailed
-                    trivia from apocalypse-related worlds.
-                </p>
-
-            </div>
-
-
-            <div class="category-quiz-list">
-
-                <a href="https://apocalypsequizzes.com/walking-dead-knowledge/">
-                    The Walking Dead Knowledge Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/the-100-knowledge/">
-                    The 100 Knowledge Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/westworld-quiz/">
-                    Westworld Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/resident-evil-quiz/">
-                    Resident Evil Quiz
-                </a>
-
-                <a href="https://apocalypsequizzes.com/izombie-quiz/">
-                    iZombie Quiz
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             CHARACTER QUIZZES
-             ===================================== -->
-
-        <section
-            class="category-results"
-            id="character-quizzes">
-
-            <div class="category-results-header">
-
-                <h2>
-                    🧍 Character Quizzes
-                </h2>
-
-                <p>
-                    Test your knowledge of memorable
-                    characters from popular fictional worlds.
-                </p>
-
-            </div>
-
-
-            <div class="category-quiz-list">
-
-                <a href="https://apocalypsequizzes.com/walking-dead-characters-quiz/">
-                    The Walking Dead Characters Quiz
-                </a>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================
-             PLAGUE & PANDEMIC QUIZZES
-             ===================================== -->
-
-        <section
-            class="category-results"
-            id="plague-quizzes">
-
-            <div class="category-results-header">
-
-                <h2>
-                    🦠 Plague &amp; Pandemic Quizzes
-                </h2>
-
-                <p>
-                    Outbreaks, pandemics, infectious diseases,
-                    and survival during widespread crises.
-                </p>
-
-            </div>
-
-
-            <div class="category-quiz-list">
-
-                <a href="https://apocalypsequizzes.com/plague-survival-quiz/">
-                    Plague Outbreak Survival Quiz
-                </a>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
+</main>
 
 
     <!-- =========================================
