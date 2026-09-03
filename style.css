@@ -1378,387 +1378,326 @@ body {
 }
 
 /* ===============================
-SEARCH PAGE
-=============================== */
+   SEARCH PAGE
+   =============================== */
 
 .search-page {
-width: min(100% - 32px, 900px);
-margin: 0 auto;
-padding: 80px 0;
+    width: min(100% - 32px, 900px);
+
+    margin: 0 auto;
+
+    padding: 80px 0;
 }
 
+
 /* ===============================
-SEARCH HEADER
-=============================== */
+   SEARCH HEADER
+   =============================== */
 
 .search-header {
-max-width: 760px;
-margin: 0 auto 50px;
-text-align: center;
+    max-width: 760px;
+
+    margin: 0 auto 40px;
+
+    text-align: center;
 }
 
 .search-eyebrow {
-margin: 0 0 12px;
+    margin: 0 0 12px;
 
-```
-color: #40382e;
+    color: #40382e;
 
-font-size: 0.8rem;
-font-weight: 800;
+    font-size: 0.8rem;
 
-letter-spacing: 2px;
-```
+    font-weight: 800;
 
+    letter-spacing: 2px;
 }
 
 .search-header h1 {
-margin: 0;
+    margin: 0;
 
-```
-color: #171717;
+    color: #171717;
 
-font-size: clamp(2.2rem, 5vw, 3.2rem);
-line-height: 1.15;
-```
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
 
+    line-height: 1.15;
 }
 
 .search-header > p {
-max-width: 650px;
+    max-width: 650px;
 
-```
-margin: 18px auto 30px;
+    margin: 18px auto 30px;
 
-color: #4f473c;
+    color: #4f473c;
 
-font-size: 1.05rem;
-```
-
-}
-
-/* ===============================
-SEARCH FORM
-=============================== */
-
-.quiz-search {
-width: 100%;
-max-width: 700px;
-
-```
-margin: 0 auto;
-```
-
-}
-
-.search-label {
-position: absolute;
-
-```
-width: 1px;
-height: 1px;
-
-padding: 0;
-margin: -1px;
-
-overflow: hidden;
-
-clip: rect(0, 0, 0, 0);
-
-white-space: nowrap;
-
-border: 0;
-```
-
-}
-
-.search-box {
-display: flex;
-
-```
-gap: 10px;
-```
-
-}
-
-.search-box input {
-flex: 1;
-
-```
-min-width: 0;
-
-padding: 16px 18px;
-
-border: 1px solid #aaa;
-
-border-radius: 10px;
-
-background: #ffffff;
-
-color: #171717;
-
-font-family: inherit;
-font-size: 1rem;
-
-outline: none;
-```
-
-}
-
-.search-box input:focus {
-border-color: #555;
-
-```
-box-shadow:
-    0 0 0 3px rgba(0, 0, 0, 0.08);
-```
-
-}
-
-.search-box button {
-padding: 0 24px;
-
-```
-border: 1px solid #111;
-
-border-radius: 10px;
-
-background: #171717;
-
-color: #ffffff;
-
-font-family: inherit;
-
-font-size: 0.95rem;
-font-weight: 700;
-
-cursor: pointer;
-
-transition:
-    background 0.2s ease;
-```
-
-}
-
-.search-box button:hover {
-background: #333333;
-}
-
-/* ===============================
-SEARCH RESULTS
-=============================== */
-
-.search-results {
-width: 100%;
-}
-
-.search-results-header {
-margin-bottom: 18px;
-
-```
-color: #4f473c;
-
-font-size: 0.9rem;
-font-weight: 700;
-```
-
-}
-
-/* ===============================
-SEARCH GRID
-=============================== */
-
-.search-grid {
-display: flex;
-
-```
-flex-direction: column;
-
-gap: 14px;
-```
-
-}
-
-/* ===============================
-SEARCH CARD
-=============================== */
-
-.search-card {
-display: flex;
-
-```
-align-items: center;
-
-gap: 20px;
-
-padding: 22px 24px;
-
-border: 1px solid #dddddd;
-
-border-radius: 14px;
-
-background: #ffffff;
-
-color: #171717;
-
-text-decoration: none;
-
-box-shadow:
-    0 6px 22px rgba(0, 0, 0, 0.12);
-
-transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-```
-
-}
-
-.search-card:hover {
-transform: translateY(-3px);
-
-```
-border-color: #999999;
-
-box-shadow:
-    0 10px 28px rgba(0, 0, 0, 0.18);
-```
-
-}
-
-.search-card-content {
-flex: 1;
-}
-
-.search-card h2 {
-margin: 0 0 7px;
-
-```
-color: #171717;
-
-font-size: 1.2rem;
-
-line-height: 1.3;
-```
-
-}
-
-.search-card p {
-margin: 0 0 10px;
-
-```
-color: #555555;
-
-font-size: 0.92rem;
-
-line-height: 1.5;
-```
-
-}
-
-.search-card span {
-color: #777777;
-
-```
-font-size: 0.78rem;
-
-font-weight: 700;
-
-text-transform: capitalize;
-```
-
-}
-
-.search-card-arrow {
-flex-shrink: 0;
-
-```
-color: #555555;
-
-font-size: 1.4rem;
-```
-
-}
-
-/* ===============================
-NO RESULTS
-=============================== */
-
-.no-results {
-padding: 45px 25px;
-
-```
-border: 1px solid #dddddd;
-
-border-radius: 14px;
-
-background: #ffffff;
-
-text-align: center;
-
-box-shadow:
-    0 6px 22px rgba(0, 0, 0, 0.10);
-```
-
-}
-
-.no-results h2 {
-margin: 0 0 10px;
-
-```
-color: #171717;
-
-font-size: 1.4rem;
-```
-
-}
-
-.no-results p {
-margin: 0;
-
-```
-color: #555555;
-```
-
-}
-
-/* ===============================
-SEARCH MOBILE
-=============================== */
-
-@media (max-width: 600px) {
-
-```
-.search-page {
-    width: calc(100% - 24px);
-
-    padding: 60px 0;
-}
-
-.search-header {
-    margin-bottom: 35px;
-}
-
-.search-box {
-    flex-direction: column;
-}
-
-.search-box button {
-    min-height: 48px;
-}
-
-.search-card {
-    gap: 12px;
-
-    padding: 18px;
-}
-
-.search-card h2 {
     font-size: 1.05rem;
 }
 
-.search-card p {
-    font-size: 0.88rem;
+
+/* ===============================
+   BLACK SEARCH CARD
+   =============================== */
+
+.quiz-search {
+    width: 100%;
+
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    padding: 30px;
+
+    border: 1px solid #292929;
+
+    border-radius: 18px;
+
+    background: #111111;
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.22);
 }
-```
+
+.search-label {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    text-align: left;
+}
+
+.search-box {
+    display: flex;
+
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 16px 18px;
+
+    border: 1px solid #555555;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #171717;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #aaaaaa;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+.search-box button {
+    padding: 0 24px;
+
+    border: 1px solid #444444;
+
+    border-radius: 10px;
+
+    background: #222222;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease;
+}
+
+.search-box button:hover {
+    background: #333333;
+}
+
+
+/* ===============================
+   SEARCH RESULTS
+   =============================== */
+
+.search-results {
+    width: 100%;
+
+    max-width: 760px;
+
+    margin: 45px auto 0;
+}
+
+.search-results-header {
+    margin-bottom: 16px;
+
+    color: #4f473c;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* ===============================
+   SEARCH RESULT LIST
+   =============================== */
+
+.search-grid {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* ===============================
+   SEARCH RESULT CARD
+   =============================== */
+
+.search-card {
+    display: block;
+
+    padding: 19px 22px;
+
+    border: 1px solid #333333;
+
+    border-radius: 10px;
+
+    background: #181818;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.15);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.search-card:hover {
+    transform: translateY(-2px);
+
+    background: #222222;
+
+    border-color: #666666;
+}
+
+.search-card-content {
+    width: 100%;
+}
+
+.search-card h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 1.08rem;
+
+    line-height: 1.4;
+}
+
+
+/* ===============================
+   NO RESULTS
+   =============================== */
+
+.no-results {
+    padding: 45px 25px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    text-align: center;
+
+    box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.10);
+}
+
+.no-results h2 {
+    margin: 0 0 10px;
+
+    color: #171717;
+
+    font-size: 1.4rem;
+}
+
+.no-results p {
+    margin: 0;
+
+    color: #555555;
+}
+
+
+/* ===============================
+   SEARCH MOBILE
+   =============================== */
+
+@media (max-width: 600px) {
+
+    .search-page {
+        width: calc(100% - 24px);
+
+        padding: 60px 0;
+    }
+
+    .search-header {
+        margin-bottom: 30px;
+    }
+
+    .quiz-search {
+        padding: 22px 18px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        min-height: 48px;
+    }
+
+    .search-results {
+        margin-top: 35px;
+    }
+
+    .search-card {
+        padding: 17px 18px;
+    }
+
+    .search-card h2 {
+        font-size: 1rem;
+    }
+
+}
 
 }
