@@ -79,44 +79,6 @@
 
 </head>
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    const buttons = document.querySelectorAll(".category-toggle");
-
-    buttons.forEach(function (button) {
-
-        button.addEventListener("click", function () {
-
-            const dropdownId = button.getAttribute("aria-controls");
-            const dropdown = document.getElementById(dropdownId);
-
-            if (!dropdown) {
-                return;
-            }
-
-            const isOpen = button.classList.contains("active");
-
-            if (isOpen) {
-
-                button.classList.remove("active");
-                button.setAttribute("aria-expanded", "false");
-
-                dropdown.hidden = true;
-
-            } else {
-
-                button.classList.add("active");
-                button.setAttribute("aria-expanded", "true");
-
-                dropdown.hidden = false;
-
-            }
-
-        });
-
-    });
-
-});
 
 <body>
 
@@ -718,6 +680,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const buttons = document.querySelectorAll(".category-toggle");
+
+    buttons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const dropdownId = button.getAttribute("aria-controls");
+            const dropdown = document.getElementById(dropdownId);
+
+            if (!dropdown) {
+                return;
+            }
+
+            const isOpen = button.getAttribute("aria-expanded") === "true";
+
+            button.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
+
+            dropdown.hidden = isOpen;
+
+        });
+
+    });
+
+});
+</script>
 </body>
 </html>
