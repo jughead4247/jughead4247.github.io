@@ -86,67 +86,234 @@ body {
 
 
 /* ===============================
-   NAVIGATION
+   GLOBAL SITE HEADER
    =============================== */
 
-.main-nav {
-    position: sticky;
+.site-header {
+    position: relative;
 
-    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    min-height: 72px;
+
+    padding: 12px 60px;
+
+    background: #080808;
+
+    color: #ffffff;
+
+    border-bottom: 1px solid #292929;
+}
+
+
+/* ===============================
+   SITE TITLE
+   =============================== */
+
+.site-title {
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(1.45rem, 3vw, 2rem);
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    line-height: 1;
+
+    text-align: center;
+
+    user-select: none;
+}
+
+
+/* ===============================
+   HAMBURGER BUTTON
+   =============================== */
+
+.menu-toggle {
+    position: absolute;
+
+    left: 18px;
+    top: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 8px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+}
+
+
+/* Hamburger lines */
+
+.menu-toggle span {
+    display: block;
+
+    width: 25px;
+    height: 3px;
+
+    margin: 0 auto;
+
+    border-radius: 2px;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+/* ===============================
+   HAMBURGER ANIMATION
+   =============================== */
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ===============================
+   NAVIGATION PANEL
+   =============================== */
+
+.site-menu {
+    position: absolute;
+
+    top: 72px;
+    left: 18px;
 
     z-index: 1000;
 
-    background: rgba(11, 11, 11, 0.94);
+    width: 300px;
 
-    border-bottom: 1px solid #292929;
+    padding: 10px;
 
-    backdrop-filter: blur(10px);
+    border: 1px solid #333333;
+
+    border-radius: 12px;
+
+    background: #111111;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
 }
 
-.nav-inner {
-    width: min(100% - 32px, 1100px);
 
-    min-height: 64px;
+/* ===============================
+   MENU LINKS
+   =============================== */
 
-    margin: auto;
-
+.menu-links {
     display: flex;
 
-    align-items: center;
+    flex-direction: column;
 
-    justify-content: space-between;
-
-    gap: 20px;
+    gap: 3px;
 }
 
-.nav-logo {
+.menu-links a {
+    display: block;
+
+    padding: 13px 14px;
+
+    border-radius: 7px;
+
     color: #ffffff;
 
-    text-decoration: none;
-
-    font-weight: 700;
-
-    letter-spacing: 0.3px;
-}
-
-.nav-links {
-    display: flex;
-
-    gap: 24px;
-}
-
-.nav-links a {
-    color: #cccccc;
-
-    text-decoration: none;
+    font-size: 0.95rem;
 
     font-weight: 600;
 
-    transition: color 0.2s ease;
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        padding-left 0.2s ease;
 }
 
-.nav-links a:hover {
-    color: #ffffff;
+.menu-links a:hover {
+    background: #242424;
+
+    padding-left: 18px;
+}
+
+
+/* ===============================
+   MENU DIVIDER
+   =============================== */
+
+.menu-divider {
+    height: 1px;
+
+    margin: 8px 8px;
+
+    background: #333333;
+}
+
+
+/* ===============================
+   MOBILE HEADER
+   =============================== */
+
+@media (max-width: 600px) {
+
+    .site-header {
+        min-height: 64px;
+
+        padding: 10px 52px;
+    }
+
+    .site-title {
+        font-size: 1.25rem;
+
+        letter-spacing: 1.3px;
+    }
+
+    .menu-toggle {
+        left: 10px;
+    }
+
+    .site-menu {
+        top: 64px;
+
+        left: 10px;
+
+        width: calc(100% - 20px);
+
+        max-width: 340px;
+    }
+
 }
 
 
@@ -1284,7 +1451,7 @@ body {
 .category-dropdown {
     display: grid;
 
-    grid-template-columns: repeat: 1fr;
+    grid-template-columns: 1fr;
 
     gap: 12px;
 
