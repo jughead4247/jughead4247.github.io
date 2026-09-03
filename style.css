@@ -1095,10 +1095,8 @@ body {
    =============================== */
 
 .categories-page {
-    width: min(100% - 32px, 1100px);
-
+    width: min(100% - 32px, 900px);
     margin: 0 auto;
-
     padding: 80px 0;
 }
 
@@ -1109,99 +1107,93 @@ body {
 
 .categories-header {
     max-width: 760px;
-
     margin: 0 auto 50px;
-
     text-align: center;
 }
 
 .categories-eyebrow {
     margin: 0 0 12px;
-
     color: #40382e;
-
     font-size: 0.8rem;
-
     font-weight: 800;
-
     letter-spacing: 2px;
 }
 
 .categories-header h1 {
     margin: 0;
-
     color: #171717;
-
     font-size: clamp(2.2rem, 5vw, 3.2rem);
-
     line-height: 1.15;
 }
 
 .categories-header p {
     max-width: 650px;
-
     margin: 18px auto 0;
-
     color: #4f473c;
-
     font-size: 1.05rem;
 }
 
 
 /* ===============================
-   CATEGORY GRID
+   CATEGORY LIST
    =============================== */
 
-.categories-grid {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 22px;
-
-    margin-bottom: 70px;
+.categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 
 /* ===============================
-   CATEGORY CARD
+   CATEGORY ACCORDION
    =============================== */
 
-.category-card {
-    display: flex;
+.category-accordion {
+    overflow: hidden;
 
-    align-items: flex-start;
+    border: 1px solid #dddddd;
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.16);
+}
+
+
+/* ===============================
+   CATEGORY TOGGLE
+   =============================== */
+
+.category-toggle {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
 
     gap: 20px;
 
     padding: 28px;
 
-    border: 1px solid #dddddd;
-
-    border-radius: 18px;
+    border: 0;
 
     background: #ffffff;
 
     color: #171717;
 
-    text-decoration: none;
+    text-align: left;
 
-    box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+
+    font: inherit;
 
     transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        background 0.2s ease;
 }
 
-.category-card:hover {
-    transform: translateY(-4px);
-
-    border-color: #999999;
-
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.22);
+.category-toggle:hover {
+    background: #f7f7f7;
 }
 
 
@@ -1211,15 +1203,12 @@ body {
 
 .category-icon {
     width: 58px;
-
     height: 58px;
 
     flex-shrink: 0;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     border-radius: 14px;
@@ -1244,7 +1233,6 @@ body {
     color: #171717;
 
     font-size: 1.35rem;
-
     line-height: 1.25;
 }
 
@@ -1254,7 +1242,6 @@ body {
     color: #555555;
 
     font-size: 0.95rem;
-
     line-height: 1.55;
 }
 
@@ -1262,66 +1249,53 @@ body {
     color: #777777;
 
     font-size: 0.82rem;
-
     font-weight: 700;
 }
 
 
 /* ===============================
-   CATEGORY RESULTS
+   CATEGORY ARROW
    =============================== */
 
-.category-results {
-    margin-bottom: 45px;
+.category-arrow {
+    width: 32px;
 
-    padding: 35px;
+    flex-shrink: 0;
 
-    border: 1px solid #292929;
+    color: #555555;
 
-    border-radius: 18px;
+    font-size: 1rem;
 
-    background: #111111;
+    text-align: center;
 
-    color: #ffffff;
-
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.20);
+    transition:
+        transform 0.2s ease;
 }
 
-.category-results-header {
-    margin-bottom: 25px;
-}
-
-.category-results-header h2 {
-    margin: 0 0 8px;
-
-    color: #ffffff;
-
-    font-size: 1.65rem;
-
-    line-height: 1.25;
-}
-
-.category-results-header p {
-    margin: 0;
-
-    color: #aaaaaa;
+.category-toggle[aria-expanded="true"] .category-arrow {
+    transform: rotate(90deg);
 }
 
 
 /* ===============================
-   CATEGORY QUIZ LINKS
+   CATEGORY DROPDOWN
    =============================== */
 
-.category-quiz-list {
+.category-dropdown {
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
 
     gap: 12px;
+
+    padding: 0 28px 28px;
 }
 
-.category-quiz-list a {
+.category-dropdown[hidden] {
+    display: none;
+}
+
+.category-dropdown a {
     display: block;
 
     padding: 15px 18px;
@@ -1344,7 +1318,7 @@ body {
         transform 0.2s ease;
 }
 
-.category-quiz-list a:hover {
+.category-dropdown a:hover {
     transform: translateY(-2px);
 
     background: #222222;
@@ -1359,24 +1333,10 @@ body {
    CATEGORIES MOBILE
    =============================== */
 
-@media (max-width: 800px) {
-
-    .categories-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .category-quiz-list {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-
 @media (max-width: 600px) {
 
     .categories-page {
         width: calc(100% - 24px);
-
         padding: 60px 0;
     }
 
@@ -1384,15 +1344,13 @@ body {
         margin-bottom: 35px;
     }
 
-    .category-card {
+    .category-toggle {
         gap: 16px;
-
         padding: 22px;
     }
 
     .category-icon {
         width: 50px;
-
         height: 50px;
 
         border-radius: 12px;
@@ -1408,12 +1366,13 @@ body {
         font-size: 0.9rem;
     }
 
-    .category-results {
-        padding: 25px 20px;
+    .category-arrow {
+        width: 24px;
     }
 
-    .category-results-header h2 {
-        font-size: 1.4rem;
+    .category-dropdown {
+        grid-template-columns: 1fr;
+        padding: 0 22px 22px;
     }
 
 }
