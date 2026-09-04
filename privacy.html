@@ -262,6 +262,148 @@
 </p>
 
 </main>
+
+    <!-- ===============================
+         GLOBAL FOOTER
+         =============================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                APOCALYPSE QUIZZES
+            </div>
+
+            <div class="footer-links">
+
+                <a href="/about.html">
+                    About
+                </a>
+
+                <a href="/privacy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="/disclaimer.html">
+                    Disclaimer
+                </a>
+
+                <a href="/contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+            <div class="copyright">
+                © 2026 Apocalypse Quizzes
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ===============================
+         GLOBAL MENU JAVASCRIPT
+         =============================== -->
+
+    <script>
+
+        const menuToggle =
+            document.getElementById("menu-toggle");
+
+        const siteMenu =
+            document.getElementById("site-menu");
+
+
+        if (menuToggle && siteMenu) {
+
+            menuToggle.addEventListener(
+                "click",
+                function (event) {
+
+                    event.stopPropagation();
+
+                    const isOpen =
+                        menuToggle.getAttribute(
+                            "aria-expanded"
+                        ) === "true";
+
+                    siteMenu.hidden = isOpen;
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        String(!isOpen)
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        isOpen
+                            ? "Open navigation"
+                            : "Close navigation"
+                    );
+
+                }
+            );
+
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    if (
+                        !siteMenu.hidden &&
+                        !siteMenu.contains(event.target) &&
+                        !menuToggle.contains(event.target)
+                    ) {
+
+                        siteMenu.hidden = true;
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+
+                    }
+
+                }
+            );
+
+
+            siteMenu
+                .querySelectorAll("a")
+                .forEach(function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            siteMenu.hidden = true;
+
+                            menuToggle.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                            menuToggle.setAttribute(
+                                "aria-label",
+                                "Open navigation"
+                            );
+
+                        }
+                    );
+
+                });
+
+        }
+
+    </script>
 </body>
 
 </html>
