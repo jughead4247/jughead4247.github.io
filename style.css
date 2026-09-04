@@ -48,9 +48,9 @@ background-attachment: fixed;
 
     width: 100%;
 
-    min-height: 72px;
+    min-height: 100px;
 
-    padding: 12px 60px;
+    padding: 30px 60px;
 
     background: #080808;
 
@@ -939,7 +939,7 @@ background-attachment: fixed;
 .site-footer {
     margin-top: 0;
 
-    padding: 50px 20px 35px;
+    padding: 10px 20px;
 
     background: #080808;
 
