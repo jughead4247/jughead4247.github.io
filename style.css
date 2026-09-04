@@ -16,67 +16,17 @@ body {
     line-height: 1.6;
 
     /* ===============================
-       ANCIENT PARCHMENT BACKGROUND
-       =============================== */
+   PARCHMENT IMAGE BACKGROUND
+   =============================== */
 
-    background-color: #c5ad82;
+background-color: #c5ad82;
 
-    background-image:
+background-image: url("https://apocalypsequizzes.com/images/parchment-bg.png");
 
-        /* Large natural aged patches */
-        radial-gradient(
-            ellipse at 12% 18%,
-            rgba(74, 49, 25, 0.14) 0%,
-            rgba(74, 49, 25, 0.05) 18%,
-            transparent 42%
-        ),
-
-        radial-gradient(
-            ellipse at 88% 25%,
-            rgba(255, 238, 195, 0.12) 0%,
-            transparent 38%
-        ),
-
-        radial-gradient(
-            ellipse at 70% 78%,
-            rgba(76, 48, 22, 0.12) 0%,
-            rgba(76, 48, 22, 0.04) 22%,
-            transparent 45%
-        ),
-
-        radial-gradient(
-            ellipse at 25% 85%,
-            rgba(255, 239, 197, 0.10) 0%,
-            transparent 40%
-        ),
-
-        /* Fine horizontal paper variation */
-        repeating-linear-gradient(
-            0deg,
-            rgba(75, 50, 28, 0.025) 0px,
-            rgba(75, 50, 28, 0.025) 1px,
-            transparent 1px,
-            transparent 7px
-        ),
-
-        /* Fine vertical fibre variation */
-        repeating-linear-gradient(
-            90deg,
-            rgba(255, 244, 210, 0.025) 0px,
-            rgba(255, 244, 210, 0.025) 1px,
-            transparent 1px,
-            transparent 11px
-        ),
-
-        /* Overall aged tone */
-        linear-gradient(
-            115deg,
-            rgba(82, 54, 28, 0.08),
-            transparent 25%,
-            rgba(255, 240, 200, 0.05) 50%,
-            transparent 75%,
-            rgba(74, 48, 24, 0.08)
-        );
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
 }
 
 .container {
