@@ -616,7 +616,6 @@ function startQuiz() {
     showQuestion();
 }
 
-
 // ===============================
 // SHOW QUESTION
 // ===============================
