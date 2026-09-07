@@ -108,4 +108,14 @@
         <loc>https://apocalypsequizzes.com/the-last-ship-quiz/</loc>
     </url>
 
+    <!-- Station Eleven quiz -->
+    <url>
+        <loc>https://apocalypsequizzes.com/station-eleven-quiz/</loc>
+    </url>
+
+    <!-- Z Nation quiz -->
+    <url>
+        <loc>https://apocalypsequizzes.com/z-nation-quiz/</loc>
+    </url>
+
 </urlset>
