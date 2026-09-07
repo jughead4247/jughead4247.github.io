@@ -584,7 +584,6 @@ document.getElementById("knowledge-level").textContent = knowledge;
 document.getElementById("result-icon").textContent = icon;
 
 progressBar.style.width = "100%";
-```
 
 }
 
