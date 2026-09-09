@@ -600,6 +600,7 @@ background-attachment: fixed;
    =============================== */
 
 .how-it-works {
+    margin-top: 60px;
     padding: 90px 0;
 
     background: #111111;
