@@ -1777,15 +1777,21 @@ background-attachment: fixed;
    PAGINATION
    =============================== */
 
+.pagination-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+    box-sizing: border-box;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
-
-    width: fit-content;
-    margin: 40px auto;
-    padding: 0;
+    width: auto;
 }
 
 .pagination-btn {
@@ -1793,7 +1799,6 @@ background-attachment: fixed;
     align-items: center;
     justify-content: center;
 
-    width: auto;
     min-width: 42px;
     height: 38px;
     padding: 0 10px;
@@ -1808,8 +1813,8 @@ background-attachment: fixed;
     font-weight: 600;
     text-decoration: none;
 
-    box-sizing: border-box;
     white-space: nowrap;
+    box-sizing: border-box;
 }
 
 .pagination-btn:hover {
@@ -1828,19 +1833,4 @@ background-attachment: fixed;
     color: #aaa;
     border-color: #e5e5e5;
     pointer-events: none;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .pagination {
-        gap: 5px;
-        margin: 30px auto;
-    }
-
-    .pagination-btn {
-        min-width: 36px;
-        height: 36px;
-        padding: 0 8px;
-        font-size: 13px;
-    }
 }
