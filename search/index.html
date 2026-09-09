@@ -313,7 +313,6 @@
 </footer>
 
 
-
 <!-- =========================================
      GLOBAL SITE MENU JAVASCRIPT
      ========================================= -->
@@ -707,10 +706,29 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/snowpiercer-quiz/"
+    },
+
+
+    {
+        title: "Fear the Walking Dead Quiz",
+
+        description:
+            "Think you know the survivors, communities, factions, locations and major events of Fear the Walking Dead? Test your knowledge and see how much of the series you really remember.",
+
+        categories:
+            "Fear the Walking Dead FTWD zombie TV show zombies walkers apocalypse survival Madison Clark Travis Manawa Alicia Clark Nick Clark Strand Morgan Jones June Dorie Dwight Sherry Daniel Salazar Luciana Galvez Victor Strand Virginia Teddy PADRE ranch dam stadium hotel communities factions locations survivors",
+
+        url:
+            "https://apocalypsequizzes.com/fear-the-walking-dead-quiz/"
     }
 
 ];
 
+
+
+// =========================================
+// SEARCH ELEMENTS
+// =========================================
 
 const searchInput =
     document.getElementById(
@@ -739,10 +757,386 @@ const noResults =
 
 
 
-function displayQuizzes(results) {
+// =========================================
+// PAGINATION SETTINGS
+// =========================================
+
+const RESULTS_PER_PAGE = 20;
+
+
+
+// =========================================
+// GET URL PARAMETERS
+// =========================================
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+
+function getSearchQuery() {
+
+    return (
+        urlParams.get("q") || ""
+    )
+        .toLowerCase()
+        .trim();
+
+}
+
+
+
+function getCurrentPage() {
+
+    const page =
+        parseInt(
+            urlParams.get("page"),
+            10
+        );
+
+    if (
+        isNaN(page) ||
+        page < 1
+    ) {
+
+        return 1;
+
+    }
+
+    return page;
+
+}
+
+
+
+// =========================================
+// CREATE SEARCH URL
+// =========================================
+
+function createSearchURL(
+    query,
+    page
+) {
+
+    const params =
+        new URLSearchParams();
+
+
+    if (query !== "") {
+
+        params.set(
+            "q",
+            query
+        );
+
+    }
+
+
+    if (page > 1) {
+
+        params.set(
+            "page",
+            page
+        );
+
+    }
+
+
+    const queryString =
+        params.toString();
+
+
+    return queryString
+        ? "/search/?" + queryString
+        : "/search/";
+
+}
+
+
+
+// =========================================
+// DISPLAY PAGINATION
+// =========================================
+
+function displayPagination(
+    totalResults,
+    currentPage,
+    query
+) {
+
+    const totalPages =
+        Math.ceil(
+            totalResults /
+            RESULTS_PER_PAGE
+        );
+
+
+    // REMOVE OLD PAGINATION
+
+    const oldPagination =
+        document.querySelector(
+            ".search-pagination-wrapper"
+        );
+
+    if (oldPagination) {
+
+        oldPagination.remove();
+
+    }
+
+
+    // NO PAGINATION NEEDED
+
+    if (totalPages <= 1) {
+
+        return;
+
+    }
+
+
+    const wrapper =
+        document.createElement("div");
+
+    wrapper.className =
+        "pagination-wrapper search-pagination-wrapper";
+
+
+    const pagination =
+        document.createElement("div");
+
+    pagination.className =
+        "pagination";
+
+
+    // FIRST PAGE
+
+    if (currentPage === 1) {
+
+        const first =
+            document.createElement("span");
+
+        first.className =
+            "pagination-btn disabled";
+
+        first.textContent =
+            "First Page";
+
+        pagination.appendChild(first);
+
+    } else {
+
+        const first =
+            document.createElement("a");
+
+        first.className =
+            "pagination-btn";
+
+        first.href =
+            createSearchURL(
+                query,
+                1
+            );
+
+        first.textContent =
+            "First Page";
+
+        pagination.appendChild(first);
+
+    }
+
+
+    // BACK
+
+    if (currentPage === 1) {
+
+        const back =
+            document.createElement("span");
+
+        back.className =
+            "pagination-btn disabled";
+
+        back.textContent =
+            "Back";
+
+        pagination.appendChild(back);
+
+    } else {
+
+        const back =
+            document.createElement("a");
+
+        back.className =
+            "pagination-btn";
+
+        back.href =
+            createSearchURL(
+                query,
+                currentPage - 1
+            );
+
+        back.textContent =
+            "Back";
+
+        pagination.appendChild(back);
+
+    }
+
+
+    // PAGE NUMBERS
+
+    for (
+        let page = 1;
+        page <= totalPages;
+        page++
+    ) {
+
+        if (page === currentPage) {
+
+            const current =
+                document.createElement("span");
+
+            current.className =
+                "pagination-btn active";
+
+            current.textContent =
+                page;
+
+            pagination.appendChild(
+                current
+            );
+
+        } else {
+
+            const pageLink =
+                document.createElement("a");
+
+            pageLink.className =
+                "pagination-btn";
+
+            pageLink.href =
+                createSearchURL(
+                    query,
+                    page
+                );
+
+            pageLink.textContent =
+                page;
+
+            pagination.appendChild(
+                pageLink
+            );
+
+        }
+
+    }
+
+
+    // NEXT
+
+    if (
+        currentPage >= totalPages
+    ) {
+
+        const next =
+            document.createElement("span");
+
+        next.className =
+            "pagination-btn disabled";
+
+        next.textContent =
+            "Next";
+
+        pagination.appendChild(next);
+
+    } else {
+
+        const next =
+            document.createElement("a");
+
+        next.className =
+            "pagination-btn";
+
+        next.href =
+            createSearchURL(
+                query,
+                currentPage + 1
+            );
+
+        next.textContent =
+            "Next";
+
+        pagination.appendChild(next);
+
+    }
+
+
+    // LAST PAGE
+
+    if (
+        currentPage >= totalPages
+    ) {
+
+        const last =
+            document.createElement("span");
+
+        last.className =
+            "pagination-btn disabled";
+
+        last.textContent =
+            "Last Page";
+
+        pagination.appendChild(last);
+
+    } else {
+
+        const last =
+            document.createElement("a");
+
+        last.className =
+            "pagination-btn";
+
+        last.href =
+            createSearchURL(
+                query,
+                totalPages
+            );
+
+        last.textContent =
+            "Last Page";
+
+        pagination.appendChild(last);
+
+    }
+
+
+    wrapper.appendChild(
+        pagination
+    );
+
+
+    searchGrid.parentNode.appendChild(
+        wrapper
+    );
+
+}
+
+
+
+// =========================================
+// DISPLAY QUIZZES
+// =========================================
+
+function displayQuizzes(
+    results,
+    query
+) {
 
     searchGrid.innerHTML = "";
 
+
+    // NO RESULTS
 
     if (results.length === 0) {
 
@@ -750,6 +1144,12 @@ function displayQuizzes(results) {
 
         resultsHeader.textContent =
             "No quizzes found";
+
+        displayPagination(
+            0,
+            1,
+            query
+        );
 
         return;
 
@@ -759,49 +1159,144 @@ function displayQuizzes(results) {
     noResults.hidden = true;
 
 
-    resultsHeader.textContent =
-        results.length +
-        (
-            results.length === 1
-                ? " quiz found"
-                : " quizzes found"
+    const totalResults =
+        results.length;
+
+
+    const totalPages =
+        Math.ceil(
+            totalResults /
+            RESULTS_PER_PAGE
         );
 
 
-    results.forEach(function (quiz) {
-
-        const card =
-            document.createElement("a");
-
-        card.className =
-            "search-card";
-
-        card.href =
-            quiz.url;
+    let currentPage =
+        getCurrentPage();
 
 
-        card.innerHTML = `
+    // PREVENT INVALID PAGE NUMBERS
 
-            <div class="search-card-content">
+    if (
+        currentPage > totalPages
+    ) {
 
-                <h2>
-                    ${quiz.title}
-                </h2>
+        currentPage =
+            totalPages;
 
-            </div>
-
-        `;
+    }
 
 
-        searchGrid.appendChild(card);
+    const startIndex =
+        (
+            currentPage - 1
+        ) *
+        RESULTS_PER_PAGE;
 
-    });
+
+    const endIndex =
+        startIndex +
+        RESULTS_PER_PAGE;
+
+
+    const pageResults =
+        results.slice(
+            startIndex,
+            endIndex
+        );
+
+
+    // RESULTS HEADER
+
+    if (query === "") {
+
+        resultsHeader.textContent =
+            "Showing " +
+            (
+                startIndex + 1
+            ) +
+            "–" +
+            (
+                startIndex +
+                pageResults.length
+            ) +
+            " of " +
+            totalResults +
+            " quizzes";
+
+    } else {
+
+        resultsHeader.textContent =
+            "Showing " +
+            (
+                startIndex + 1
+            ) +
+            "–" +
+            (
+                startIndex +
+                pageResults.length
+            ) +
+            " of " +
+            totalResults +
+            " quizzes";
+
+    }
+
+
+    // CREATE CARDS
+
+    pageResults.forEach(
+        function (quiz) {
+
+            const card =
+                document.createElement("a");
+
+            card.className =
+                "search-card";
+
+            card.href =
+                quiz.url;
+
+
+            card.innerHTML = `
+
+                <div class="search-card-content">
+
+                    <h2>
+                        ${quiz.title}
+                    </h2>
+
+                </div>
+
+            `;
+
+
+            searchGrid.appendChild(
+                card
+            );
+
+        }
+    );
+
+
+    // PAGINATION
+
+    displayPagination(
+        totalResults,
+        currentPage,
+        query
+    );
 
 }
 
 
 
-function performSearch() {
+// =========================================
+// PERFORM SEARCH
+// =========================================
+
+function performSearch(
+    updateURL = true
+) {
 
     const query =
         searchInput.value
@@ -809,40 +1304,73 @@ function performSearch() {
             .trim();
 
 
-    if (query === "") {
+    // UPDATE URL WHEN SEARCHING
 
-        displayQuizzes(quizzes);
+    if (updateURL) {
 
-        return;
+        const newURL =
+            createSearchURL(
+                query,
+                1
+            );
+
+        window.history.pushState(
+            {},
+            "",
+            newURL
+        );
 
     }
 
 
-    const results =
-        quizzes.filter(function (quiz) {
+    // SEARCH ALL QUIZZES
 
-            const searchableText =
-                (
-                    quiz.title +
-                    " " +
-                    quiz.description +
-                    " " +
-                    quiz.categories
-                ).toLowerCase();
+    let results;
 
 
-            return searchableText.includes(
-                query
+    if (query === "") {
+
+        results =
+            quizzes;
+
+    } else {
+
+        results =
+            quizzes.filter(
+                function (quiz) {
+
+                    const searchableText =
+                        (
+                            quiz.title +
+                            " " +
+                            quiz.description +
+                            " " +
+                            quiz.categories
+                        ).toLowerCase();
+
+
+                    return searchableText.includes(
+                        query
+                    );
+
+                }
             );
 
-        });
+    }
 
 
-    displayQuizzes(results);
+    displayQuizzes(
+        results,
+        query
+    );
 
 }
 
 
+
+// =========================================
+// SEARCH FORM
+// =========================================
 
 searchForm.addEventListener(
     "submit",
@@ -850,21 +1378,135 @@ searchForm.addEventListener(
 
         event.preventDefault();
 
-        performSearch();
+        performSearch(true);
 
     }
 );
 
 
+
+// =========================================
+// LIVE SEARCH
+// =========================================
+
 searchInput.addEventListener(
     "input",
-    performSearch
+    function () {
+
+        performSearch(true);
+
+    }
 );
 
 
-displayQuizzes(quizzes);
+
+// =========================================
+// BROWSER BACK / FORWARD
+// =========================================
+
+window.addEventListener(
+    "popstate",
+    function () {
+
+        const query =
+            getSearchQuery();
+
+        searchInput.value =
+            query;
+
+
+        let results;
+
+
+        if (query === "") {
+
+            results =
+                quizzes;
+
+        } else {
+
+            results =
+                quizzes.filter(
+                    function (quiz) {
+
+                        const searchableText =
+                            (
+                                quiz.title +
+                                " " +
+                                quiz.description +
+                                " " +
+                                quiz.categories
+                            ).toLowerCase();
+
+
+                        return searchableText.includes(
+                            query
+                        );
+
+                    }
+                );
+
+        }
+
+
+        displayQuizzes(
+            results,
+            query
+        );
+
+    }
+);
+
+
+
+// =========================================
+// INITIAL PAGE LOAD
+// =========================================
+
+const initialQuery =
+    getSearchQuery();
+
+searchInput.value =
+    initialQuery;
+
+
+let initialResults;
+
+
+if (initialQuery === "") {
+
+    initialResults =
+        quizzes;
+
+} else {
+
+    initialResults =
+        quizzes.filter(
+            function (quiz) {
+
+                const searchableText =
+                    (
+                        quiz.title +
+                        " " +
+                        quiz.description +
+                        " " +
+                        quiz.categories
+                    ).toLowerCase();
+
+
+                return searchableText.includes(
+                    initialQuery
+                );
+
+            }
+        );
+
+}
+
+
+displayQuizzes(
+    initialResults,
+    initialQuery
+);
 
 </script>
-
-</body>
-</html>
