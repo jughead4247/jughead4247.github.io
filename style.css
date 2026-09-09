@@ -1778,25 +1778,29 @@ background-attachment: fixed;
    =============================== */
 
 .pagination {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
 
-    width: 100%;
-    margin: 40px auto;
+    margin: 40px 0;
+    padding: 0;
+
     box-sizing: border-box;
 }
 
 .pagination-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 
     min-width: 52px;
     height: 44px;
     padding: 0 16px;
+
+    box-sizing: border-box;
 
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -1808,36 +1812,31 @@ background-attachment: fixed;
     font-weight: 600;
     text-decoration: none;
 
-    box-sizing: border-box;
     transition: all 0.2s ease;
 }
 
 .pagination-btn:hover {
     background: #f1f1f1;
     border-color: #bbb;
-    transform: translateY(-1px);
 }
 
 .pagination-btn.active {
     background: #222;
     color: #fff;
     border-color: #222;
-    cursor: default;
 }
 
 .pagination-btn.disabled {
     background: #f5f5f5;
     color: #aaa;
     border-color: #e5e5e5;
-    cursor: not-allowed;
     pointer-events: none;
 }
 
-/* Mobile */
 @media (max-width: 600px) {
     .pagination {
         gap: 7px;
-        margin: 30px auto;
+        margin: 30px 0;
     }
 
     .pagination-btn {
