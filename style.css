@@ -1835,3 +1835,7 @@ background-attachment: fixed;
     border-color: #e5e5e5;
     pointer-events: none;
 }
+
+.page-2-pagination {
+    margin-top: 60px;
+}
