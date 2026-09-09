@@ -1787,12 +1787,6 @@ background-attachment: fixed;
     box-sizing: border-box;
 }
 
-.page-2-pagination {
-    margin-top: 60px;
-    justify-content: center;
-    align-items: center;
-}
-
 .pagination {
     display: flex;
     justify-content: center;
