@@ -1787,6 +1787,10 @@ background-attachment: fixed;
     box-sizing: border-box;
 }
 
+.page-2-pagination {
+    margin-top: 60px;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
@@ -1834,8 +1838,4 @@ background-attachment: fixed;
     color: #aaa;
     border-color: #e5e5e5;
     pointer-events: none;
-}
-
-.page-2-pagination {
-    margin-top: 60px;
 }
