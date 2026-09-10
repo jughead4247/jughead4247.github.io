@@ -6,6 +6,10 @@
         <loc>https://apocalypsequizzes.com/</loc>
     </url>
 
+    <url>
+        https://apocalypsequizzes.com/page/2/
+    </url>
+
     <!-- Common Site Pages -->
     <url>
         <loc>https://apocalypsequizzes.com/about.html</loc>
