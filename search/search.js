@@ -399,6 +399,19 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/fear-the-walking-dead-quiz/"
+    },
+
+        {
+        title: "Alice in Borderland Season 1 Quiz",
+
+        description:
+            "Test your knowledge of Alice in Borderland Season 1, its characters, games, story, and mysterious world.",
+
+        categories:
+            "Alice in Borderland Alice in Borderland Season 1 TV show series Arisu Ryohei Arisu Usagi Yuzuha Chishiya Shuntaro Chishiya Karube Daikichi Segawa Chota Morita Kuina Hikari Niragi Shibuki Ann Rizuna Aguni Morizono Hatter Mira Kano Last Boss games Borderland visas playing cards Beach survival apocalypse dystopian survival",
+
+        url:
+            "/alice-in-borderland-season-1-quiz/"
     }
 
 ];
