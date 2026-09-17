@@ -401,17 +401,45 @@ const quizzes = [
             "https://apocalypsequizzes.com/fear-the-walking-dead-quiz/"
     },
 
-        {
+            {
         title: "Alice in Borderland Season 1 Quiz",
 
         description:
             "Test your knowledge of Alice in Borderland Season 1, its characters, games, story, and mysterious world.",
 
         categories:
-            "Alice in Borderland Alice in Borderland Season 1 TV show series Arisu Ryohei Arisu Usagi Yuzuha Chishiya Shuntaro Chishiya Karube Daikichi Segawa Chota Morita Kuina Hikari Niragi Shibuki Ann Rizuna Aguni Morizono Hatter Mira Kano Last Boss games Borderland visas playing cards Beach survival apocalypse dystopian survival",
+            "Alice in Borderland Alice in Borderland Season 1 TV show series Arisu Ryohei Arisu Usagi Yuzuha Chishiya Shuntaro Chishiya Karube Daikichi Segawa Chota Morita Kuina Hikari Niragi Shibuki Ann Rizuna Aguni Morizono Hatter Mira Kano Last Boss games Borderland visas playing cards Beach survival dystopian survival",
 
         url:
-            "/alice-in-borderland-season-1-quiz/"
+            "https://apocalypsequizzes.com/alice-in-borderland-season-1-quiz/"
+    },
+
+
+    {
+        title: "Alice in Borderland Season 2 Quiz",
+
+        description:
+            "Test your knowledge of Alice in Borderland Season 2, including the Face Card games, characters, major events, and the King of Spades.",
+
+        categories:
+            "Alice in Borderland Alice in Borderland Season 2 TV show series Arisu Ryohei Arisu Usagi Yuzuha Usagi Chishiya Shuntaro Chishiya Kuina Hikari Niragi Aguni Morita Ann Rizuna Heiya Akane Heiya Banda Yaba Mira Kano Queen of Hearts King of Spades King of Clubs King of Diamonds King of Hearts Jack of Hearts Jack of Spades Jack of Clubs Jack of Diamonds Queen of Spades Queen of Clubs games Face Cards Borderland Beach visas playing cards survival dystopian survival",
+
+        url:
+            "https://apocalypsequizzes.com/alice-in-borderland-season-2-quiz/"
+    },
+
+
+    {
+        title: "Alice in Borderland Season 3 Quiz",
+
+        description:
+            "Test your knowledge of Alice in Borderland Season 3, including the Joker's tournament, characters, deadly games, and major events.",
+
+        categories:
+            "Alice in Borderland Alice in Borderland Season 3 TV show series Arisu Ryohei Arisu Usagi Yuzuha Usagi Chishiya Shuntaro Chishiya Kuina Hikari Niragi Banda Yaba Mira Kano Joker Joker's tournament Borderland games playing cards face cards survival dystopian survival characters events",
+
+        url:
+            "https://apocalypsequizzes.com/alice-in-borderland-season-3-quiz/"
     }
 
 ];
