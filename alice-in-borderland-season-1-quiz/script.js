@@ -557,48 +557,54 @@ progressBar.style.width = "0%";
 
 async function shareResult() {
 
-const title =
-    document.getElementById("result-title").textContent;
+    const title =
+        document.getElementById("result-title").textContent;
 
-const knowledge =
-    document.getElementById("knowledge-level").textContent;
+    const knowledge =
+        document.getElementById("knowledge-level").textContent;
 
-const finalScore =
-    document.getElementById("final-score").textContent;
+    const finalScore =
+        document.getElementById("final-score").textContent;
 
-const shareText =
-    `🃏 I scored ${finalScore} on the Alice in Borderland Season 1 Quiz!\n\n` +
-    `${title}\n` +
-    `Knowledge level: ${knowledge}\n\n` +
-    `How well do YOU know Alice in Borderland Season 1?`;
+    const quizUrl =
+        "https://apocalypsequizzes.com/alice-in-borderland-season-1-quiz/";
 
-const shareData = {
-    title: "Alice in Borderland Season 1 Quiz",
-    text: shareText,
-    url: "https://apocalypsequizzes.com/alice-in-borderland-season-1-quiz/"
-};
+    const shareText =
+        `🃏 I scored ${finalScore} on the Alice in Borderland Season 1 Quiz!\n\n` +
+        `${title}\n` +
+        `Knowledge level: ${knowledge}\n\n` +
+        `How well do YOU know Alice in Borderland Season 1?`;
 
-try {
+    const shareData = {
+        title: "Alice in Borderland Season 1 Quiz",
+        text: shareText,
+        url: quizUrl
+    };
 
-    if (navigator.share) {
+    try {
 
-        await navigator.share(shareData);
+        if (navigator.share) {
 
-    } else {
+            await navigator.share(shareData);
 
-        await navigator.clipboard.writeText(
-            shareText +
-            "\n\nhttps://apocalypsequizzes.com/alice-in-borderland-season-1-quiz/"
-        );
+        } else {
 
-        alert(
-            "Your result has been copied! You can paste it anywhere."
-        );
+            await navigator.clipboard.writeText(
+                shareText +
+                "\n\n" +
+                quizUrl
+            );
+
+            alert(
+                "Your result has been copied! You can paste it anywhere."
+            );
+        }
+
+    } catch (error) {
+
+        console.log("Sharing cancelled.");
+
     }
-
-} catch (error) {
-    console.log("Sharing cancelled.");
-}
 
 }
 
