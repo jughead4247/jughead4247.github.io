@@ -167,6 +167,15 @@
         <loc>https://apocalypsequizzes.com/2012-quiz/</loc>
     </url>
 
+    <!-- Train to Busan Quiz -->
+    <url>
+        <loc>https://apocalypsequizzes.com/train-to-busan-quiz/</loc>
+    </url>
+
+    <!-- I Am Legend Quiz -->
+    <url>
+        <loc>https://apocalypsequizzes.com/i-am-legend-quiz/</loc>
+    </url>
 
 
 </urlset>
