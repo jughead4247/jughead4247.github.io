@@ -10,8 +10,6 @@ const siteMenu =
 
 if (menuToggle && siteMenu) {
 
-    // OPEN / CLOSE WITH HAMBURGER
-
     menuToggle.addEventListener(
         "click",
         function (event) {
@@ -41,8 +39,6 @@ if (menuToggle && siteMenu) {
     );
 
 
-    // CLOSE WHEN CLICKING OUTSIDE
-
     document.addEventListener(
         "click",
         function (event) {
@@ -70,8 +66,6 @@ if (menuToggle && siteMenu) {
         }
     );
 
-
-    // CLOSE AFTER CLICKING A MENU LINK
 
     siteMenu
         .querySelectorAll("a")
@@ -207,7 +201,7 @@ categoryToggles.forEach(
 
 
 // =========================================
-// PAGINATION SETTINGS
+// CATEGORY PAGINATION
 // =========================================
 
 const QUIZZES_PER_PAGE = 20;
@@ -215,18 +209,15 @@ const QUIZZES_PER_PAGE = 20;
 
 
 // =========================================
-// URL HELPERS
+// GET CURRENT PAGE
 // =========================================
 
-function getPageParameter(
-    categoryId
-) {
+function getCategoryPage(categoryId) {
 
     const params =
         new URLSearchParams(
             window.location.search
         );
-
 
     const parameterName =
         categoryId.replace(
@@ -234,13 +225,11 @@ function getPageParameter(
             "-page"
         );
 
-
     const page =
         parseInt(
             params.get(parameterName),
             10
         );
-
 
     if (
         isNaN(page) ||
@@ -251,12 +240,15 @@ function getPageParameter(
 
     }
 
-
     return page;
 
 }
 
 
+
+// =========================================
+// CREATE CATEGORY URL
+// =========================================
 
 function createCategoryURL(
     categoryId,
@@ -276,7 +268,8 @@ function createCategoryURL(
         );
 
 
-    // Remove all category page parameters
+    // Remove every category pagination
+    // parameter first.
 
     document
         .querySelectorAll(
@@ -322,45 +315,14 @@ function createCategoryURL(
 
 
 // =========================================
-// GET PAGINATION PARAMETER
+// CREATE PAGINATION
 // =========================================
 
-function getPaginationParameter(
-    categoryId
-) {
-
-    return categoryId.replace(
-        "-quizzes",
-        "-page"
-    );
-
-}
-
-
-
-// =========================================
-// DISPLAY CATEGORY PAGINATION
-// =========================================
-
-function displayCategoryPagination(
+function createPagination(
     dropdown,
     totalItems,
     currentPage
 ) {
-
-    // REMOVE OLD PAGINATION
-
-    const oldPagination =
-        dropdown.querySelector(
-            ".category-pagination-wrapper"
-        );
-
-    if (oldPagination) {
-
-        oldPagination.remove();
-
-    }
-
 
     const totalPages =
         Math.ceil(
@@ -369,7 +331,9 @@ function displayCategoryPagination(
         );
 
 
-    // NO PAGINATION NEEDED
+    // IMPORTANT:
+    // Categories with 20 or fewer quizzes
+    // get NO pagination.
 
     if (totalPages <= 1) {
 
@@ -668,10 +632,174 @@ function displayCategoryPagination(
 
 
 // =========================================
-// PAGINATE ALL CATEGORY DROPDOWNS
+// PAGINATE CATEGORY
 // =========================================
 
-function paginateCategories() {
+function paginateCategory(dropdown) {
+
+    /*
+        IMPORTANT:
+
+        Only direct <a> elements are treated
+        as quiz cards.
+
+        The pagination itself is a <div>,
+        so it is never included.
+    */
+
+    const quizLinks =
+        Array.from(
+            dropdown.children
+        ).filter(
+            function (element) {
+
+                return (
+                    element.tagName
+                        .toLowerCase() === "a"
+                );
+
+            }
+        );
+
+
+    const totalItems =
+        quizLinks.length;
+
+
+    // -----------------------------------------
+    // CATEGORIES WITH 20 OR FEWER
+    // -----------------------------------------
+
+    if (
+        totalItems <= QUIZZES_PER_PAGE
+    ) {
+
+        quizLinks.forEach(
+            function (link) {
+
+                link.hidden = false;
+
+                // Force normal display in case
+                // existing CSS overrides [hidden].
+
+                link.style.display = "";
+
+            }
+        );
+
+        return;
+
+    }
+
+
+
+    // -----------------------------------------
+    // GET PAGE
+    // -----------------------------------------
+
+    let currentPage =
+        getCategoryPage(
+            dropdown.id
+        );
+
+
+    const totalPages =
+        Math.ceil(
+            totalItems /
+            QUIZZES_PER_PAGE
+        );
+
+
+    if (
+        currentPage > totalPages
+    ) {
+
+        currentPage =
+            totalPages;
+
+    }
+
+
+
+    // -----------------------------------------
+    // CALCULATE RANGE
+    // -----------------------------------------
+
+    const startIndex =
+        (
+            currentPage - 1
+        ) *
+        QUIZZES_PER_PAGE;
+
+
+    const endIndex =
+        startIndex +
+        QUIZZES_PER_PAGE;
+
+
+
+    // -----------------------------------------
+    // SHOW ONLY CURRENT PAGE
+    // -----------------------------------------
+
+    quizLinks.forEach(
+        function (
+            link,
+            index
+        ) {
+
+            if (
+                index >= startIndex &&
+                index < endIndex
+            ) {
+
+                // SHOW
+
+                link.hidden = false;
+
+                link.style.display = "";
+
+            } else {
+
+                // HIDE
+
+                link.hidden = true;
+
+                /*
+                    Force display:none because
+                    some existing category CSS may
+                    override the browser's hidden
+                    attribute.
+                */
+
+                link.style.display = "none";
+
+            }
+
+        }
+    );
+
+
+
+    // -----------------------------------------
+    // CREATE PAGINATION
+    // -----------------------------------------
+
+    createPagination(
+        dropdown,
+        totalItems,
+        currentPage
+    );
+
+}
+
+
+
+// =========================================
+// PAGINATE ALL CATEGORIES
+// =========================================
+
+function paginateAllCategories() {
 
     const dropdowns =
         document.querySelectorAll(
@@ -682,105 +810,60 @@ function paginateCategories() {
     dropdowns.forEach(
         function (dropdown) {
 
-            // Get only the actual quiz links.
-            // Pagination itself is excluded.
+            // Remove old pagination first.
 
-            const quizLinks =
-                Array.from(
-                    dropdown.querySelectorAll(
-                        ":scope > a"
-                    )
+            const oldPagination =
+                dropdown.querySelector(
+                    ".category-pagination-wrapper"
                 );
 
+            if (oldPagination) {
 
-            const totalItems =
-                quizLinks.length;
-
-
-            let currentPage =
-                getPageParameter(
-                    dropdown.id
-                );
-
-
-            const totalPages =
-                Math.ceil(
-                    totalItems /
-                    QUIZZES_PER_PAGE
-                );
-
-
-            // Prevent invalid page numbers
-
-            if (
-                currentPage > totalPages
-            ) {
-
-                currentPage =
-                    totalPages || 1;
+                oldPagination.remove();
 
             }
 
 
-            const startIndex =
-                (
-                    currentPage - 1
-                ) *
-                QUIZZES_PER_PAGE;
-
-
-            const endIndex =
-                startIndex +
-                QUIZZES_PER_PAGE;
-
-
-            // SHOW / HIDE QUIZ LINKS
-
-            quizLinks.forEach(
-                function (
-                    link,
-                    index
-                ) {
-
-                    if (
-                        index >= startIndex &&
-                        index < endIndex
-                    ) {
-
-                        link.hidden =
-                            false;
-
-                    } else {
-
-                        link.hidden =
-                            true;
-
-                    }
-
-                }
+            paginateCategory(
+                dropdown
             );
 
+        }
+    );
 
-            // CREATE PAGINATION
-
-            displayCategoryPagination(
-                dropdown,
-                totalItems,
-                currentPage
-            );
+}
 
 
-            // OPEN CATEGORY AUTOMATICALLY
-            // IF IT HAS A PAGE PARAMETER
 
-            const parameterName =
-                getPaginationParameter(
-                    dropdown.id
+// =========================================
+// OPEN CATEGORY FROM URL
+// =========================================
+
+function openCategoryFromURL() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    categoryToggles.forEach(
+        function (toggle) {
+
+            const dropdownId =
+                toggle.getAttribute(
+                    "aria-controls"
                 );
 
-            const params =
-                new URLSearchParams(
-                    window.location.search
+            if (!dropdownId) {
+                return;
+            }
+
+
+            const parameterName =
+                dropdownId.replace(
+                    "-quizzes",
+                    "-page"
                 );
 
 
@@ -788,15 +871,13 @@ function paginateCategories() {
                 params.has(parameterName)
             ) {
 
-                const toggle =
-                    document.querySelector(
-                        '[aria-controls="' +
-                        dropdown.id +
-                        '"]'
+                const dropdown =
+                    document.getElementById(
+                        dropdownId
                     );
 
 
-                if (toggle) {
+                if (dropdown) {
 
                     toggle.setAttribute(
                         "aria-expanded",
@@ -818,10 +899,12 @@ function paginateCategories() {
 
 
 // =========================================
-// INITIALIZE PAGINATION
+// INITIALIZE
 // =========================================
 
-paginateCategories();
+paginateAllCategories();
+
+openCategoryFromURL();
 
 
 
@@ -833,9 +916,9 @@ window.addEventListener(
     "popstate",
     function () {
 
-        // Rebuild pagination state
+        paginateAllCategories();
 
-        paginateCategories();
+        openCategoryFromURL();
 
     }
 );
