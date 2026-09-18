@@ -454,6 +454,61 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/alice-in-borderland-games-quiz/"
+    },
+
+        {
+        title: "World War Z Quiz",
+
+        description:
+            "Test your knowledge of World War Z, its characters, zombie outbreak, survival story, and major events.",
+
+        categories:
+            "World War Z World War Z movie zombie zombies apocalypse survival Gerry Lane Brad Pitt Karin Lane Segen Rachel Tommy Constance zombie outbreak virus pandemic infection undead Jerusalem Israel Korea South Korea Philadelphia aircraft research facility WHO United Nations zombies swarm outbreak survival post-apocalyptic",
+
+        url:
+            "https://apocalypsequizzes.com/world-war-z-quiz/"
+    },
+
+
+    {
+        title: "2012 Movie Quiz",
+
+        description:
+            "Test your knowledge of 2012, its characters, catastrophic events, arks, locations, and survival story.",
+
+        categories:
+            "2012 2012 movie movie quiz apocalypse disaster survival Jackson Curtis Kate Curtis Noah Curtis Lilly Curtis Yuri Karpov Tamara Gordon Adrian Helmsley Charlie Frost Yellowstone supervolcano earthquakes tsunami eruption arks China Tibet Himalayas Los Angeles Washington DC Yellowstone National Park post-apocalyptic survival disaster movie",
+
+        url:
+            "https://apocalypsequizzes.com/2012-quiz/"
+    },
+
+
+    {
+        title: "Train to Busan Quiz",
+
+        description:
+            "Test your knowledge of Train to Busan, its characters, zombie outbreak, survival journey, and major events.",
+
+        categories:
+            "Train to Busan Train to Busan movie zombie zombies apocalypse survival Seok-woo Su-an Sang-hwa Seong-kyeong Yong-suk Jin-hee Yong-guk Jin-seok infected outbreak Korea South Korea Seoul Busan KTX train railway station zombie outbreak infection undead baseball team passengers survival horror Korean movie post-apocalyptic",
+
+        url:
+            "https://apocalypsequizzes.com/train-to-busan-quiz/"
+    },
+
+
+    {
+        title: "I Am Legend Quiz",
+
+        description:
+            "Test your knowledge of I Am Legend, Robert Neville, Sam, the Darkseekers, the Krippin Virus, and the survival story.",
+
+        categories:
+            "I Am Legend I Am Legend movie movie quiz Robert Neville Sam Darkseekers Krippin Virus Alice Krippin Anna Ethan Will Smith New York Washington Square Park South Street Seaport Times Square Fred virologist military outbreak virus infection infected cure laboratory survival apocalypse post-apocalyptic zombie movie",
+
+        url:
+            "https://apocalypsequizzes.com/i-am-legend-quiz/"
     }
 
 ];
