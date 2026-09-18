@@ -429,7 +429,7 @@ const quizzes = [
     },
 
 
-    {
+       {
         title: "Alice in Borderland Season 3 Quiz",
 
         description:
@@ -440,6 +440,20 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/alice-in-borderland-season-3-quiz/"
+    },
+
+
+    {
+        title: "Alice in Borderland Games Quiz",
+
+        description:
+            "Test your knowledge of the deadly games in Alice in Borderland, including game rules, objectives, playing cards, challenges, and survival strategies.",
+
+        categories:
+            "Alice in Borderland Alice in Borderland games games quiz TV show series Borderland deadly games game rules game objectives playing cards cards Hearts Diamonds Clubs Spades Visa visas survival challenges challenges mechanics strategies survival strategy Arisu Ryohei Arisu Usagi Yuzuha Usagi Chishiya Shuntaro Chishiya Kuina Hikari Niragi Aguni Hatter Beach King of Spades King of Clubs King of Diamonds King of Hearts Queen of Spades Queen of Clubs Queen of Diamonds Queen of Hearts Jack of Spades Jack of Clubs Jack of Diamonds Jack of Hearts Joker Face Cards games Season 1 Season 2 Season 3 dystopian survival",
+
+        url:
+            "https://apocalypsequizzes.com/alice-in-borderland-games-quiz/"
     }
 
 ];
