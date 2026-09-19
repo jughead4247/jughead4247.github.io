@@ -509,6 +509,33 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/i-am-legend-quiz/"
+    },
+
+        {
+        title: "Edge of Tomorrow Quiz",
+
+        description:
+            "Test your knowledge of Edge of Tomorrow, Major William Cage, Rita Vrataski, the Mimics, the Omega, and the time-loop battle.",
+
+        categories:
+            "Edge of Tomorrow Edge of Tomorrow movie movie quiz Tom Cruise Emily Blunt Major William Cage Rita Vrataski Mimics Omega Alpha Operation Downfall United Defense Force UDF time loop alien invasion science fiction action movie survival apocalypse",
+
+        url:
+            "https://apocalypsequizzes.com/edge-of-tomorrow-quiz/"
+    },
+
+
+    {
+        title: "The Tomorrow War Quiz",
+
+        description:
+            "Test your knowledge of The Tomorrow War, Dan Forester, Muri, the White Spikes, the future war, and the fight to save humanity.",
+
+        categories:
+            "The Tomorrow War The Tomorrow War movie movie quiz Chris Pratt Dan Forester Muri White Spikes aliens alien invasion future war time travel military survival apocalypse science fiction action movie humanity",
+
+        url:
+            "https://apocalypsequizzes.com/tomorrow-war-quiz/"
     }
 
 ];
