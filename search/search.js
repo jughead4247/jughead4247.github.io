@@ -401,7 +401,8 @@ const quizzes = [
             "https://apocalypsequizzes.com/fear-the-walking-dead-quiz/"
     },
 
-            {
+
+    {
         title: "Alice in Borderland Season 1 Quiz",
 
         description:
@@ -429,7 +430,7 @@ const quizzes = [
     },
 
 
-       {
+    {
         title: "Alice in Borderland Season 3 Quiz",
 
         description:
@@ -456,7 +457,8 @@ const quizzes = [
             "https://apocalypsequizzes.com/alice-in-borderland-games-quiz/"
     },
 
-        {
+
+    {
         title: "World War Z Quiz",
 
         description:
@@ -491,7 +493,7 @@ const quizzes = [
             "Test your knowledge of Train to Busan, its characters, zombie outbreak, survival journey, and major events.",
 
         categories:
-            "Train to Busan Train to Busan movie zombie zombies apocalypse survival Seok-woo Su-an Sang-hwa Seong-kyeong Yong-suk Jin-hee Yong-guk Jin-seok infected outbreak Korea South Korea Seoul Busan KTX train railway station zombie outbreak infection undead baseball team passengers survival horror Korean movie post-apocalyptic",
+            "Train to Busan Train to Busan movie zombie zombies apocalypse survival Seok-woo Su-an Sang-hwa Seong-kyeong Yong-suk Jin-hee Yong-guk Jin-seok infected outbreak Korea South Korea Seoul Busan KTX train railway station zombie outbreak infection undead passengers survival horror Korean movie post-apocalyptic",
 
         url:
             "https://apocalypsequizzes.com/train-to-busan-quiz/"
@@ -511,7 +513,8 @@ const quizzes = [
             "https://apocalypsequizzes.com/i-am-legend-quiz/"
     },
 
-        {
+
+    {
         title: "Edge of Tomorrow Quiz",
 
         description:
@@ -536,6 +539,48 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/tomorrow-war-quiz/"
+    },
+
+
+    {
+        title: "A Quiet Place Quiz",
+
+        description:
+            "Test your knowledge of A Quiet Place, its characters, creatures, survival rules, and major events.",
+
+        categories:
+            "A Quiet Place A Quiet Place movie movie quiz horror survival apocalypse John Krasinski Emily Blunt Lee Abbott Evelyn Abbott Regan Abbott Marcus Abbott Beau Abbott creatures monsters aliens sound hearing silence survival family Abbott family farm creatures invasion",
+
+        url:
+            "https://apocalypsequizzes.com/a-quiet-place-quiz/"
+    },
+
+
+    {
+        title: "A Quiet Place Part II Quiz",
+
+        description:
+            "Test your knowledge of A Quiet Place Part II, its characters, creatures, survival story, and major events.",
+
+        categories:
+            "A Quiet Place Part II A Quiet Place Part 2 movie movie quiz horror survival apocalypse Emily Blunt Regan Abbott Marcus Abbott Evelyn Abbott Emmett Cillian Murphy Millicent Simmonds Noah Jupe Djimon Hounsou creatures monsters aliens sound hearing silence island survivors train marina radio survival family",
+
+        url:
+            "https://apocalypsequizzes.com/a-quiet-place-part-II-quiz/"
+    },
+
+
+    {
+        title: "War of the Worlds Quiz",
+
+        description:
+            "Test your knowledge of War of the Worlds, Ray Ferrier, Rachel, Robbie, the Tripods, the alien invasion, and the fight for survival.",
+
+        categories:
+            "War of the Worlds War of the Worlds movie movie quiz Steven Spielberg Tom Cruise Ray Ferrier Rachel Ferrier Robbie Ferrier Dakota Fanning Tripods aliens alien invasion extraterrestrial invasion Boston New York New Jersey ferry red weed blood human tissue survival apocalypse science fiction",
+
+        url:
+            "https://apocalypsequizzes.com/war-of-the-worlds-quiz/"
     }
 
 ];
