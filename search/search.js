@@ -570,7 +570,7 @@ const quizzes = [
     },
 
 
-    {
+        {
         title: "War of the Worlds Quiz",
 
         description:
@@ -581,6 +581,48 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/war-of-the-worlds-quiz/"
+    },
+
+
+    {
+        title: "Mad Max: Fury Road Quiz",
+
+        description:
+            "Test your knowledge of Mad Max: Fury Road, Max, Furiosa, Immortan Joe, the War Rig, the Citadel, and the fight for survival in the Wasteland.",
+
+        categories:
+            "Mad Max Fury Road Mad Max Fury Road movie movie quiz Mad Max Max Rockatansky Furiosa Imperator Furiosa Immortan Joe War Rig Citadel Wasteland Five Wives Nux Capable Toast Cheedo Dag Angharad Splendid Rictus Erectus Corpus Colossus People Eater Bullet Farmer War Boys Vuvalini Green Place Gastown Bullet Farm Doof Warrior survival apocalypse post-apocalyptic action movie",
+
+        url:
+            "https://apocalypsequizzes.com/mad-max-fury-road-quiz/"
+    },
+
+
+    {
+        title: "Furiosa: A Mad Max Saga Quiz",
+
+        description:
+            "Test your knowledge of Furiosa: A Mad Max Saga, Furiosa, Dementus, Praetorian Jack, the Citadel, and the major events of the Wasteland.",
+
+        categories:
+            "Furiosa Furiosa A Mad Max Saga Furiosa movie movie quiz Mad Max Anya Taylor-Joy Chris Hemsworth Furiosa Imperator Furiosa Dementus Praetorian Jack Immortan Joe Citadel Biker Horde Dr Dementus History Man Mary Jabassa Valkyrie Octoboss Gastown Bullet Farm Green Place Wasteland Forty Day Wasteland War War Rig War Boys survival apocalypse post-apocalyptic action movie",
+
+        url:
+            "https://apocalypsequizzes.com/furiosa-a-mad-max-saga-quiz/"
+    },
+
+
+    {
+        title: "The Maze Runner Quiz",
+
+        description:
+            "Test your knowledge of The Maze Runner, Thomas, the Glade, the Maze, the Grievers, Teresa, WCKD, and the fight to escape.",
+
+        categories:
+            "The Maze Runner The Maze Runner movie movie quiz Thomas Thomas Glader Glade Alby Newt Gally Minho Teresa Chuck Jeff Winston Frypan Ben Grievers Maze Runners Changing Pit WCKD World Catastrophe Killzone Department Flare virus Griever sting serum Maze sections Box Gladers experiment escape survival dystopian post-apocalyptic science fiction",
+
+        url:
+            "https://apocalypsequizzes.com/the-maze-runner-quiz/"
     }
 
 ];
