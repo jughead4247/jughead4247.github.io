@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Maze Runner: The Scorch Trials Quiz – How Well Do You Know the Movie?</title>
+
+    <meta name="description" content="Think you know The Maze Runner: The Scorch Trials? Test your knowledge of Thomas, the Gladers, WCKD, the Scorch, Cranks, the Right Arm and major events with this 25-question movie quiz.">
+
+    <meta name="keywords" content="The Scorch Trials quiz, Maze Runner Scorch Trials quiz, Scorch Trials movie quiz, Maze Runner quiz, Scorch Trials trivia, Maze Runner movie trivia, WCKD quiz, Thomas quiz, Cranks quiz, Right Arm quiz, apocalypse quiz, survival movie quiz">
+
+    <meta name="author" content="Apocalypse Quizzes">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://apocalypsequizzes.com/maze-runner-the-scorch-trials-quiz/">
+
+    <meta property="og:title" content="The Maze Runner: The Scorch Trials Quiz – How Well Do You Know the Movie?">
+    <meta property="og:description" content="Test your knowledge of Thomas, the Gladers, WCKD, the Scorch, Cranks, the Right Arm and major events from The Scorch Trials with 25 trivia questions.">
+    <meta property="og:url" content="https://apocalypsequizzes.com/maze-runner-the-scorch-trials-quiz/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Apocalypse Quizzes">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="The Maze Runner: The Scorch Trials Movie Quiz">
+    <meta name="twitter:description" content="How well do you remember The Scorch Trials? Take the 25-question movie trivia challenge.">
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST"></script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-YC3ERJSBST');
+    </script>
+
+    <!-- Google AdSense -->
+
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header class="site-header">
+
+<button
+    class="menu-toggle"
+    id="menu-toggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
+    aria-controls="site-menu">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+</button>
+
+<div class="site-title">
+    APOCALYPSE QUIZZES
+</div>
+
+</header>
+
+
+<nav
+    class="site-menu"
+    id="site-menu"
+    aria-label="Main navigation"
+    hidden>
+
+<div class="menu-links">
+
+<a href="/">
+    🏠 Home
+</a>
+
+<a href="/search/">
+    🔎 Search Quizzes
+</a>
+
+<a href="/categories/">
+    📂 Categories
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="/about.html">
+    About
+</a>
+
+<a href="/privacy.html">
+    Privacy Policy
+</a>
+
+<a href="/disclaimer.html">
+    Disclaimer
+</a>
+
+<a href="/contact.html">
+    Contact
+</a>
+
+</div>
+
+</nav>
+
+
+<main class="container">
+
+
+<!-- START SCREEN -->
+
+<section id="start-screen">
+
+<div class="intro-card">
+
+<img
+    src="../images/maze2.png"
+    alt="The Maze Runner: The Scorch Trials Movie Quiz"
+    class="quiz-start-image"
+>
+
+<p class="subtitle">
+    Think you can survive the Scorch?
+    Test your knowledge of Thomas, the Gladers,
+    WCKD, the Cranks, the Right Arm and the major
+    events of The Maze Runner: The Scorch Trials.
+</p>
+
+<div class="info">
+
+<span>25 Questions</span>
+
+<span>•</span>
+
+<span>~5 Minutes</span>
+
+<span>•</span>
+
+<span>4 Possible Choices</span>
+
+</div>
+
+<button id="start-btn">
+    START QUIZ
+</button>
+
+</div>
+
+</section>
+
+
+<!-- QUIZ SCREEN -->
+
+<section id="quiz-screen" class="screen hidden">
+
+<div class="quiz-header">
+
+<span id="question-number">
+    Question 1 of 25
+</span>
+
+<span id="score-display">
+    The Scorch Trials Movie Trivia
+</span>
+
+</div>
+
+
+<div class="progress">
+
+<div id="progress-bar"></div>
+
+</div>
+
+
+<h2 id="question"></h2>
+
+<div id="answers"></div>
+
+
+<div class="quiz-navigation">
+
+<button
+    id="back-btn"
+    class="nav-btn"
+    type="button"
+    disabled>
+
+    ← Back
+
+</button>
+
+
+<button
+    id="next-btn"
+    class="nav-btn"
+    type="button"
+    disabled>
+
+    Next →
+
+</button>
+
+
+<button
+    id="submit-btn"
+    class="nav-btn submit-btn hidden"
+    type="button"
+    disabled>
+
+    Answer All Questions
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- RESULT SCREEN -->
+
+<section id="result-screen" class="screen hidden">
+
+<div id="result-icon" class="icon">
+    🧱
+</div>
+
+<p class="result-label">
+    YOUR RESULT
+</p>
+
+<h1 id="result-title"></h1>
+
+<div class="result-score">
+
+<span id="final-score"></span>
+
+</div>
+
+<p id="result-description"></p>
+
+<div class="survival-box">
+
+<strong>
+    The Scorch Trials Movie Knowledge
+</strong>
+
+<span id="knowledge-level"></span>
+
+</div>
+
+
+<button id="restart-btn">
+    TRY AGAIN
+</button>
+
+<button id="share-btn">
+    📤 SHARE MY RESULT
+</button>
+
+<button id="challenge-btn">
+    🔥 CHALLENGE YOUR FRIENDS
+</button>
+
+
+<!-- =================================================
+ SUGGESTED QUIZZES
+ ================================================= -->
+
+<section class="suggested-quizzes">
+
+<h2>
+    Suggested Quizzes
+</h2>
+
+<p class="suggested-subtitle">
+    Survived the Scorch? Try another apocalypse quiz.
+</p>
+
+
+<div class="suggested-grid">
+
+
+<!-- ALICE IN BORDERLAND SEASON 1 QUIZ -->
+
+<a href="/alice-in-borderland-season-1-quiz/" class="suggested-card">
+
+    <img
+        src="../images/alice.png"
+        alt="Alice in Borderland Season 1 Quiz"
+        class="suggested-image"
+    >
+
+    <span class="suggested-title">
+        Alice in Borderland Season 1 Quiz
+    </span>
+
+    <span class="suggested-description">
+        How well do you remember the games, characters and survival challenges?
+    </span>
+
+</a>
+
+
+<!-- THE MAZE RUNNER QUIZ-->
+        <a href="/the-maze-runner-quiz/" class="suggested-card">
+                        <img
+                            src="../images/maze1.png "
+                            alt="The Maze Runner Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            The Maze Runner Quiz
+          </span>
+                        <span class="suggested-description">
+                            Test your knowledge of exciting life of maze, grievers, Thomas, Teresa and Gladers with 25 questions
+                        </span>
+                    </a>
+
+
+<!-- A QUIET PLACE QUIZ-->
+        <a href="/a-quiet-place-quiz/" class="suggested-card">
+                        <img
+                            src="../images/quiet.png "
+                            alt="A Quiet Place Quiz"
+                            class="suggested-image"
+                        >
+                        <span class="suggested-title">
+                            A Quiet Place Quiz
+          </span>
+                        <span class="suggested-description">
+                            How Well Do You Know the silent world of A Quiet Place? Check your knowledge of movie.
+                        </span>
+                    </a>
+
+
+</div>
+
+</section>
+
+
+<!-- MORE QUIZZES CTA -->
+
+<div class="more-quizzes-card">
+
+<h3>
+    Explore More Quizzes
+</h3>
+
+<p>
+    Discover more apocalypse, zombie, survival and
+    disaster movie quizzes.
+</p>
+
+<a
+    href="/"
+    class="more-quizzes-btn">
+
+🧟 APOCALYPSE QUIZZES
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     HOMEPAGE INFORMATION
+     ===================================================== -->
+
+<div id="home-info">
+
+
+<!-- ABOUT THE QUIZ -->
+
+<section class="home-info">
+
+<h2>
+    About The Maze Runner: The Scorch Trials Movie Quiz
+</h2>
+
+<p>
+    The Maze Runner: The Scorch Trials Movie Quiz is a
+    25-question trivia challenge for fans of the
+    science-fiction survival movie <em>The Scorch Trials</em>.
+    The film follows Thomas and the other Gladers as they
+    escape WCKD and enter the dangerous Scorch.
+</p>
+
+<p>
+    The questions cover Thomas, Aris, Janson, Brenda,
+    Jorge, Teresa, Minho, Newt, WCKD, the Cranks,
+    the Right Arm, Mary Cooper and major events from
+    the movie.
+</p>
+
+<p>
+    Some questions test major plot details, while others
+    focus on smaller facts that are easier to forget.
+    If you remember Thomas's journey through the Scorch,
+    this quiz gives you a chance to test your memory.
+</p>
+
+</section>
+
+
+<!-- HOW THE QUIZ WORKS -->
+
+<section class="home-info">
+
+<h2>
+    How The Scorch Trials Movie Quiz Works
+</h2>
+
+<p>
+    The quiz contains 25 questions. Every question has
+    four possible choices, but only one answer is correct.
+    Read each question carefully and select the answer you
+    believe is correct before continuing.
+</p>
+
+<p>
+    Each correct answer gives you 1 point, while an
+    incorrect answer gives you 0 points. With 25 questions
+    in total, your number of correct answers is converted
+    into a final percentage out of 100%.
+</p>
+
+<p>
+    Your final result represents your knowledge of the
+    movie based on your performance. A high score means
+    you successfully remembered many of the characters,
+    events, WCKD details, Cranks, Right Arm members and
+    Scorch survival moments featured in <em>The Scorch Trials</em>.
+</p>
+
+</section>
+
+
+<!-- QUIZ NAVIGATION -->
+
+<section class="home-info">
+
+<h2>
+    Quiz Navigation
+</h2>
+
+<h3>
+    Starting the quiz
+</h3>
+
+<p>
+    Select START QUIZ on the opening screen to begin.
+    The first question will appear with four possible
+    answers.
+</p>
+
+
+<h3>
+    Selecting an answer
+</h3>
+
+<p>
+    Read the question and all four choices before making
+    your decision. Select the answer you believe is
+    correct and continue through the quiz.
+</p>
+
+
+<h3>
+    Next and Back buttons
+</h3>
+
+<p>
+    Use Next to move forward through the questions. The
+    Back button allows you to return to an earlier
+    question and review your selection. Your current
+    question number and progress are displayed as you
+    move through the quiz.
+</p>
+
+
+<h3>
+    Finishing the quiz
+</h3>
+
+<p>
+    Continue until you have answered all 25 questions.
+    When you reach the end, submit your answers to finish
+    the quiz and view your final percentage and
+    The Scorch Trials Movie Knowledge result.
+</p>
+
+
+<h3>
+    Try Again and Challenge Friends
+</h3>
+
+<p>
+    After viewing your result, select TRY AGAIN to replay
+    the quiz and attempt a higher score. You can also use
+    SHARE MY RESULT or CHALLENGE YOUR FRIENDS to share
+    your result and challenge other fans.
+</p>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="home-info">
+
+<h2>
+    The Scorch Trials Movie Quiz FAQ
+</h2>
+
+
+<h3>
+    How many questions are in the quiz?
+</h3>
+
+<p>
+    There are 25 questions in total, and every question
+    has four possible choices.
+</p>
+
+
+<h3>
+    What is the maximum score?
+</h3>
+
+<p>
+    The maximum result is 100%. Each correct answer
+    contributes 1 point before the score is converted
+    into a percentage.
+</p>
+
+
+<h3>
+    What topics are covered?
+</h3>
+
+<p>
+    The quiz focuses on <em>The Maze Runner: The Scorch Trials</em>,
+    including Thomas, the Gladers, WCKD, Janson, Aris,
+    Brenda, Jorge, Teresa, the Cranks, the Right Arm,
+    Mary Cooper and major story details.
+</p>
+
+
+<h3>
+    Is this quiz about the characters?
+</h3>
+
+<p>
+    The quiz includes questions about important characters,
+    but it also covers WCKD, the Scorch, Cranks, the Right
+    Arm, the Flare and other major details from the movie.
+</p>
+
+
+<h3>
+    Which movie does this quiz cover?
+</h3>
+
+<p>
+    This quiz focuses on the science-fiction survival movie
+    <em>The Maze Runner: The Scorch Trials</em>, the second
+    film in <em>The Maze Runner</em> film series.
+</p>
+
+
+<h3>
+    What does my score mean?
+</h3>
+
+<p>
+    Your percentage shows how many of the 25 movie-related
+    questions you answered correctly. A higher score
+    indicates stronger knowledge of <em>The Scorch Trials</em>.
+</p>
+
+
+<h3>
+    Can I take the quiz again?
+</h3>
+
+<p>
+    Yes. Select TRY AGAIN after completing the quiz to
+    start another attempt and try to improve your score.
+</p>
+
+
+<h3>
+    Can I challenge my friends?
+</h3>
+
+<p>
+    Yes. Select CHALLENGE YOUR FRIENDS after completing
+    the quiz to share the challenge and see whether your
+    friends can beat your score.
+</p>
+
+
+</section>
+
+
+<!-- =====================================================
+     SPOILER WARNING
+     ===================================================== -->
+
+<section class="home-info spoiler-warning">
+
+<h2>
+    Spoiler Warning
+</h2>
+
+<p>
+    This quiz contains spoilers for <em>The Maze Runner:
+    The Scorch Trials</em>. Questions may reveal major
+    characters, WCKD, the Scorch, Cranks, the Right Arm,
+    Teresa's actions, Thomas's past and other important
+    details from the movie.
+</p>
+
+<p>
+    If you have not watched <em>The Scorch Trials</em>,
+    consider watching the movie before taking the quiz to
+    avoid having important story details spoiled.
+</p>
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<footer class="site-footer">
+
+<div class="footer-inner">
+
+<div class="footer-brand">
+    APOCALYPSE QUIZZES
+</div>
+
+
+<div class="footer-links">
+
+    <a href="/about.html">
+        About
+    </a>
+
+    <a href="/privacy.html">
+        Privacy Policy
+    </a>
+
+    <a href="/disclaimer.html">
+        Disclaimer
+    </a>
+
+    <a href="/contact.html">
+        Contact
+    </a>
+
+</div>
+
+
+<div class="copyright">
+    © 2026 Apocalypse Quizzes
+</div>
+
+</div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
