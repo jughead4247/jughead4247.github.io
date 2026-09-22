@@ -222,4 +222,14 @@
         <loc>https://apocalypsequizzes.com/maze-runner-the-scorch-trials-quiz/</loc>
     </url>
 
+    <!-- Maze Runner: The Death Cure -->
+    <url>
+        <loc> https://apocalypsequizzes.com/maze-runner-the-death-cure-quiz/</loc>
+    </url>
+   
+    <!-- The Hunger Games -->
+    <url>
+        <loc>https://apocalypsequizzes.com/the-hunger-games-quiz/</loc>
+    </url>
+    
 </urlset>
