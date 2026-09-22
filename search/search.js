@@ -623,6 +623,48 @@ const quizzes = [
 
         url:
             "https://apocalypsequizzes.com/the-maze-runner-quiz/"
+    },
+
+
+    {
+        title: "The Maze Runner: The Scorch Trials Quiz",
+
+        description:
+            "Test your knowledge of The Scorch Trials, Thomas, Teresa, the Scorch, WCKD, the Cranks, the Right Arm, and the fight for survival.",
+
+        categories:
+            "The Maze Runner The Scorch Trials Scorch Trials movie movie quiz Thomas Teresa Newt Minho Brenda Jorge Aris Winston Frypan WCKD Wicked World Catastrophe Killzone Department Scorch Cranks infected Flare virus Right Arm resistance survivors Janson Rat Man Ava Paige Marcus safe haven desert abandoned city tunnels mountains zombie infected post-apocalyptic dystopian survival",
+
+        url:
+            "https://apocalypsequizzes.com/maze-runner-the-scorch-trials-quiz/"
+    },
+
+
+    {
+        title: "The Maze Runner: The Death Cure Quiz",
+
+        description:
+            "Test your knowledge of The Death Cure, Thomas, Newt, Teresa, WCKD, the Last City, the Right Arm, and the fight to save humanity.",
+
+        categories:
+            "The Maze Runner The Death Cure Death Cure movie movie quiz Thomas Newt Teresa Minho Brenda Jorge Gally WCKD Wicked World Catastrophe Killzone Department Janson Ava Paige Rat Man Right Arm Last City Dylan Frypan Lawrence virus Flare cure immune Cranks rescue train Berg Citadel Teresa betrayal sacrifice survival dystopian post-apocalyptic",
+
+        url:
+            "https://apocalypsequizzes.com/maze-runner-the-death-cure-quiz/"
+    },
+
+
+    {
+        title: "The Hunger Games Quiz",
+
+        description:
+            "Test your knowledge of The Hunger Games, Katniss, Peeta, Gale, District 12, the Capitol, and the 74th Hunger Games.",
+
+        categories:
+            "The Hunger Games Hunger Games movie movie quiz Katniss Everdeen Peeta Mellark Gale Hawthorne Primrose Everdeen Haymitch Abernathy Effie Trinket Cinna Caesar Flickerman Seneca Crane District 12 Capitol Panem 74th Hunger Games tributes Career tributes Cato Clove Thresh Rue Marvel Glimmer Foxface tracker jackers nightlock berries Cornucopia Careers Gamemakers sponsors arena Mockingjay Girl on Fire survival dystopian apocalypse",
+        
+        url:
+            "https://apocalypsequizzes.com/the-hunger-games-quiz/"
     }
 
 ];
