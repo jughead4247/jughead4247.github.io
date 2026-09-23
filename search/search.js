@@ -654,7 +654,7 @@ const quizzes = [
     },
 
 
-    {
+        {
         title: "The Hunger Games Quiz",
 
         description:
@@ -662,9 +662,65 @@ const quizzes = [
 
         categories:
             "The Hunger Games Hunger Games movie movie quiz Katniss Everdeen Peeta Mellark Gale Hawthorne Primrose Everdeen Haymitch Abernathy Effie Trinket Cinna Caesar Flickerman Seneca Crane District 12 Capitol Panem 74th Hunger Games tributes Career tributes Cato Clove Thresh Rue Marvel Glimmer Foxface tracker jackers nightlock berries Cornucopia Careers Gamemakers sponsors arena Mockingjay Girl on Fire survival dystopian apocalypse",
-        
+
         url:
             "https://apocalypsequizzes.com/the-hunger-games-quiz/"
+    },
+
+
+    {
+        title: "The Hunger Games: Catching Fire Quiz",
+
+        description:
+            "Test your knowledge of The Hunger Games: Catching Fire, Katniss, Peeta, the Quarter Quell, the Capitol, and the major events of the movie.",
+
+        categories:
+            "The Hunger Games Catching Fire Catching Fire movie movie quiz Katniss Everdeen Peeta Mellark Gale Hawthorne Haymitch Abernathy Effie Trinket Cinna Caesar Flickerman President Snow Finnick Odair Johanna Mason Beetee Wiress Mags Plutarch Heavensbee District 12 Capitol Panem Quarter Quell 75th Hunger Games tributes victors Career tributes arena Cornucopia Jabberjays tracker jackers mockingjay rebellion District 13 force field survival dystopian apocalypse",
+
+        url:
+            "https://apocalypsequizzes.com/the-hunger-games-catching-fire-quiz/"
+    },
+
+
+    {
+        title: "The Hunger Games: Mockingjay – Part 1 Quiz",
+
+        description:
+            "Test your knowledge of The Hunger Games: Mockingjay – Part 1, Katniss, District 13, Peeta, the rebellion, and the major events of the movie.",
+
+        categories:
+            "The Hunger Games Mockingjay Part 1 Mockingjay Part 1 movie movie quiz Katniss Everdeen Peeta Mellark Gale Hawthorne Haymitch Abernathy Effie Trinket Plutarch Heavensbee President Snow Coin Alma Coin Boggs Finnick Odair Johanna Mason Beetee Cressida Castor Pollux Messalla District 13 Capitol rebellion resistance rebels propaganda propos Quarter Quell District 12 District 8 District 2 hospital bombing rescue Peeta hijacking tracker jacker Mockingjay survival dystopian apocalypse",
+
+        url:
+            "https://apocalypsequizzes.com/the-hunger-games-mockingjay-part-1-quiz/"
+    },
+
+
+    {
+        title: "The Hunger Games: Mockingjay – Part 2 Quiz",
+
+        description:
+            "Test your knowledge of The Hunger Games: Mockingjay – Part 2, Katniss, the Capitol mission, District 13, Snow, Coin, the rebellion, and the final events.",
+
+        categories:
+            "The Hunger Games Mockingjay Part 2 Mockingjay Part 2 movie movie quiz Katniss Everdeen Peeta Mellark Gale Hawthorne President Snow Alma Coin Haymitch Abernathy Effie Trinket Plutarch Heavensbee Finnick Odair Johanna Mason Beetee Boggs Cressida Gale Hawthorne Capitol District 13 rebellion rebels Star Squad pods muttations sewer tunnels Capitol citizens Primrose Everdeen bombing District 12 execution arrow bow Hunger Games Panem survival dystopian apocalypse",
+
+        url:
+            "https://apocalypsequizzes.com/the-hunger-games-mockingjay-part-2-quiz/"
+    },
+
+
+    {
+        title: "The Cloverfield Paradox Quiz",
+
+        description:
+            "Test your knowledge of The Cloverfield Paradox, the Shepard accelerator, Cloverfield Station, its crew, alternate realities, strange events, and the major events of the movie.",
+
+        categories:
+            "The Cloverfield Paradox Cloverfield Paradox movie movie quiz Ava Hamilton Ernst Schmidt Monk Acosta Kiel Mundy Volkov Tam Mina Jensen Mark Stambler Michael Hamilton Shepard particle accelerator Cloverfield Station alternate universe parallel universe dimensional anomaly gyroscope Earth energy crisis monsters demons beasts Russia Germany war children power cell reentry capsule Cloverfield monster science fiction horror space station survival apocalypse",
+
+        url:
+            "https://apocalypsequizzes.com/the-cloverfield-paradox-quiz/"
     }
 
 ];
