@@ -1328,6 +1328,15 @@ h2 {
     }
 }
 
+.site-footer {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+
+    padding: 18px 15px;
+}
+
 /* ===============================
    FOOTER
    =============================== */
@@ -1377,6 +1386,15 @@ h2 {
 .footer-links a:hover {
     color: #ffffff;
     text-decoration: underline;
+}
+
+.site-footer {
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+
+    padding: 18px 15px;
 }
 
 .copyright {
