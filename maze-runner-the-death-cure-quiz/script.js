@@ -224,727 +224,456 @@ const questionText = document.getElementById("question");
 const answersContainer = document.getElementById("answers");
 const progressBar = document.getElementById("progress-bar");
 
-
-// =====================================================
-// RESULT BREAKDOWN ELEMENTS
-// =====================================================
-
-const correctCount = document.getElementById("correct-count");
-const incorrectCount = document.getElementById("incorrect-count");
-const totalCount = document.getElementById("total-count");
-const accuracyPercent = document.getElementById("accuracy-percent");
-
-
-// =====================================================
-// BUTTON EVENTS
-// =====================================================
-
 startButton.addEventListener("click", startQuiz);
-
 restartButton.addEventListener("click", restartQuiz);
-
 shareButton.addEventListener("click", shareResult);
-
 challengeButton.addEventListener("click", shareResult);
 
 backButton.addEventListener("click", goBack);
-
 nextButton.addEventListener("click", goNext);
-
 submitButton.addEventListener("click", showResult);
-
-
-// =====================================================
-// START QUIZ
-// =====================================================
 
 function startQuiz() {
 
-    currentQuestion = 0;
+currentQuestion = 0;
+selectedAnswers = new Array(questions.length).fill(null);
 
-    selectedAnswers =
-        new Array(questions.length).fill(null);
+document.getElementById("suggestions-card").classList.add("hidden");
 
-    startScreen.classList.add("hidden");
+startScreen.classList.add("hidden");
+resultScreen.classList.add("hidden");
+quizScreen.classList.remove("hidden");
+homeInfo.classList.add("hidden");
 
-    resultScreen.classList.add("hidden");
 
-    quizScreen.classList.remove("hidden");
-
-    homeInfo.classList.add("hidden");
-
-    progressBar.style.width = "0%";
-
-    showQuestion();
+showQuestion();
 
 }
-
-
-// =====================================================
-// SHOW QUESTION
-// =====================================================
 
 function showQuestion() {
 
-    const current = questions[currentQuestion];
+const current = questions[currentQuestion];
 
-    questionNumber.textContent =
-        `Question ${currentQuestion + 1} of ${questions.length}`;
+questionNumber.textContent =
+    `Question ${currentQuestion + 1} of ${questions.length}`;
 
-    questionText.textContent =
-        current.question;
+questionText.textContent = current.question;
 
-    answersContainer.innerHTML = "";
+answersContainer.innerHTML = "";
 
-    const progress =
-        ((currentQuestion + 1) / questions.length) * 100;
+const progress =
+    ((currentQuestion + 1) / questions.length) * 100;
 
-    progressBar.style.width =
-        `${progress}%`;
+progressBar.style.width = `${progress}%`;
 
-    current.answers.forEach((answer, index) => {
+current.answers.forEach((answer, index) => {
 
-        const button =
-            document.createElement("button");
+    const button = document.createElement("button");
 
-        button.className = "answer";
+    button.className = "answer";
+    button.type = "button";
+    button.textContent = answer[0];
 
-        button.type = "button";
+    if (selectedAnswers[currentQuestion] === index) {
+        button.classList.add("selected");
+    }
 
-        button.textContent = answer[0];
-
-        if (
-            selectedAnswers[currentQuestion] === index
-        ) {
-
-            button.classList.add("selected");
-
-        }
-
-        button.addEventListener(
-            "click",
-            () => selectAnswer(index)
-        );
-
-        answersContainer.appendChild(button);
-
+    button.addEventListener("click", () => {
+        selectAnswer(index);
     });
 
-    updateNavigation();
+    answersContainer.appendChild(button);
+});
+
+updateNavigation();
 
 }
-
-
-// =====================================================
-// SELECT ANSWER
-// =====================================================
 
 function selectAnswer(answerIndex) {
 
-    selectedAnswers[currentQuestion] =
-        answerIndex;
+selectedAnswers[currentQuestion] = answerIndex;
 
-    const buttons =
-        answersContainer.querySelectorAll(".answer");
+const buttons =
+    answersContainer.querySelectorAll(".answer");
 
-    buttons.forEach((button, index) => {
+buttons.forEach((button, index) => {
 
-        button.classList.toggle(
-            "selected",
-            index === answerIndex
-        );
+    button.classList.toggle(
+        "selected",
+        index === answerIndex
+    );
 
-    });
+});
 
-    updateNavigation();
+updateNavigation();
 
-    const questionAtSelection =
-        currentQuestion;
+const questionAtSelection = currentQuestion;
 
-    setTimeout(() => {
-
-        if (
-            currentQuestion === questionAtSelection &&
-            selectedAnswers[questionAtSelection] === answerIndex &&
-            currentQuestion < questions.length - 1
-        ) {
-
-            currentQuestion++;
-
-            showQuestion();
-
-        }
-
-    }, 180);
-
-}
-
-
-// =====================================================
-// NEXT
-// =====================================================
-
-function goNext() {
+setTimeout(() => {
 
     if (
-        selectedAnswers[currentQuestion] === null
+        currentQuestion === questionAtSelection &&
+        selectedAnswers[questionAtSelection] === answerIndex &&
+        currentQuestion < questions.length - 1
     ) {
 
-        return;
-
-    }
-
-    if (
-        currentQuestion === questions.length - 1
-    ) {
-
-        if (
-            selectedAnswers.every(
-                answer => answer !== null
-            )
-        ) {
-
-            showResult();
-
-        }
-
-        return;
-
-    }
-
-    currentQuestion++;
-
-    showQuestion();
-
-}
-
-
-// =====================================================
-// BACK
-// =====================================================
-
-function goBack() {
-
-    if (currentQuestion > 0) {
-
-        currentQuestion--;
-
+        currentQuestion++;
         showQuestion();
 
     }
 
+}, 180);
+
 }
 
+function goNext() {
 
-// =====================================================
-// UPDATE NAVIGATION
-// =====================================================
+if (selectedAnswers[currentQuestion] === null) {
+    return;
+}
+
+if (currentQuestion === questions.length - 1) {
+
+    if (
+        selectedAnswers.every(
+            answer => answer !== null
+        )
+    ) {
+        showResult();
+    }
+
+    return;
+}
+
+currentQuestion++;
+showQuestion();
+
+}
+
+function goBack() {
+
+if (currentQuestion > 0) {
+    currentQuestion--;
+    showQuestion();
+}
+
+}
 
 function updateNavigation() {
 
-    const isFirst =
-        currentQuestion === 0;
+const isFirst =
+    currentQuestion === 0;
 
-    const isLast =
-        currentQuestion === questions.length - 1;
+const isLast =
+    currentQuestion === questions.length - 1;
 
-    const currentAnswered =
-        selectedAnswers[currentQuestion] !== null;
+const currentAnswered =
+    selectedAnswers[currentQuestion] !== null;
 
-    const allAnswered =
-        selectedAnswers.every(
-            answer => answer !== null
-        );
+const allAnswered =
+    selectedAnswers.every(
+        answer => answer !== null
+    );
 
-    backButton.disabled =
-        isFirst;
+backButton.disabled = isFirst;
 
-    if (isLast) {
+if (isLast) {
 
-        nextButton.classList.add("hidden");
+    nextButton.classList.add("hidden");
+    submitButton.classList.remove("hidden");
 
-        submitButton.classList.remove("hidden");
+    submitButton.disabled = !allAnswered;
 
-        submitButton.disabled =
-            !allAnswered;
+    submitButton.textContent =
+        allAnswered
+            ? "SUBMIT"
+            : "Answer All Questions";
 
-        submitButton.textContent =
-            allAnswered
-                ? "SUBMIT"
-                : "Answer All Questions";
+} else {
 
-    } else {
+    submitButton.classList.add("hidden");
+    nextButton.classList.remove("hidden");
 
-        submitButton.classList.add("hidden");
-
-        nextButton.classList.remove("hidden");
-
-        nextButton.textContent =
-            "Next →";
-
-        nextButton.disabled =
-            !currentAnswered;
-
-    }
-
+    nextButton.textContent = "Next →";
+    nextButton.disabled = !currentAnswered;
 }
 
-
-// =====================================================
-// CALCULATE SCORE
-// =====================================================
+}
 
 function calculateScore() {
 
-    let score = 0;
+let score = 0;
 
-    selectedAnswers.forEach(
-        (answerIndex, questionIndex) => {
+selectedAnswers.forEach(
+    (answerIndex, questionIndex) => {
 
-            if (answerIndex !== null) {
+        if (answerIndex !== null) {
 
-                score +=
-                    questions[questionIndex]
-                        .answers[answerIndex][1];
-
-            }
-
+            score +=
+                questions[questionIndex]
+                    .answers[answerIndex][1];
         }
-    );
+    }
+);
 
-    return score;
+return score;
 
 }
-
-
-// =====================================================
-// SHOW RESULT
-// =====================================================
 
 function showResult() {
 
-    const correctAnswers =
-        calculateScore();
+const correctAnswers = calculateScore();
 
-    const totalQuestions =
-        questions.length;
+const totalQuestions = questions.length;
 
-    const incorrectAnswers =
-        totalQuestions - correctAnswers;
+const incorrectAnswers =
+    totalQuestions - correctAnswers;
 
-    const score =
-        Math.round(
-            (correctAnswers / totalQuestions) * 100
-        );
+const score = Math.round(
+    (correctAnswers / totalQuestions) * 100
+);
 
+const accuracy = score;
 
-    // -------------------------------------------------
-    // SCREEN VISIBILITY
-    // -------------------------------------------------
+homeInfo.classList.remove("hidden");
+quizScreen.classList.add("hidden");
+resultScreen.classList.remove("hidden");
 
-    quizScreen.classList.add("hidden");
+document.getElementById("final-score").textContent = `${score}%`;
 
-    startScreen.classList.add("hidden");
+document.getElementById("correct-count").textContent =
+    correctAnswers;
 
-    resultScreen.classList.remove("hidden");
+document.getElementById("incorrect-count").textContent =
+    incorrectAnswers;
 
-    homeInfo.classList.remove("hidden");
+document.getElementById("total-count").textContent =
+    totalQuestions;
 
+document.getElementById("accuracy-percent").textContent =
+    `${accuracy}%`;
 
-    // -------------------------------------------------
-    // RESULT BREAKDOWN
-    // -------------------------------------------------
+document.getElementById("suggestions-card").classList.remove("hidden");
 
-    correctCount.textContent =
-        correctAnswers;
+let title;
+let description;
+let knowledge;
+let icon;
 
-    incorrectCount.textContent =
-        incorrectAnswers;
+if (score <= 20) {
 
-    totalCount.textContent =
-        totalQuestions;
+    title = "⚔️ Maze Recruit";
+    description =
+        "The Scorch has caught you off guard. It may be time to revisit Maze Runner: The Death Cure and try again.";
 
-    accuracyPercent.textContent =
-        `${score}%`;
+    knowledge = "Casual Viewer";
+    icon = "⚔️";
 
+} else if (score <= 40) {
 
-    // -------------------------------------------------
-    // MAIN SCORE
-    // -------------------------------------------------
+    title = "🏃 Scorch Survivor";
+    description =
+        "You remember some of Thomas's journey, but several details about WCKD, the Last City and the Gladers slipped through the cracks.";
 
-    document.getElementById(
-        "final-score"
-    ).textContent = `${score}%`;
+    knowledge = "Casual Fan";
+    icon = "🏃";
 
+} else if (score <= 60) {
 
-    // -------------------------------------------------
-    // RESULT CATEGORY
-    // -------------------------------------------------
+    title = "🔥 Glader Survivor";
+    description =
+        "Not bad! You remember many of the movie's major events, characters and the fight against WCKD.";
 
-    let title;
-    let description;
-    let knowledge;
-    let icon;
+    knowledge = "Good Fan";
+    icon = "🔥";
 
+} else if (score <= 80) {
 
-    if (score <= 20) {
+    title = "⚔️ Right Arm Veteran";
+    description =
+        "Impressive! You have a strong memory for Thomas, the Gladers, WCKD and the events surrounding the Last City.";
 
-        title =
-            "⚔️ Maze Recruit";
+    knowledge = "Dedicated Fan";
+    icon = "⚔️";
 
-        description =
-            "The Scorch has caught you off guard. It may be time to revisit Maze Runner: The Death Cure and try again.";
+} else if (score <= 96) {
 
-        knowledge =
-            "Casual Viewer";
+    title = "🧠 Maze Runner Expert";
+    description =
+        "Excellent! You remember most of the important characters, events, locations and revelations in The Death Cure.";
 
-        icon =
-            "⚔️";
+    knowledge = "Expert Fan";
+    icon = "🧠";
 
-    } else if (score <= 40) {
+} else {
 
-        title =
-            "🏃 Scorch Survivor";
+    title = "👑 Death Cure Master";
+    description =
+        "Perfect score! You remembered practically every major detail about Thomas, the Gladers, WCKD and their final fight for freedom.";
 
-        description =
-            "You remember some of Thomas's journey, but several details about WCKD, the Last City and the Gladers slipped through the cracks.";
-
-        knowledge =
-            "Casual Fan";
-
-        icon =
-            "🏃";
-
-    } else if (score <= 60) {
-
-        title =
-            "🔥 Glader Survivor";
-
-        description =
-            "Not bad! You remember many of the movie's major events, characters and the fight against WCKD.";
-
-        knowledge =
-            "Good Fan";
-
-        icon =
-            "🔥";
-
-    } else if (score <= 80) {
-
-        title =
-            "⚔️ Right Arm Veteran";
-
-        description =
-            "Impressive! You have a strong memory for Thomas, the Gladers, WCKD and the events surrounding the Last City.";
-
-        knowledge =
-            "Dedicated Fan";
-
-        icon =
-            "⚔️";
-
-    } else if (score <= 96) {
-
-        title =
-            "🧠 Maze Runner Expert";
-
-        description =
-            "Excellent! You remember most of the important characters, events, locations and revelations in The Death Cure.";
-
-        knowledge =
-            "Expert Fan";
-
-        icon =
-            "🧠";
-
-    } else {
-
-        title =
-            "👑 Death Cure Master";
-
-        description =
-            "Perfect score! You remembered practically every major detail about Thomas, the Gladers, WCKD and their final fight for freedom.";
-
-        knowledge =
-            "Ultimate Fan";
-
-        icon =
-            "👑";
-
-    }
-
-
-    // -------------------------------------------------
-    // UPDATE RESULT SCREEN
-    // -------------------------------------------------
-
-    document.getElementById(
-        "result-title"
-    ).textContent = title;
-
-    document.getElementById(
-        "result-description"
-    ).textContent = description;
-
-    document.getElementById(
-        "knowledge-level"
-    ).textContent = knowledge;
-
-    document.getElementById(
-        "result-icon"
-    ).textContent = icon;
-
-
-    // -------------------------------------------------
-    // PROGRESS
-    // -------------------------------------------------
-
-    progressBar.style.width =
-        "100%";
-
+    knowledge = "Ultimate Fan";
+    icon = "👑";
 }
 
+document.getElementById("result-title").textContent = title;
+document.getElementById("result-description").textContent = description;
+document.getElementById("knowledge-level").textContent = knowledge;
+document.getElementById("result-icon").textContent = icon;
 
-// =====================================================
-// RESTART QUIZ
-// =====================================================
+progressBar.style.width = "100%";
+
+}
 
 function restartQuiz() {
 
-    currentQuestion = 0;
+currentQuestion = 0;
 
-    selectedAnswers =
-        new Array(questions.length).fill(null);
+selectedAnswers =
+    new Array(questions.length).fill(null);
 
+resultScreen.classList.add("hidden");
+quizScreen.classList.add("hidden");
+startScreen.classList.remove("hidden");
+homeInfo.classList.remove("hidden");
 
-    // Hide result
+document.getElementById("suggestions-card").classList.add("hidden");
 
-    resultScreen.classList.add("hidden");
-
-
-    // Hide quiz
-
-    quizScreen.classList.add("hidden");
-
-
-    // Show start screen
-
-    startScreen.classList.remove("hidden");
-
-
-    // Hide informational content
-
-    homeInfo.classList.add("hidden");
-
-
-    // Reset progress
-
-    progressBar.style.width =
-        "0%";
-
-
-    // Reset result breakdown
-
-    correctCount.textContent =
-        "—";
-
-    incorrectCount.textContent =
-        "—";
-
-    totalCount.textContent =
-        questions.length;
-
-    accuracyPercent.textContent =
-        "—";
+progressBar.style.width = "0%";
 
 }
 
-
-// =====================================================
-// SHARE RESULT
-// =====================================================
-
 async function shareResult() {
 
-    const title =
-        document.getElementById(
-            "result-title"
-        ).textContent;
+const title =
+    document.getElementById("result-title").textContent;
 
-    const knowledge =
-        document.getElementById(
-            "knowledge-level"
-        ).textContent;
+const knowledge =
+    document.getElementById("knowledge-level").textContent;
 
-    const finalScore =
-        document.getElementById(
-            "final-score"
-        ).textContent;
+const finalScore =
+    document.getElementById("final-score").textContent;
 
-    const quizUrl =
-        "https://apocalypsequizzes.com/maze-runner-the-death-cure-quiz/";
+const quizUrl =
+    "https://apocalypsequizzes.com/maze-runner-the-death-cure-quiz/";
 
-    const shareText =
-        `🧪 I scored ${finalScore} on the Maze Runner: The Death Cure Quiz!\n\n` +
-        `${title}\n` +
-        `Knowledge level: ${knowledge}\n\n` +
-        `How well do YOU remember Maze Runner: The Death Cure?`;
+const shareText =
+    `🧪 I scored ${finalScore} on the Maze Runner: The Death Cure Quiz!\n\n` +
+    `${title}\n` +
+    `Knowledge level: ${knowledge}\n\n` +
+    `How well do YOU remember Maze Runner: The Death Cure?`;
 
-    const shareData = {
+const shareData = {
+    title: "Maze Runner: The Death Cure Quiz",
+    text: shareText,
+    url: quizUrl
+};
 
-        title:
-            "Maze Runner: The Death Cure Quiz",
+try {
 
-        text:
-            shareText,
+    if (navigator.share) {
 
-        url:
+        await navigator.share(shareData);
+
+    } else {
+
+        await navigator.clipboard.writeText(
+            shareText +
+            "\n\n" +
             quizUrl
+        );
 
-    };
+        alert(
+            "Your result has been copied! You can paste it anywhere."
+        );
+    }
+
+} catch (error) {
+
+    console.log("Sharing cancelled.");
+
+}
+
+}
+
+// ===============================
+// GLOBAL SITE MENU
+// ===============================
+
+const menuToggle = document.getElementById("menu-toggle");
+const siteMenu = document.getElementById("site-menu");
+
+if (menuToggle && siteMenu) {
+
+// OPEN / CLOSE WITH HAMBURGER
+menuToggle.addEventListener("click", function (event) {
+
+    event.stopPropagation();
+
+    const isOpen =
+        menuToggle.getAttribute("aria-expanded") === "true";
+
+    siteMenu.hidden = isOpen;
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+    );
+
+    menuToggle.setAttribute(
+        "aria-label",
+        isOpen
+            ? "Open navigation"
+            : "Close navigation"
+    );
+
+});
 
 
-    try {
+// CLOSE WHEN CLICKING OUTSIDE
+document.addEventListener("click", function (event) {
 
-        if (navigator.share) {
+    if (
+        !siteMenu.hidden &&
+        !siteMenu.contains(event.target) &&
+        !menuToggle.contains(event.target)
+    ) {
 
-            await navigator.share(
-                shareData
-            );
+        siteMenu.hidden = true;
 
-        } else {
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
-            await navigator.clipboard.writeText(
-                shareText +
-                "\n\n" +
-                quizUrl
-            );
-
-            alert(
-                "Your result has been copied! You can paste it anywhere."
-            );
-
-        }
-
-    } catch (error) {
-
-        console.log(
-            "Sharing cancelled."
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation"
         );
 
     }
 
-}
+});
 
 
-// =====================================================
-// GLOBAL SITE MENU
-// =====================================================
+// CLOSE AFTER CLICKING A MENU LINK
+siteMenu.querySelectorAll("a").forEach(function (link) {
 
-const menuToggle =
-    document.getElementById(
-        "menu-toggle"
-    );
+    link.addEventListener("click", function () {
 
-const siteMenu =
-    document.getElementById(
-        "site-menu"
-    );
+        siteMenu.hidden = true;
 
+        menuToggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
-if (menuToggle && siteMenu) {
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation"
+        );
 
+    });
 
-    // OPEN / CLOSE WITH HAMBURGER
+});
 
-    menuToggle.addEventListener(
-        "click",
-        function(event) {
-
-            event.stopPropagation();
-
-            const isOpen =
-                menuToggle.getAttribute(
-                    "aria-expanded"
-                ) === "true";
-
-            siteMenu.hidden =
-                isOpen;
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                String(!isOpen)
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Open navigation"
-                    : "Close navigation"
-            );
-
-        }
-    );
-
-
-    // CLOSE WHEN CLICKING OUTSIDE
-
-    document.addEventListener(
-        "click",
-        function(event) {
-
-            if (
-                !siteMenu.hidden &&
-                !siteMenu.contains(event.target) &&
-                !menuToggle.contains(event.target)
-            ) {
-
-                siteMenu.hidden =
-                    true;
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                menuToggle.setAttribute(
-                    "aria-label",
-                    "Open navigation"
-                );
-
-            }
-
-        }
-    );
-
-
-    // CLOSE AFTER CLICKING MENU LINK
-
-    siteMenu.querySelectorAll("a").forEach(
-        function(link) {
-
-            link.addEventListener(
-                "click",
-                function() {
-
-                    siteMenu.hidden =
-                        true;
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuToggle.setAttribute(
-                        "aria-label",
-                        "Open navigation"
-                    );
-
-                }
-            );
-
-        }
-    );
-
-}
 }
