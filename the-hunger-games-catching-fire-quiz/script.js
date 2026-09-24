@@ -285,339 +285,385 @@ submitButton.addEventListener("click", showResult);
 
 function startQuiz() {
 
-currentQuestion = 0;
-selectedAnswers = new Array(questions.length).fill(null);
+    currentQuestion = 0;
+    selectedAnswers = new Array(questions.length).fill(null);
 
-startScreen.classList.add("hidden");
-resultScreen.classList.add("hidden");
-quizScreen.classList.remove("hidden");
-homeInfo.classList.add("hidden");
+    document.getElementById("suggestions-card").classList.add("hidden");
 
-showQuestion();
+    startScreen.classList.add("hidden");
+    resultScreen.classList.add("hidden");
+    quizScreen.classList.remove("hidden");
+    homeInfo.classList.add("hidden");
+
+    showQuestion();
 
 }
 
 function showQuestion() {
 
-const current = questions[currentQuestion];
+    const current = questions[currentQuestion];
 
-questionNumber.textContent =
-    `Question ${currentQuestion + 1} of ${questions.length}`;
+    questionNumber.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
 
-questionText.textContent = current.question;
+    questionText.textContent = current.question;
 
-answersContainer.innerHTML = "";
+    answersContainer.innerHTML = "";
 
-const progress =
-    ((currentQuestion + 1) / questions.length) * 100;
+    const progress =
+        ((currentQuestion + 1) / questions.length) * 100;
 
-progressBar.style.width = `${progress}%`;
+    progressBar.style.width = `${progress}%`;
 
-current.answers.forEach((answer, index) => {
+    current.answers.forEach((answer, index) => {
 
-    const button = document.createElement("button");
+        const button = document.createElement("button");
 
-    button.className = "answer";
-    button.type = "button";
-    button.textContent = answer[0];
+        button.className = "answer";
+        button.type = "button";
+        button.textContent = answer[0];
 
-    if (selectedAnswers[currentQuestion] === index) {
-        button.classList.add("selected");
-    }
+        if (selectedAnswers[currentQuestion] === index) {
+            button.classList.add("selected");
+        }
 
-    button.addEventListener("click", () => {
-        selectAnswer(index);
+        button.addEventListener("click", () => {
+            selectAnswer(index);
+        });
+
+        answersContainer.appendChild(button);
+
     });
 
-    answersContainer.appendChild(button);
-});
-
-updateNavigation();
+    updateNavigation();
 
 }
 
 function selectAnswer(answerIndex) {
 
-selectedAnswers[currentQuestion] = answerIndex;
+    selectedAnswers[currentQuestion] = answerIndex;
 
-const buttons =
-    answersContainer.querySelectorAll(".answer");
+    const buttons =
+        answersContainer.querySelectorAll(".answer");
 
-buttons.forEach((button, index) => {
+    buttons.forEach((button, index) => {
 
-    button.classList.toggle(
-        "selected",
-        index === answerIndex
-    );
+        button.classList.toggle(
+            "selected",
+            index === answerIndex
+        );
 
-});
+    });
 
-updateNavigation();
+    updateNavigation();
 
-const questionAtSelection = currentQuestion;
+    const questionAtSelection = currentQuestion;
 
-setTimeout(() => {
+    setTimeout(() => {
 
-    if (
-        currentQuestion === questionAtSelection &&
-        selectedAnswers[questionAtSelection] === answerIndex &&
-        currentQuestion < questions.length - 1
-    ) {
+        if (
+            currentQuestion === questionAtSelection &&
+            selectedAnswers[questionAtSelection] === answerIndex &&
+            currentQuestion < questions.length - 1
+        ) {
 
-        currentQuestion++;
-        showQuestion();
+            currentQuestion++;
+            showQuestion();
 
-    }
+        }
 
-}, 180);
+    }, 180);
 
 }
 
 function goNext() {
 
-if (selectedAnswers[currentQuestion] === null) {
-    return;
-}
-
-if (currentQuestion === questions.length - 1) {
-
-    if (
-        selectedAnswers.every(
-            answer => answer !== null
-        )
-    ) {
-        showResult();
+    if (selectedAnswers[currentQuestion] === null) {
+        return;
     }
 
-    return;
-}
+    if (currentQuestion === questions.length - 1) {
 
-currentQuestion++;
-showQuestion();
+        if (
+            selectedAnswers.every(
+                answer => answer !== null
+            )
+        ) {
+            showResult();
+        }
+
+        return;
+    }
+
+    currentQuestion++;
+    showQuestion();
 
 }
 
 function goBack() {
 
-if (currentQuestion > 0) {
-    currentQuestion--;
-    showQuestion();
-}
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        showQuestion();
+    }
 
 }
 
 function updateNavigation() {
 
-const isFirst =
-    currentQuestion === 0;
+    const isFirst =
+        currentQuestion === 0;
 
-const isLast =
-    currentQuestion === questions.length - 1;
+    const isLast =
+        currentQuestion === questions.length - 1;
 
-const currentAnswered =
-    selectedAnswers[currentQuestion] !== null;
+    const currentAnswered =
+        selectedAnswers[currentQuestion] !== null;
 
-const allAnswered =
-    selectedAnswers.every(
-        answer => answer !== null
-    );
+    const allAnswered =
+        selectedAnswers.every(
+            answer => answer !== null
+        );
 
-backButton.disabled = isFirst;
+    backButton.disabled = isFirst;
 
-if (isLast) {
+    if (isLast) {
 
-    nextButton.classList.add("hidden");
-    submitButton.classList.remove("hidden");
+        nextButton.classList.add("hidden");
+        submitButton.classList.remove("hidden");
 
-    submitButton.disabled = !allAnswered;
+        submitButton.disabled = !allAnswered;
 
-    submitButton.textContent =
-        allAnswered
-            ? "SUBMIT"
-            : "Answer All Questions";
+        submitButton.textContent =
+            allAnswered
+                ? "SUBMIT"
+                : "Answer All Questions";
 
-} else {
+    } else {
 
-    submitButton.classList.add("hidden");
-    nextButton.classList.remove("hidden");
+        submitButton.classList.add("hidden");
+        nextButton.classList.remove("hidden");
 
-    nextButton.textContent = "Next →";
-    nextButton.disabled = !currentAnswered;
-}
+        nextButton.textContent = "Next →";
+        nextButton.disabled = !currentAnswered;
+
+    }
 
 }
 
 function calculateScore() {
 
-let score = 0;
+    let score = 0;
 
-selectedAnswers.forEach(
-    (answerIndex, questionIndex) => {
+    selectedAnswers.forEach(
+        (answerIndex, questionIndex) => {
 
-        if (answerIndex !== null) {
+            if (answerIndex !== null) {
 
-            score +=
-                questions[questionIndex]
-                    .answers[answerIndex][1];
+                score +=
+                    questions[questionIndex]
+                        .answers[answerIndex][1];
+
+            }
+
         }
-    }
-);
+    );
 
-return score;
+    return score;
 
 }
 
 function showResult() {
 
-const correctAnswers = calculateScore();
+    const correctAnswers = calculateScore();
 
-const score = Math.round(
-    (correctAnswers / questions.length) * 100
-);
+    const totalQuestions = questions.length;
 
-homeInfo.classList.remove("hidden");
-quizScreen.classList.add("hidden");
-resultScreen.classList.remove("hidden");
+    const incorrectAnswers =
+        totalQuestions - correctAnswers;
 
-document.getElementById("final-score").textContent = `${score}%`;
+    const score = Math.round(
+        (correctAnswers / totalQuestions) * 100
+    );
 
-let title;
-let description;
-let knowledge;
-let icon;
+    const accuracy = score;
 
-if (score <= 20) {
+    homeInfo.classList.remove("hidden");
+    quizScreen.classList.add("hidden");
+    resultScreen.classList.remove("hidden");
 
-    title = "🌱 Capitol Newcomer";
-    description =
-        "The Quarter Quell caught you off guard. It may be time to revisit The Hunger Games: Catching Fire and try again.";
+    document.getElementById("final-score").textContent =
+        `${score}%`;
 
-    knowledge = "Casual Viewer";
-    icon = "🌱";
+    document.getElementById("correct-count").textContent =
+        correctAnswers;
 
-} else if (score <= 40) {
+    document.getElementById("incorrect-count").textContent =
+        incorrectAnswers;
 
-    title = "🔥 District Survivor";
-    description =
-        "You remember some of Katniss's journey, but several details about the Quarter Quell, the victors and the Capitol slipped through the cracks.";
+    document.getElementById("total-count").textContent =
+        totalQuestions;
 
-    knowledge = "Casual Fan";
-    icon = "🔥";
+    document.getElementById("accuracy-percent").textContent =
+        `${accuracy}%`;
 
-} else if (score <= 60) {
+    document.getElementById("suggestions-card").classList.remove("hidden");
 
-    title = "🏹 Tribute Survivor";
-    description =
-        "Not bad! You remember many of the movie's major events, characters and the fight against the Capitol.";
+    let title;
+    let description;
+    let knowledge;
+    let icon;
 
-    knowledge = "Good Fan";
-    icon = "🏹";
+    if (score <= 20) {
 
-} else if (score <= 80) {
+        title = "🌱 Capitol Newcomer";
 
-    title = "🐦 Mockingjay Ally";
-    description =
-        "Impressive! You have a strong memory for Katniss, Peeta, the Quarter Quell and the growing rebellion.";
+        description =
+            "The Quarter Quell caught you off guard. It may be time to revisit The Hunger Games: Catching Fire and try again.";
 
-    knowledge = "Dedicated Fan";
-    icon = "🐦";
+        knowledge = "Casual Viewer";
+        icon = "🌱";
 
-} else if (score <= 96) {
+    } else if (score <= 40) {
 
-    title = "🏹 Catching Fire Expert";
-    description =
-        "Excellent! You remember most of the important characters, events, locations and revelations in Catching Fire.";
+        title = "🔥 District Survivor";
 
-    knowledge = "Expert Fan";
-    icon = "🏹";
+        description =
+            "You remember some of Katniss's journey, but several details about the Quarter Quell, the victors and the Capitol slipped through the cracks.";
 
-} else {
+        knowledge = "Casual Fan";
+        icon = "🔥";
 
-    title = "👑 Quarter Quell Master";
-    description =
-        "Perfect score! You remembered practically every major detail about Katniss, Peeta, the victors and the rebellion against the Capitol.";
+    } else if (score <= 60) {
 
-    knowledge = "Ultimate Fan";
-    icon = "👑";
-}
+        title = "🏹 Tribute Survivor";
 
-document.getElementById("result-title").textContent = title;
-document.getElementById("result-description").textContent = description;
-document.getElementById("knowledge-level").textContent = knowledge;
-document.getElementById("result-icon").textContent = icon;
+        description =
+            "Not bad! You remember many of the movie's major events, characters and the fight against the Capitol.";
 
-progressBar.style.width = "100%";
+        knowledge = "Good Fan";
+        icon = "🏹";
+
+    } else if (score <= 80) {
+
+        title = "🐦 Mockingjay Ally";
+
+        description =
+            "Impressive! You have a strong memory for Katniss, Peeta, the Quarter Quell and the growing rebellion.";
+
+        knowledge = "Dedicated Fan";
+        icon = "🐦";
+
+    } else if (score <= 96) {
+
+        title = "🏹 Catching Fire Expert";
+
+        description =
+            "Excellent! You remember most of the important characters, events, locations and revelations in Catching Fire.";
+
+        knowledge = "Expert Fan";
+        icon = "🏹";
+
+    } else {
+
+        title = "👑 Quarter Quell Master";
+
+        description =
+            "Perfect score! You remembered practically every major detail about Katniss, Peeta, the victors and the rebellion against the Capitol.";
+
+        knowledge = "Ultimate Fan";
+        icon = "👑";
+
+    }
+
+    document.getElementById("result-title").textContent =
+        title;
+
+    document.getElementById("result-description").textContent =
+        description;
+
+    document.getElementById("knowledge-level").textContent =
+        knowledge;
+
+    document.getElementById("result-icon").textContent =
+        icon;
+
+    progressBar.style.width = "100%";
 
 }
 
 function restartQuiz() {
 
-currentQuestion = 0;
+    currentQuestion = 0;
 
-selectedAnswers =
-    new Array(questions.length).fill(null);
+    selectedAnswers =
+        new Array(questions.length).fill(null);
 
-resultScreen.classList.add("hidden");
-quizScreen.classList.add("hidden");
-startScreen.classList.remove("hidden");
-homeInfo.classList.remove("hidden");
+    resultScreen.classList.add("hidden");
+    quizScreen.classList.add("hidden");
+    startScreen.classList.remove("hidden");
+    homeInfo.classList.remove("hidden");
 
-progressBar.style.width = "0%";
+    document.getElementById("suggestions-card").classList.add("hidden");
+
+    progressBar.style.width = "0%";
 
 }
 
 async function shareResult() {
 
-const title =
-    document.getElementById("result-title").textContent;
+    const title =
+        document.getElementById("result-title").textContent;
 
-const knowledge =
-    document.getElementById("knowledge-level").textContent;
+    const knowledge =
+        document.getElementById("knowledge-level").textContent;
 
-const finalScore =
-    document.getElementById("final-score").textContent;
+    const finalScore =
+        document.getElementById("final-score").textContent;
 
-const quizUrl =
-    "https://apocalypsequizzes.com/the-hunger-games-catching-fire-quiz/";
+    const quizUrl =
+        "https://apocalypsequizzes.com/the-hunger-games-catching-fire-quiz/";
 
-const shareText =
-    `🔥 I scored ${finalScore} on The Hunger Games: Catching Fire Quiz!\n\n` +
-    `${title}\n` +
-    `Knowledge level: ${knowledge}\n\n` +
-    `How well do YOU remember The Hunger Games: Catching Fire?`;
+    const shareText =
+        `🔥 I scored ${finalScore} on The Hunger Games: Catching Fire Quiz!\n\n` +
+        `${title}\n` +
+        `Knowledge level: ${knowledge}\n\n` +
+        `How well do YOU remember The Hunger Games: Catching Fire?`;
 
-const shareData = {
-    title: "The Hunger Games: Catching Fire Quiz",
-    text: shareText,
-    url: quizUrl
-};
+    const shareData = {
+        title: "The Hunger Games: Catching Fire Quiz",
+        text: shareText,
+        url: quizUrl
+    };
 
-try {
+    try {
 
-    if (navigator.share) {
+        if (navigator.share) {
 
-        await navigator.share(shareData);
+            await navigator.share(shareData);
 
-    } else {
+        } else {
 
-        await navigator.clipboard.writeText(
-            shareText +
-            "\n\n" +
-            quizUrl
-        );
+            await navigator.clipboard.writeText(
+                shareText +
+                "\n\n" +
+                quizUrl
+            );
 
-        alert(
-            "Your result has been copied! You can paste it anywhere."
-        );
+            alert(
+                "Your result has been copied! You can paste it anywhere."
+            );
+
+        }
+
+    } catch (error) {
+
+        console.log("Sharing cancelled.");
+
     }
 
-} catch (error) {
-
-    console.log("Sharing cancelled.");
-
 }
 
-}
 
 // ===============================
 // GLOBAL SITE MENU
@@ -628,76 +674,76 @@ const siteMenu = document.getElementById("site-menu");
 
 if (menuToggle && siteMenu) {
 
-// OPEN / CLOSE WITH HAMBURGER
-menuToggle.addEventListener("click", function (event) {
+    // OPEN / CLOSE WITH HAMBURGER
+    menuToggle.addEventListener("click", function (event) {
 
-    event.stopPropagation();
+        event.stopPropagation();
 
-    const isOpen =
-        menuToggle.getAttribute("aria-expanded") === "true";
+        const isOpen =
+            menuToggle.getAttribute("aria-expanded") === "true";
 
-    siteMenu.hidden = isOpen;
-
-    menuToggle.setAttribute(
-        "aria-expanded",
-        String(!isOpen)
-    );
-
-    menuToggle.setAttribute(
-        "aria-label",
-        isOpen
-            ? "Open navigation"
-            : "Close navigation"
-    );
-
-});
-
-
-// CLOSE WHEN CLICKING OUTSIDE
-document.addEventListener("click", function (event) {
-
-    if (
-        !siteMenu.hidden &&
-        !siteMenu.contains(event.target) &&
-        !menuToggle.contains(event.target)
-    ) {
-
-        siteMenu.hidden = true;
+        siteMenu.hidden = isOpen;
 
         menuToggle.setAttribute(
             "aria-expanded",
-            "false"
+            String(!isOpen)
         );
 
         menuToggle.setAttribute(
             "aria-label",
-            "Open navigation"
-        );
-
-    }
-
-});
-
-
-// CLOSE AFTER CLICKING A MENU LINK
-siteMenu.querySelectorAll("a").forEach(function (link) {
-
-    link.addEventListener("click", function () {
-
-        siteMenu.hidden = true;
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        menuToggle.setAttribute(
-            "aria-label",
-            "Open navigation"
+            isOpen
+                ? "Open navigation"
+                : "Close navigation"
         );
 
     });
 
-});
+
+    // CLOSE WHEN CLICKING OUTSIDE
+    document.addEventListener("click", function (event) {
+
+        if (
+            !siteMenu.hidden &&
+            !siteMenu.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+
+            siteMenu.hidden = true;
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation"
+            );
+
+        }
+
+    });
+
+
+    // CLOSE AFTER CLICKING A MENU LINK
+    siteMenu.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            siteMenu.hidden = true;
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation"
+            );
+
+        });
+
+    });
 
 }
