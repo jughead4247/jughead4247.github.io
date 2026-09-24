@@ -1,120 +1,6 @@
-/* ===============================
-   GLOBAL SITE HEADER
-   =============================== */
-
-.site-header {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 100px;
-    padding: 40px 60px;
-    background: #080808;
-    color: #ffffff;
-    border-bottom: 1px solid #292929;
-}
-
-.site-title {
-    color: #ffffff;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(1.45rem, 3vw, 2rem);
-    font-weight: 900;
-    letter-spacing: 2px;
-    line-height: 1;
-    text-align: center;
-    user-select: none;
-}
-
-.menu-toggle {
-    position: absolute;
-    left: 18px;
-    top: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 42px;
-    height: 42px;
-    padding: 8px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    transform: translateY(-50%);
-}
-
-.menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 0 auto;
-    border-radius: 2px;
-    background: #ffffff;
-    transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
-}
-
-.menu-toggle[aria-expanded="true"] span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle[aria-expanded="true"] span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-.site-menu {
-    position: absolute;
-    top: 72px;
-    left: 18px;
-    z-index: 1000;
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #333333;
-    border-radius: 12px;
-    background: #111111;
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.45);
-}
-
-.menu-links {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-.menu-links a {
-    display: block;
-    padding: 13px 14px;
-    border-radius: 7px;
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition:
-        background 0.2s ease,
-        padding-left 0.2s ease;
-}
-
-.menu-links a:hover {
-    background: #242424;
-    padding-left: 18px;
-}
-
-.menu-divider {
-    height: 1px;
-    margin: 8px 8px;
-    background: #333333;
-}
-
-
-/* ===============================
-   GLOBAL
-   =============================== */
+/* =====================================================
+   GLOBAL / RESET
+   ===================================================== */
 
 * {
     box-sizing: border-box;
@@ -145,30 +31,198 @@ body {
     padding: 0;
 }
 
-
-/* ===============================
-   MAIN CONTAINER
-   =============================== */
-
-.container {
-    width: 100%;
-    max-width: 760px;
-    margin: 20px auto;
-
-    position: relative;
-    z-index: 1;
+.hidden {
+    display: none !important;
 }
 
 
-/* ===============================
-   SCREENS
-   =============================== */
+/* =====================================================
+   SITE HEADER
+   ===================================================== */
+
+.site-header {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 100px;
+
+    padding: 40px 60px;
+
+    background: #080808;
+    color: #ffffff;
+
+    border-bottom: 1px solid #292929;
+}
+
+.site-title {
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    font-weight: 900;
+
+    letter-spacing: 2px;
+    line-height: 1;
+
+    text-align: center;
+    user-select: none;
+}
+
+
+/* =====================================================
+   MENU TOGGLE
+   ===================================================== */
+
+.menu-toggle {
+    position: absolute;
+
+    left: 18px;
+    top: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 5px;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 8px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+}
+
+.menu-toggle span {
+    display: block;
+
+    width: 25px;
+    height: 3px;
+
+    margin: 0 auto;
+
+    border-radius: 2px;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* =====================================================
+   SITE MENU
+   ===================================================== */
+
+.site-menu {
+    position: absolute;
+
+    top: 72px;
+    left: 18px;
+
+    z-index: 1000;
+
+    width: 300px;
+
+    padding: 10px;
+
+    border: 1px solid #333333;
+    border-radius: 12px;
+
+    background: #111111;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.menu-links a {
+    display: block;
+
+    padding: 13px 14px;
+
+    border-radius: 7px;
+
+    color: #ffffff;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+.menu-links a:hover {
+    background: #242424;
+
+    padding-left: 18px;
+}
+
+.menu-divider {
+    height: 1px;
+
+    margin: 8px 8px;
+
+    background: #333333;
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+   ===================================================== */
+
+.container {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 760px;
+
+    margin: 20px auto;
+}
+
+
+/* =====================================================
+   COMMON SCREEN
+   ===================================================== */
 
 .screen {
     background: rgba(12, 12, 12, 0.96);
 
     border: 1px solid #3a3a3a;
-
     border-radius: 18px;
 
     padding: 45px;
@@ -180,32 +234,19 @@ body {
     animation: appear 0.4s ease;
 }
 
-.hidden {
-    display: none;
+
+/* =====================================================
+   START SCREEN
+   ===================================================== */
+
+#start-screen {
+    text-align: center;
 }
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* ===============================
-   START CARD
-   =============================== */
 
 .intro-card {
     background: rgba(12, 12, 12, 0.96);
 
     border: 1px solid #3a3a3a;
-
     border-radius: 18px;
 
     padding: 45px;
@@ -218,9 +259,9 @@ body {
 }
 
 
-/* ===============================
+/* =====================================================
    START IMAGE
-   =============================== */
+   ===================================================== */
 
 .quiz-start-image {
     display: block;
@@ -231,6 +272,7 @@ body {
     height: auto;
 
     aspect-ratio: 16 / 9;
+
     object-fit: cover;
 
     margin: 0 auto 25px;
@@ -239,23 +281,23 @@ body {
 }
 
 
-/* ===============================
-   START SCREEN
-   =============================== */
-
-#start-screen {
-    text-align: center;
-}
+/* =====================================================
+   START SCREEN TYPOGRAPHY
+   ===================================================== */
 
 .intro-icon {
     font-size: 60px;
+
     margin-bottom: 10px;
+
     filter: grayscale(20%);
 }
 
 .icon {
     font-size: 80px;
+
     margin-bottom: 10px;
+
     filter: grayscale(20%);
 }
 
@@ -285,7 +327,6 @@ h1 {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     flex-wrap: wrap;
@@ -304,19 +345,17 @@ h1 {
 }
 
 
-/* ===============================
+/* =====================================================
    BUTTONS
-   =============================== */
+   ===================================================== */
 
 button {
     border: none;
-
     border-radius: 9px;
 
     padding: 17px 20px;
 
     font-size: 15px;
-
     font-weight: 700;
 
     letter-spacing: 0.7px;
@@ -374,15 +413,19 @@ button {
 }
 
 
-/* ===============================
-   QUIZ HEADER
-   =============================== */
+/* =====================================================
+   QUIZ SCREEN
+   ===================================================== */
+
+
+/* -------------------------------
+   Quiz Header
+   ------------------------------- */
 
 .quiz-header {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 
     gap: 15px;
@@ -397,18 +440,18 @@ button {
 }
 
 
-/* ===============================
-   PROGRESS BAR
-   =============================== */
+/* -------------------------------
+   Progress Bar
+   ------------------------------- */
 
 .progress {
     height: 6px;
 
+    margin-top: 14px;
+
     background: #292929;
 
     border-radius: 10px;
-
-    margin-top: 14px;
 
     overflow: hidden;
 }
@@ -424,26 +467,26 @@ button {
 }
 
 
-/* ===============================
-   QUESTIONS
-   =============================== */
+/* -------------------------------
+   Questions
+   ------------------------------- */
 
 h2 {
     min-height: 86px;
+
+    margin: 35px 0 25px;
 
     font-size: clamp(22px, 5vw, 31px);
 
     line-height: 1.4;
 
-    margin: 35px 0 25px;
-
     overflow-wrap: break-word;
 }
 
 
-/* ===============================
-   ANSWERS
-   =============================== */
+/* -------------------------------
+   Answers
+   ------------------------------- */
 
 #answers {
     min-height: 250px;
@@ -465,7 +508,6 @@ h2 {
     background: #171717;
 
     border: 1px solid #333;
-
     border-radius: 10px;
 
     line-height: 1.45;
@@ -496,9 +538,139 @@ h2 {
 }
 
 
-/* ===============================
-   RESULTS
-   =============================== */
+/* -------------------------------
+   Quiz Navigation
+   ------------------------------- */
+
+.quiz-navigation {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    margin-top: 28px;
+}
+
+.nav-btn {
+    flex: 0 1 auto;
+
+    min-width: 110px;
+    min-height: 46px;
+
+    padding: 12px 17px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+.nav-btn:disabled {
+    cursor: not-allowed;
+}
+
+
+/* -------------------------------
+   Back Button
+   ------------------------------- */
+
+#back-btn {
+    background: #171717;
+
+    color: #aaa;
+}
+
+#back-btn:hover:not(:disabled) {
+    background: #242424;
+
+    color: #ddd;
+}
+
+#back-btn:disabled {
+    background: #111;
+
+    border-color: #292929;
+
+    color: #444;
+
+    cursor: not-allowed;
+
+    opacity: 0.7;
+
+    transform: none;
+}
+
+
+/* -------------------------------
+   Next Button
+   ------------------------------- */
+
+#next-btn {
+    background: #b51f1f;
+
+    border-color: #b51f1f;
+
+    color: white;
+}
+
+#next-btn:hover:not(:disabled) {
+    background: #d32929;
+
+    border-color: #d32929;
+}
+
+
+/* -------------------------------
+   Submit Button
+   ------------------------------- */
+
+#submit-btn {
+    background: #b51f1f;
+
+    border-color: #b51f1f;
+
+    color: white;
+}
+
+#submit-btn:hover:not(:disabled) {
+    background: #d32929;
+
+    border-color: #d32929;
+}
+
+#submit-btn:disabled {
+    background: #222;
+
+    border-color: #333;
+
+    color: #666;
+
+    cursor: not-allowed;
+
+    opacity: 0.7;
+
+    transform: none;
+}
+
+
+/* =====================================================
+   RESULTS SCREEN
+   ===================================================== */
 
 .result-label {
     text-align: center;
@@ -543,9 +715,9 @@ h2 {
 }
 
 
-/* ===============================
-   KNOWLEDGE LEVEL
-   =============================== */
+/* =====================================================
+   RESULT — KNOWLEDGE LEVEL
+   ===================================================== */
 
 .survival-box {
     display: block;
@@ -560,7 +732,6 @@ h2 {
     background: #171717;
 
     border: 1px solid #333;
-
     border-radius: 14px;
 
     text-align: center;
@@ -576,7 +747,6 @@ h2 {
     color: #777;
 
     font-size: 11px;
-
     font-weight: 700;
 
     letter-spacing: 2px;
@@ -596,7 +766,6 @@ h2 {
     color: #eee;
 
     font-size: 24px;
-
     font-weight: 700;
 
     line-height: 1.2;
@@ -605,9 +774,9 @@ h2 {
 }
 
 
-/* ===============================
-   RESULT BREAKDOWN
-   =============================== */
+/* =====================================================
+   RESULT — BREAKDOWN
+   ===================================================== */
 
 .result-breakdown {
     display: grid;
@@ -617,7 +786,6 @@ h2 {
     gap: 12px;
 
     width: 100%;
-
     max-width: 700px;
 
     margin: 24px auto 30px;
@@ -629,7 +797,6 @@ h2 {
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     min-height: 92px;
@@ -639,7 +806,6 @@ h2 {
     background: #171717;
 
     border: 1px solid #333;
-
     border-radius: 12px;
 
     text-align: center;
@@ -666,7 +832,6 @@ h2 {
     color: #888;
 
     font-size: 11px;
-
     font-weight: 700;
 
     letter-spacing: 1.4px;
@@ -680,20 +845,16 @@ h2 {
     color: #eee;
 
     font-size: 26px;
-
     font-weight: 800;
 
     line-height: 1;
 }
 
 
-/* ===============================
-   HOMEPAGE INFORMATION
-   =============================== */
+/* =====================================================
+   HOMEPAGE / QUIZ INFORMATION
+   ===================================================== */
 
-.hidden {
-    display: none !important;
-}
 #home-info {
     display: grid;
 
@@ -712,7 +873,6 @@ h2 {
     background: rgba(12, 12, 12, 0.96);
 
     border: 1px solid #3a3a3a;
-
     border-radius: 18px;
 }
 
@@ -736,12 +896,11 @@ h2 {
 
 .home-info h3 {
     margin-top: 28px;
-
     margin-bottom: 8px;
 
-    font-size: 18px;
-
     color: #ddd;
+
+    font-size: 18px;
 
     line-height: 1.35;
 }
@@ -751,9 +910,9 @@ h2 {
 }
 
 
-/* ===============================
-   INFORMATION PAGES
-   =============================== */
+/* =====================================================
+   STANDALONE INFORMATION PAGES
+   ===================================================== */
 
 .info-page {
     max-width: 760px;
@@ -794,142 +953,9 @@ h2 {
 }
 
 
-/* ===============================
-   QUIZ NAVIGATION
-   =============================== */
-
-.quiz-navigation {
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 12px;
-
-    width: 100%;
-
-    margin-top: 28px;
-}
-
-.nav-btn {
-    flex: 0 1 auto;
-
-    min-width: 110px;
-
-    min-height: 46px;
-
-    padding: 12px 17px;
-
-    border-radius: 8px;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.15s ease,
-        background 0.15s ease,
-        border-color 0.15s ease;
-}
-
-.nav-btn:hover:not(:disabled) {
-    transform: translateY(-1px);
-}
-
-.nav-btn:disabled {
-    cursor: not-allowed;
-}
-
-
-/* BACK BUTTON */
-
-#back-btn {
-    background: #171717;
-
-    color: #aaa;
-}
-
-#back-btn:hover:not(:disabled) {
-    background: #242424;
-
-    color: #ddd;
-}
-
-
-/* NEXT BUTTON */
-
-#next-btn {
-    background: #b51f1f;
-
-    border-color: #b51f1f;
-
-    color: white;
-}
-
-#next-btn:hover:not(:disabled) {
-    background: #d32929;
-
-    border-color: #d32929;
-}
-
-
-/* SUBMIT BUTTON */
-
-#submit-btn {
-    background: #b51f1f;
-
-    border-color: #b51f1f;
-
-    color: white;
-}
-
-#submit-btn:hover:not(:disabled) {
-    background: #d32929;
-
-    border-color: #d32929;
-}
-
-
-/* DISABLED SUBMIT */
-
-#submit-btn:disabled {
-    background: #222;
-
-    border-color: #333;
-
-    color: #666;
-
-    cursor: not-allowed;
-
-    opacity: 0.7;
-
-    transform: none;
-}
-
-
-/* DISABLED BACK */
-
-#back-btn:disabled {
-    background: #111;
-
-    border-color: #292929;
-
-    color: #444;
-
-    cursor: not-allowed;
-
-    opacity: 0.7;
-
-    transform: none;
-}
-
-
-/* ===============================
-   SUGGESTED + EXPLORE CONTAINER
-   =============================== */
+/* =====================================================
+   SUGGESTED QUIZZES
+   ===================================================== */
 
 .suggestions-card {
     margin-top: 20px;
@@ -939,7 +965,6 @@ h2 {
     background: rgba(12, 12, 12, 0.96);
 
     border: 1px solid #3a3a3a;
-
     border-radius: 18px;
 
     box-shadow:
@@ -948,11 +973,6 @@ h2 {
 
     animation: appear 0.4s ease;
 }
-
-
-/* ===============================
-   SUGGESTED QUIZZES
-   =============================== */
 
 .suggested-quizzes {
     margin: 0;
@@ -996,7 +1016,6 @@ h2 {
     flex-direction: column;
 
     align-items: stretch;
-
     justify-content: flex-start;
 
     min-height: 260px;
@@ -1006,7 +1025,6 @@ h2 {
     background: #171717;
 
     border: 1px solid #333;
-
     border-radius: 12px;
 
     color: #ddd;
@@ -1053,7 +1071,6 @@ h2 {
     color: #fff;
 
     font-size: 16px;
-
     font-weight: 700;
 
     line-height: 1.3;
@@ -1069,13 +1086,16 @@ h2 {
     line-height: 1.5;
 }
 
+
 /* =====================================================
    MORE QUIZZES CTA
    ===================================================== */
 
 .more-quizzes-section {
     width: 100%;
+
     margin: 30px 0 0;
+
     padding-top: 28px;
 
     border-top: 1px solid #303030;
@@ -1087,18 +1107,21 @@ h2 {
     margin: 0 0 8px;
 
     text-align: center;
+
     font-size: 1.25rem;
 }
 
 .more-quizzes-section p {
+    max-width: 550px;
+
     margin: 0 auto 18px;
 
-    max-width: 550px;
+    color: #bbb;
+
+    line-height: 1.5;
 
     text-align: center;
 
-    line-height: 1.5;
-    color: #bbb;
     opacity: 0.9;
 }
 
@@ -1112,11 +1135,13 @@ h2 {
     padding: 12px 24px;
 
     background: #22c55e;
+
     color: #ffffff;
 
     text-decoration: none;
-    font-weight: 700;
+
     font-size: 0.95rem;
+    font-weight: 700;
 
     border-radius: 8px;
 
@@ -1138,15 +1163,102 @@ h2 {
         0 5px 14px rgba(34, 197, 94, 0.35);
 }
 
-/* ===============================
+
+/* =====================================================
+   SITE FOOTER
+   ===================================================== */
+
+.site-footer {
+    width: 100%;
+
+    margin-top: auto;
+
+    padding: 10px 20px;
+
+    background: #080808;
+
+    color: #ffffff;
+
+    border-top: 1px solid #292929;
+}
+
+.footer-inner {
+    width: min(100%, 1100px);
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.footer-brand {
+    margin-bottom: 24px;
+
+    color: #ffffff;
+
+    font-size: 1.15rem;
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px 24px;
+
+    margin-bottom: 26px;
+}
+
+.footer-links a {
+    color: #dddddd;
+
+    text-decoration: none;
+
+    font-size: 0.92rem;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 12px;
+
+    color: #999999;
+
+    font-size: 0.8rem;
+}
+
+
+/* =====================================================
    MOBILE
-   =============================== */
+   ===================================================== */
 
 @media (max-width: 600px) {
+
+    /* -------------------------------
+       Body
+       ------------------------------- */
 
     body {
         padding: 10px;
     }
+
+
+    /* -------------------------------
+       Header
+       ------------------------------- */
 
     .site-header {
         min-height: 64px;
@@ -1164,6 +1276,11 @@ h2 {
         letter-spacing: 1.3px;
     }
 
+
+    /* -------------------------------
+       Menu
+       ------------------------------- */
+
     .menu-toggle {
         left: 10px;
     }
@@ -1178,12 +1295,22 @@ h2 {
         max-width: 340px;
     }
 
+
+    /* -------------------------------
+       Screens
+       ------------------------------- */
+
     .screen,
     .intro-card {
         padding: 30px 20px;
 
         border-radius: 14px;
     }
+
+
+    /* -------------------------------
+       Start Screen
+       ------------------------------- */
 
     .intro-icon {
         font-size: 50px;
@@ -1203,6 +1330,11 @@ h2 {
         font-size: 11px;
     }
 
+
+    /* -------------------------------
+       Quiz
+       ------------------------------- */
+
     .quiz-header {
         font-size: 11px;
     }
@@ -1219,6 +1351,11 @@ h2 {
         font-size: 15px;
     }
 
+
+    /* -------------------------------
+       Results
+       ------------------------------- */
+
     .result-score {
         font-size: 48px;
     }
@@ -1231,53 +1368,8 @@ h2 {
         font-size: 16px;
     }
 
-    .home-info {
-        padding: 25px 20px;
-    }
-
-    .quiz-navigation {
-        gap: 10px;
-
-        margin-top: 24px;
-    }
-
-    .nav-btn {
-        flex: 1;
-
-        min-width: 0;
-
-        min-height: 48px;
-
-        padding: 12px 10px;
-
-        font-size: 12px;
-    }
-
-    .suggested-quizzes {
-        margin-top: 30px;
-
-        padding-top: 25px;
-    }
-
-    .suggested-quizzes h2 {
-        font-size: 23px;
-    }
-
-    .suggested-grid {
-        grid-template-columns: 1fr;
-
-        gap: 12px;
-    }
-
-    .suggested-card {
-        min-height: auto;
-
-        padding: 12px;
-    }
-
     .survival-box {
         width: 100%;
-
         max-width: 500px;
 
         margin: 25px auto 20px;
@@ -1326,79 +1418,119 @@ h2 {
     .result-stat strong {
         font-size: 23px;
     }
+
+
+    /* -------------------------------
+       Information
+       ------------------------------- */
+
+    .home-info {
+        padding: 25px 20px;
+    }
+
+
+    /* -------------------------------
+       Quiz Navigation
+       ------------------------------- */
+
+    .quiz-navigation {
+        gap: 10px;
+
+        margin-top: 24px;
+    }
+
+    .nav-btn {
+        flex: 1;
+
+        min-width: 0;
+        min-height: 48px;
+
+        padding: 12px 10px;
+
+        font-size: 12px;
+    }
+
+
+    /* -------------------------------
+       Suggested Quizzes
+       ------------------------------- */
+
+    .suggested-quizzes {
+        margin-top: 30px;
+
+        padding-top: 25px;
+    }
+
+    .suggested-quizzes h2 {
+        font-size: 23px;
+    }
+
+    .suggested-grid {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .suggested-card {
+        min-height: auto;
+
+        padding: 12px;
+    }
+
+
+    /* -------------------------------
+       Footer
+       ------------------------------- */
+
+    .site-footer {
+        width: calc(100% + 20px);
+
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-bottom: -10px;
+
+        padding: 18px 15px;
+    }
+
+    .footer-brand {
+        margin-bottom: 20px;
+
+        font-size: 1.05rem;
+    }
+
+    .footer-links {
+        gap: 10px 18px;
+
+        margin-bottom: 22px;
+    }
+
+    .footer-links a {
+        font-size: 0.88rem;
+    }
+
+    .copyright {
+        margin-top: 10px;
+
+        font-size: 0.75rem;
+    }
 }
 
-.site-footer {
-    width: calc(100% + 20px);
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-bottom: -10px;
 
-    padding: 18px 15px;
-}
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
 
-/* ===============================
-   FOOTER
-   =============================== */
+@keyframes appear {
 
-.site-footer {
-    width: 100%;
-    margin-top: auto;
-    padding: 10px 20px;
+    from {
+        opacity: 0;
 
-    background: #080808;
-    color: #ffffff;
+        transform: translateY(12px);
+    }
 
-    border-top: 1px solid #292929;
-}
+    to {
+        opacity: 1;
 
-.footer-inner {
-    width: min(100%, 1100px);
-    margin: auto;
-    text-align: center;
-}
-
-.footer-brand {
-    margin-bottom: 24px;
-    color: #ffffff;
-    font-size: 1.15rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    text-align: center;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px 24px;
-    margin-bottom: 26px;
-}
-
-.footer-links a {
-    color: #dddddd;
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-.site-footer {
-    width: calc(100% + 20px);
-    margin-left: -10px;
-    margin-right: -10px;
-    margin-bottom: -10px;
-
-    padding: 18px 15px;
-}
-
-.copyright {
-    margin-top: 12px;
-    color: #999999;
-    font-size: 0.8rem;
+        transform: translateY(0);
+    }
 }
