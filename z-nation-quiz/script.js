@@ -11,7 +11,7 @@ answers: [
 },
 
 {
-question: "What unusual weather phenomenon occurs in "Home Sweet Zombie"?",
+question: "What unusual weather phenomenon occurs in 'Home Sweet Zombie'?",
 answers: [
 ["A zombie tornado", 1],
 ["Zombie rain", 0],
