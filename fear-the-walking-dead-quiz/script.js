@@ -502,15 +502,14 @@ const questions = [
 
 ];
 
+
 let currentQuestion = 0;
-
-let selectedAnswers =
-    new Array(questions.length).fill(null);
+let selectedAnswers = new Array(questions.length).fill(null);
 
 
-// ===============================
-// ELEMENTS
-// ===============================
+/* ===============================
+   MAIN ELEMENTS
+   =============================== */
 
 const startScreen =
     document.getElementById("start-screen");
@@ -524,6 +523,13 @@ const resultScreen =
 const homeInfo =
     document.getElementById("home-info");
 
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+
+/* ===============================
+   BUTTONS
+   =============================== */
 
 const startButton =
     document.getElementById("start-btn");
@@ -537,13 +543,16 @@ const shareButton =
 const challengeButton =
     document.getElementById("challenge-btn");
 
-
 const backButton =
     document.getElementById("back-btn");
 
 const nextButton =
     document.getElementById("next-btn");
 
+
+/* ===============================
+   QUIZ ELEMENTS
+   =============================== */
 
 const questionNumber =
     document.getElementById("question-number");
@@ -558,44 +567,56 @@ const progressBar =
     document.getElementById("progress-bar");
 
 
-// ===============================
-// BUTTON EVENTS
-// ===============================
+/* ===============================
+   BUTTON EVENTS
+   =============================== */
 
-startButton.addEventListener(
-    "click",
-    startQuiz
-);
+if (startButton) {
+    startButton.addEventListener(
+        "click",
+        startQuiz
+    );
+}
 
-restartButton.addEventListener(
-    "click",
-    restartQuiz
-);
+if (restartButton) {
+    restartButton.addEventListener(
+        "click",
+        restartQuiz
+    );
+}
 
-shareButton.addEventListener(
-    "click",
-    shareResult
-);
+if (shareButton) {
+    shareButton.addEventListener(
+        "click",
+        shareResult
+    );
+}
 
-challengeButton.addEventListener(
-    "click",
-    shareResult
-);
+if (challengeButton) {
+    challengeButton.addEventListener(
+        "click",
+        shareResult
+    );
+}
 
-backButton.addEventListener(
-    "click",
-    goBack
-);
+if (backButton) {
+    backButton.addEventListener(
+        "click",
+        goBack
+    );
+}
 
-nextButton.addEventListener(
-    "click",
-    goNext
-);
+if (nextButton) {
+    nextButton.addEventListener(
+        "click",
+        goNext
+    );
+}
 
 
-// ===============================
-// START QUIZ
-// ===============================
+/* ===============================
+   START QUIZ
+   =============================== */
 
 function startQuiz() {
 
@@ -603,7 +624,6 @@ function startQuiz() {
 
     selectedAnswers =
         new Array(questions.length).fill(null);
-
 
     startScreen.classList.add("hidden");
 
@@ -613,36 +633,41 @@ function startQuiz() {
 
     homeInfo.classList.add("hidden");
 
+    if (suggestionsCard) {
+        suggestionsCard.classList.add("hidden");
+    }
+
+    progressBar.style.width = "0%";
 
     showQuestion();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 }
 
 
-// ===============================
-// SHOW QUESTION
-// ===============================
+/* ===============================
+   SHOW QUESTION
+   =============================== */
 
 function showQuestion() {
 
     const current =
         questions[currentQuestion];
 
-
     questionNumber.textContent =
         `Question ${currentQuestion + 1} of ${questions.length}`;
-
 
     questionText.textContent =
         current.question;
 
-
     answersContainer.innerHTML = "";
 
-
     const progress =
-        ((currentQuestion + 1) /
-            questions.length) * 100;
-
+        ((currentQuestion + 1) / questions.length) * 100;
 
     progressBar.style.width =
         `${progress}%`;
@@ -654,50 +679,30 @@ function showQuestion() {
             const button =
                 document.createElement("button");
 
-
             button.className =
                 "answer";
 
-
             button.type =
                 "button";
-
 
             button.textContent =
                 answer[0];
 
 
             if (
-                selectedAnswers[
-                    currentQuestion
-                ] === index
+                selectedAnswers[currentQuestion] === index
             ) {
 
                 button.classList.add(
                     "selected"
                 );
 
-
-                button.style.backgroundColor =
-                    "#444";
-
-                button.style.borderColor =
-                    "#ffffff";
-
-                button.style.color =
-                    "#ffffff";
-
-                button.style.fontWeight =
-                    "700";
-
-                button.style.boxShadow =
-                    "0 0 0 2px rgba(255,255,255,0.25)";
             }
 
 
             button.addEventListener(
                 "click",
-                () => {
+                function () {
 
                     selectAnswer(index);
 
@@ -714,12 +719,13 @@ function showQuestion() {
 
 
     updateNavigation();
+
 }
 
 
-// ===============================
-// SELECT ANSWER
-// ===============================
+/* ===============================
+   SELECT ANSWER
+   =============================== */
 
 function selectAnswer(answerIndex) {
 
@@ -736,51 +742,10 @@ function selectAnswer(answerIndex) {
     buttons.forEach(
         (button, index) => {
 
-            if (index === answerIndex) {
-
-                button.classList.add(
-                    "selected"
-                );
-
-
-                button.style.backgroundColor =
-                    "#444";
-
-                button.style.borderColor =
-                    "#ffffff";
-
-                button.style.color =
-                    "#ffffff";
-
-                button.style.fontWeight =
-                    "700";
-
-                button.style.boxShadow =
-                    "0 0 0 2px rgba(255,255,255,0.25)";
-
-            } else {
-
-                button.classList.remove(
-                    "selected"
-                );
-
-
-                button.style.backgroundColor =
-                    "";
-
-                button.style.borderColor =
-                    "";
-
-                button.style.color =
-                    "";
-
-                button.style.fontWeight =
-                    "";
-
-                button.style.boxShadow =
-                    "";
-
-            }
+            button.classList.toggle(
+                "selected",
+                index === answerIndex
+            );
 
         }
     );
@@ -789,50 +754,70 @@ function selectAnswer(answerIndex) {
     updateNavigation();
 
 
-    if (
-        currentQuestion <
-        questions.length - 1
-    ) {
+    /*
+       AUTO FORWARD
 
-        const questionAtSelection =
-            currentQuestion;
+       Wait 180ms so the selected state
+       is visible before moving forward.
+    */
+
+    const questionAtSelection =
+        currentQuestion;
 
 
-        setTimeout(
-            () => {
+    setTimeout(
+        function () {
 
-                if (
-                    currentQuestion ===
-                        questionAtSelection &&
+            /*
+               Make sure the user has not
+               moved manually during the delay.
+            */
 
-                    selectedAnswers[
-                        questionAtSelection
-                    ] === answerIndex
-                ) {
+            if (
+                currentQuestion === questionAtSelection &&
+                selectedAnswers[questionAtSelection] === answerIndex &&
+                currentQuestion < questions.length - 1
+            ) {
 
-                    currentQuestion++;
+                currentQuestion++;
 
-                    showQuestion();
+                showQuestion();
 
-                }
+            }
 
-            },
-            150
-        );
+        },
+        180
+    );
 
-    }
 }
 
 
-// ===============================
-// NEXT BUTTON
-// ===============================
+/* ===============================
+   NEXT / SUBMIT
+   =============================== */
 
 function goNext() {
 
+    /*
+       Do nothing if current question
+       has not been answered.
+    */
+
     if (
-        currentQuestion ===
-        questions.length - 1
+        selectedAnswers[currentQuestion] === null
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+       LAST QUESTION
+    */
+
+    if (
+        currentQuestion === questions.length - 1
     ) {
 
         const allAnswered =
@@ -847,31 +832,25 @@ function goNext() {
 
         }
 
-
-        return;
-    }
-
-
-    if (
-        selectedAnswers[
-            currentQuestion
-        ] === null
-    ) {
-
         return;
 
     }
 
+
+    /*
+       NORMAL NEXT QUESTION
+    */
 
     currentQuestion++;
 
     showQuestion();
+
 }
 
 
-// ===============================
-// BACK BUTTON
-// ===============================
+/* ===============================
+   BACK
+   =============================== */
 
 function goBack() {
 
@@ -882,29 +861,24 @@ function goBack() {
         showQuestion();
 
     }
+
 }
 
 
-// ===============================
-// NAVIGATION
-// ===============================
+/* ===============================
+   NAVIGATION STATE
+   =============================== */
 
 function updateNavigation() {
 
     const isFirst =
         currentQuestion === 0;
 
-
     const isLast =
-        currentQuestion ===
-        questions.length - 1;
-
+        currentQuestion === questions.length - 1;
 
     const currentAnswered =
-        selectedAnswers[
-            currentQuestion
-        ] !== null;
-
+        selectedAnswers[currentQuestion] !== null;
 
     const allAnswered =
         selectedAnswers.every(
@@ -912,55 +886,66 @@ function updateNavigation() {
         );
 
 
+    /*
+       BACK BUTTON
+    */
+
     backButton.disabled =
         isFirst;
 
 
+    /*
+       LAST QUESTION
+    */
+
     if (isLast) {
 
-        nextButton.textContent =
-            "SUBMIT";
+        nextButton.classList.remove(
+            "hidden"
+        );
 
+        nextButton.textContent =
+            allAnswered
+                ? "SUBMIT"
+                : "Answer All Questions";
 
         nextButton.disabled =
             !allAnswered;
 
-
-        if (allAnswered) {
-
-            nextButton.classList.add(
-                "submit-ready"
-            );
-
-        } else {
-
-            nextButton.classList.remove(
-                "submit-ready"
-            );
-
-        }
-
-    } else {
-
-        nextButton.textContent =
-            "Next →";
-
-
-        nextButton.disabled =
-            !currentAnswered;
-
-
-        nextButton.classList.remove(
-            "submit-ready"
+        nextButton.classList.toggle(
+            "submit-ready",
+            allAnswered
         );
 
+        return;
+
     }
+
+
+    /*
+       NORMAL QUESTION
+    */
+
+    nextButton.classList.remove(
+        "hidden"
+    );
+
+    nextButton.textContent =
+        "Next →";
+
+    nextButton.disabled =
+        !currentAnswered;
+
+    nextButton.classList.remove(
+        "submit-ready"
+    );
+
 }
 
 
-// ===============================
-// CALCULATE SCORE
-// ===============================
+/* ===============================
+   CALCULATE RAW SCORE
+   =============================== */
 
 function calculateScore() {
 
@@ -970,63 +955,196 @@ function calculateScore() {
     selectedAnswers.forEach(
         (answerIndex, questionIndex) => {
 
-            if (answerIndex === null) {
+            if (answerIndex !== null) {
 
-                return;
+                score +=
+                    questions[questionIndex]
+                        .answers[answerIndex][1];
 
             }
-
-
-            score +=
-                questions[
-                    questionIndex
-                ].answers[
-                    answerIndex
-                ][1];
 
         }
     );
 
 
     return score;
+
 }
 
 
-// ===============================
-// SHOW RESULT
-// ===============================
+/* ===============================
+   COUNT CORRECT ANSWERS
+   =============================== */
+
+function calculateCorrectAnswers() {
+
+    let correct = 0;
+
+
+    selectedAnswers.forEach(
+        (answerIndex, questionIndex) => {
+
+            if (
+                answerIndex !== null &&
+                questions[questionIndex]
+                    .answers[answerIndex][1] === 2
+            ) {
+
+                correct++;
+
+            }
+
+        }
+    );
+
+
+    return correct;
+
+}
+
+
+/* ===============================
+   SHOW RESULT
+   =============================== */
 
 function showResult() {
 
-    const score =
+    const totalQuestions =
+        questions.length;
+
+
+    const correctAnswers =
+        calculateCorrectAnswers();
+
+
+    const incorrectAnswers =
+        totalQuestions - correctAnswers;
+
+
+    /*
+       Each correct answer = 2 points.
+
+       50 questions × 2 = 100 maximum.
+    */
+
+    const rawScore =
         calculateScore();
 
 
-    homeInfo.classList.add(
-        "hidden"
-    );
+    const score =
+        Math.round(
+            (rawScore / (totalQuestions * 2)) * 100
+        );
+
+
+    const accuracy =
+        score;
 
 
     quizScreen.classList.add(
         "hidden"
     );
 
-
     resultScreen.classList.remove(
         "hidden"
     );
 
+    homeInfo.classList.remove(
+        "hidden"
+    );
 
-    document.getElementById(
-        "final-score"
-    ).textContent =
-        score;
 
+    if (suggestionsCard) {
+
+        suggestionsCard.classList.remove(
+            "hidden"
+        );
+
+    }
+
+
+    /* ===============================
+       MAIN SCORE
+       =============================== */
+
+    const finalScore =
+        document.getElementById(
+            "final-score"
+        );
+
+
+    if (finalScore) {
+
+        finalScore.textContent =
+            `${score}%`;
+
+    }
+
+
+    /* ===============================
+       RESULT BREAKDOWN
+       =============================== */
+
+    const correctCount =
+        document.getElementById(
+            "correct-count"
+        );
+
+    const incorrectCount =
+        document.getElementById(
+            "incorrect-count"
+        );
+
+    const totalCount =
+        document.getElementById(
+            "total-count"
+        );
+
+    const accuracyPercent =
+        document.getElementById(
+            "accuracy-percent"
+        );
+
+
+    if (correctCount) {
+
+        correctCount.textContent =
+            correctAnswers;
+
+    }
+
+
+    if (incorrectCount) {
+
+        incorrectCount.textContent =
+            incorrectAnswers;
+
+    }
+
+
+    if (totalCount) {
+
+        totalCount.textContent =
+            totalQuestions;
+
+    }
+
+
+    if (accuracyPercent) {
+
+        accuracyPercent.textContent =
+            `${accuracy}%`;
+
+    }
+
+
+    /* ===============================
+       FTWD RESULT LEVELS
+       =============================== */
 
     let title;
     let description;
     let knowledge;
-    let icon;
 
 
     if (score <= 20) {
@@ -1035,13 +1153,10 @@ function showResult() {
             "🧟 Walker Fodder";
 
         description =
-            "The apocalypse caught you off guard. There are still plenty of Fear the Walking Dead characters, events and secrets left to discover.";
+            "The walkers may have you surrounded. You remember a few details of Fear the Walking Dead, but there is plenty more of the apocalypse to revisit.";
 
         knowledge =
             "Casual Viewer";
-
-        icon =
-            "🧟";
 
 
     } else if (score <= 40) {
@@ -1050,13 +1165,10 @@ function showResult() {
             "🏚️ Survivor";
 
         description =
-            "You've survived the basics of the apocalypse, but some of the bigger twists and details of Fear the Walking Dead escaped you.";
+            "You have survived some of the major events, but several characters, communities and turning points from Fear the Walking Dead slipped through the cracks.";
 
         knowledge =
             "Casual Fan";
-
-        icon =
-            "🏚️";
 
 
     } else if (score <= 60) {
@@ -1065,13 +1177,10 @@ function showResult() {
             "🔪 Apocalypse Survivor";
 
         description =
-            "You know your way around the Fear universe and remember many of its important characters, communities and events.";
+            "Not bad! You remember many of the important characters, conflicts and major events across Fear the Walking Dead.";
 
         knowledge =
             "Good Fan";
-
-        icon =
-            "🔪";
 
 
     } else if (score <= 80) {
@@ -1080,13 +1189,10 @@ function showResult() {
             "⚔️ Seasoned Survivor";
 
         description =
-            "Impressive. You remember a lot of Fear the Walking Dead, including plenty of details that casual viewers may have forgotten.";
+            "Impressive! You have a strong memory of the survivors, factions, major communities and turning points throughout the series.";
 
         knowledge =
             "Dedicated Fan";
-
-        icon =
-            "⚔️";
 
 
     } else if (score <= 94) {
@@ -1095,13 +1201,10 @@ function showResult() {
             "🧠 Fear Expert";
 
         description =
-            "You know the Fear universe extremely well. Characters, locations, factions and major twists are clearly familiar territory.";
+            "Excellent! You remember most of the important characters, events, locations, crossovers and major developments from Fear the Walking Dead.";
 
         knowledge =
             "Expert Fan";
-
-        icon =
-            "🧠";
 
 
     } else {
@@ -1110,45 +1213,50 @@ function showResult() {
             "🔥 Fear Encyclopedia";
 
         description =
-            "You remember practically everything. From the early outbreak to PADRE, very few details of Fear the Walking Dead escaped you.";
+            "Outstanding! You remembered an enormous amount of detail from Fear the Walking Dead across all eight seasons.";
 
         knowledge =
             "Ultimate Fan";
 
-        icon =
-            "🔥";
+    }
+
+
+    const resultTitle =
+        document.getElementById(
+            "result-title"
+        );
+
+    const resultDescription =
+        document.getElementById(
+            "result-description"
+        );
+
+    const knowledgeLevel =
+        document.getElementById(
+            "knowledge-level"
+        );
+
+
+    if (resultTitle) {
+
+        resultTitle.textContent =
+            title;
 
     }
 
 
-    document.getElementById(
-        "result-title"
-    ).textContent =
-        title;
+    if (resultDescription) {
+
+        resultDescription.textContent =
+            description;
+
+    }
 
 
-    document.getElementById(
-        "result-description"
-    ).textContent =
-        description;
+    if (knowledgeLevel) {
 
-
-    document.getElementById(
-        "knowledge-level"
-    ).textContent =
-        knowledge;
-
-
-    const resultIcon =
-        document.getElementById(
-            "result-icon"
-        );
-
-
-    if (resultIcon) {
-
-        resultIcon.textContent =
-            icon;
+        knowledgeLevel.textContent =
+            knowledge;
 
     }
 
@@ -1158,24 +1266,20 @@ function showResult() {
 
 
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
 
 }
 
 
-// ===============================
-// RESTART QUIZ
-// ===============================
+/* ===============================
+   RESTART
+   =============================== */
 
 function restartQuiz() {
 
     currentQuestion = 0;
-
 
     selectedAnswers =
         new Array(questions.length).fill(null);
@@ -1185,20 +1289,26 @@ function restartQuiz() {
         "hidden"
     );
 
-
     quizScreen.classList.add(
         "hidden"
     );
-
 
     startScreen.classList.remove(
         "hidden"
     );
 
-
     homeInfo.classList.remove(
         "hidden"
     );
+
+
+    if (suggestionsCard) {
+
+        suggestionsCard.classList.add(
+            "hidden"
+        );
+
+    }
 
 
     progressBar.style.width =
@@ -1206,19 +1316,16 @@ function restartQuiz() {
 
 
     window.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
 
 }
 
 
-// ===============================
-// SHARE RESULT
-// ===============================
+/* ===============================
+   SHARE RESULT
+   =============================== */
 
 async function shareResult() {
 
@@ -1240,11 +1347,15 @@ async function shareResult() {
         ).textContent;
 
 
+    const quizUrl =
+        "https://apocalypsequizzes.com/fear-the-walking-dead-quiz/";
+
+
     const shareText =
-        `🧟 I scored ${finalScore}/100 on the Fear the Walking Dead Quiz!\n\n` +
+        `🧟 I scored ${finalScore} on the Fear the Walking Dead Quiz!\n\n` +
         `${title}\n` +
         `Knowledge level: ${knowledge}\n\n` +
-        `How well do YOU know Fear the Walking Dead?`;
+        `How well do YOU remember Fear the Walking Dead?`;
 
 
     const shareData = {
@@ -1256,14 +1367,16 @@ async function shareResult() {
             shareText,
 
         url:
-            "https://apocalypsequizzes.com/fear-the-walking-dead-quiz/"
+            quizUrl
 
     };
 
 
     try {
 
-        if (navigator.share) {
+        if (
+            navigator.share
+        ) {
 
             await navigator.share(
                 shareData
@@ -1273,7 +1386,8 @@ async function shareResult() {
 
             await navigator.clipboard.writeText(
                 shareText +
-                "\n\nhttps://apocalypsequizzes.com/fear-the-walking-dead-quiz/"
+                "\n\n" +
+                quizUrl
             );
 
 
@@ -1294,48 +1408,123 @@ async function shareResult() {
 }
 
 
-// ===============================
-// GLOBAL SITE MENU
-// ===============================
+/* ===============================
+   GLOBAL SITE MENU
+   =============================== */
 
-const menuToggle = document.getElementById("menu-toggle");
-const siteMenu = document.getElementById("site-menu");
+const menuToggle =
+    document.getElementById(
+        "menu-toggle"
+    );
 
-if (menuToggle && siteMenu) {
-
-    // OPEN / CLOSE WITH HAMBURGER
-    menuToggle.addEventListener("click", function (event) {
-
-        event.stopPropagation();
-
-        const isOpen =
-            menuToggle.getAttribute("aria-expanded") === "true";
-
-        siteMenu.hidden = isOpen;
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(!isOpen)
-        );
-
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen
-                ? "Open navigation"
-                : "Close navigation"
-        );
-
-    });
+const siteMenu =
+    document.getElementById(
+        "site-menu"
+    );
 
 
-    // CLOSE WHEN CLICKING OUTSIDE
-    document.addEventListener("click", function (event) {
+if (
+    menuToggle &&
+    siteMenu
+) {
 
-        if (
-            !siteMenu.hidden &&
-            !siteMenu.contains(event.target) &&
-            !menuToggle.contains(event.target)
-        ) {
+
+    /*
+       INITIAL MENU STATE
+    */
+
+    siteMenu.hidden = true;
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+    menuToggle.setAttribute(
+        "aria-label",
+        "Open navigation"
+    );
+
+
+    /*
+       HAMBURGER OPEN / CLOSE
+    */
+
+    menuToggle.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            event.stopPropagation();
+
+
+            const isOpen =
+                menuToggle.getAttribute(
+                    "aria-expanded"
+                ) === "true";
+
+
+            if (isOpen) {
+
+                siteMenu.hidden = true;
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            } else {
+
+                siteMenu.hidden = false;
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Close navigation"
+                );
+
+            }
+
+        }
+    );
+
+
+    /*
+       CLOSE WHEN CLICKING OUTSIDE
+    */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                siteMenu.hidden
+            ) {
+
+                return;
+
+            }
+
+
+            if (
+                siteMenu.contains(event.target) ||
+                menuToggle.contains(event.target)
+            ) {
+
+                return;
+
+            }
+
 
             siteMenu.hidden = true;
 
@@ -1350,29 +1539,39 @@ if (menuToggle && siteMenu) {
             );
 
         }
+    );
 
-    });
 
+    /*
+       CLOSE AFTER CLICKING
+       A MENU LINK
+    */
 
-    // CLOSE AFTER CLICKING A MENU LINK
-    siteMenu.querySelectorAll("a").forEach(function (link) {
+    siteMenu
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
 
-        link.addEventListener("click", function () {
+                link.addEventListener(
+                    "click",
+                    function () {
 
-            siteMenu.hidden = true;
+                        siteMenu.hidden = true;
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open navigation"
-            );
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
 
-        });
+                    }
+                );
 
-    });
+            }
+        );
 
 }
