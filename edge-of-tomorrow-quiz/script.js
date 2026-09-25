@@ -298,6 +298,7 @@ const questions = [
         ["He shoots it with a rifle", 0],
         ["He uses a Claymore mine", 0]
     ]
+        }
 ];
 
 
