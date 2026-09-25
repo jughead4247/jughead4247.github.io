@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>2012 Movie Quiz – How Well Do You Know the Movie?</title>
 
-<meta name="description" content="Think you know 2012? Test your knowledge of Jackson Curtis, the catastrophic events, the arks, characters, locations and survival story with this 25-question 2012 movie quiz.">
+<meta name="description" content="Think you know 2012? Test your knowledge of Jackson Curtis, the arks, the global catastrophe, Adrian Helmsley, Charlie Frost and the events of the 2012 movie with this 25-question movie quiz.">
 
-<meta name="keywords" content="2012 movie quiz, 2012 quiz, 2012 trivia, 2012 movie trivia, 2012 quiz questions, 2012 disaster movie quiz, 2012 survival quiz, apocalypse quiz, disaster movie quiz, movie trivia">
+<meta name="keywords" content="2012 movie quiz, 2012 quiz, 2012 movie trivia, 2012 trivia questions, Jackson Curtis quiz, 2012 apocalypse quiz, 2012 arks quiz, disaster movie quiz, apocalypse quiz">
 
 <meta name="author" content="Apocalypse Quizzes">
 <meta name="robots" content="index, follow">
@@ -17,31 +17,38 @@
 <link rel="canonical" href="https://apocalypsequizzes.com/2012-quiz/">
 
 <meta property="og:title" content="2012 Movie Quiz – How Well Do You Know the Movie?">
-<meta property="og:description" content="Test your knowledge of the characters, catastrophe, arks, locations and survival story from 2012 with 25 trivia questions.">
+<meta property="og:description" content="Test your knowledge of Jackson Curtis, the arks, Adrian Helmsley, Charlie Frost and the events of 2012 with this 25-question movie trivia challenge.">
 <meta property="og:url" content="https://apocalypsequizzes.com/2012-quiz/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Apocalypse Quizzes">
+<meta property="og:image" content="https://apocalypsequizzes.com/images/2012.png">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2012 Movie Quiz">
-<meta name="twitter:description" content="How well do you remember the disaster movie 2012? Take the 25-question movie trivia challenge.">
+<meta name="twitter:description" content="How well do you remember the movie 2012? Take the 25-question movie trivia challenge.">
+<meta name="twitter:image" content="https://apocalypsequizzes.com/images/2012.png">
 
 <link rel="icon" type="image/png" href="../favicon.png">
 
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST"></script>
 
 <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag(){
+        dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
     gtag('config', 'G-YC3ERJSBST');
 </script>
 
 <!-- Google AdSense -->
-
 <script async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+</script>
 
 <link rel="stylesheet" href="style.css">
 
@@ -70,6 +77,7 @@
 </div>
 
 </header>
+
 
 <nav
     class="site-menu"
@@ -113,9 +121,12 @@
 
 </nav>
 
+
 <main class="container">
 
-<!-- START SCREEN -->
+<!-- =====================================================
+     START SCREEN
+     ===================================================== -->
 
 <section id="start-screen">
 
@@ -123,34 +134,83 @@
 
     <img
         src="../images/2012.png"
-        alt="2012 Movie Quiz"
         class="quiz-start-image"
     >
 
+
+    <div class="quiz-category">
+        APOCALYPSE • DISASTER MOVIE TRIVIA
+    </div>
+
+
+    <h1>
+        2012 Movie Quiz
+    </h1>
+
+
     <p class="subtitle">
-        Think you can survive the end of the world?
-        Test your knowledge of the characters, catastrophic
-        events, arks, locations and survival story from
-        the movie 2012.
+        Think you can survive 2012?
+        Test your knowledge of Jackson Curtis,
+        the global catastrophe, the arks,
+        Adrian Helmsley, Charlie Frost and
+        the fight for humanity's survival.
     </p>
 
+
+    <!-- QUIZ STATS -->
+
     <div class="info">
-    <span>25 Questions</span>
-    <span>•</span>
-    <span>~5 Minutes</span>
-    <span>•</span>
-    <span>4 Possible Choices</span>
-</div>
+
+        <span>
+            25 Questions
+        </span>
+
+        <span>•</span>
+
+        <span>
+            ~5 Minutes
+        </span>
+
+        <span>•</span>
+
+        <span>
+            4 Choices
+        </span>
+
+    </div>
+
+
+    <p class="start-note">
+        Ready? See how much you remember about
+        the events of 2012.
+    </p>
+
+
+    <!-- START BUTTON -->
 
     <button id="start-btn">
         START QUIZ
     </button>
 
+
+    <div class="spoiler-warning start-spoiler">
+
+        <p>
+            This quiz contains spoilers for
+            <em>2012</em>.
+        </p>
+
+    </div>
+
+
 </div>
 
 </section>
 
-<!-- QUIZ SCREEN -->
+
+<!-- =====================================================
+     QUIZ SCREEN
+     ===================================================== -->
 
 <section id="quiz-screen" class="screen hidden">
 
@@ -161,7 +221,7 @@
     </span>
 
     <span id="score-display">
-        2012 Movie Trivia
+        2012
     </span>
 
 </div>
@@ -175,7 +235,6 @@
 
 
 <h2 id="question"></h2>
-
 
 <div id="answers"></div>
 
@@ -218,193 +277,402 @@
 
 </section>
 
-<!-- RESULT SCREEN -->
+
+<!-- =====================================================
+     RESULT SCREEN
+     ===================================================== -->
 
 <section id="result-screen" class="screen hidden">
 
-<div id="result-icon" class="icon">
-    🌎
-</div>
+    <p class="result-label">
+        YOUR RESULT
+    </p>
 
-<p class="result-label">
-    YOUR RESULT
-</p>
-
-<h1 id="result-title"></h1>
-
-<div class="result-score">
-
-    <span id="final-score"></span>
-
-</div>
-
-<p id="result-description"></p>
+    <h1 id="result-title"></h1>
 
 
-<div class="survival-box">
+    <!-- MAIN SCORE -->
 
-    <strong>
-        2012 Movie Knowledge
-    </strong>
+    <div class="result-score">
 
-    <span id="knowledge-level"></span>
+        <span id="final-score"></span>
 
-</div>
+    </div>
 
 
-<button id="restart-btn">
-    TRY AGAIN
-</button>
-
-<button id="share-btn">
-    📤 SHARE MY RESULT
-</button>
-
-<button id="challenge-btn">
-    🌎 CHALLENGE YOUR FRIENDS
-</button>
-
-<!-- =================================================
- SUGGESTED QUIZZES
- ================================================= -->
-
-<section class="suggested-quizzes">
-
-<h2>
-    Suggested Quizzes
-</h2>
-
-<p class="suggested-subtitle">
-    Survived 2012? Try another apocalypse quiz.
-</p>
+    <p class="result-description" id="result-description"></p>
 
 
-<div class="suggested-grid">
+    <!-- KNOWLEDGE LEVEL -->
 
-<!-- WORLD WAR Z QUIZ -->
+    <div class="survival-box">
 
-    <a
-        href="/world-war-z-quiz/"
-        class="suggested-card">
+        <strong>
+            2012 Movie Knowledge
+        </strong>
 
-        <img
-            src="../images/z.png"
-            alt="World War Z Quiz"
-            class="suggested-image"
-        >
+        <span id="knowledge-level"></span>
 
-        <span class="suggested-title">
-            World War Z Quiz
-        </span>
-
-        <span class="suggested-description">
-            How Well Do You Know World War Z?
-        </span>
-
-    </a>
+    </div>
 
 
-<!-- LOVE AND MONSTERS QUIZ -->
-        <a href="/love-and-monsters-quiz/" class="suggested-card">
-                        <img
-                            src="../images/love-and-monsters-quiz.png"
-                            alt="Love and Monsters Quiz"
-                            class="suggested-image"
-            >
-            <span class="suggested-title">
-                Love and Monsters Quiz
+    <!-- RESULT BREAKDOWN -->
+
+    <div class="result-breakdown">
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Correct
             </span>
-            <span class="suggested-description">
-          Test your knowledge of Love and Monsters 
+
+            <strong id="correct-count">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Incorrect
             </span>
-        </a>
+
+            <strong id="incorrect-count">
+                —
+            </strong>
+
+        </div>
 
 
+        <div class="result-stat">
 
-<!-- RESIDENT EVIL QUIZ -->
-        <a href="/resident-evil-quiz/" class="suggested-card">
-                        <img
-                            src="../images/resident-evil.png"
-                            alt="Resident Evil Quiz"
-                            class="suggested-image"
-                        >
-                        <span class="suggested-title">
-                            Resident Evil Quiz              
-          </span>
-                        <span class="suggested-description">
-                            Test your knowledge of the- Resident Evil movies
-                        </span>
-                    </a>
+            <span class="result-stat-label">
+                Total
+            </span>
 
-</div>
+            <strong id="total-count">
+                25
+            </strong>
+
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Accuracy
+            </span>
+
+            <strong id="accuracy-percent">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULT ACTIONS -->
+
+    <div class="result-actions">
+
+        <button id="restart-btn">
+            TRY AGAIN
+        </button>
+
+        <button id="share-btn">
+            📤 SHARE MY RESULT
+        </button>
+
+        <button id="challenge-btn">
+            🌎 CHALLENGE YOUR FRIENDS
+        </button>
+
+    </div>
 
 </section>
 
-<!-- MORE QUIZZES CTA -->
-
-<div class="more-quizzes-card">
-
-<h3>
-    Explore More Quizzes
-</h3>
-
-<p>
-    Discover more apocalypse, zombie, survival and
-    disaster movie quizzes.
-</p>
-
-<a
-    href="/"
-    class="more-quizzes-btn">
-
-    🧟 APOCALYPSE QUIZZES
-
-</a>
-
-</div>
-
-</section>
 
 <!-- =====================================================
-     HOMEPAGE INFORMATION
+     SUGGESTED QUIZZES CARD
+     ===================================================== -->
+
+<section id="suggestions-card" class="suggestions-card hidden">
+
+    <div class="suggested-quizzes">
+
+        <h2>
+            Suggested Quizzes
+        </h2>
+
+        <p class="suggested-subtitle">
+            Enjoyed this apocalypse and disaster challenge?
+            Try another movie quiz.
+        </p>
+
+
+        <div class="suggested-grid">
+
+
+            <!-- I AM LEGEND QUIZ -->
+
+            <a href="/i-am-legend-quiz/" class="suggested-card">
+
+                <img
+                    src="../images/iamlegend.png"
+                    alt="I Am Legend Quiz"
+                    class="suggested-image"
+                >
+
+                <span class="suggested-title">
+                    I Am Legend Quiz
+                </span>
+
+                <span class="suggested-description">
+                    How well do you remember Robert Neville,
+                    the infected and the post-apocalyptic
+                    world of I Am Legend?
+                </span>
+
+            </a>
+
+
+            <!-- THE CLOVERFIELD PARADOX QUIZ -->
+
+            <a href="/the-cloverfield-paradox-quiz/" class="suggested-card">
+
+                <img
+                    src="../images/cloverfield.png"
+                    alt="The Cloverfield Paradox Quiz"
+                    class="suggested-image"
+                >
+
+                <span class="suggested-title">
+                    The Cloverfield Paradox Quiz
+                </span>
+
+                <span class="suggested-description">
+                    Test your knowledge of the Shepard
+                    accelerator, Cloverfield Station and
+                    the strange events aboard the station.
+                </span>
+
+            </a>
+
+
+            <!-- WAR OF THE WORLDS QUIZ -->
+
+            <a href="/war-of-the-worlds-quiz/" class="suggested-card">
+
+                <img
+                    src="../images/worlds.png"
+                    alt="War of the Worlds Quiz"
+                    class="suggested-image"
+                >
+
+                <span class="suggested-title">
+                    War of the Worlds Quiz
+                </span>
+
+                <span class="suggested-description">
+                    Test your knowledge of the alien invasion,
+                    the tripods and the struggle to survive
+                    in War of the Worlds.
+                </span>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         EXPLORE MORE QUIZZES
+         ===================================================== -->
+
+    <div class="more-quizzes-section">
+
+        <h3>
+            Explore More Quizzes
+        </h3>
+
+        <p>
+            Discover more apocalypse, zombie, survival,
+            science-fiction and disaster movie quizzes.
+        </p>
+
+        <a
+            href="/"
+            class="more-quizzes-btn">
+
+            🧟 APOCALYPSE QUIZZES
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INFORMATION BELOW THE QUIZ
      ===================================================== -->
 
 <div id="home-info">
+
 
 <!-- ABOUT THE QUIZ -->
 
 <section class="home-info">
 
     <h2>
-        About the 2012 Movie Quiz
+        ABOUT THE QUIZ
     </h2>
 
     <p>
-        The 2012 Movie Quiz is a 25-question trivia challenge
-        for fans of the 2009 disaster movie <em>2012</em>.
-        The film follows writer Jackson Curtis and his family
-        as a series of catastrophic events threatens humanity
-        and governments race to save a fraction of the world's
-        population.
+        The 2012 Movie Quiz is a 25-question trivia
+        challenge based on the 2009 disaster film
+        <em>2012</em>. The movie follows writer Jackson
+        Curtis and his family as they attempt to survive
+        a series of catastrophic events that threaten
+        civilization around the world.
     </p>
 
     <p>
-        The questions cover the movie's characters, scientific
-        warnings, catastrophic events, survival plan, arks,
-        locations, aircraft and important details from Jackson
-        Curtis's journey.
+        The story follows the discovery of a global
+        catastrophe and the secret construction of
+        enormous arks designed to preserve humanity.
+        As the disasters begin, Jackson and his family
+        struggle to reach safety while governments and
+        scientists attempt to protect the human race.
     </p>
 
     <p>
-        Some questions test major plot details, while others
-        focus on smaller facts that are easier to forget. If
-        you remember the events surrounding the destruction of
-        the world and the desperate race to reach the arks,
-        this quiz gives you a chance to test your memory.
+        This quiz focuses on the movie's characters,
+        locations, survival plan, arks, disasters and
+        major story events. It is designed for viewers
+        who want to test how closely they remember
+        the events of <em>2012</em>.
     </p>
 
 </section>
 
+
+<!-- MOVIE DETAILS -->
+
+<section class="home-info">
+
+    <h2>
+        2012 Movie Details
+    </h2>
+
+    <p>
+        <strong>Release year:</strong> 2009
+    </p>
+
+    <p>
+        <strong>Director:</strong> Roland Emmerich
+    </p>
+
+    <p>
+        <strong>Genre:</strong> Disaster, science fiction and action
+    </p>
+
+    <p>
+        <strong>Main character:</strong> Jackson Curtis,
+        played by John Cusack
+    </p>
+
+    <p>
+        <strong>Key characters:</strong> Adrian Helmsley,
+        Charlie Frost, Kate Curtis, Yuri Karpov and
+        Carl Anheuser
+    </p>
+
+    <p>
+        <strong>Central survival plan:</strong>
+        The construction of massive arks designed
+        to preserve human life.
+    </p>
+
+</section>
+
+
+<!-- WHAT THIS QUIZ COVERS -->
+
+<section class="home-info">
+
+    <h2>
+        What This Quiz Covers
+    </h2>
+
+    <p>
+        The questions are based on details shown or
+        established in <em>2012</em>. Some questions
+        focus on characters and their relationships,
+        while others test your memory of specific
+        disasters, locations and survival events.
+    </p>
+
+    <h3>
+        Characters
+    </h3>
+
+    <p>
+        Questions may cover Jackson Curtis, Kate Curtis,
+        Noah, Lilly, Adrian Helmsley, Carl Anheuser,
+        Charlie Frost, Yuri Karpov, Satnam Tsurutani,
+        Nima and other important characters.
+    </p>
+
+    <h3>
+        The Global Catastrophe
+    </h3>
+
+    <p>
+        The quiz includes details about the disasters
+        that occur throughout the movie, including
+        earthquakes, volcanic eruptions, flooding and
+        other catastrophic events.
+    </p>
+
+    <h3>
+        The Arks
+    </h3>
+
+    <p>
+        The enormous arks are central to the movie's
+        survival plan. Questions can test your memory
+        of their construction, purpose, capacity and
+        the characters' attempts to reach them.
+    </p>
+
+    <h3>
+        Jackson's Journey
+    </h3>
+
+    <p>
+        The quiz covers Jackson Curtis's journey across
+        the United States and his attempts to protect
+        his family while the world around them collapses.
+    </p>
+
+    <h3>
+        Science and Survival
+    </h3>
+
+    <p>
+        Questions may also cover the scientific
+        explanations, government preparations and
+        survival decisions that form an important part
+        of the movie's story.
+    </p>
+
+</section>
 
 
 <!-- HOW THE QUIZ WORKS -->
@@ -412,33 +680,30 @@
 <section class="home-info">
 
     <h2>
-        How the 2012 Movie Quiz Works
+        How Quiz Works
     </h2>
 
     <p>
-        The quiz contains 25 questions. Every question has
-        four possible choices, but only one answer is correct.
-        Read each question carefully and select the answer you
-        believe is correct before continuing.
+        The quiz contains 25 questions. Every question
+        has four possible choices, but only one answer
+        is correct. Read each question carefully and
+        select the answer you believe is correct.
     </p>
 
     <p>
         Each correct answer gives you 1 point, while an
-        incorrect answer gives you 0 points. With 25 questions
-        in total, your number of correct answers is converted
-        into a final percentage out of 100%.
+        incorrect answer gives you 0 points. With
+        25 questions in total, your correct answers are
+        converted into a final percentage.
     </p>
 
     <p>
-        Your final result represents your knowledge of the
-        movie based on your performance. A high score means
-        you successfully remembered many of the characters,
-        events, locations and survival details featured in
-        <em>2012</em>.
+        Your final result represents how many questions
+        you answered correctly. The result categories are
+        based on your performance across the 25 questions.
     </p>
 
 </section>
-
 
 
 <!-- QUIZ NAVIGATION -->
@@ -450,7 +715,7 @@
     </h2>
 
     <h3>
-        Starting the quiz
+        Starting the Quiz
     </h3>
 
     <p>
@@ -460,36 +725,36 @@
     </p>
 
     <h3>
-        Selecting an answer
+        Selecting an Answer
     </h3>
 
     <p>
-        Read the question and all four choices before making
-        your decision. Select the answer you believe is
-        correct and continue through the quiz.
+        Read the question and all four choices before
+        making your selection. Once you choose an answer,
+        the quiz will continue to the next question.
     </p>
 
     <h3>
-        Next and Back buttons
+        Next and Back Buttons
     </h3>
 
     <p>
-        Use Next to move forward through the questions. The
-        Back button allows you to return to an earlier
-        question and review your selection. Your current
-        question number and progress are displayed as you
-        move through the quiz.
+        Use Next to move forward through the questions.
+        The Back button allows you to return to an earlier
+        question and review or change your selection.
+        Your question number and progress are displayed
+        as you move through the quiz.
     </p>
 
     <h3>
-        Finishing the quiz
+        Finishing the Quiz
     </h3>
 
     <p>
-        Continue until you have answered all 25 questions.
-        When you reach the end, submit your answers to finish
-        the quiz and view your final percentage and
-        2012 Movie Knowledge result.
+        Continue until all 25 questions have been
+        answered. When you reach the end, submit your
+        answers to finish the quiz and view your final
+        score and knowledge result.
     </p>
 
     <h3>
@@ -497,14 +762,13 @@
     </h3>
 
     <p>
-        After viewing your result, select TRY AGAIN to replay
-        the quiz and attempt a higher score. You can also use
-        SHARE MY RESULT or CHALLENGE YOUR FRIENDS to share
-        your result and challenge other fans.
+        After viewing your result, select TRY AGAIN to
+        replay the quiz and attempt a higher score.
+        You can also use SHARE MY RESULT or CHALLENGE
+        YOUR FRIENDS to share your result.
     </p>
 
 </section>
-
 
 
 <!-- FAQ -->
@@ -512,7 +776,7 @@
 <section class="home-info">
 
     <h2>
-        2012 Movie Quiz FAQ
+        FAQ
     </h2>
 
     <h3>
@@ -520,9 +784,10 @@
     </h3>
 
     <p>
-        There are 25 questions in total, and every question
-        has four possible choices.
+        There are 25 questions in total, and every
+        question has four possible choices.
     </p>
+
 
     <h3>
         What is the maximum score?
@@ -534,70 +799,91 @@
         into a percentage.
     </p>
 
+
     <h3>
         What topics are covered?
     </h3>
 
     <p>
-        The quiz focuses on <em>2012</em>, including its
-        characters, scientific warnings, catastrophic events,
-        survival plan, arks, locations, aircraft and major
-        story details.
+        The quiz covers <em>2012</em>, including Jackson
+        Curtis, Kate Curtis, Adrian Helmsley, Charlie
+        Frost, Yuri Karpov, the arks, the global
+        catastrophe and major survival events.
     </p>
 
+
     <h3>
-        Is this quiz about the characters?
+        Is this quiz only about the characters?
     </h3>
 
     <p>
-        The quiz includes questions about important characters,
-        but it also covers the catastrophe, survival plan,
-        locations, arks and other major details from the movie.
+        No. Character questions are only part of the
+        quiz. Other questions cover the disasters,
+        survival plan, arks, locations, scientific
+        discoveries and important plot details.
     </p>
+
 
     <h3>
         Which movie does this quiz cover?
     </h3>
 
     <p>
-        This quiz focuses on the 2009 disaster movie
-        <em>2012</em>, directed by Roland Emmerich.
+        This quiz focuses on the 2009 disaster film
+        <em>2012</em>, directed by Roland Emmerich and
+        starring John Cusack as Jackson Curtis.
     </p>
+
+
+    <h3>
+        Do I need to watch the movie before taking the quiz?
+    </h3>
+
+    <p>
+        It is recommended. The questions are based on
+        events, characters and details from the movie,
+        including information that may be difficult to
+        answer without having watched it.
+    </p>
+
 
     <h3>
         What does my score mean?
     </h3>
 
     <p>
-        Your percentage shows how many of the 25 movie-related
-        questions you answered correctly. A higher score
-        indicates stronger knowledge of <em>2012</em>.
+        Your percentage shows how many of the 25
+        questions you answered correctly. A higher
+        percentage means you correctly remembered more
+        of the movie's details.
     </p>
+
 
     <h3>
         Can I take the quiz again?
     </h3>
 
     <p>
-        Yes. Select TRY AGAIN after completing the quiz to
-        start another attempt and try to improve your score.
+        Yes. Select TRY AGAIN after completing the quiz
+        to start another attempt and try to improve
+        your score.
     </p>
+
 
     <h3>
         Can I challenge my friends?
     </h3>
 
     <p>
-        Yes. Select CHALLENGE YOUR FRIENDS after completing
-        the quiz to share the challenge and see whether your
-        friends can beat your score.
+        Yes. Select CHALLENGE YOUR FRIENDS after
+        completing the quiz to share the challenge and
+        see whether your friends can beat your score.
     </p>
 
 </section>
 
-<!-- =====================================================
-     SPOILER WARNING
-     ===================================================== -->
+
+<!-- SPOILER WARNING -->
 
 <section class="home-info spoiler-warning">
 
@@ -606,24 +892,30 @@
     </h2>
 
     <p>
-        This quiz contains spoilers for <em>2012</em>.
-        Questions may reveal major characters, catastrophic
-        events, survival plans, locations, the arks and other
-        important details from the movie.
+        This quiz contains spoilers for
+        <em>2012</em>. Questions may reveal important
+        details about the global catastrophe, the arks,
+        Jackson Curtis, the survival plan and other
+        major events from the movie.
     </p>
 
     <p>
         If you have not watched <em>2012</em>, consider
-        watching the movie before taking the quiz to avoid
-        having important story details spoiled.
+        watching the movie before taking the quiz to
+        avoid having important story details revealed.
     </p>
 
 </section>
 
+
 </div>
 
-
 </main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <footer class="site-footer">
 
@@ -662,6 +954,7 @@
 </div>
 
 </footer>
+
 
 <script src="script.js"></script>
 
