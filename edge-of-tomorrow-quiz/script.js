@@ -298,456 +298,898 @@ const questions = [
         ["He shoots it with a rifle", 0],
         ["He uses a Claymore mine", 0]
     ]
-}
-
 ];
 
+
 let currentQuestion = 0;
-let selectedAnswers = new Array(questions.length).fill(null);
 
-const startScreen = document.getElementById("start-screen");
-const quizScreen = document.getElementById("quiz-screen");
-const resultScreen = document.getElementById("result-screen");
-const homeInfo = document.getElementById("home-info");
+let selectedAnswers =
+    new Array(questions.length).fill(null);
 
-const startButton = document.getElementById("start-btn");
-const restartButton = document.getElementById("restart-btn");
-const shareButton = document.getElementById("share-btn");
-const challengeButton = document.getElementById("challenge-btn");
 
-const backButton = document.getElementById("back-btn");
-const nextButton = document.getElementById("next-btn");
-const submitButton = document.getElementById("submit-btn");
+/* =====================================================
+   DOM ELEMENTS
+   ===================================================== */
 
-const questionNumber = document.getElementById("question-number");
-const questionText = document.getElementById("question");
-const answersContainer = document.getElementById("answers");
-const progressBar = document.getElementById("progress-bar");
+const startScreen =
+    document.getElementById("start-screen");
 
-startButton.addEventListener("click", startQuiz);
-restartButton.addEventListener("click", restartQuiz);
-shareButton.addEventListener("click", shareResult);
-challengeButton.addEventListener("click", shareResult);
+const quizScreen =
+    document.getElementById("quiz-screen");
 
-backButton.addEventListener("click", goBack);
-nextButton.addEventListener("click", goNext);
-submitButton.addEventListener("click", showResult);
+const resultScreen =
+    document.getElementById("result-screen");
+
+const homeInfo =
+    document.getElementById("home-info");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
+
+
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+const submitButton =
+    document.getElementById("submit-btn");
+
+
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
+
+
+/* =====================================================
+   EVENT LISTENERS
+   ===================================================== */
+
+startButton.addEventListener(
+    "click",
+    startQuiz
+);
+
+restartButton.addEventListener(
+    "click",
+    restartQuiz
+);
+
+shareButton.addEventListener(
+    "click",
+    shareResult
+);
+
+challengeButton.addEventListener(
+    "click",
+    shareResult
+);
+
+backButton.addEventListener(
+    "click",
+    goBack
+);
+
+nextButton.addEventListener(
+    "click",
+    goNext
+);
+
+submitButton.addEventListener(
+    "click",
+    showResult
+);
+
+
+/* =====================================================
+   START QUIZ
+   ===================================================== */
 
 function startQuiz() {
 
-currentQuestion = 0;
-selectedAnswers = new Array(questions.length).fill(null);
+    currentQuestion = 0;
 
-startScreen.classList.add("hidden");
-resultScreen.classList.add("hidden");
-quizScreen.classList.remove("hidden");
-homeInfo.classList.add("hidden");
+    selectedAnswers =
+        new Array(questions.length).fill(null);
 
-showQuestion();
+    startScreen.classList.add("hidden");
+
+    resultScreen.classList.add("hidden");
+
+    quizScreen.classList.remove("hidden");
+
+    homeInfo.classList.add("hidden");
+
+    suggestionsCard.classList.add("hidden");
+
+    progressBar.style.width = "0%";
+
+    showQuestion();
 
 }
+
+
+/* =====================================================
+   SHOW QUESTION
+   ===================================================== */
 
 function showQuestion() {
 
-const current = questions[currentQuestion];
+    const current =
+        questions[currentQuestion];
 
-questionNumber.textContent =
-    `Question ${currentQuestion + 1} of ${questions.length}`;
 
-questionText.textContent = current.question;
+    questionNumber.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
 
-answersContainer.innerHTML = "";
 
-const progress =
-    ((currentQuestion + 1) / questions.length) * 100;
+    questionText.textContent =
+        current.question;
 
-progressBar.style.width = `${progress}%`;
 
-current.answers.forEach((answer, index) => {
+    answersContainer.innerHTML = "";
 
-    const button = document.createElement("button");
 
-    button.className = "answer";
-    button.type = "button";
-    button.textContent = answer[0];
+    const progress =
+        ((currentQuestion + 1) /
+        questions.length) * 100;
 
-    if (selectedAnswers[currentQuestion] === index) {
-        button.classList.add("selected");
-    }
 
-    button.addEventListener("click", () => {
-        selectAnswer(index);
-    });
+    progressBar.style.width =
+        `${progress}%`;
 
-    answersContainer.appendChild(button);
-});
 
-updateNavigation();
+    current.answers.forEach(
+        (answer, index) => {
+
+            const button =
+                document.createElement("button");
+
+
+            button.className =
+                "answer";
+
+
+            button.type =
+                "button";
+
+
+            button.textContent =
+                answer[0];
+
+
+            if (
+                selectedAnswers[currentQuestion] === index
+            ) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    selectAnswer(index);
+
+                }
+            );
+
+
+            answersContainer.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    updateNavigation();
 
 }
 
+
+/* =====================================================
+   SELECT ANSWER
+   ===================================================== */
+
 function selectAnswer(answerIndex) {
 
-selectedAnswers[currentQuestion] = answerIndex;
+    selectedAnswers[currentQuestion] =
+        answerIndex;
 
-const buttons =
-    answersContainer.querySelectorAll(".answer");
 
-buttons.forEach((button, index) => {
+    const buttons =
+        answersContainer.querySelectorAll(
+            ".answer"
+        );
 
-    button.classList.toggle(
-        "selected",
-        index === answerIndex
+
+    buttons.forEach(
+        (button, index) => {
+
+            button.classList.toggle(
+                "selected",
+                index === answerIndex
+            );
+
+        }
     );
 
-});
 
-updateNavigation();
+    updateNavigation();
 
-const questionAtSelection = currentQuestion;
 
-setTimeout(() => {
+    const questionAtSelection =
+        currentQuestion;
+
+
+    setTimeout(() => {
+
+        if (
+            currentQuestion === questionAtSelection &&
+            selectedAnswers[questionAtSelection] === answerIndex &&
+            currentQuestion < questions.length - 1
+        ) {
+
+            currentQuestion++;
+
+            showQuestion();
+
+        }
+
+    }, 180);
+
+}
+
+
+/* =====================================================
+   NEXT
+   ===================================================== */
+
+function goNext() {
 
     if (
-        currentQuestion === questionAtSelection &&
-        selectedAnswers[questionAtSelection] === answerIndex &&
-        currentQuestion < questions.length - 1
+        selectedAnswers[currentQuestion] === null
     ) {
 
-        currentQuestion++;
+        return;
+
+    }
+
+
+    if (
+        currentQuestion === questions.length - 1
+    ) {
+
+        if (
+            selectedAnswers.every(
+                answer => answer !== null
+            )
+        ) {
+
+            showResult();
+
+        }
+
+        return;
+
+    }
+
+
+    currentQuestion++;
+
+    showQuestion();
+
+}
+
+
+/* =====================================================
+   BACK
+   ===================================================== */
+
+function goBack() {
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
         showQuestion();
 
     }
 
-}, 180);
-
 }
 
-function goNext() {
 
-if (selectedAnswers[currentQuestion] === null) {
-    return;
-}
-
-if (currentQuestion === questions.length - 1) {
-
-    if (
-        selectedAnswers.every(
-            answer => answer !== null
-        )
-    ) {
-        showResult();
-    }
-
-    return;
-}
-
-currentQuestion++;
-showQuestion();
-
-}
-
-function goBack() {
-
-if (currentQuestion > 0) {
-    currentQuestion--;
-    showQuestion();
-}
-
-}
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
 
 function updateNavigation() {
 
-const isFirst =
-    currentQuestion === 0;
+    const isFirst =
+        currentQuestion === 0;
 
-const isLast =
-    currentQuestion === questions.length - 1;
 
-const currentAnswered =
-    selectedAnswers[currentQuestion] !== null;
+    const isLast =
+        currentQuestion === questions.length - 1;
 
-const allAnswered =
-    selectedAnswers.every(
-        answer => answer !== null
-    );
 
-backButton.disabled = isFirst;
+    const currentAnswered =
+        selectedAnswers[currentQuestion] !== null;
 
-if (isLast) {
 
-    nextButton.classList.add("hidden");
-    submitButton.classList.remove("hidden");
+    const allAnswered =
+        selectedAnswers.every(
+            answer => answer !== null
+        );
 
-    submitButton.disabled = !allAnswered;
 
-    submitButton.textContent =
-        allAnswered
-            ? "SUBMIT"
-            : "Answer All Questions";
+    backButton.disabled =
+        isFirst;
 
-} else {
 
-    submitButton.classList.add("hidden");
-    nextButton.classList.remove("hidden");
+    if (isLast) {
 
-    nextButton.textContent = "Next →";
-    nextButton.disabled = !currentAnswered;
+        nextButton.classList.add(
+            "hidden"
+        );
+
+        submitButton.classList.remove(
+            "hidden"
+        );
+
+
+        submitButton.disabled =
+            !allAnswered;
+
+
+        submitButton.textContent =
+            allAnswered
+                ? "SUBMIT"
+                : "Answer All Questions";
+
+    }
+
+    else {
+
+        submitButton.classList.add(
+            "hidden"
+        );
+
+        nextButton.classList.remove(
+            "hidden"
+        );
+
+
+        nextButton.textContent =
+            "Next →";
+
+
+        nextButton.disabled =
+            !currentAnswered;
+
+    }
+
 }
 
-}
+
+/* =====================================================
+   CALCULATE SCORE
+   ===================================================== */
 
 function calculateScore() {
 
-let score = 0;
+    let score = 0;
 
-selectedAnswers.forEach(
-    (answerIndex, questionIndex) => {
 
-        if (answerIndex !== null) {
+    selectedAnswers.forEach(
+        (answerIndex, questionIndex) => {
 
-            score +=
-                questions[questionIndex]
-                    .answers[answerIndex][1];
+            if (answerIndex !== null) {
+
+                score +=
+                    questions[questionIndex]
+                        .answers[answerIndex][1];
+
+            }
+
         }
-    }
-);
+    );
 
-return score;
+
+    return score;
 
 }
+
+
+/* =====================================================
+   SHOW RESULT
+   ===================================================== */
 
 function showResult() {
 
-const correctAnswers = calculateScore();
+    const correctAnswers =
+        calculateScore();
 
-const score = Math.round(
-    (correctAnswers / questions.length) * 100
-);
 
-homeInfo.classList.remove("hidden");
-quizScreen.classList.add("hidden");
-resultScreen.classList.remove("hidden");
+    const totalQuestions =
+        questions.length;
 
-document.getElementById("final-score").textContent = `${score}%`;
 
-let title;
-let description;
-let knowledge;
-let icon;
+    const incorrectAnswers =
+        totalQuestions -
+        correctAnswers;
 
-if (score <= 20) {
 
-    title = "⚔️ Mimic Recruit";
-    description =
-        "The Mimics have caught you off guard. It may be time to revisit Edge of Tomorrow and try again.";
+    const score =
+        Math.round(
+            (correctAnswers /
+            totalQuestions) * 100
+        );
 
-    knowledge = "Casual Viewer";
-    icon = "⚔️";
 
-} else if (score <= 40) {
+    const accuracy =
+        score;
 
-    title = "🪖 Battlefield Survivor";
-    description =
-        "You remember some of Cage's journey, but several details about the Mimics, UDF and time loop slipped through the cracks.";
 
-    knowledge = "Casual Fan";
-    icon = "🪖";
+    /* SCREEN VISIBILITY */
 
-} else if (score <= 60) {
+    homeInfo.classList.remove(
+        "hidden"
+    );
 
-    title = "⏳ Time-Loop Survivor";
-    description =
-        "Not bad! You remember many of the movie's major events, characters and the mystery behind the Mimics.";
+    quizScreen.classList.add(
+        "hidden"
+    );
 
-    knowledge = "Good Fan";
-    icon = "⏳";
+    resultScreen.classList.remove(
+        "hidden"
+    );
 
-} else if (score <= 80) {
+    suggestionsCard.classList.remove(
+        "hidden"
+    );
 
-    title = "⚔️ UDF Veteran";
-    description =
-        "Impressive! You have a strong memory for Cage, Rita, the Mimics and the battle against the Omega.";
 
-    knowledge = "Dedicated Fan";
-    icon = "⚔️";
+    /* SCORE */
 
-} else if (score <= 96) {
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        `${score}%`;
 
-    title = "🧠 Mimic Expert";
-    description =
-        "Excellent! You remember most of the important characters, events, locations and details of Cage's time-loop journey.";
 
-    knowledge = "Expert Fan";
-    icon = "🧠";
+    /* RESULT BREAKDOWN */
 
-} else {
+    document.getElementById(
+        "correct-count"
+    ).textContent =
+        correctAnswers;
 
-    title = "👑 Edge of Tomorrow Master";
-    description =
-        "Perfect score! You remembered practically every major detail about Cage, Rita, the Mimics and the fight against the Omega.";
 
-    knowledge = "Ultimate Fan";
-    icon = "👑";
+    document.getElementById(
+        "incorrect-count"
+    ).textContent =
+        incorrectAnswers;
+
+
+    document.getElementById(
+        "total-count"
+    ).textContent =
+        totalQuestions;
+
+
+    document.getElementById(
+        "accuracy-percent"
+    ).textContent =
+        `${accuracy}%`;
+
+
+    /* RESULT CLASSIFICATION */
+
+    let title;
+    let description;
+    let knowledge;
+    let icon;
+
+
+    if (score <= 20) {
+
+        title =
+            "⚔️ Mimic Recruit";
+
+        description =
+            "The Mimics have caught you off guard. It may be time to revisit Edge of Tomorrow and try again.";
+
+        knowledge =
+            "Casual Viewer";
+
+        icon =
+            "⚔️";
+
+    }
+
+    else if (score <= 40) {
+
+        title =
+            "🪖 Battlefield Survivor";
+
+        description =
+            "You remember some of Cage's journey, but several details about the Mimics, UDF and time loop slipped through the cracks.";
+
+        knowledge =
+            "Casual Fan";
+
+        icon =
+            "🪖";
+
+    }
+
+    else if (score <= 60) {
+
+        title =
+            "⏳ Time-Loop Survivor";
+
+        description =
+            "Not bad! You remember many of the movie's major events, characters and the mystery behind the Mimics.";
+
+        knowledge =
+            "Good Fan";
+
+        icon =
+            "⏳";
+
+    }
+
+    else if (score <= 80) {
+
+        title =
+            "⚔️ UDF Veteran";
+
+        description =
+            "Impressive! You have a strong memory for Cage, Rita, the Mimics and the battle against the Omega.";
+
+        knowledge =
+            "Dedicated Fan";
+
+        icon =
+            "⚔️";
+
+    }
+
+    else if (score <= 96) {
+
+        title =
+            "🧠 Mimic Expert";
+
+        description =
+            "Excellent! You remember most of the important characters, events, locations and details of Cage's time-loop journey.";
+
+        knowledge =
+            "Expert Fan";
+
+        icon =
+            "🧠";
+
+    }
+
+    else {
+
+        title =
+            "👑 Edge of Tomorrow Master";
+
+        description =
+            "Perfect score! You remembered practically every major detail about Cage, Rita, the Mimics and the fight against the Omega.";
+
+        knowledge =
+            "Ultimate Fan";
+
+        icon =
+            "👑";
+
+    }
+
+
+    document.getElementById(
+        "result-title"
+    ).textContent =
+        title;
+
+
+    document.getElementById(
+        "result-description"
+    ).textContent =
+        description;
+
+
+    document.getElementById(
+        "knowledge-level"
+    ).textContent =
+        knowledge;
+
+
+    document.getElementById(
+        "result-icon"
+    ).textContent =
+        icon;
+
+
+    progressBar.style.width =
+        "100%";
+
 }
 
-document.getElementById("result-title").textContent = title;
-document.getElementById("result-description").textContent = description;
-document.getElementById("knowledge-level").textContent = knowledge;
-document.getElementById("result-icon").textContent = icon;
 
-progressBar.style.width = "100%";
-
-}
+/* =====================================================
+   RESTART QUIZ
+   ===================================================== */
 
 function restartQuiz() {
 
-currentQuestion = 0;
+    currentQuestion = 0;
 
-selectedAnswers =
-    new Array(questions.length).fill(null);
 
-resultScreen.classList.add("hidden");
-quizScreen.classList.add("hidden");
-startScreen.classList.remove("hidden");
-homeInfo.classList.remove("hidden");
+    selectedAnswers =
+        new Array(questions.length).fill(null);
 
-progressBar.style.width = "0%";
+
+    resultScreen.classList.add(
+        "hidden"
+    );
+
+    quizScreen.classList.add(
+        "hidden"
+    );
+
+    startScreen.classList.remove(
+        "hidden"
+    );
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+    suggestionsCard.classList.add(
+        "hidden"
+    );
+
+
+    progressBar.style.width =
+        "0%";
 
 }
+
+
+/* =====================================================
+   SHARE RESULT
+   ===================================================== */
 
 async function shareResult() {
 
-const title =
-    document.getElementById("result-title").textContent;
+    const title =
+        document.getElementById(
+            "result-title"
+        ).textContent;
 
-const knowledge =
-    document.getElementById("knowledge-level").textContent;
 
-const finalScore =
-    document.getElementById("final-score").textContent;
+    const knowledge =
+        document.getElementById(
+            "knowledge-level"
+        ).textContent;
 
-const quizUrl =
-    "https://apocalypsequizzes.com/edge-of-tomorrow-quiz/";
 
-const shareText =
-    `⚔️ I scored ${finalScore} on the Edge of Tomorrow Movie Quiz!\n\n` +
-    `${title}\n` +
-    `Knowledge level: ${knowledge}\n\n` +
-    `How well do YOU remember Edge of Tomorrow?`;
+    const finalScore =
+        document.getElementById(
+            "final-score"
+        ).textContent;
 
-const shareData = {
-    title: "Edge of Tomorrow Movie Quiz",
-    text: shareText,
-    url: quizUrl
-};
 
-try {
+    const quizUrl =
+        "https://apocalypsequizzes.com/edge-of-tomorrow-quiz/";
 
-    if (navigator.share) {
 
-        await navigator.share(shareData);
+    const shareText =
+        `⚔️ I scored ${finalScore} on the Edge of Tomorrow Movie Quiz!\n\n` +
+        `${title}\n` +
+        `Knowledge level: ${knowledge}\n\n` +
+        `How well do YOU remember Edge of Tomorrow?`;
 
-    } else {
 
-        await navigator.clipboard.writeText(
-            shareText +
-            "\n\n" +
+    const shareData = {
+
+        title:
+            "Edge of Tomorrow Movie Quiz",
+
+        text:
+            shareText,
+
+        url:
             quizUrl
-        );
 
-        alert(
-            "Your result has been copied! You can paste it anywhere."
-        );
+    };
+
+
+    try {
+
+        if (navigator.share) {
+
+            await navigator.share(
+                shareData
+            );
+
+        }
+
+        else {
+
+            await navigator.clipboard.writeText(
+                shareText +
+                "\n\n" +
+                quizUrl
+            );
+
+
+            alert(
+                "Your result has been copied! You can paste it anywhere."
+            );
+
+        }
+
     }
 
-} catch (error) {
+    catch (error) {
 
-    console.log("Sharing cancelled.");
+        console.log(
+            "Sharing cancelled."
+        );
+
+    }
 
 }
 
-}
 
-// ===============================
-// GLOBAL SITE MENU
-// ===============================
+/* =====================================================
+   GLOBAL SITE MENU
+   ===================================================== */
 
-const menuToggle = document.getElementById("menu-toggle");
-const siteMenu = document.getElementById("site-menu");
+const menuToggle =
+    document.getElementById(
+        "menu-toggle"
+    );
+
+const siteMenu =
+    document.getElementById(
+        "site-menu"
+    );
+
 
 if (menuToggle && siteMenu) {
 
-// OPEN / CLOSE WITH HAMBURGER
-menuToggle.addEventListener("click", function (event) {
 
-    event.stopPropagation();
+    /* OPEN / CLOSE WITH HAMBURGER */
 
-    const isOpen =
-        menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.addEventListener(
+        "click",
+        function(event) {
 
-    siteMenu.hidden = isOpen;
+            event.stopPropagation();
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        String(!isOpen)
+
+            const isOpen =
+                menuToggle.getAttribute(
+                    "aria-expanded"
+                ) === "true";
+
+
+            siteMenu.hidden =
+                isOpen;
+
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(!isOpen)
+            );
+
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Open navigation"
+                    : "Close navigation"
+            );
+
+        }
     );
 
-    menuToggle.setAttribute(
-        "aria-label",
-        isOpen
-            ? "Open navigation"
-            : "Close navigation"
+
+    /* CLOSE WHEN CLICKING OUTSIDE */
+
+    document.addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                !siteMenu.hidden &&
+                !siteMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                siteMenu.hidden =
+                    true;
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            }
+
+        }
     );
 
-});
+
+    /* CLOSE AFTER CLICKING MENU LINK */
+
+    siteMenu
+        .querySelectorAll("a")
+        .forEach(
+            function(link) {
+
+                link.addEventListener(
+                    "click",
+                    function() {
+
+                        siteMenu.hidden =
+                            true;
 
 
-// CLOSE WHEN CLICKING OUTSIDE
-document.addEventListener("click", function (event) {
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
-    if (
-        !siteMenu.hidden &&
-        !siteMenu.contains(event.target) &&
-        !menuToggle.contains(event.target)
-    ) {
 
-        siteMenu.hidden = true;
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
+                    }
+                );
+
+            }
         );
-
-        menuToggle.setAttribute(
-            "aria-label",
-            "Open navigation"
-        );
-
-    }
-
-});
-
-
-// CLOSE AFTER CLICKING A MENU LINK
-siteMenu.querySelectorAll("a").forEach(function (link) {
-
-    link.addEventListener("click", function () {
-
-        siteMenu.hidden = true;
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        menuToggle.setAttribute(
-            "aria-label",
-            "Open navigation"
-        );
-
-    });
-
-});
 
 }
