@@ -241,7 +241,7 @@ answers: [
 },
 
 {
-question: "What is the significance of the "Red Hand" in Season 3?",
+question: "What is the significance of the 'Red Hand' in Season 3?",
 answers: [
 ["It becomes a major threat to Murphy", 1],
 ["It becomes Warren's military unit", 0],
