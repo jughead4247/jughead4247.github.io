@@ -302,184 +302,386 @@ const questions = [
 
 ];
 
+
 let currentQuestion = 0;
-let selectedAnswers = new Array(questions.length).fill(null);
 
-const startScreen = document.getElementById("start-screen");
-const quizScreen = document.getElementById("quiz-screen");
-const resultScreen = document.getElementById("result-screen");
-const homeInfo = document.getElementById("home-info");
+let selectedAnswers =
+    new Array(questions.length).fill(null);
 
-const startButton = document.getElementById("start-btn");
-const restartButton = document.getElementById("restart-btn");
-const shareButton = document.getElementById("share-btn");
-const challengeButton = document.getElementById("challenge-btn");
 
-const backButton = document.getElementById("back-btn");
-const nextButton = document.getElementById("next-btn");
-const submitButton = document.getElementById("submit-btn");
+// =====================================================
+// DOM ELEMENTS
+// =====================================================
 
-const questionNumber = document.getElementById("question-number");
-const questionText = document.getElementById("question");
-const answersContainer = document.getElementById("answers");
-const progressBar = document.getElementById("progress-bar");
+const startScreen =
+    document.getElementById("start-screen");
 
-startButton.addEventListener("click", startQuiz);
-restartButton.addEventListener("click", restartQuiz);
-shareButton.addEventListener("click", shareResult);
-challengeButton.addEventListener("click", shareResult);
+const quizScreen =
+    document.getElementById("quiz-screen");
 
-backButton.addEventListener("click", goBack);
-nextButton.addEventListener("click", goNext);
-submitButton.addEventListener("click", showResult);
+const resultScreen =
+    document.getElementById("result-screen");
+
+const homeInfo =
+    document.getElementById("home-info");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
+
+
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+const submitButton =
+    document.getElementById("submit-btn");
+
+
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
+
+
+// =====================================================
+// BUTTON EVENTS
+// =====================================================
+
+startButton.addEventListener(
+    "click",
+    startQuiz
+);
+
+restartButton.addEventListener(
+    "click",
+    restartQuiz
+);
+
+shareButton.addEventListener(
+    "click",
+    shareResult
+);
+
+challengeButton.addEventListener(
+    "click",
+    shareResult
+);
+
+backButton.addEventListener(
+    "click",
+    goBack
+);
+
+nextButton.addEventListener(
+    "click",
+    goNext
+);
+
+submitButton.addEventListener(
+    "click",
+    showResult
+);
+
+
+// =====================================================
+// START QUIZ
+// =====================================================
 
 function startQuiz() {
 
     currentQuestion = 0;
-    selectedAnswers = new Array(questions.length).fill(null);
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
+
+
+    // Hide start and result
 
     startScreen.classList.add("hidden");
+
     resultScreen.classList.add("hidden");
+
+
+    // Show quiz
+
     quizScreen.classList.remove("hidden");
+
+
+    // Hide information and suggestions
+
     homeInfo.classList.add("hidden");
+
+    suggestionsCard.classList.add("hidden");
+
+
+    progressBar.style.width = "0%";
+
 
     showQuestion();
 
 }
 
+
+// =====================================================
+// SHOW QUESTION
+// =====================================================
+
 function showQuestion() {
 
-    const current = questions[currentQuestion];
+    const current =
+        questions[currentQuestion];
+
 
     questionNumber.textContent =
         `Question ${currentQuestion + 1} of ${questions.length}`;
 
-    questionText.textContent = current.question;
+
+    questionText.textContent =
+        current.question;
+
 
     answersContainer.innerHTML = "";
+
 
     const progress =
         ((currentQuestion + 1) / questions.length) * 100;
 
-    progressBar.style.width = `${progress}%`;
 
-    current.answers.forEach((answer, index) => {
+    progressBar.style.width =
+        `${progress}%`;
 
-        const button = document.createElement("button");
 
-        button.className = "answer";
-        button.type = "button";
-        button.textContent = answer[0];
+    current.answers.forEach(
+        (answer, index) => {
 
-        if (selectedAnswers[currentQuestion] === index) {
-            button.classList.add("selected");
+            const button =
+                document.createElement("button");
+
+
+            button.className =
+                "answer";
+
+
+            button.type =
+                "button";
+
+
+            button.textContent =
+                answer[0];
+
+
+            if (
+                selectedAnswers[currentQuestion] === index
+            ) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            button.addEventListener(
+                "click",
+                () => {
+                    selectAnswer(index);
+                }
+            );
+
+
+            answersContainer.appendChild(
+                button
+            );
+
         }
+    );
 
-        button.addEventListener("click", () => {
-            selectAnswer(index);
-        });
-
-        answersContainer.appendChild(button);
-    });
 
     updateNavigation();
 
 }
+
+
+// =====================================================
+// SELECT ANSWER
+// =====================================================
 
 function selectAnswer(answerIndex) {
 
-    selectedAnswers[currentQuestion] = answerIndex;
+    selectedAnswers[currentQuestion] =
+        answerIndex;
+
 
     const buttons =
-        answersContainer.querySelectorAll(".answer");
-
-    buttons.forEach((button, index) => {
-
-        button.classList.toggle(
-            "selected",
-            index === answerIndex
+        answersContainer.querySelectorAll(
+            ".answer"
         );
 
-    });
+
+    buttons.forEach(
+        (button, index) => {
+
+            button.classList.toggle(
+                "selected",
+                index === answerIndex
+            );
+
+        }
+    );
+
 
     updateNavigation();
 
-    const questionAtSelection = currentQuestion;
 
-    setTimeout(() => {
+    const questionAtSelection =
+        currentQuestion;
 
-        if (
-            currentQuestion === questionAtSelection &&
-            selectedAnswers[questionAtSelection] === answerIndex &&
-            currentQuestion < questions.length - 1
-        ) {
 
-            currentQuestion++;
-            showQuestion();
+    setTimeout(
+        () => {
 
-        }
+            if (
+                currentQuestion === questionAtSelection &&
+                selectedAnswers[questionAtSelection] === answerIndex &&
+                currentQuestion < questions.length - 1
+            ) {
 
-    }, 180);
+                currentQuestion++;
+
+                showQuestion();
+
+            }
+
+        },
+        180
+    );
 
 }
 
+
+// =====================================================
+// NEXT
+// =====================================================
+
 function goNext() {
 
-    if (selectedAnswers[currentQuestion] === null) {
+    if (
+        selectedAnswers[currentQuestion] === null
+    ) {
+
         return;
+
     }
 
-    if (currentQuestion === questions.length - 1) {
+
+    if (
+        currentQuestion === questions.length - 1
+    ) {
 
         if (
             selectedAnswers.every(
                 answer => answer !== null
             )
         ) {
+
             showResult();
+
         }
 
         return;
+
     }
 
+
     currentQuestion++;
+
     showQuestion();
 
 }
 
+
+// =====================================================
+// BACK
+// =====================================================
+
 function goBack() {
 
     if (currentQuestion > 0) {
+
         currentQuestion--;
+
         showQuestion();
+
     }
 
 }
+
+
+// =====================================================
+// NAVIGATION STATE
+// =====================================================
 
 function updateNavigation() {
 
     const isFirst =
         currentQuestion === 0;
 
+
     const isLast =
         currentQuestion === questions.length - 1;
 
+
     const currentAnswered =
         selectedAnswers[currentQuestion] !== null;
+
 
     const allAnswered =
         selectedAnswers.every(
             answer => answer !== null
         );
 
-    backButton.disabled = isFirst;
+
+    backButton.disabled =
+        isFirst;
+
 
     if (isLast) {
 
-        nextButton.classList.add("hidden");
-        submitButton.classList.remove("hidden");
+        nextButton.classList.add(
+            "hidden"
+        );
 
-        submitButton.disabled = !allAnswered;
+
+        submitButton.classList.remove(
+            "hidden"
+        );
+
+
+        submitButton.disabled =
+            !allAnswered;
+
 
         submitButton.textContent =
             allAnswered
@@ -488,18 +690,36 @@ function updateNavigation() {
 
     } else {
 
-        submitButton.classList.add("hidden");
-        nextButton.classList.remove("hidden");
+        submitButton.classList.add(
+            "hidden"
+        );
 
-        nextButton.textContent = "Next →";
-        nextButton.disabled = !currentAnswered;
+
+        nextButton.classList.remove(
+            "hidden"
+        );
+
+
+        nextButton.textContent =
+            "Next →";
+
+
+        nextButton.disabled =
+            !currentAnswered;
+
     }
 
 }
 
+
+// =====================================================
+// CALCULATE SCORE
+// =====================================================
+
 function calculateScore() {
 
     let score = 0;
+
 
     selectedAnswers.forEach(
         (answerIndex, questionIndex) => {
@@ -509,126 +729,319 @@ function calculateScore() {
                 score +=
                     questions[questionIndex]
                         .answers[answerIndex][1];
+
             }
+
         }
     );
+
 
     return score;
 
 }
 
+
+// =====================================================
+// SHOW RESULT
+// =====================================================
+
 function showResult() {
 
-    const correctAnswers = calculateScore();
+    const correctAnswers =
+        calculateScore();
 
-    const score = Math.round(
-        (correctAnswers / questions.length) * 100
+
+    const totalQuestions =
+        questions.length;
+
+
+    const incorrectAnswers =
+        totalQuestions - correctAnswers;
+
+
+    const score =
+        Math.round(
+            (correctAnswers / totalQuestions) * 100
+        );
+
+
+    const accuracy =
+        score;
+
+
+    // =================================================
+    // VISIBILITY
+    // =================================================
+
+    quizScreen.classList.add(
+        "hidden"
     );
 
-    homeInfo.classList.remove("hidden");
-    quizScreen.classList.add("hidden");
-    resultScreen.classList.remove("hidden");
 
-    document.getElementById("final-score").textContent = `${score}%`;
+    resultScreen.classList.remove(
+        "hidden"
+    );
+
+
+    // Show information after quiz
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+
+    // Show suggestions only after result
+
+    suggestionsCard.classList.remove(
+        "hidden"
+    );
+
+
+    // =================================================
+    // RESULT BREAKDOWN
+    // =================================================
+
+    document.getElementById(
+        "correct-count"
+    ).textContent =
+        correctAnswers;
+
+
+    document.getElementById(
+        "incorrect-count"
+    ).textContent =
+        incorrectAnswers;
+
+
+    document.getElementById(
+        "total-count"
+    ).textContent =
+        totalQuestions;
+
+
+    document.getElementById(
+        "accuracy-percent"
+    ).textContent =
+        `${accuracy}%`;
+
+
+    // =================================================
+    // MAIN SCORE
+    // =================================================
+
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        `${score}%`;
+
+
+    // =================================================
+    // RESULT CATEGORY
+    // =================================================
 
     let title;
     let description;
     let knowledge;
     let icon;
 
+
     if (score <= 20) {
 
-        title = "👽 Future War Newcomer";
+        title =
+            "👽 Future War Newcomer";
+
         description =
             "The White Spikes and the future war are still a little hazy. It may be time to revisit The Tomorrow War and try again.";
 
-        knowledge = "Casual Viewer";
-        icon = "👽";
+        knowledge =
+            "Casual Viewer";
+
+        icon =
+            "👽";
+
 
     } else if (score <= 40) {
 
-        title = "🪖 Drafted Survivor";
+        title =
+            "🪖 Drafted Survivor";
+
         description =
             "You remember some of the major events and characters, but several details about Dan, Muri and the White Spikes slipped through the cracks.";
 
-        knowledge = "Casual Fan";
-        icon = "🪖";
+        knowledge =
+            "Casual Fan";
+
+        icon =
+            "🪖";
+
 
     } else if (score <= 60) {
 
-        title = "🧬 White Spike Survivor";
+        title =
+            "🧬 White Spike Survivor";
+
         description =
             "Not bad! You remember many of the movie's major events, characters, future-war missions and alien details.";
 
-        knowledge = "Good Fan";
-        icon = "🧬";
+        knowledge =
+            "Good Fan";
+
+        icon =
+            "🧬";
+
 
     } else if (score <= 80) {
 
-        title = "🚀 Future War Veteran";
+        title =
+            "🚀 Future War Veteran";
+
         description =
             "Impressive! You have a strong memory for Dan's missions, Muri, the JumpLink and the fight against the White Spikes.";
 
-        knowledge = "Dedicated Fan";
-        icon = "🚀";
+        knowledge =
+            "Dedicated Fan";
+
+        icon =
+            "🚀";
+
 
     } else if (score <= 96) {
 
-        title = "🔬 White Spike Expert";
+        title =
+            "🔬 White Spike Expert";
+
         description =
             "Excellent! You remember most of the important characters, future-war events, White Spike details and the discovery of their origin.";
 
-        knowledge = "Expert Fan";
-        icon = "🔬";
+        knowledge =
+            "Expert Fan";
+
+        icon =
+            "🔬";
+
 
     } else {
 
-        title = "👑 Tomorrow War Master";
+        title =
+            "👑 Tomorrow War Master";
+
         description =
             "Perfect score! You remembered practically every major detail about Dan, Muri, the White Spikes, the JumpLink and the final battle.";
 
-        knowledge = "Ultimate Fan";
-        icon = "👑";
+        knowledge =
+            "Ultimate Fan";
+
+        icon =
+            "👑";
+
     }
 
-    document.getElementById("result-title").textContent = title;
-    document.getElementById("result-description").textContent = description;
-    document.getElementById("knowledge-level").textContent = knowledge;
-    document.getElementById("result-icon").textContent = icon;
 
-    progressBar.style.width = "100%";
+    document.getElementById(
+        "result-title"
+    ).textContent =
+        title;
+
+
+    document.getElementById(
+        "result-description"
+    ).textContent =
+        description;
+
+
+    document.getElementById(
+        "knowledge-level"
+    ).textContent =
+        knowledge;
+
+
+    document.getElementById(
+        "result-icon"
+    ).textContent =
+        icon;
+
+
+    progressBar.style.width =
+        "100%";
 
 }
+
+
+// =====================================================
+// RESTART
+// =====================================================
 
 function restartQuiz() {
 
     currentQuestion = 0;
 
+
     selectedAnswers =
         new Array(questions.length).fill(null);
 
-    resultScreen.classList.add("hidden");
-    quizScreen.classList.add("hidden");
-    startScreen.classList.remove("hidden");
-    homeInfo.classList.remove("hidden");
 
-    progressBar.style.width = "0%";
+    // Hide quiz/result/suggestions
+
+    resultScreen.classList.add(
+        "hidden"
+    );
+
+    quizScreen.classList.add(
+        "hidden"
+    );
+
+    suggestionsCard.classList.add(
+        "hidden"
+    );
+
+
+    // Return to start
+
+    startScreen.classList.remove(
+        "hidden"
+    );
+
+
+    // Information is visible on start screen
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+
+    progressBar.style.width =
+        "0%";
 
 }
+
+
+// =====================================================
+// SHARE RESULT
+// =====================================================
 
 async function shareResult() {
 
     const title =
-        document.getElementById("result-title").textContent;
+        document.getElementById(
+            "result-title"
+        ).textContent;
+
 
     const knowledge =
-        document.getElementById("knowledge-level").textContent;
+        document.getElementById(
+            "knowledge-level"
+        ).textContent;
+
 
     const finalScore =
-        document.getElementById("final-score").textContent;
+        document.getElementById(
+            "final-score"
+        ).textContent;
+
 
     const quizUrl =
         "https://apocalypsequizzes.com/tomorrow-war-quiz/";
+
 
     const shareText =
         `👽 I scored ${finalScore} on The Tomorrow War Movie Quiz!\n\n` +
@@ -636,17 +1049,28 @@ async function shareResult() {
         `Knowledge level: ${knowledge}\n\n` +
         `How well do YOU remember The Tomorrow War?`;
 
+
     const shareData = {
-        title: "The Tomorrow War Movie Quiz",
-        text: shareText,
-        url: quizUrl
+
+        title:
+            "The Tomorrow War Movie Quiz",
+
+        text:
+            shareText,
+
+        url:
+            quizUrl
+
     };
+
 
     try {
 
         if (navigator.share) {
 
-            await navigator.share(shareData);
+            await navigator.share(
+                shareData
+            );
 
         } else {
 
@@ -656,99 +1080,142 @@ async function shareResult() {
                 quizUrl
             );
 
+
             alert(
                 "Your result has been copied! You can paste it anywhere."
             );
+
         }
 
     } catch (error) {
 
-        console.log("Sharing cancelled.");
+        console.log(
+            "Sharing cancelled."
+        );
 
     }
 
 }
 
 
-// ===============================
+// =====================================================
 // GLOBAL SITE MENU
-// ===============================
+// =====================================================
 
-const menuToggle = document.getElementById("menu-toggle");
-const siteMenu = document.getElementById("site-menu");
+const menuToggle =
+    document.getElementById(
+        "menu-toggle"
+    );
+
+
+const siteMenu =
+    document.getElementById(
+        "site-menu"
+    );
+
 
 if (menuToggle && siteMenu) {
 
+
     // OPEN / CLOSE WITH HAMBURGER
-    menuToggle.addEventListener("click", function (event) {
 
-        event.stopPropagation();
+    menuToggle.addEventListener(
+        "click",
+        function (event) {
 
-        const isOpen =
-            menuToggle.getAttribute("aria-expanded") === "true";
-
-        siteMenu.hidden = isOpen;
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(!isOpen)
-        );
-
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen
-                ? "Open navigation"
-                : "Close navigation"
-        );
-
-    });
+            event.stopPropagation();
 
 
-    // CLOSE WHEN CLICKING OUTSIDE
-    document.addEventListener("click", function (event) {
+            const isOpen =
+                menuToggle.getAttribute(
+                    "aria-expanded"
+                ) === "true";
 
-        if (
-            !siteMenu.hidden &&
-            !siteMenu.contains(event.target) &&
-            !menuToggle.contains(event.target)
-        ) {
 
-            siteMenu.hidden = true;
+            siteMenu.hidden =
+                isOpen;
+
 
             menuToggle.setAttribute(
                 "aria-expanded",
-                "false"
+                String(!isOpen)
             );
+
 
             menuToggle.setAttribute(
                 "aria-label",
-                "Open navigation"
+                isOpen
+                    ? "Open navigation"
+                    : "Close navigation"
             );
 
         }
+    );
 
-    });
+
+    // CLOSE WHEN CLICKING OUTSIDE
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !siteMenu.hidden &&
+                !siteMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                siteMenu.hidden =
+                    true;
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            }
+
+        }
+    );
 
 
     // CLOSE AFTER CLICKING A MENU LINK
-    siteMenu.querySelectorAll("a").forEach(function (link) {
 
-        link.addEventListener("click", function () {
+    siteMenu
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
 
-            siteMenu.hidden = true;
+                link.addEventListener(
+                    "click",
+                    function () {
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                        siteMenu.hidden =
+                            true;
 
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open navigation"
-            );
 
-        });
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
-    });
+
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+
+                    }
+                );
+
+            }
+        );
 
 }
