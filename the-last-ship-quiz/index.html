@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>The Last Ship Quiz-How Well Do You Know The Last Ship?</title>
+    <title>The Last Ship Quiz – How Well Do You Know The Last Ship?</title>
 
     <meta name="description"
         content="Test your knowledge of The Last Ship with 50 questions covering Captain Tom Chandler, Mike Slattery, the Nathan James, Dr. Rachel Scott, the Red Flu, the Immunes and more.">
@@ -21,7 +21,7 @@
         href="https://apocalypsequizzes.com/the-last-ship-quiz/">
 
     <meta property="og:title"
-        content="The Last Ship Quiz-How Well Do You Know The Last Ship?">
+        content="The Last Ship Quiz – How Well Do You Know The Last Ship?">
 
     <meta property="og:description"
         content="Think you know The Last Ship? Test your knowledge with 50 questions covering Tom Chandler, Mike Slattery, the Nathan James, the Red Flu and more.">
@@ -42,14 +42,13 @@
         content="summary">
 
     <meta name="twitter:title"
-        content="The Last Ship Quiz-How Well Do You Know The Last Ship?">
+        content="The Last Ship Quiz – How Well Do You Know The Last Ship?">
 
     <meta name="twitter:description"
         content="Test your knowledge of The Last Ship with 50 trivia questions.">
 
     <link rel="icon" type="image/png" href="../favicon.png">
 
-    <!-- Google verification -->
     <meta name="google-site-verification"
         content="-z8Fexw2y9TUWtrAM3K_f50z2CY7BKYupiK1vBDpUAg">
 
@@ -151,7 +150,9 @@
 <main class="container">
 
 
-    <!-- START SCREEN -->
+    <!-- =====================================================
+         START SCREEN
+         ===================================================== -->
 
     <section id="start-screen">
 
@@ -163,8 +164,19 @@
                 class="quiz-start-image"
             >
 
+            <div class="quiz-category">
+                POST-APOCALYPTIC • TV SHOW TRIVIA
+            </div>
+
+            <h1>
+                The Last Ship Quiz
+            </h1>
+
             <p class="subtitle">
-                Think you know Captain Tom Chandler, Mike Slattery, the Nathan James, Dr. Rachel Scott and  the Red Flu ? Test your knowledge of TV Show THE LAST SHIP and see how high you can score.
+                Think you know Captain Tom Chandler, Mike Slattery,
+                the Nathan James, Dr. Rachel Scott and the Red Flu?
+                Test your knowledge of <em>The Last Ship</em> and
+                see how high you can score.
             </p>
 
             <div class="info">
@@ -173,20 +185,40 @@
 
                 <span>•</span>
 
-                <span>4 Possible Choices</span>
+                <span>~10 Minutes</span>
+
+                <span>•</span>
+
+                <span>4 Choices</span>
 
             </div>
 
-            <button id="start-btn">
+            <p class="start-note">
+                Questions cover all five seasons, including major
+                characters, missions, factions, the Red Flu,
+                the Nathan James and important events from the series.
+            </p>
+
+            <button id="start-btn" type="button">
                 START QUIZ
             </button>
+
+            <div class="spoiler-warning start-spoiler">
+
+                <strong>Spoiler Warning:</strong>
+                This quiz contains spoilers from all five seasons
+                of <em>The Last Ship</em>.
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- QUIZ SCREEN -->
+    <!-- =====================================================
+         QUIZ SCREEN
+         ===================================================== -->
 
     <section id="quiz-screen" class="screen hidden">
 
@@ -215,18 +247,38 @@
 
         <div id="answers"></div>
 
+
         <div class="quiz-navigation">
 
-            <button id="back-btn" class="nav-btn" disabled>
+            <button
+                id="back-btn"
+                class="nav-btn"
+                type="button"
+                disabled>
+
                 ← Back
+
             </button>
 
-            <button id="next-btn" class="nav-btn">
+
+            <button
+                id="next-btn"
+                class="nav-btn"
+                type="button">
+
                 Next →
+
             </button>
 
-            <button id="submit-btn" class="nav-btn submit-btn hidden" disabled>
+
+            <button
+                id="submit-btn"
+                class="nav-btn submit-btn hidden"
+                type="button"
+                disabled>
+
                 Answer All Questions
+
             </button>
 
         </div>
@@ -234,9 +286,15 @@
     </section>
 
 
-    <!-- RESULT SCREEN -->
+    <!-- =====================================================
+         RESULT SCREEN
+         ===================================================== -->
 
     <section id="result-screen" class="screen hidden">
+
+        <div class="icon" id="result-icon">
+            ⚓
+        </div>
 
 
         <p class="result-label">
@@ -249,7 +307,9 @@
 
         <div class="result-score">
 
-            <span id="final-score"></span>/100
+            <span id="final-score">
+                0
+            </span>/100
 
         </div>
 
@@ -268,370 +328,562 @@
         </div>
 
 
-        <button id="restart-btn">
+        <!-- RESULT BREAKDOWN -->
+
+        <div class="result-breakdown">
+
+            <div class="result-stat">
+
+                <span class="result-stat-label">
+                    Correct
+                </span>
+
+                <strong id="correct-count">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="result-stat">
+
+                <span class="result-stat-label">
+                    Incorrect
+                </span>
+
+                <strong id="incorrect-count">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="result-stat">
+
+                <span class="result-stat-label">
+                    Total
+                </span>
+
+                <strong id="total-count">
+                    50
+                </strong>
+
+            </div>
+
+
+            <div class="result-stat">
+
+                <span class="result-stat-label">
+                    Accuracy
+                </span>
+
+                <strong id="accuracy-percent">
+                    0%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULT ACTIONS -->
+
+        <button id="restart-btn" type="button">
             TRY AGAIN
         </button>
 
 
-        <button id="share-btn">
+        <button id="share-btn" type="button">
             📤 SHARE MY RESULT
         </button>
 
 
-        <button id="challenge-btn">
+        <button id="challenge-btn" type="button">
             ⚔️ CHALLENGE YOUR FRIENDS
         </button>
-
+             </section>
 
         <!-- =================================================
-        SUGGESTED QUIZZES
-        ================================================= -->
+             SUGGESTED QUIZZES
+             ================================================= -->
 
-        <section class="suggested-quizzes">
+        <section
+            id="suggestions-card"
+            class="suggestions-card hidden">
 
-            <h2>
-                Suggested Quizzes
-            </h2>
+            <div class="suggested-quizzes">
 
-            <p class="suggested-subtitle">
-                Think you can handle more? Try another quiz.
-            </p>
+                <h2>
+                    Suggested Quizzes
+                </h2>
 
-            <div class="suggested-grid">
+                <p class="suggested-subtitle">
+                    Think you can handle more? Try another quiz.
+                </p>
 
 
-                <!-- PLAGUE SURVIVAL QUIZ -->
-        <a href="/plague-survival-quiz/" class="suggested-card">
+                <div class="suggested-grid">
+
+
+                    <!-- PLAGUE SURVIVAL -->
+
+                    <a
+                        href="/plague-survival-quiz/"
+                        class="suggested-card">
+
                         <img
                             src="../images/plague-survival.png"
                             alt="Plague Survival Quiz"
                             class="suggested-image"
                         >
+
                         <span class="suggested-title">
-                            Plague Survival Quiz              
-          </span>
-                        <span class="suggested-description">
-                            How well would you survive deadly outbreak
+                            Plague Survival Quiz
                         </span>
+
+                        <span class="suggested-description">
+                            How well would you survive a deadly outbreak?
+                        </span>
+
                     </a>
 
 
+                    <!-- THE LAST OF US -->
 
-                <!-- THE LAST OF US QUIZ -->
-        <a href="/last-of-us-quiz/" class="suggested-card">
+                    <a
+                        href="/last-of-us-quiz/"
+                        class="suggested-card">
+
                         <img
                             src="../images/last-of-us-quiz.png"
                             alt="The Last of Us Quiz"
                             class="suggested-image"
                         >
+
                         <span class="suggested-title">
-                            The Last of Us Quiz              
-          </span>
-                        <span class="suggested-description">
-                            How Well Do You Know the series The Last of Us?
+                            The Last of Us Quiz
                         </span>
+
+                        <span class="suggested-description">
+                            How well do you know the series The Last of Us?
+                        </span>
+
                     </a>
 
 
+                    <!-- WALKING DEAD PERSONALITY -->
 
-                <!-- WALKING DEAD PERSONALITY -->
-        <a href="/walking-dead-characters-quiz/" class="suggested-card">
+                    <a
+                        href="/walking-dead-characters-quiz/"
+                        class="suggested-card">
+
                         <img
                             src="../images/twd-personality.png"
                             alt="The Walking Dead Personality Quiz"
                             class="suggested-image"
                         >
+
                         <span class="suggested-title">
                             The Walking Dead Personality Quiz
                         </span>
+
                         <span class="suggested-description">
                             Find out which Walking Dead character matches your personality.
                         </span>
+
                     </a>
 
+                </div>
+
+
+                <!-- MORE QUIZZES -->
+
+                <div class="more-quizzes-section">
+
+                    <h3>
+                        Explore More Quizzes
+                    </h3>
+
+                    <p>
+                        Discover more apocalypse, zombie, survival
+                        and dystopian quizzes.
+                    </p>
+
+                    <a
+                        href="/"
+                        class="more-quizzes-btn">
+
+                        🧟 APOCALYPSE QUIZZES
+
+                    </a>
+
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- MORE QUIZZES CTA -->
+    <!-- =====================================================
+         HOMEPAGE INFORMATION
+         ===================================================== -->
 
-        <div class="more-quizzes-card">
+    <div id="home-info">
+
+
+        <!-- ABOUT -->
+
+        <section class="home-info">
+
+            <h2>
+                About The Last Ship Quiz
+            </h2>
+
+            <p>
+                The Last Ship Quiz is a 50-question trivia
+                challenge for viewers of the television series
+                <em>The Last Ship</em>. It tests how well you
+                remember the characters, ships, factions,
+                locations, the Red Flu pandemic and major events
+                that shaped the series.
+            </p>
+
+            <p>
+                The questions cover all five seasons, including
+                Captain Tom Chandler, Mike Slattery, Dr. Rachel
+                Scott, the crew of the Nathan James, the Immunes,
+                the Red Flu and the different groups encountered
+                throughout the story.
+            </p>
+
+            <p>
+                Some questions focus on major characters and
+                memorable events, while others test smaller
+                details about the crew, their missions,
+                relationships, enemies and the changing world
+                around the Nathan James.
+            </p>
+
+        </section>
+
+
+        <!-- SERIES DETAILS -->
+
+        <section class="home-info">
+
+            <h2>
+                The Last Ship Series Details
+            </h2>
+
+            <p>
+                <strong>Series:</strong>
+                <em>The Last Ship</em>
+            </p>
+
+            <p>
+                <strong>Seasons:</strong>
+                5
+            </p>
+
+            <p>
+                <strong>Episodes:</strong>
+                56
+            </p>
+
+            <p>
+                <strong>Main setting:</strong>
+                The USS Nathan James and a world devastated by
+                the Red Flu pandemic.
+            </p>
+
+            <p>
+                The story follows the crew of the Nathan James
+                as they search for a cure, protect survivors,
+                confront rival factions and attempt to help
+                rebuild civilization.
+            </p>
+
+        </section>
+
+
+        <!-- WHAT QUIZ COVERS -->
+
+        <section class="home-info">
+
+            <h2>
+                What This Quiz Covers
+            </h2>
 
             <h3>
-                Explore More Quizzes
+                Characters
             </h3>
 
             <p>
-                Discover more apocalypse, zombie, survival and dystopian quizzes.
+                Questions cover Tom Chandler, Mike Slattery,
+                Rachel Scott, Danny Green, Kara Green, Tex,
+                Wolf Taylor, Takehaya, President Michener and
+                many other characters.
             </p>
 
-            <a href="/" class="more-quizzes-btn">
-                🧟 APOCALYPSE QUIZZES
-            </a>
 
-        </div>
+            <h3>
+                Nathan James
+            </h3>
 
-    </section>
+            <p>
+                Test your knowledge of the destroyer, its crew,
+                missions, command structure and role throughout
+                the pandemic.
+            </p>
 
 
-    <!-- =====================================================
-     HOMEPAGE INFORMATION
-     ===================================================== -->
+            <h3>
+                The Red Flu
+            </h3>
 
-<div id="home-info">
+            <p>
+                Questions cover the virus, its spread, the search
+                for a cure, natural immunity and later developments
+                affecting the surviving population.
+            </p>
 
-<!-- ABOUT THE QUIZ -->
 
-<section class="home-info">
+            <h3>
+                Factions and Enemies
+            </h3>
 
-    <h2>
-        About The Last Ship Quiz
-    </h2>
+            <p>
+                The quiz includes questions about the Immunes,
+                Russian forces, pirates, Giorgio Vellek,
+                Gran Colombia and other groups encountered
+                throughout the series.
+            </p>
 
-    <p>
-        The Last Ship Quiz is a 50-question trivia
-        challenge for viewers of the television series
-        <em>The Last Ship</em>. It tests how well you
-        remember the characters, ships, factions, locations,
-        the Red Flu pandemic and major events that shaped
-        the series.
-    </p>
 
-    <p>
-        The questions cover all five seasons, including
-        Captain Tom Chandler, Mike Slattery, Dr. Rachel
-        Scott, the crew of the Nathan James, the Immunes,
-        the Red Flu and the different groups encountered
-        throughout the story.
-    </p>
-
-    <p>
-        Some questions focus on major characters and
-        memorable events, while others test smaller details
-        about the crew, their missions, relationships,
-        enemies and the changing world around the Nathan
-        James. The quiz is designed for both casual viewers
-        and dedicated fans of the series.
-    </p>
-
-</section>
-
-
-
-<!-- HOW THE QUIZ WORKS -->
+            <h3>
+                Major Events
+            </h3>
 
-<section class="home-info">
+            <p>
+                Questions also cover important missions,
+                character deaths, political changes, discoveries
+                and major events across all five seasons.
+            </p>
 
-    <h2>
-        How The Last Ship Quiz Works
-    </h2>
+        </section>
 
-    <p>
-        The quiz contains 50 questions. Every question has
-        four possible choices, but only one answer is
-        correct. Read each question carefully and select
-        the answer you believe is correct.
-    </p>
 
-    <p>
-        A correct answer gives you 2 points, while an
-        incorrect answer gives you 0 points. With 50
-        questions in total, the maximum possible score is
-        100 points.
-    </p>
+        <!-- HOW QUIZ WORKS -->
 
-    <p>
-        Your final score determines your rank and reflects
-        how well you remember <em>The Last Ship</em>.
-        The result can range from a low-level knowledge
-        result to a high-ranking fan who remembers the
-        Nathan James, its crew and the events of the
-        series in detail.
-    </p>
+        <section class="home-info">
 
-</section>
+            <h2>
+                How The Last Ship Quiz Works
+            </h2>
 
+            <p>
+                The quiz contains 50 questions. Every question
+                has four possible choices, but only one answer
+                is correct.
+            </p>
 
+            <p>
+                Each correct answer gives you 2 points, while
+                an incorrect answer gives you 0 points.
+                With 50 questions in total, the maximum possible
+                score is 100 points.
+            </p>
 
-<!-- QUIZ NAVIGATION -->
+            <p>
+                Your final score is converted into a percentage
+                and determines your final rank.
+            </p>
 
-<section class="home-info">
+        </section>
 
-    <h2>
-        Quiz Navigation
-    </h2>
 
-    <h3>
-        Starting the quiz
-    </h3>
+        <!-- QUIZ NAVIGATION -->
 
-    <p>
-        Select START QUIZ on the opening screen to begin.
-        The first question will appear along with four
-        possible answers.
-    </p>
-
-    <h3>
-        Selecting an answer
-    </h3>
-
-    <p>
-        Select the answer you believe is correct before
-        continuing. Your choices are kept as you progress
-        through the quiz, allowing you to review earlier
-        questions.
-    </p>
-
-    <h3>
-        Next and Back buttons
-    </h3>
-
-    <p>
-        Use Next to move forward through the questions.
-        The Back button allows you to return to an earlier
-        question and review or change your selection.
-        Your current question number and progress are
-        displayed during the quiz.
-    </p>
-
-    <h3>
-        Finishing the quiz
-    </h3>
-
-    <p>
-        Continue answering questions until you reach the
-        end of the quiz. Once all required questions have
-        been answered, use the submit option to finish and
-        view your final score and rank.
-    </p>
-
-    <h3>
-        Try Again and Challenge Friends
-    </h3>
-
-    <p>
-        After seeing your result, select TRY AGAIN to replay
-        the quiz and attempt a higher score. You can also
-        use SHARE MY RESULT or CHALLENGE YOUR FRIENDS to
-        share your result and challenge other fans.
-    </p>
-
-</section>
-
-
-
-<!-- FAQ -->
-
-<section class="home-info">
-
-    <h2>
-        The Last Ship Quiz FAQ
-    </h2>
-
-    <h3>
-        How many questions are in the quiz?
-    </h3>
-
-    <p>
-        There are 50 questions, with four possible choices
-        for each question.
-    </p>
-
-    <h3>
-        What is the maximum score?
-    </h3>
-
-    <p>
-        The maximum score is 100 points. Each correct answer
-        is worth 2 points.
-    </p>
-
-    <h3>
-        Does the quiz cover all five seasons?
-    </h3>
-
-    <p>
-        Yes. The quiz includes characters, events and
-        details from all five seasons of <em>The Last Ship</em>.
-    </p>
-
-    <h3>
-        What subjects are included?
-    </h3>
-
-    <p>
-        Questions cover Tom Chandler, Mike Slattery,
-        Rachel Scott, the Nathan James crew, the Red Flu,
-        the Immunes, factions, missions, major events
-        and other details from the series.
-    </p>
-
-    <h3>
-        What does my score mean?
-    </h3>
-
-    <p>
-        Your score determines your final rank and shows
-        how well you remember the characters, events and
-        details of <em>The Last Ship</em>.
-    </p>
-
-    <h3>
-        Can I replay the quiz?
-    </h3>
-
-    <p>
-        Yes. Select TRY AGAIN after completing the quiz
-        to start another attempt and try to improve your
-        score.
-    </p>
-
-    <h3>
-        Can I challenge my friends?
-    </h3>
-
-    <p>
-        Yes. Use CHALLENGE YOUR FRIENDS after completing
-        the quiz to share the challenge and see whether
-        your friends can beat your score.
-    </p>
-
-</section>
-
-<!-- =====================================================
-     SPOILER WARNING
-     ===================================================== -->
-
-<section class="home-info spoiler-warning">
-
-    <h2>
-        Spoiler Warning
-    </h2>
-
-    <p>
-        This quiz contains spoilers for the movie, series, or
-        season it is based on. Some questions may reveal
-        important characters, events, relationships, locations,
-        discoveries, and other story details.
-    </p>
-
-    <p>
-        If you have not finished watching the relevant movie,
-        series, or season, consider completing it before taking
-        the quiz to avoid having important plot details spoiled.
-    </p>
-
-</section>
-
-</div>
+        <section class="home-info">
+
+            <h2>
+                Quiz Navigation
+            </h2>
+
+            <h3>
+                Starting the quiz
+            </h3>
+
+            <p>
+                Select START QUIZ on the opening screen to begin.
+                The first question will appear with four possible
+                answers.
+            </p>
+
+
+            <h3>
+                Selecting an answer
+            </h3>
+
+            <p>
+                Select the answer you believe is correct.
+                Your selection is saved as you progress through
+                the quiz.
+            </p>
+
+
+            <h3>
+                Next and Back buttons
+            </h3>
+
+            <p>
+                Use Next to move forward through the questions.
+                The Back button allows you to return to an earlier
+                question and change your selection.
+            </p>
+
+
+            <h3>
+                Finishing the quiz
+            </h3>
+
+            <p>
+                Answer all 50 questions and submit the quiz on
+                the final question to see your final score,
+                accuracy and rank.
+            </p>
+
+
+            <h3>
+                Try Again and Challenge Friends
+            </h3>
+
+            <p>
+                After seeing your result, select TRY AGAIN to
+                replay the quiz. You can also use SHARE MY RESULT
+                or CHALLENGE YOUR FRIENDS to share your result.
+            </p>
+
+        </section>
+
+
+        <!-- FAQ -->
+
+        <section class="home-info">
+
+            <h2>
+                The Last Ship Quiz FAQ
+            </h2>
+
+
+            <h3>
+                How many questions are in the quiz?
+            </h3>
+
+            <p>
+                There are 50 questions, with four possible choices
+                for each question.
+            </p>
+
+
+            <h3>
+                What is the maximum score?
+            </h3>
+
+            <p>
+                The maximum score is 100 points. Each correct
+                answer is worth 2 points.
+            </p>
+
+
+            <h3>
+                Does the quiz cover all five seasons?
+            </h3>
+
+            <p>
+                Yes. The questions include characters, events
+                and details from all five seasons of
+                <em>The Last Ship</em>.
+            </p>
+
+
+            <h3>
+                What subjects are included?
+            </h3>
+
+            <p>
+                Questions cover Tom Chandler, Mike Slattery,
+                Rachel Scott, the Nathan James crew, the Red Flu,
+                factions, missions, major events and other
+                details from the series.
+            </p>
+
+
+            <h3>
+                What does my score mean?
+            </h3>
+
+            <p>
+                Your score and accuracy show how many questions
+                you answered correctly and determine your final
+                rank.
+            </p>
+
+
+            <h3>
+                Can I replay the quiz?
+            </h3>
+
+            <p>
+                Yes. Select TRY AGAIN after completing the quiz
+                to start another attempt.
+            </p>
+
+
+            <h3>
+                Can I challenge my friends?
+            </h3>
+
+            <p>
+                Yes. Use CHALLENGE YOUR FRIENDS after completing
+                the quiz to share your result.
+            </p>
+
+        </section>
+
+
+        <!-- SPOILER WARNING -->
+
+        <section class="home-info spoiler-warning">
+
+            <h2>
+                Spoiler Warning
+            </h2>
+
+            <p>
+                This quiz contains spoilers from all five seasons
+                of <em>The Last Ship</em>. Some questions may
+                reveal important characters, deaths, relationships,
+                discoveries, locations and major story events.
+            </p>
+
+            <p>
+                If you have not finished watching the series,
+                consider completing it before taking the quiz to
+                avoid having important plot details spoiled.
+            </p>
+
+        </section>
+
+    </div>
 
 
 </main>
 
 
-<!-- FOOTER -->
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
 
 <footer class="site-footer">
 
@@ -640,6 +892,7 @@
         <div class="footer-brand">
             APOCALYPSE QUIZZES
         </div>
+
 
         <div class="footer-links">
 
@@ -660,6 +913,7 @@
             </a>
 
         </div>
+
 
         <div class="copyright">
             © 2026 Apocalypse Quizzes
