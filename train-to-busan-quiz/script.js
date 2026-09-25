@@ -202,13 +202,20 @@ const questions = [
 
 ];
 
+
 let currentQuestion = 0;
 let selectedAnswers = new Array(questions.length).fill(null);
+
+
+// ===============================
+// ELEMENTS
+// ===============================
 
 const startScreen = document.getElementById("start-screen");
 const quizScreen = document.getElementById("quiz-screen");
 const resultScreen = document.getElementById("result-screen");
 const homeInfo = document.getElementById("home-info");
+const suggestionsCard = document.getElementById("suggestions-card");
 
 const startButton = document.getElementById("start-btn");
 const restartButton = document.getElementById("restart-btn");
@@ -224,6 +231,11 @@ const questionText = document.getElementById("question");
 const answersContainer = document.getElementById("answers");
 const progressBar = document.getElementById("progress-bar");
 
+
+// ===============================
+// EVENT LISTENERS
+// ===============================
+
 startButton.addEventListener("click", startQuiz);
 restartButton.addEventListener("click", restartQuiz);
 shareButton.addEventListener("click", shareResult);
@@ -233,19 +245,33 @@ backButton.addEventListener("click", goBack);
 nextButton.addEventListener("click", goNext);
 submitButton.addEventListener("click", showResult);
 
+
+// ===============================
+// START QUIZ
+// ===============================
+
 function startQuiz() {
 
     currentQuestion = 0;
     selectedAnswers = new Array(questions.length).fill(null);
 
     startScreen.classList.add("hidden");
-    resultScreen.classList.add("hidden");
     quizScreen.classList.remove("hidden");
+    resultScreen.classList.add("hidden");
+
     homeInfo.classList.add("hidden");
+    suggestionsCard.classList.add("hidden");
+
+    progressBar.style.width = "0%";
 
     showQuestion();
 
 }
+
+
+// ===============================
+// SHOW QUESTION
+// ===============================
 
 function showQuestion() {
 
@@ -262,6 +288,7 @@ function showQuestion() {
         ((currentQuestion + 1) / questions.length) * 100;
 
     progressBar.style.width = `${progress}%`;
+
 
     current.answers.forEach((answer, index) => {
 
@@ -280,11 +307,17 @@ function showQuestion() {
         });
 
         answersContainer.appendChild(button);
+
     });
 
     updateNavigation();
 
 }
+
+
+// ===============================
+// SELECT ANSWER
+// ===============================
 
 function selectAnswer(answerIndex) {
 
@@ -323,6 +356,11 @@ function selectAnswer(answerIndex) {
 
 }
 
+
+// ===============================
+// NEXT
+// ===============================
+
 function goNext() {
 
     if (selectedAnswers[currentQuestion] === null) {
@@ -336,7 +374,9 @@ function goNext() {
                 answer => answer !== null
             )
         ) {
+
             showResult();
+
         }
 
         return;
@@ -347,14 +387,26 @@ function goNext() {
 
 }
 
+
+// ===============================
+// BACK
+// ===============================
+
 function goBack() {
 
     if (currentQuestion > 0) {
+
         currentQuestion--;
         showQuestion();
+
     }
 
 }
+
+
+// ===============================
+// NAVIGATION
+// ===============================
 
 function updateNavigation() {
 
@@ -374,9 +426,11 @@ function updateNavigation() {
 
     backButton.disabled = isFirst;
 
+
     if (isLast) {
 
         nextButton.classList.add("hidden");
+
         submitButton.classList.remove("hidden");
 
         submitButton.disabled = !allAnswered;
@@ -389,13 +443,21 @@ function updateNavigation() {
     } else {
 
         submitButton.classList.add("hidden");
+
         nextButton.classList.remove("hidden");
 
         nextButton.textContent = "Next →";
+
         nextButton.disabled = !currentAnswered;
+
     }
 
 }
+
+
+// ===============================
+// CALCULATE SCORE
+// ===============================
 
 function calculateScore() {
 
@@ -409,7 +471,9 @@ function calculateScore() {
                 score +=
                     questions[questionIndex]
                         .answers[answerIndex][1];
+
             }
+
         }
     );
 
@@ -417,82 +481,156 @@ function calculateScore() {
 
 }
 
+
+// ===============================
+// SHOW RESULT
+// ===============================
+
 function showResult() {
 
     const correctAnswers = calculateScore();
 
+    const totalQuestions = questions.length;
+
+    const incorrectAnswers =
+        totalQuestions - correctAnswers;
+
     const score = Math.round(
-        (correctAnswers / questions.length) * 100
+        (correctAnswers / totalQuestions) * 100
     );
 
-    homeInfo.classList.remove("hidden");
+    const accuracy = score;
+
+
+    // SCREEN VISIBILITY
+
     quizScreen.classList.add("hidden");
+    startScreen.classList.add("hidden");
     resultScreen.classList.remove("hidden");
 
-    document.getElementById("final-score").textContent = `${score}%`;
+    homeInfo.classList.remove("hidden");
+    suggestionsCard.classList.remove("hidden");
+
+
+    // SCORE
+
+    document.getElementById("final-score").textContent =
+        `${score}%`;
+
+
+    // RESULT BREAKDOWN
+
+    document.getElementById("correct-count").textContent =
+        correctAnswers;
+
+    document.getElementById("incorrect-count").textContent =
+        incorrectAnswers;
+
+    document.getElementById("total-count").textContent =
+        totalQuestions;
+
+    document.getElementById("accuracy-percent").textContent =
+        `${accuracy}%`;
+
+
+    // RESULT LEVEL
 
     let title;
     let description;
     let knowledge;
     let icon;
 
+
     if (score <= 20) {
 
         title = "🧟 Train Newcomer";
+
         description =
             "The infected have only just boarded. It may be time to get back on the train and experience the fight for survival again.";
+
         knowledge = "Casual Viewer";
+
         icon = "🧟";
 
     } else if (score <= 40) {
 
         title = "🚆 Train Survivor";
+
         description =
             "You remember some of the major events and characters, but several details from the journey to Busan slipped through the cracks.";
+
         knowledge = "Casual Fan";
+
         icon = "🚆";
 
     } else if (score <= 60) {
 
         title = "🧟 Zombie Survivor";
+
         description =
             "Not bad! You remember many of the movie's major characters, events and survival details.";
+
         knowledge = "Good Fan";
+
         icon = "🧟";
 
     } else if (score <= 80) {
 
         title = "🚄 Busan Survivor";
+
         description =
             "Impressive! You have a strong memory for Seok-woo, Su-an, the survivors and their fight to reach Busan.";
+
         knowledge = "Dedicated Fan";
+
         icon = "🚄";
 
     } else if (score <= 96) {
 
         title = "🧟 Train to Busan Expert";
+
         description =
             "Excellent! You remember most of the important characters, events, zombie behavior and survival details from Train to Busan.";
+
         knowledge = "Expert Fan";
+
         icon = "🧟";
 
     } else {
 
         title = "👑 Train to Busan Master";
+
         description =
             "Perfect score! You remembered practically every major detail about the passengers, the outbreak and their desperate journey to Busan.";
+
         knowledge = "Ultimate Fan";
+
         icon = "👑";
+
     }
 
-    document.getElementById("result-title").textContent = title;
-    document.getElementById("result-description").textContent = description;
-    document.getElementById("knowledge-level").textContent = knowledge;
-    document.getElementById("result-icon").textContent = icon;
+
+    document.getElementById("result-title").textContent =
+        title;
+
+    document.getElementById("result-description").textContent =
+        description;
+
+    document.getElementById("knowledge-level").textContent =
+        knowledge;
+
+    document.getElementById("result-icon").textContent =
+        icon;
+
 
     progressBar.style.width = "100%";
 
 }
+
+
+// ===============================
+// RESTART QUIZ
+// ===============================
 
 function restartQuiz() {
 
@@ -503,12 +641,20 @@ function restartQuiz() {
 
     resultScreen.classList.add("hidden");
     quizScreen.classList.add("hidden");
+
     startScreen.classList.remove("hidden");
+
     homeInfo.classList.remove("hidden");
+    suggestionsCard.classList.add("hidden");
 
     progressBar.style.width = "0%";
 
 }
+
+
+// ===============================
+// SHARE RESULT
+// ===============================
 
 async function shareResult() {
 
@@ -536,6 +682,7 @@ async function shareResult() {
         url: quizUrl
     };
 
+
     try {
 
         if (navigator.share) {
@@ -553,6 +700,7 @@ async function shareResult() {
             alert(
                 "Your result has been copied! You can paste it anywhere."
             );
+
         }
 
     } catch (error) {
@@ -568,81 +716,100 @@ async function shareResult() {
 // GLOBAL SITE MENU
 // ===============================
 
-const menuToggle = document.getElementById("menu-toggle");
-const siteMenu = document.getElementById("site-menu");
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+const siteMenu =
+    document.getElementById("site-menu");
+
 
 if (menuToggle && siteMenu) {
 
+
     // OPEN / CLOSE WITH HAMBURGER
-    menuToggle.addEventListener("click", function (event) {
 
-        event.stopPropagation();
+    menuToggle.addEventListener(
+        "click",
+        function (event) {
 
-        const isOpen =
-            menuToggle.getAttribute("aria-expanded") === "true";
+            event.stopPropagation();
 
-        siteMenu.hidden = isOpen;
+            const isOpen =
+                menuToggle.getAttribute("aria-expanded") === "true";
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(!isOpen)
-        );
-
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen
-                ? "Open navigation"
-                : "Close navigation"
-        );
-
-    });
-
-
-    // CLOSE WHEN CLICKING OUTSIDE
-    document.addEventListener("click", function (event) {
-
-        if (
-            !siteMenu.hidden &&
-            !siteMenu.contains(event.target) &&
-            !menuToggle.contains(event.target)
-        ) {
-
-            siteMenu.hidden = true;
+            siteMenu.hidden = isOpen;
 
             menuToggle.setAttribute(
                 "aria-expanded",
-                "false"
+                String(!isOpen)
             );
 
             menuToggle.setAttribute(
                 "aria-label",
-                "Open navigation"
+                isOpen
+                    ? "Open navigation"
+                    : "Close navigation"
             );
 
         }
+    );
 
-    });
+
+    // CLOSE WHEN CLICKING OUTSIDE
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !siteMenu.hidden &&
+                !siteMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                siteMenu.hidden = true;
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            }
+
+        }
+    );
 
 
     // CLOSE AFTER CLICKING A MENU LINK
-    siteMenu.querySelectorAll("a").forEach(function (link) {
 
-        link.addEventListener("click", function () {
+    siteMenu.querySelectorAll("a").forEach(
+        function (link) {
 
-            siteMenu.hidden = true;
+            link.addEventListener(
+                "click",
+                function () {
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
+                    siteMenu.hidden = true;
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        "Open navigation"
+                    );
+
+                }
             );
 
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open navigation"
-            );
-
-        });
-
-    });
+        }
+    );
 
 }
