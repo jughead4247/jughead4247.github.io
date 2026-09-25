@@ -174,7 +174,6 @@ const questions = [
     ]
   },
 
-
   // =====================================================
   // SEASON 2
   // =====================================================
@@ -248,7 +247,6 @@ const questions = [
       ["He was trying to escape Silo 18", 0]
     ]
   },
-
 
   // =====================================================
   // SEASON 3
@@ -424,7 +422,6 @@ const questions = [
     ]
   },
 
-
   // =====================================================
   // SEASON 1 EXTRA
   // =====================================================
@@ -458,7 +455,6 @@ const questions = [
       ["To take control of Mechanical", 0]
     ]
   },
-
 
   // =====================================================
   // SEASON 2 EXTRA
@@ -524,7 +520,6 @@ const questions = [
     ]
   },
 
-
   // =====================================================
   // BEFORE TIMES
   // =====================================================
@@ -588,7 +583,6 @@ const questions = [
       ["Silo 3", 0]
     ]
   },
-
 
   // =====================================================
   // ADDITIONAL LORE
@@ -763,6 +757,9 @@ const resultScreen =
 const homeInfo =
   document.getElementById("home-info");
 
+const suggestionsCard =
+  document.getElementById("suggestions-card");
+
 const startButton =
   document.getElementById("start-btn");
 
@@ -780,6 +777,9 @@ const backButton =
 
 const nextButton =
   document.getElementById("next-btn");
+
+const submitButton =
+  document.getElementById("submit-btn");
 
 const questionNumber =
   document.getElementById("question-number");
@@ -831,6 +831,11 @@ nextButton.addEventListener(
   goNext
 );
 
+submitButton.addEventListener(
+  "click",
+  showResult
+);
+
 
 // =====================================================
 // START QUIZ
@@ -850,6 +855,12 @@ function startQuiz() {
   quizScreen.classList.remove("hidden");
 
   homeInfo.classList.add("hidden");
+
+  if (suggestionsCard) {
+    suggestionsCard.classList.add("hidden");
+  }
+
+  progressBar.style.width = "0%";
 
   showQuestion();
 
@@ -910,20 +921,6 @@ function showQuestion() {
           "selected"
         );
 
-        button.style.backgroundColor =
-          "#444";
-
-        button.style.borderColor =
-          "#ffffff";
-
-        button.style.color =
-          "#ffffff";
-
-        button.style.fontWeight =
-          "700";
-
-        button.style.boxShadow =
-          "0 0 0 2px rgba(255,255,255,0.25)";
       }
 
 
@@ -969,49 +966,10 @@ function selectAnswer(answerIndex) {
   buttons.forEach(
     (button, index) => {
 
-      if (index === answerIndex) {
-
-        button.classList.add(
-          "selected"
-        );
-
-        button.style.backgroundColor =
-          "#444";
-
-        button.style.borderColor =
-          "#ffffff";
-
-        button.style.color =
-          "#ffffff";
-
-        button.style.fontWeight =
-          "700";
-
-        button.style.boxShadow =
-          "0 0 0 2px rgba(255,255,255,0.25)";
-
-      } else {
-
-        button.classList.remove(
-          "selected"
-        );
-
-        button.style.backgroundColor =
-          "";
-
-        button.style.borderColor =
-          "";
-
-        button.style.color =
-          "";
-
-        button.style.fontWeight =
-          "";
-
-        button.style.boxShadow =
-          "";
-
-      }
+      button.classList.toggle(
+        "selected",
+        index === answerIndex
+      );
 
     }
   );
@@ -1020,37 +978,32 @@ function selectAnswer(answerIndex) {
   updateNavigation();
 
 
-  if (
-    currentQuestion <
-    questions.length - 1
-  ) {
-
-    const questionAtSelection =
-      currentQuestion;
+  const questionAtSelection =
+    currentQuestion;
 
 
-    setTimeout(
-      () => {
+  setTimeout(
+    () => {
 
-        if (
-          currentQuestion ===
-            questionAtSelection &&
-          selectedAnswers[
-            questionAtSelection
-          ] === answerIndex
-        ) {
+      if (
+        currentQuestion ===
+          questionAtSelection &&
+        selectedAnswers[
+          questionAtSelection
+        ] === answerIndex &&
+        currentQuestion <
+          questions.length - 1
+      ) {
 
-          currentQuestion++;
+        currentQuestion++;
 
-          showQuestion();
+        showQuestion();
 
-        }
+      }
 
-      },
-      150
-    );
-
-  }
+    },
+    180
+  );
 
 }
 
@@ -1062,28 +1015,28 @@ function selectAnswer(answerIndex) {
 function goNext() {
 
   if (
-    currentQuestion ===
-    questions.length - 1
+    selectedAnswers[currentQuestion] ===
+    null
   ) {
-
-    const allAnswered =
-      selectedAnswers.every(
-        answer => answer !== null
-      );
-
-
-    if (allAnswered) {
-      showResult();
-    }
-
     return;
   }
 
 
   if (
-    selectedAnswers[currentQuestion] ===
-    null
+    currentQuestion ===
+    questions.length - 1
   ) {
+
+    if (
+      selectedAnswers.every(
+        answer => answer !== null
+      )
+    ) {
+
+      showResult();
+
+    }
+
     return;
   }
 
@@ -1140,28 +1093,34 @@ function updateNavigation() {
 
   if (isLast) {
 
-    nextButton.textContent =
-      "SUBMIT";
+    nextButton.classList.add(
+      "hidden"
+    );
 
-    nextButton.disabled =
+    submitButton.classList.remove(
+      "hidden"
+    );
+
+    submitButton.disabled =
       !allAnswered;
 
 
-    if (allAnswered) {
+    submitButton.textContent =
+      allAnswered
+        ? "SUBMIT"
+        : "Answer All Questions";
 
-      nextButton.classList.add(
-        "submit-ready"
-      );
+  }
 
-    } else {
+  else {
 
-      nextButton.classList.remove(
-        "submit-ready"
-      );
+    submitButton.classList.add(
+      "hidden"
+    );
 
-    }
-
-  } else {
+    nextButton.classList.remove(
+      "hidden"
+    );
 
     nextButton.textContent =
       "Next →";
@@ -1169,17 +1128,13 @@ function updateNavigation() {
     nextButton.disabled =
       !currentAnswered;
 
-    nextButton.classList.remove(
-      "submit-ready"
-    );
-
   }
 
 }
 
 
 // =====================================================
-// CALCULATE RAW SCORE
+// CALCULATE SCORE
 // =====================================================
 
 function calculateScore() {
@@ -1191,40 +1146,23 @@ function calculateScore() {
     (answerIndex, questionIndex) => {
 
       if (
-        answerIndex === null
+        answerIndex !== null
       ) {
-        return;
+
+        score +=
+          questions[
+            questionIndex
+          ].answers[
+            answerIndex
+          ][1];
+
       }
-
-
-      score +=
-        questions[
-          questionIndex
-        ].answers[
-          answerIndex
-        ][1];
 
     }
   );
 
 
   return score;
-}
-
-
-// =====================================================
-// CALCULATE PERCENTAGE
-// =====================================================
-
-function calculatePercentage() {
-
-  const score =
-    calculateScore();
-
-
-  return Math.round(
-    (score / questions.length) * 100
-  );
 
 }
 
@@ -1234,7 +1172,14 @@ function calculatePercentage() {
 // =====================================================
 
 function updateScoreDisplay() {
-    document.getElementById("score-display").textContent = "Silo Trivia";
+
+  if (scoreDisplay) {
+
+    scoreDisplay.textContent =
+      "Silo Trivia";
+
+  }
+
 }
 
 
@@ -1244,13 +1189,29 @@ function updateScoreDisplay() {
 
 function showResult() {
 
+  const correctAnswers =
+    calculateScore();
+
+
+  const totalQuestions =
+    questions.length;
+
+
+  const incorrectAnswers =
+    totalQuestions -
+    correctAnswers;
+
+
   const score =
-    calculatePercentage();
+    Math.round(
+      (correctAnswers /
+        totalQuestions) * 100
+    );
 
 
-  homeInfo.classList.remove(
-  "hidden"
-);
+  const accuracy =
+    score;
+
 
   quizScreen.classList.add(
     "hidden"
@@ -1260,12 +1221,93 @@ function showResult() {
     "hidden"
   );
 
+  homeInfo.classList.remove(
+    "hidden"
+  );
 
-  document.getElementById(
-    "final-score"
-  ).textContent =
-    `${score}%`;
 
+  if (suggestionsCard) {
+
+    suggestionsCard.classList.remove(
+      "hidden"
+    );
+
+  }
+
+
+  // ===================================================
+  // RESULT BREAKDOWN
+  // ===================================================
+
+  const finalScore =
+    document.getElementById(
+      "final-score"
+    );
+
+  const correctCount =
+    document.getElementById(
+      "correct-count"
+    );
+
+  const incorrectCount =
+    document.getElementById(
+      "incorrect-count"
+    );
+
+  const totalCount =
+    document.getElementById(
+      "total-count"
+    );
+
+  const accuracyPercent =
+    document.getElementById(
+      "accuracy-percent"
+    );
+
+
+  if (finalScore) {
+
+    finalScore.textContent =
+      `${score}%`;
+
+  }
+
+
+  if (correctCount) {
+
+    correctCount.textContent =
+      correctAnswers;
+
+  }
+
+
+  if (incorrectCount) {
+
+    incorrectCount.textContent =
+      incorrectAnswers;
+
+  }
+
+
+  if (totalCount) {
+
+    totalCount.textContent =
+      totalQuestions;
+
+  }
+
+
+  if (accuracyPercent) {
+
+    accuracyPercent.textContent =
+      `${accuracy}%`;
+
+  }
+
+
+  // ===================================================
+  // SILO RESULT LEVELS
+  // ===================================================
 
   let title;
   let description;
@@ -1273,11 +1315,7 @@ function showResult() {
   let icon;
 
 
-  // ===================================================
-  // RESULT LEVELS
-  // ===================================================
-
-  if (score < 30) {
+  if (score <= 20) {
 
     title =
       "Outside-Level Knowledge";
@@ -1293,7 +1331,7 @@ function showResult() {
 
   }
 
-  else if (score < 50) {
+  else if (score <= 40) {
 
     title =
       "Silo Resident";
@@ -1309,7 +1347,7 @@ function showResult() {
 
   }
 
-  else if (score < 65) {
+  else if (score <= 60) {
 
     title =
       "Silo Survivor";
@@ -1325,7 +1363,7 @@ function showResult() {
 
   }
 
-  else if (score < 80) {
+  else if (score <= 80) {
 
     title =
       "Silo Specialist";
@@ -1341,7 +1379,7 @@ function showResult() {
 
   }
 
-  else if (score < 95) {
+  else if (score <= 96) {
 
     title =
       "Silo Expert";
@@ -1447,6 +1485,15 @@ function restartQuiz() {
   );
 
 
+  if (suggestionsCard) {
+
+    suggestionsCard.classList.add(
+      "hidden"
+    );
+
+  }
+
+
   progressBar.style.width =
     "0%";
 
@@ -1486,6 +1533,10 @@ async function shareResult() {
     ).textContent;
 
 
+  const quizUrl =
+    "https://apocalypsequizzes.com/silo-quiz/";
+
+
   const shareText =
     `⚙️ I scored ${finalScore} on the Silo Quiz!\n\n` +
     `${title}\n` +
@@ -1502,7 +1553,7 @@ async function shareResult() {
       shareText,
 
     url:
-      "https://apocalypsequizzes.com/silo-knowledge/"
+      quizUrl
 
   };
 
@@ -1515,13 +1566,14 @@ async function shareResult() {
         shareData
       );
 
-    } else {
+    }
+
+    else {
 
       await navigator.clipboard.writeText(
-
         shareText +
-        "\n\nhttps://apocalypsequizzes.com/silo-knowledge/"
-
+        "\n\n" +
+        quizUrl
       );
 
 
@@ -1545,7 +1597,7 @@ async function shareResult() {
 
 
 // =====================================================
-// GLOBAL MENU
+// GLOBAL SITE MENU
 // =====================================================
 
 const menuToggle =
@@ -1564,6 +1616,8 @@ if (
   menuToggle &&
   siteMenu
 ) {
+
+  // OPEN / CLOSE WITH HAMBURGER
 
   menuToggle.addEventListener(
     "click",
@@ -1599,6 +1653,8 @@ if (
   );
 
 
+  // CLOSE WHEN CLICKING OUTSIDE
+
   document.addEventListener(
     "click",
     function(event) {
@@ -1629,6 +1685,8 @@ if (
     }
   );
 
+
+  // CLOSE AFTER CLICKING A MENU LINK
 
   siteMenu
     .querySelectorAll("a")
