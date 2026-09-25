@@ -2,8 +2,9 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Edge of Tomorrow Quiz – How Well Do You Know the Movie?</title>
 
@@ -31,10 +32,14 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YC3ERJSBST"></script>
 
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YC3ERJSBST');
+window.dataLayer = window.dataLayer || [];
+
+function gtag(){
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'G-YC3ERJSBST');
 </script>
 
 <!-- Google AdSense -->
@@ -52,16 +57,16 @@
 <header class="site-header">
 
 <button
- class="menu-toggle"
- id="menu-toggle"
- type="button"
- aria-label="Open navigation"
- aria-expanded="false"
- aria-controls="site-menu">
+    class="menu-toggle"
+    id="menu-toggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
+    aria-controls="site-menu">
 
-<span></span>
-<span></span>
-<span></span>
+    <span></span>
+    <span></span>
+    <span></span>
 
 </button>
 
@@ -70,6 +75,7 @@
 </div>
 
 </header>
+
 
 <nav
     class="site-menu"
@@ -113,9 +119,13 @@
 
 </nav>
 
+
 <main class="container">
 
-<!-- START SCREEN -->
+
+<!-- =====================================================
+     START SCREEN
+     ===================================================== -->
 
 <section id="start-screen">
 
@@ -123,36 +133,66 @@
 
 <img
     src="../images/edge.png"
-    alt="Edge of Tomorrow Movie Quiz"
     class="quiz-start-image"
 >
+
+<p class="quiz-category">
+    SCIENCE FICTION • MOVIE TRIVIA
+</p>
+
+<h1>
+    Edge of Tomorrow Quiz
+</h1>
 
 <p class="subtitle">
     Think you can survive the time loop?
     Test your knowledge of Major William Cage,
     Rita Vrataski, the Mimics, the Omega,
     Operation Downfall and the battle for humanity
-    from the movie Edge of Tomorrow.
+    from the movie <em>Edge of Tomorrow</em>.
 </p>
 
 <div class="info">
+
 <span>30 Questions</span>
 <span>•</span>
 <span>~6 Minutes</span>
 <span>•</span>
-<span>4 Possible Choices</span>
+<span>4 Choices</span>
 
 </div>
 
-<button id="start-btn">
+<p class="start-note">
+    One answer is correct for each question.
+    Choose carefully and see how well you remember
+    Cage's time-loop battle against the Mimics.
+</p>
+
+<button id="start-btn" type="button">
     START QUIZ
 </button>
+
+<div class="spoiler-warning start-spoiler">
+
+<strong>
+    ⚠️ Spoiler Warning
+</strong>
+
+<p>
+    This quiz contains major story details from
+    <em>Edge of Tomorrow</em>.
+</p>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- QUIZ SCREEN -->
+
+<!-- =====================================================
+     QUIZ SCREEN
+     ===================================================== -->
 
 <section id="quiz-screen" class="screen hidden">
 
@@ -168,15 +208,18 @@
 
 </div>
 
+
 <div class="progress">
 
 <div id="progress-bar"></div>
 
 </div>
 
+
 <h2 id="question"></h2>
 
 <div id="answers"></div>
+
 
 <div class="quiz-navigation">
 
@@ -216,13 +259,12 @@
 
 </section>
 
-<!-- RESULT SCREEN -->
+
+<!-- =====================================================
+     RESULT SCREEN
+     ===================================================== -->
 
 <section id="result-screen" class="screen hidden">
-
-<div id="result-icon" class="icon">
-    ⚔️
-</div>
 
 <p class="result-label">
     YOUR RESULT
@@ -230,13 +272,16 @@
 
 <h1 id="result-title"></h1>
 
+
 <div class="result-score">
 
 <span id="final-score"></span>
 
 </div>
 
+
 <p id="result-description"></p>
+
 
 <div class="survival-box">
 
@@ -248,23 +293,105 @@
 
 </div>
 
-<button id="restart-btn">
+
+<!-- RESULT BREAKDOWN -->
+
+<div class="result-breakdown">
+
+<div class="result-stat">
+
+<span
+    id="correct-count"
+    class="result-stat-value">
+
+    0
+
+</span>
+
+<span class="result-stat-label">
+    Correct
+</span>
+
+</div>
+
+
+<div class="result-stat">
+
+<span
+    id="incorrect-count"
+    class="result-stat-value">
+
+    0
+
+</span>
+
+<span class="result-stat-label">
+    Incorrect
+</span>
+
+</div>
+
+
+<div class="result-stat">
+
+<span
+    id="total-count"
+    class="result-stat-value">
+
+    30
+
+</span>
+
+<span class="result-stat-label">
+    Total
+</span>
+
+</div>
+
+
+<div class="result-stat">
+
+<span
+    id="accuracy-percent"
+    class="result-stat-value">
+
+    0%
+
+</span>
+
+<span class="result-stat-label">
+    Accuracy
+</span>
+
+</div>
+
+</div>
+
+
+<button id="restart-btn" type="button">
     TRY AGAIN
 </button>
 
-<button id="share-btn">
+
+<button id="share-btn" type="button">
     📤 SHARE MY RESULT
 </button>
 
-<button id="challenge-btn">
+
+<button id="challenge-btn" type="button">
     ⚔️ CHALLENGE YOUR FRIENDS
 </button>
 
-<!-- =================================================
- SUGGESTED QUIZZES
- ================================================= -->
 
-<section class="suggested-quizzes">
+<!-- =================================================
+     SUGGESTED QUIZZES
+     ================================================= -->
+
+<section
+    id="suggestions-card"
+    class="suggestions-card hidden">
+
+<div class="suggested-quizzes">
 
 <h2>
     Suggested Quizzes
@@ -274,66 +401,90 @@
     Survived the time loop? Try another apocalypse quiz.
 </p>
 
+
 <div class="suggested-grid">
 
-<!-- THE TOMORROW WAR QUIZ-->
-        <a href="/tomorrow-war-quiz/" class="suggested-card">
-                        <img
-                            src="../images/tomorrow.png "
-                            alt="The Tomorrow War Quiz"
-                            class="suggested-image"
-                        >
-                        <span class="suggested-title">
-                            The Tomorrow War Quiz
-          </span>
-                        <span class="suggested-description">
-                            How Well Do You Know the war fought in future? Test your knowledge of movie Tomorrow War.
-                        </span>
-                    </a>
+
+<!-- THE TOMORROW WAR -->
+
+<a
+    href="/tomorrow-war-quiz/"
+    class="suggested-card">
+
+<img
+    src="../images/tomorrow.png"
+    alt="The Tomorrow War Quiz"
+    class="suggested-image"
+>
+
+<span class="suggested-title">
+    The Tomorrow War Quiz
+</span>
+
+<span class="suggested-description">
+    How well do you know the war fought in the future?
+    Test your knowledge of <em>The Tomorrow War</em>.
+</span>
+
+</a>
 
 
-<!-- WAR OF THE WORLDS QUIZ-->
-        <a href="/war-of-the-worlds-quiz/" class="suggested-card">
-                        <img
-                            src="../images/worlds.png "
-                            alt=" War of the Worlds Quiz"
-                            class="suggested-image"
-                        >
-                        <span class="suggested-title">
-                            War of the Worlds Quiz
-          </span>
-                        <span class="suggested-description">
-                            How Well you can survive the invasion of tripods. Check your knowledge of the movie War of the Worlds.
-                        </span>
-                    </a>
+<!-- WAR OF THE WORLDS -->
 
-<!-- WORLD WAR Z QUIZ -->
+<a
+    href="/war-of-the-worlds-quiz/"
+    class="suggested-card">
+
+<img
+    src="../images/worlds.png"
+    alt="War of the Worlds Quiz"
+    class="suggested-image"
+>
+
+<span class="suggested-title">
+    War of the Worlds Quiz
+</span>
+
+<span class="suggested-description">
+    How well could you survive the invasion of the
+    Tripods? Test your knowledge of
+    <em>War of the Worlds</em>.
+</span>
+
+</a>
+
+
+<!-- WORLD WAR Z -->
+
 <a
     href="/world-war-z-quiz/"
     class="suggested-card">
 
-    <img
-        src="../images/z.png"
-        alt="World War Z Quiz"
-        class="suggested-image"
-    >
+<img
+    src="../images/z.png"
+    alt="World War Z Quiz"
+    class="suggested-image"
+>
 
-    <span class="suggested-title">
-        World War Z Quiz
-    </span>
+<span class="suggested-title">
+    World War Z Quiz
+</span>
 
-    <span class="suggested-description">
-        How Well Do You Know World War Z?
-    </span>
+<span class="suggested-description">
+    How well do you know <em>World War Z</em>?
+    Test your knowledge of the zombie apocalypse.
+</span>
 
 </a>
+
 </div>
 
-</section>
+</div>
+
 
 <!-- MORE QUIZZES CTA -->
 
-<div class="more-quizzes-card">
+<div class="more-quizzes-section">
 
 <h3>
     Explore More Quizzes
@@ -345,10 +496,10 @@
 </p>
 
 <a
- href="/"
- class="more-quizzes-btn">
+    href="/"
+    class="more-quizzes-btn">
 
-🧟 APOCALYPSE QUIZZES
+    🧟 APOCALYPSE QUIZZES
 
 </a>
 
@@ -356,18 +507,24 @@
 
 </section>
 
+</section>
+
+
 <!-- =====================================================
-     HOMEPAGE INFORMATION
+     INFORMATION SECTIONS
      ===================================================== -->
 
 <div id="home-info">
 
-<!-- ABOUT THE QUIZ -->
+
+<!-- =====================================================
+     ABOUT THE QUIZ
+     ===================================================== -->
 
 <section class="home-info">
 
 <h2>
-    About the Edge of Tomorrow Movie Quiz
+    ABOUT THE QUIZ
 </h2>
 
 <p>
@@ -389,7 +546,7 @@
 <p>
     Some questions test major plot details, while others
     focus on smaller facts about the characters, military
-    operation and Mimic strategy. If you remember Cage's
+    operations and Mimic strategy. If you remember Cage's
     repeated battles and Rita's role in helping him
     understand the time loop, this quiz gives you a chance
     to test your memory.
@@ -397,12 +554,133 @@
 
 </section>
 
-<!-- HOW THE QUIZ WORKS -->
+
+<!-- =====================================================
+     MOVIE DETAILS
+     ===================================================== -->
 
 <section class="home-info">
 
 <h2>
-    How the Edge of Tomorrow Movie Quiz Works
+    Edge of Tomorrow Movie Details
+</h2>
+
+<p>
+    <strong>Title:</strong> <em>Edge of Tomorrow</em>
+</p>
+
+<p>
+    <strong>Release Year:</strong> 2014
+</p>
+
+<p>
+    <strong>Genre:</strong> Science fiction, action
+</p>
+
+<p>
+    <strong>Director:</strong> Doug Liman
+</p>
+
+<p>
+    <strong>Based on:</strong> The Japanese light novel
+    <em>All You Need Is Kill</em> by Hiroshi Sakurazaka.
+</p>
+
+<p>
+    <strong>Main Characters:</strong> Major William Cage,
+    Rita Vrataski, Master Sergeant Farell and the UDF
+    soldiers fighting the Mimics.
+</p>
+
+<p>
+    The story follows Cage after he is forced into combat
+    against the Mimics and becomes caught in a repeating
+    cycle in which his actions can change the course of
+    the battle.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     WHAT THIS QUIZ COVERS
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    WHAT THIS QUIZ COVERS
+</h2>
+
+<p>
+    The questions cover important characters, locations,
+    military operations, Mimic biology and major events
+    from the movie.
+</p>
+
+<h3>
+    Major William Cage
+</h3>
+
+<p>
+    Questions about Cage's background, his involvement in
+    the war, his first encounter with the Mimics and his
+    attempts to use the time loop to change the outcome.
+</p>
+
+<h3>
+    Rita Vrataski
+</h3>
+
+<p>
+    Questions about Rita's experience fighting the Mimics,
+    her connection to the time-loop phenomenon and her role
+    in helping Cage understand what is happening.
+</p>
+
+<h3>
+    The Mimics, Alpha and Omega
+</h3>
+
+<p>
+    The quiz covers the Mimics and the unusual biological
+    mechanism that allows the alien forces to anticipate
+    humanity's movements. Questions also cover the Alpha,
+    the Omega and their importance to the time loop.
+</p>
+
+<h3>
+    Operation Downfall
+</h3>
+
+<p>
+    Questions cover the military operation against the
+    Mimics, the planned assault and the information Cage
+    gains through repeated attempts to change the battle.
+</p>
+
+<h3>
+    The Time Loop
+</h3>
+
+<p>
+    Several questions focus on how Cage experiences the
+    repeating day, how information is retained between
+    attempts and how the time-loop mechanic affects the
+    story.
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     HOW THE QUIZ WORKS
+     ===================================================== -->
+
+<section class="home-info">
+
+<h2>
+    HOW THE QUIZ WORKS
 </h2>
 
 <p>
@@ -429,7 +707,10 @@
 
 </section>
 
-<!-- QUIZ NAVIGATION -->
+
+<!-- =====================================================
+     QUIZ NAVIGATION
+     ===================================================== -->
 
 <section class="home-info">
 
@@ -493,12 +774,15 @@
 
 </section>
 
-<!-- FAQ -->
+
+<!-- =====================================================
+     FAQ
+     ===================================================== -->
 
 <section class="home-info">
 
 <h2>
-    Edge of Tomorrow Movie Quiz FAQ
+    FAQ
 </h2>
 
 <h3>
@@ -537,7 +821,7 @@
 
 <p>
     The quiz includes questions about important characters,
-    but it also covers the Mimics, military operation,
+    but it also covers the Mimics, military operations,
     locations, time-loop mechanics and other major details
     from the movie.
 </p>
@@ -583,6 +867,7 @@
 
 </section>
 
+
 <!-- =====================================================
      SPOILER WARNING
      ===================================================== -->
@@ -613,6 +898,11 @@
 
 </main>
 
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
 <footer class="site-footer">
 
 <div class="footer-inner">
@@ -621,27 +911,25 @@
     APOCALYPSE QUIZZES
 </div>
 
-
 <div class="footer-links">
 
-    <a href="/about.html">
-        About
-    </a>
+<a href="/about.html">
+    About
+</a>
 
-    <a href="/privacy.html">
-        Privacy Policy
-    </a>
+<a href="/privacy.html">
+    Privacy Policy
+</a>
 
-    <a href="/disclaimer.html">
-        Disclaimer
-    </a>
+<a href="/disclaimer.html">
+    Disclaimer
+</a>
 
-    <a href="/contact.html">
-        Contact
-    </a>
+<a href="/contact.html">
+    Contact
+</a>
 
 </div>
-
 
 <div class="copyright">
     © 2026 Apocalypse Quizzes
@@ -650,6 +938,7 @@
 </div>
 
 </footer>
+
 
 <script src="script.js"></script>
 
