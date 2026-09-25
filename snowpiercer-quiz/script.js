@@ -552,47 +552,107 @@ const questions = [
 
 ];
 
+
 let currentQuestion = 0;
 
-// Stores the selected answer index for every question.
-// null = unanswered
-let selectedAnswers = new Array(questions.length).fill(null);
+let selectedAnswers =
+    new Array(questions.length).fill(null);
 
 
 // ===============================
 // ELEMENTS
 // ===============================
 
-const startScreen = document.getElementById("start-screen");
-const quizScreen = document.getElementById("quiz-screen");
-const resultScreen = document.getElementById("result-screen");
-const homeInfo = document.getElementById("home-info");
+const startScreen =
+    document.getElementById("start-screen");
 
-const startButton = document.getElementById("start-btn");
-const restartButton = document.getElementById("restart-btn");
-const shareButton = document.getElementById("share-btn");
-const challengeButton = document.getElementById("challenge-btn");
+const quizScreen =
+    document.getElementById("quiz-screen");
 
-const backButton = document.getElementById("back-btn");
-const nextButton = document.getElementById("next-btn");
+const resultScreen =
+    document.getElementById("result-screen");
 
-const questionNumber = document.getElementById("question-number");
-const questionText = document.getElementById("question");
-const answersContainer = document.getElementById("answers");
-const progressBar = document.getElementById("progress-bar");
+const homeInfo =
+    document.getElementById("home-info");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
+
+
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+const submitButton =
+    document.getElementById("submit-btn");
+
+
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
 
 
 // ===============================
 // BUTTON EVENTS
 // ===============================
 
-startButton.addEventListener("click", startQuiz);
-restartButton.addEventListener("click", restartQuiz);
-shareButton.addEventListener("click", shareResult);
-challengeButton.addEventListener("click", shareResult);
+startButton.addEventListener(
+    "click",
+    startQuiz
+);
 
-backButton.addEventListener("click", goBack);
-nextButton.addEventListener("click", goNext);
+restartButton.addEventListener(
+    "click",
+    restartQuiz
+);
+
+shareButton.addEventListener(
+    "click",
+    shareResult
+);
+
+challengeButton.addEventListener(
+    "click",
+    shareResult
+);
+
+backButton.addEventListener(
+    "click",
+    goBack
+);
+
+nextButton.addEventListener(
+    "click",
+    goNext
+);
+
+submitButton.addEventListener(
+    "click",
+    showResult
+);
 
 
 // ===============================
@@ -603,17 +663,31 @@ function startQuiz() {
 
     currentQuestion = 0;
 
-    // Reset all answers
     selectedAnswers =
         new Array(questions.length).fill(null);
 
+
     startScreen.classList.add("hidden");
+
     resultScreen.classList.add("hidden");
+
     quizScreen.classList.remove("hidden");
 
     homeInfo.classList.add("hidden");
 
+    suggestionsCard.classList.add("hidden");
+
+
+    progressBar.style.width = "0%";
+
+
     showQuestion();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 }
 
 
@@ -623,72 +697,78 @@ function startQuiz() {
 
 function showQuestion() {
 
-    const current = questions[currentQuestion];
+    const current =
+        questions[currentQuestion];
+
 
     questionNumber.textContent =
         `Question ${currentQuestion + 1} of ${questions.length}`;
 
+
     questionText.textContent =
         current.question;
+
 
     answersContainer.innerHTML = "";
 
 
-    // Progress
     const progress =
-        ((currentQuestion + 1) / questions.length) * 100;
+        ((currentQuestion + 1) /
+        questions.length) * 100;
+
 
     progressBar.style.width =
         `${progress}%`;
 
 
-    // Create answer buttons
-    current.answers.forEach((answer, index) => {
+    current.answers.forEach(
+        (answer, index) => {
 
-        const button =
-            document.createElement("button");
-
-        button.className = "answer";
-
-        button.type = "button";
-
-        button.textContent =
-            answer[0];
+            const button =
+                document.createElement("button");
 
 
-        // =====================================
-        // RESTORE PREVIOUSLY SELECTED ANSWER
-        // =====================================
+            button.className =
+                "answer";
 
-        if (
-            selectedAnswers[currentQuestion] === index
-        ) {
 
-            button.classList.add("selected");
+            button.type =
+                "button";
 
-            // Force selected appearance
-            button.style.backgroundColor = "#444";
-            button.style.borderColor = "#ffffff";
-            button.style.color = "#ffffff";
-            button.style.fontWeight = "700";
-            button.style.boxShadow =
-                "0 0 0 2px rgba(255,255,255,0.25)";
+
+            button.textContent =
+                answer[0];
+
+
+            if (
+                selectedAnswers[currentQuestion] === index
+            ) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+            }
+
+
+            button.addEventListener(
+                "click",
+                () => {
+                    selectAnswer(index);
+                }
+            );
+
+
+            answersContainer.appendChild(
+                button
+            );
+
         }
-
-
-        button.addEventListener("click", () => {
-
-            selectAnswer(index);
-
-        });
-
-
-        answersContainer.appendChild(button);
-
-    });
+    );
 
 
     updateNavigation();
+
 }
 
 
@@ -698,81 +778,54 @@ function showQuestion() {
 
 function selectAnswer(answerIndex) {
 
-    // Save answer
     selectedAnswers[currentQuestion] =
         answerIndex;
 
 
-    // Highlight selected answer immediately
     const buttons =
-        answersContainer.querySelectorAll(".answer");
+        answersContainer.querySelectorAll(
+            ".answer"
+        );
 
 
-    buttons.forEach((button, index) => {
+    buttons.forEach(
+        (button, index) => {
 
-        if (index === answerIndex) {
-
-            button.classList.add("selected");
-
-            button.style.backgroundColor = "#444";
-            button.style.borderColor = "#ffffff";
-            button.style.color = "#ffffff";
-            button.style.fontWeight = "700";
-            button.style.boxShadow =
-                "0 0 0 2px rgba(255,255,255,0.25)";
-
-        } else {
-
-            button.classList.remove("selected");
-
-            button.style.backgroundColor = "";
-            button.style.borderColor = "";
-            button.style.color = "";
-            button.style.fontWeight = "";
-            button.style.boxShadow = "";
+            button.classList.toggle(
+                "selected",
+                index === answerIndex
+            );
 
         }
-
-    });
+    );
 
 
     updateNavigation();
 
 
-    // =====================================
-    // AUTOMATICALLY MOVE TO NEXT QUESTION
-    // =====================================
-
-    if (
-        currentQuestion <
-        questions.length - 1
-    ) {
-
-        const questionAtSelection =
-            currentQuestion;
+    const questionAtSelection =
+        currentQuestion;
 
 
-        setTimeout(() => {
+    setTimeout(() => {
 
-            // Only advance if user is still
-            // on the same question
-            if (
-                currentQuestion ===
-                    questionAtSelection &&
+        if (
+            currentQuestion === questionAtSelection &&
+            selectedAnswers[
+                questionAtSelection
+            ] === answerIndex &&
+            currentQuestion <
+                questions.length - 1
+        ) {
 
-                selectedAnswers[
-                    questionAtSelection
-                ] === answerIndex
-            ) {
+            currentQuestion++;
 
-                currentQuestion++;
+            showQuestion();
 
-                showQuestion();
+        }
 
-            }
+    }, 180);
 
-        }, 150);
-    }
 }
 
 
@@ -782,32 +835,6 @@ function selectAnswer(answerIndex) {
 
 function goNext() {
 
-    // =====================================
-    // FINAL QUESTION = SUBMIT
-    // =====================================
-
-    if (
-        currentQuestion ===
-        questions.length - 1
-    ) {
-
-        const allAnswered =
-            selectedAnswers.every(
-                answer => answer !== null
-            );
-
-
-        if (allAnswered) {
-
-            showResult();
-
-        }
-
-        return;
-    }
-
-
-    // Don't allow unanswered question
     if (
         selectedAnswers[currentQuestion] === null
     ) {
@@ -817,9 +844,30 @@ function goNext() {
     }
 
 
+    if (
+        currentQuestion ===
+        questions.length - 1
+    ) {
+
+        if (
+            selectedAnswers.every(
+                answer => answer !== null
+            )
+        ) {
+
+            showResult();
+
+        }
+
+        return;
+
+    }
+
+
     currentQuestion++;
 
     showQuestion();
+
 }
 
 
@@ -836,6 +884,7 @@ function goBack() {
         showQuestion();
 
     }
+
 }
 
 
@@ -848,13 +897,16 @@ function updateNavigation() {
     const isFirst =
         currentQuestion === 0;
 
+
     const isLast =
         currentQuestion ===
         questions.length - 1;
 
 
     const currentAnswered =
-        selectedAnswers[currentQuestion] !== null;
+        selectedAnswers[
+            currentQuestion
+        ] !== null;
 
 
     const allAnswered =
@@ -863,43 +915,40 @@ function updateNavigation() {
         );
 
 
-    // =====================================
-    // BACK BUTTON
-    // =====================================
-
     backButton.disabled =
         isFirst;
 
 
-    // =====================================
-    // FINAL QUESTION
-    // =====================================
-
     if (isLast) {
 
-        nextButton.textContent =
-            "SUBMIT";
+        nextButton.classList.add(
+            "hidden"
+        );
+
+        submitButton.classList.remove(
+            "hidden"
+        );
 
 
-        nextButton.disabled =
+        submitButton.disabled =
             !allAnswered;
 
 
-        if (allAnswered) {
-
-            nextButton.classList.add(
-                "submit-ready"
-            );
-
-        } else {
-
-            nextButton.classList.remove(
-                "submit-ready"
-            );
-
-        }
+        submitButton.textContent =
+            allAnswered
+                ? "SUBMIT"
+                : "Answer All Questions";
 
     } else {
+
+        submitButton.classList.add(
+            "hidden"
+        );
+
+        nextButton.classList.remove(
+            "hidden"
+        );
+
 
         nextButton.textContent =
             "Next →";
@@ -908,11 +957,8 @@ function updateNavigation() {
         nextButton.disabled =
             !currentAnswered;
 
-
-        nextButton.classList.remove(
-            "submit-ready"
-        );
     }
+
 }
 
 
@@ -928,25 +974,23 @@ function calculateScore() {
     selectedAnswers.forEach(
         (answerIndex, questionIndex) => {
 
-            if (answerIndex === null) {
+            if (answerIndex !== null) {
 
-                return;
+                score +=
+                    questions[
+                        questionIndex
+                    ].answers[
+                        answerIndex
+                    ][1];
 
             }
-
-
-            score +=
-                questions[
-                    questionIndex
-                ].answers[
-                    answerIndex
-                ][1];
 
         }
     );
 
 
     return score;
+
 }
 
 
@@ -956,21 +1000,75 @@ function calculateScore() {
 
 function showResult() {
 
-    // Calculate score only when submitted
     const score =
         calculateScore();
 
 
-    homeInfo.classList.remove("hidden");
+    const totalQuestions =
+        questions.length;
+
+
+    /*
+     * Snowpiercer uses 2 points per
+     * correct answer.
+     */
+
+    const correctAnswers =
+        score / 2;
+
+
+    const incorrectAnswers =
+        totalQuestions - correctAnswers;
+
+
+    const accuracy =
+        Math.round(
+            (correctAnswers /
+            totalQuestions) * 100
+        );
+
 
     quizScreen.classList.add("hidden");
 
     resultScreen.classList.remove("hidden");
 
+    homeInfo.classList.remove("hidden");
+
+    suggestionsCard.classList.remove("hidden");
+
 
     document.getElementById(
         "final-score"
-    ).textContent = score;
+    ).textContent =
+        score;
+
+
+    // ===============================
+    // RESULT BREAKDOWN
+    // ===============================
+
+    document.getElementById(
+        "correct-count"
+    ).textContent =
+        correctAnswers;
+
+
+    document.getElementById(
+        "incorrect-count"
+    ).textContent =
+        incorrectAnswers;
+
+
+    document.getElementById(
+        "total-count"
+    ).textContent =
+        totalQuestions;
+
+
+    document.getElementById(
+        "accuracy-percent"
+    ).textContent =
+        `${accuracy}%`;
 
 
     let title;
@@ -1071,6 +1169,7 @@ function showResult() {
 
         icon =
             "🚆";
+
     }
 
 
@@ -1080,21 +1179,26 @@ function showResult() {
 
     document.getElementById(
         "result-title"
-    ).textContent = title;
+    ).textContent =
+        title;
 
 
     document.getElementById(
         "result-description"
-    ).textContent = description;
+    ).textContent =
+        description;
 
 
     document.getElementById(
         "survival-time"
-    ).textContent = survival;
+    ).textContent =
+        survival;
 
 
     const resultIcon =
-        document.getElementById("result-icon");
+        document.getElementById(
+            "result-icon"
+        );
 
 
     if (resultIcon) {
@@ -1113,6 +1217,7 @@ function showResult() {
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
@@ -1124,17 +1229,34 @@ function restartQuiz() {
 
     currentQuestion = 0;
 
+
     selectedAnswers =
-        new Array(questions.length).fill(null);
+        new Array(
+            questions.length
+        ).fill(null);
 
 
-    resultScreen.classList.add("hidden");
+    resultScreen.classList.add(
+        "hidden"
+    );
 
-    quizScreen.classList.add("hidden");
+    quizScreen.classList.add(
+        "hidden"
+    );
 
-    startScreen.classList.remove("hidden");
+    startScreen.classList.remove(
+        "hidden"
+    );
 
-    homeInfo.classList.remove("hidden");
+
+    homeInfo.classList.remove(
+        "hidden"
+    );
+
+
+    suggestionsCard.classList.add(
+        "hidden"
+    );
 
 
     progressBar.style.width =
@@ -1145,6 +1267,7 @@ function restartQuiz() {
         top: 0,
         behavior: "smooth"
     });
+
 }
 
 
@@ -1172,6 +1295,10 @@ async function shareResult() {
         ).textContent;
 
 
+    const quizUrl =
+        "https://apocalypsequizzes.com/snowpiercer-quiz/";
+
+
     const shareText =
         `🚆 I scored ${finalScore}/100 on the Snowpiercer Quiz!\n\n` +
         `${title}\n` +
@@ -1188,7 +1315,7 @@ async function shareResult() {
             shareText,
 
         url:
-            "https://apocalypsequizzes.com/snowpiercer-quiz/"
+            quizUrl
 
     };
 
@@ -1205,7 +1332,8 @@ async function shareResult() {
 
             await navigator.clipboard.writeText(
                 shareText +
-                "\n\nhttps://apocalypsequizzes.com/snowpiercer-quiz/"
+                "\n\n" +
+                quizUrl
             );
 
 
@@ -1222,6 +1350,7 @@ async function shareResult() {
         );
 
     }
+
 }
 
 
@@ -1229,81 +1358,125 @@ async function shareResult() {
 // GLOBAL SITE MENU
 // ===============================
 
-const menuToggle = document.getElementById("menu-toggle");
-const siteMenu = document.getElementById("site-menu");
+const menuToggle =
+    document.getElementById(
+        "menu-toggle"
+    );
+
+const siteMenu =
+    document.getElementById(
+        "site-menu"
+    );
+
 
 if (menuToggle && siteMenu) {
 
+
+    // ===============================
     // OPEN / CLOSE WITH HAMBURGER
-    menuToggle.addEventListener("click", function (event) {
+    // ===============================
 
-        event.stopPropagation();
+    menuToggle.addEventListener(
+        "click",
+        function (event) {
 
-        const isOpen =
-            menuToggle.getAttribute("aria-expanded") === "true";
-
-        siteMenu.hidden = isOpen;
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(!isOpen)
-        );
-
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen
-                ? "Open navigation"
-                : "Close navigation"
-        );
-
-    });
+            event.stopPropagation();
 
 
-    // CLOSE WHEN CLICKING OUTSIDE
-    document.addEventListener("click", function (event) {
+            const isOpen =
+                menuToggle.getAttribute(
+                    "aria-expanded"
+                ) === "true";
 
-        if (
-            !siteMenu.hidden &&
-            !siteMenu.contains(event.target) &&
-            !menuToggle.contains(event.target)
-        ) {
 
-            siteMenu.hidden = true;
+            siteMenu.hidden =
+                isOpen;
+
 
             menuToggle.setAttribute(
                 "aria-expanded",
-                "false"
+                String(!isOpen)
             );
+
 
             menuToggle.setAttribute(
                 "aria-label",
-                "Open navigation"
+                isOpen
+                    ? "Open navigation"
+                    : "Close navigation"
             );
 
         }
+    );
 
-    });
+
+    // ===============================
+    // CLOSE WHEN CLICKING OUTSIDE
+    // ===============================
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !siteMenu.hidden &&
+                !siteMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                siteMenu.hidden =
+                    true;
 
 
-    // CLOSE AFTER CLICKING A MENU LINK
-    siteMenu.querySelectorAll("a").forEach(function (link) {
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
 
-        link.addEventListener("click", function () {
 
-            siteMenu.hidden = true;
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+            }
 
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open navigation"
-            );
+        }
+    );
 
-        });
 
-    });
+    // ===============================
+    // CLOSE AFTER MENU LINK
+    // ===============================
+
+    siteMenu
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+                        siteMenu.hidden =
+                            true;
+
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+
+                    }
+                );
+
+            }
+        );
 
 }
