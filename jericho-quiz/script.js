@@ -202,105 +202,190 @@ const questions = [
 
 ];
 
+
 let currentQuestion = 0;
 let selectedAnswers = new Array(questions.length).fill(null);
 
-const startScreen = document.getElementById("start-screen");
-const quizScreen = document.getElementById("quiz-screen");
-const resultScreen = document.getElementById("result-screen");
-const homeInfo = document.getElementById("home-info");
 
-const startButton = document.getElementById("start-btn");
-const restartButton = document.getElementById("restart-btn");
-const shareButton = document.getElementById("share-btn");
-const challengeButton = document.getElementById("challenge-btn");
+const startScreen =
+    document.getElementById("start-screen");
 
-const backButton = document.getElementById("back-btn");
-const nextButton = document.getElementById("next-btn");
-const submitButton = document.getElementById("submit-btn");
+const quizScreen =
+    document.getElementById("quiz-screen");
 
-const questionNumber = document.getElementById("question-number");
-const questionText = document.getElementById("question");
-const answersContainer = document.getElementById("answers");
-const progressBar = document.getElementById("progress-bar");
+const resultScreen =
+    document.getElementById("result-screen");
+
+const homeInfo =
+    document.getElementById("home-info");
+
+const suggestionsCard =
+    document.getElementById("suggestions-card");
+
+
+const startButton =
+    document.getElementById("start-btn");
+
+const restartButton =
+    document.getElementById("restart-btn");
+
+const shareButton =
+    document.getElementById("share-btn");
+
+const challengeButton =
+    document.getElementById("challenge-btn");
+
+
+const backButton =
+    document.getElementById("back-btn");
+
+const nextButton =
+    document.getElementById("next-btn");
+
+const submitButton =
+    document.getElementById("submit-btn");
+
+
+const questionNumber =
+    document.getElementById("question-number");
+
+const questionText =
+    document.getElementById("question");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const progressBar =
+    document.getElementById("progress-bar");
+
 
 startButton.addEventListener("click", startQuiz);
+
 restartButton.addEventListener("click", restartQuiz);
+
 shareButton.addEventListener("click", shareResult);
+
 challengeButton.addEventListener("click", shareResult);
 
 backButton.addEventListener("click", goBack);
+
 nextButton.addEventListener("click", goNext);
+
 submitButton.addEventListener("click", showResult);
 
+
 function startQuiz() {
+
     currentQuestion = 0;
-    selectedAnswers = new Array(questions.length).fill(null);
+
+    selectedAnswers =
+        new Array(questions.length).fill(null);
 
     startScreen.classList.add("hidden");
+
     resultScreen.classList.add("hidden");
+
     quizScreen.classList.remove("hidden");
+
     homeInfo.classList.add("hidden");
+
+    suggestionsCard.classList.add("hidden");
 
     showQuestion();
 }
 
+
 function showQuestion() {
 
-    const current = questions[currentQuestion];
+    const current =
+        questions[currentQuestion];
 
     questionNumber.textContent =
         `Question ${currentQuestion + 1} of ${questions.length}`;
 
-    questionText.textContent = current.question;
+    questionText.textContent =
+        current.question;
 
     answersContainer.innerHTML = "";
 
     const progress =
         ((currentQuestion + 1) / questions.length) * 100;
 
-    progressBar.style.width = `${progress}%`;
+    progressBar.style.width =
+        `${progress}%`;
 
-    current.answers.forEach((answer, index) => {
 
-        const button = document.createElement("button");
+    current.answers.forEach(
+        (answer, index) => {
 
-        button.className = "answer";
-        button.type = "button";
-        button.textContent = answer[0];
+            const button =
+                document.createElement("button");
 
-        // Restore previous answer
-        if (selectedAnswers[currentQuestion] === index) {
-            button.classList.add("selected");
+            button.className =
+                "answer";
+
+            button.type =
+                "button";
+
+            button.textContent =
+                answer[0];
+
+
+            if (
+                selectedAnswers[currentQuestion] === index
+            ) {
+
+                button.classList.add("selected");
+
+            }
+
+
+            button.addEventListener(
+                "click",
+                () => {
+                    selectAnswer(index);
+                }
+            );
+
+
+            answersContainer.appendChild(button);
+
         }
+    );
 
-        button.addEventListener("click", () => {
-            selectAnswer(index);
-        });
-
-        answersContainer.appendChild(button);
-    });
 
     updateNavigation();
 }
 
+
 function selectAnswer(answerIndex) {
 
-    selectedAnswers[currentQuestion] = answerIndex;
+    selectedAnswers[currentQuestion] =
+        answerIndex;
+
 
     const buttons =
         answersContainer.querySelectorAll(".answer");
 
-    buttons.forEach((button, index) => {
-        button.classList.toggle(
-            "selected",
-            index === answerIndex
-        );
-    });
+
+    buttons.forEach(
+        (button, index) => {
+
+            button.classList.toggle(
+                "selected",
+                index === answerIndex
+            );
+
+        }
+    );
+
 
     updateNavigation();
 
-    const questionAtSelection = currentQuestion;
+
+    const questionAtSelection =
+        currentQuestion;
+
 
     setTimeout(() => {
 
@@ -309,43 +394,64 @@ function selectAnswer(answerIndex) {
             selectedAnswers[questionAtSelection] === answerIndex &&
             currentQuestion < questions.length - 1
         ) {
+
             currentQuestion++;
+
             showQuestion();
+
         }
 
     }, 180);
 }
 
+
 function goNext() {
 
-    if (selectedAnswers[currentQuestion] === null) {
+    if (
+        selectedAnswers[currentQuestion] === null
+    ) {
+
         return;
+
     }
 
-    if (currentQuestion === questions.length - 1) {
+
+    if (
+        currentQuestion === questions.length - 1
+    ) {
 
         if (
             selectedAnswers.every(
                 answer => answer !== null
             )
         ) {
+
             showResult();
+
         }
 
         return;
+
     }
 
+
     currentQuestion++;
+
     showQuestion();
 }
+
 
 function goBack() {
 
     if (currentQuestion > 0) {
+
         currentQuestion--;
+
         showQuestion();
+
     }
 }
+
 
 function updateNavigation() {
 
@@ -363,14 +469,20 @@ function updateNavigation() {
             answer => answer !== null
         );
 
-    backButton.disabled = isFirst;
+
+    backButton.disabled =
+        isFirst;
+
 
     if (isLast) {
 
         nextButton.classList.add("hidden");
+
         submitButton.classList.remove("hidden");
 
-        submitButton.disabled = !allAnswered;
+        submitButton.disabled =
+            !allAnswered;
+
 
         submitButton.textContent =
             allAnswered
@@ -380,16 +492,23 @@ function updateNavigation() {
     } else {
 
         submitButton.classList.add("hidden");
+
         nextButton.classList.remove("hidden");
 
-        nextButton.textContent = "Next →";
-        nextButton.disabled = !currentAnswered;
+        nextButton.textContent =
+            "Next →";
+
+        nextButton.disabled =
+            !currentAnswered;
+
     }
 }
+
 
 function calculateScore() {
 
     let score = 0;
+
 
     selectedAnswers.forEach(
         (answerIndex, questionIndex) => {
@@ -399,103 +518,182 @@ function calculateScore() {
                 score +=
                     questions[questionIndex]
                         .answers[answerIndex][1];
+
             }
+
         }
     );
+
 
     return score;
 }
 
+
 function showResult() {
 
-    const correctAnswers = calculateScore();
+    const correctAnswers =
+        calculateScore();
 
-    // Convert 20-question score to percentage
-    const score = Math.round(
-        (correctAnswers / questions.length) * 100
-    );
+    const totalQuestions =
+        questions.length;
 
-    homeInfo.classList.remove("hidden");
+    const incorrectAnswers =
+        totalQuestions - correctAnswers;
+
+    const score =
+        Math.round(
+            (correctAnswers / totalQuestions) * 100
+        );
+
+    const accuracy =
+        score;
+
+
     quizScreen.classList.add("hidden");
+
     resultScreen.classList.remove("hidden");
 
-    document.getElementById("final-score").textContent = `${score}%`;
+    suggestionsCard.classList.remove("hidden");
+
+    homeInfo.classList.remove("hidden");
+
+
+    document.getElementById("final-score").textContent =
+        `${score}%`;
+
+
+    /* RESULT BREAKDOWN */
+
+    document.getElementById("correct-count").textContent =
+        correctAnswers;
+
+    document.getElementById("incorrect-count").textContent =
+        incorrectAnswers;
+
+    document.getElementById("total-count").textContent =
+        totalQuestions;
+
+    document.getElementById("accuracy-percent").textContent =
+        `${accuracy}%`;
+
 
     let title;
     let description;
     let knowledge;
-    let icon;
+
 
     if (score <= 20) {
 
-        title = "🌱 New Arrival";
+        title =
+            "🌱 New Arrival";
+
         description =
             "The bombs may have changed America forever, but your knowledge of Jericho is just beginning. Time to return to town and test yourself again.";
-        knowledge = "Casual Viewer";
-        icon = "🌱";
+
+        knowledge =
+            "Casual Viewer";
+
 
     } else if (score <= 40) {
 
-        title = "🏚️ Jericho Survivor";
+        title =
+            "🏚️ Jericho Survivor";
+
         description =
             "You remember some of the story, characters and major events, but quite a few details were lost along the way.";
-        knowledge = "Casual Fan";
-        icon = "🏚️";
+
+        knowledge =
+            "Casual Fan";
+
 
     } else if (score <= 60) {
 
-        title = "🛡️ Jericho Militia Member";
+        title =
+            "🛡️ Jericho Militia Member";
+
         description =
             "Not bad! You remember the major characters, locations and events of Jericho, with some details still missing.";
-        knowledge = "Good Fan";
-        icon = "🛡️";
+
+        knowledge =
+            "Good Fan";
+
 
     } else if (score <= 80) {
 
-        title = "☢️ Nuclear Survivor";
+        title =
+            "☢️ Nuclear Survivor";
+
         description =
             "Impressive! You know the world of Jericho, its characters and its post-nuclear America pretty well.";
-        knowledge = "Dedicated Fan";
-        icon = "☢️";
+
+        knowledge =
+            "Dedicated Fan";
+
 
     } else if (score <= 96) {
 
-        title = "🇺🇸 Jericho Expert";
+        title =
+            "🇺🇸 Jericho Expert";
+
         description =
             "Excellent! You remember most of the important details, characters, factions and events from the series.";
-        knowledge = "Expert Fan";
-        icon = "🇺🇸";
+
+        knowledge =
+            "Expert Fan";
+
 
     } else {
 
-        title = "🧠 Jericho Encyclopedia";
+        title =
+            "🧠 Jericho Encyclopedia";
+
         description =
             "Perfect score! You remember practically every detail of Jericho and its post-nuclear world.";
-        knowledge = "Ultimate Fan";
-        icon = "🧠";
+
+        knowledge =
+            "Ultimate Fan";
+
     }
 
-    document.getElementById("result-title").textContent = title;
-    document.getElementById("result-description").textContent = description;
-    document.getElementById("knowledge-level").textContent = knowledge;
-    document.getElementById("result-icon").textContent = icon;
 
-    progressBar.style.width = "100%";
+    document.getElementById("result-title").textContent =
+        title;
+
+    document.getElementById("result-description").textContent =
+        description;
+
+    document.getElementById("knowledge-level").textContent =
+        knowledge;
+
+
+    progressBar.style.width =
+        "100%";
 }
+
 
 function restartQuiz() {
 
     currentQuestion = 0;
+
     selectedAnswers =
         new Array(questions.length).fill(null);
 
+
     resultScreen.classList.add("hidden");
+
     quizScreen.classList.add("hidden");
+
     startScreen.classList.remove("hidden");
+
     homeInfo.classList.remove("hidden");
 
-    progressBar.style.width = "0%";
+    suggestionsCard.classList.add("hidden");
+
+
+    progressBar.style.width =
+        "0%";
 }
+
 
 async function shareResult() {
 
@@ -508,121 +706,178 @@ async function shareResult() {
     const finalScore =
         document.getElementById("final-score").textContent;
 
+
+    const quizUrl =
+        "https://apocalypsequizzes.com/jericho-quiz/";
+
+
     const shareText =
         `☢️ I scored ${finalScore} on the Jericho Quiz!\n\n` +
         `${title}\n` +
         `Knowledge level: ${knowledge}\n\n` +
         `How well do YOU know Jericho?`;
 
+
     const shareData = {
-        title: "Jericho Quiz",
-        text: shareText,
-        url: "https://apocalypsequizzes.com/jericho-quiz/"
+
+        title:
+            "Jericho Quiz",
+
+        text:
+            shareText,
+
+        url:
+            quizUrl
+
     };
+
 
     try {
 
         if (navigator.share) {
 
-            await navigator.share(shareData);
+            await navigator.share(
+                shareData
+            );
 
         } else {
 
             await navigator.clipboard.writeText(
                 shareText +
-                "\n\nhttps://apocalypsequizzes.com/jericho-quiz/"
+                "\n\n" +
+                quizUrl
             );
+
 
             alert(
                 "Your result has been copied! You can paste it anywhere."
             );
+
         }
 
     } catch (error) {
-        console.log("Sharing cancelled.");
-    }
 
+        console.log(
+            "Sharing cancelled."
+        );
+
+    }
 }
+
 
 // ===============================
 // GLOBAL SITE MENU
 // ===============================
 
-const menuToggle = document.getElementById("menu-toggle");
-const siteMenu = document.getElementById("site-menu");
+const menuToggle =
+    document.getElementById("menu-toggle");
+
+const siteMenu =
+    document.getElementById("site-menu");
+
 
 if (menuToggle && siteMenu) {
 
+
     // OPEN / CLOSE WITH HAMBURGER
-    menuToggle.addEventListener("click", function (event) {
 
-        event.stopPropagation();
+    menuToggle.addEventListener(
+        "click",
+        function (event) {
 
-        const isOpen =
-            menuToggle.getAttribute("aria-expanded") === "true";
-
-        siteMenu.hidden = isOpen;
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(!isOpen)
-        );
-
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen
-                ? "Open navigation"
-                : "Close navigation"
-        );
-
-    });
+            event.stopPropagation();
 
 
-    // CLOSE WHEN CLICKING OUTSIDE
-    document.addEventListener("click", function (event) {
+            const isOpen =
+                menuToggle.getAttribute(
+                    "aria-expanded"
+                ) === "true";
 
-        if (
-            !siteMenu.hidden &&
-            !siteMenu.contains(event.target) &&
-            !menuToggle.contains(event.target)
-        ) {
 
-            siteMenu.hidden = true;
+            siteMenu.hidden =
+                isOpen;
+
 
             menuToggle.setAttribute(
                 "aria-expanded",
-                "false"
+                String(!isOpen)
             );
+
 
             menuToggle.setAttribute(
                 "aria-label",
-                "Open navigation"
+                isOpen
+                    ? "Open navigation"
+                    : "Close navigation"
             );
 
         }
+    );
 
-    });
+
+    // CLOSE WHEN CLICKING OUTSIDE
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !siteMenu.hidden &&
+                !siteMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                siteMenu.hidden =
+                    true;
+
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                menuToggle.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            }
+
+        }
+    );
 
 
     // CLOSE AFTER CLICKING A MENU LINK
-    siteMenu.querySelectorAll("a").forEach(function (link) {
 
-        link.addEventListener("click", function () {
+    siteMenu
+        .querySelectorAll("a")
+        .forEach(
+            function (link) {
 
-            siteMenu.hidden = true;
+                link.addEventListener(
+                    "click",
+                    function () {
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+                        siteMenu.hidden =
+                            true;
 
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open navigation"
-            );
 
-        });
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
 
-    });
+
+                        menuToggle.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+
+                    }
+                );
+
+            }
+        );
 
 }
