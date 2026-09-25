@@ -46,17 +46,18 @@
 <body>
 
 <header class="site-header">
-    <button
-        class="menu-toggle"
-        id="menu-toggle"
-        type="button"
-        aria-label="Open navigation"
-        aria-expanded="false"
-        aria-controls="site-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+
+<button
+    class="menu-toggle"
+    id="menu-toggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
+    aria-controls="site-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
 
 <div class="site-title">
     APOCALYPSE QUIZZES
@@ -109,15 +110,23 @@
 <main class="container">
 
 <!-- START SCREEN -->
+
 <section id="start-screen">
 
     <div class="intro-card">
 
         <img
             src="../images/z-nation.png"
-            alt="Z Nation Quiz"
             class="quiz-start-image"
         >
+
+        <p class="quiz-category">
+            ZOMBIE APOCALYPSE • TV TRIVIA
+        </p>
+
+        <h1>
+            Z Nation Quiz
+        </h1>
 
         <p class="subtitle">
             Think you know Murphy, Warren, 10K, Citizen Z, the zombies
@@ -129,10 +138,30 @@
         <div class="info">
             <span>30 Questions</span>
             <span>•</span>
-            <span>4 Possible Choices</span>
+            <span>4 Choices</span>
         </div>
 
-        <button id="start-btn">START QUIZ</button>
+        <p class="start-note">
+            Questions cover characters, missions, zombies,
+            locations and memorable events from the series.
+        </p>
+
+        <button id="start-btn" type="button">
+            START QUIZ
+        </button>
+
+        <div class="spoiler-warning start-spoiler">
+
+            <strong>
+                ⚠️ Spoiler Warning
+            </strong>
+
+            <p>
+                This quiz contains spoilers from Z Nation.
+                Make sure you are caught up before starting.
+            </p>
+
+        </div>
 
     </div>
 
@@ -140,6 +169,7 @@
 
 
 <!-- QUIZ SCREEN -->
+
 <section id="quiz-screen" class="screen hidden">
 
     <div class="quiz-header">
@@ -194,11 +224,8 @@
 
 
 <!-- RESULT SCREEN -->
-<section id="result-screen" class="screen hidden">
 
-    <div id="result-icon" class="icon">
-        🧟
-    </div>
+<section id="result-screen" class="screen hidden">
 
     <p class="result-label">
         YOUR RESULT
@@ -222,24 +249,88 @@
 
     </div>
 
-    <button id="restart-btn">
-        TRY AGAIN
-    </button>
 
-    <button id="share-btn">
-        📤 SHARE MY RESULT
-    </button>
+    <!-- RESULT BREAKDOWN -->
 
-    <button id="challenge-btn">
-        🧟 CHALLENGE YOUR FRIENDS
-    </button>
+    <div class="result-breakdown">
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Correct
+            </span>
+
+            <strong id="correct-count">
+                0
+            </strong>
+
+        </div>
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Incorrect
+            </span>
+
+            <strong id="incorrect-count">
+                0
+            </strong>
+
+        </div>
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Total
+            </span>
+
+            <strong id="total-count">
+                30
+            </strong>
+
+        </div>
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Accuracy
+            </span>
+
+            <strong id="accuracy-percent">
+                0%
+            </strong>
+
+        </div>
+
+    </div>
 
 
-    <!-- =================================================
-         SUGGESTED QUIZZES
-         ================================================= -->
+    <!-- RESULT ACTIONS -->
 
-    <section class="suggested-quizzes">
+    <div class="result-actions">
+
+        <button id="restart-btn" type="button">
+            TRY AGAIN
+        </button>
+
+        <button id="share-btn" type="button">
+            📤 SHARE MY RESULT
+        </button>
+
+        <button id="challenge-btn" type="button">
+            🧟 CHALLENGE YOUR FRIENDS
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- SUGGESTED QUIZZES -->
+
+<section id="suggestions-card" class="suggestions-card hidden">
+
+    <div class="suggested-quizzes">
 
         <h2>
             Suggested Quizzes
@@ -251,23 +342,27 @@
 
         <div class="suggested-grid">
 
-
-
             <!-- RESIDENT EVIL QUIZ -->
-        <a href="/resident-evil-quiz/" class="suggested-card">
-                        <img
-                            src="../images/resident-evil.png"
-                            alt="Resident Evil Quiz"
-                            class="suggested-image"
-                        >
-                        <span class="suggested-title">
-                            Resident Evil Quiz              
-          </span>
-                        <span class="suggested-description">
-                            Test your knowledge of the- Resident Evil movies
-                        </span>
-                    </a>
 
+            <a
+                href="/resident-evil-quiz/"
+                class="suggested-card">
+
+                <img
+                    src="../images/resident-evil.png"
+                    alt="Resident Evil Quiz"
+                    class="suggested-image"
+                >
+
+                <span class="suggested-title">
+                    Resident Evil Quiz
+                </span>
+
+                <span class="suggested-description">
+                    Test your knowledge of the Resident Evil movies.
+                </span>
+
+            </a>
 
 
             <!-- WALKING DEAD KNOWLEDGE -->
@@ -292,39 +387,37 @@
 
             </a>
 
-<!-- ZOMBIE APOCALYPSE SURVIVAL QUIZ -->
-        <a href="/zombie-quiz/" class="suggested-card">
-                            <img
-                            src="../images/zombie-apocalypse.png"
-                            alt="Zombie Apocalypse Survival Quiz"
-                            class="suggested-image"
-            >
-            <span class="suggested-title">
-                Zombie Apocalypse Survival Quiz
-            </span>
-            <span class="suggested-description">
-                 How long you would survive in a Zombie Outbreak?
-            </span>
-        </a>
 
+            <!-- ZOMBIE APOCALYPSE SURVIVAL QUIZ -->
+
+            <a
+                href="/zombie-quiz/"
+                class="suggested-card">
+
+                <img
+                    src="../images/zombie-apocalypse.png"
+                    alt="Zombie Apocalypse Survival Quiz"
+                    class="suggested-image"
+                >
+
+                <span class="suggested-title">
+                    Zombie Apocalypse Survival Quiz
+                </span>
+
+                <span class="suggested-description">
+                    How long would you survive in a zombie outbreak?
+                </span>
+
+            </a>
 
         </div>
 
-    </section>
+    </div>
 
 
     <!-- MORE QUIZZES CTA -->
 
-    <div class="more-quizzes-card">
-
-        <h3>
-            Explore More Quizzes
-        </h3>
-
-        <p>
-            Discover more apocalypse, zombie, survival and
-            dystopian quizzes.
-        </p>
+    <div class="more-quizzes-section">
 
         <a
             href="/"
@@ -343,242 +436,299 @@
 
 <div id="home-info">
 
-<!-- ABOUT THE QUIZ -->
+    <!-- ABOUT THE QUIZ -->
 
-<section class="home-info">
+    <section class="home-info">
 
-    <h2>
-        About the Z Nation Quiz
-    </h2>
+        <h2>
+            About the Z Nation Quiz
+        </h2>
 
-    <p>
-        The Z Nation Quiz is a 30-question trivia challenge
-        for fans of the post-apocalyptic television series
-        <em>Z Nation</em>. It tests how well you remember
-        the characters, zombies, missions, locations and
-        memorable events from the series.
-    </p>
+        <p>
+            The Z Nation Quiz is a 30-question trivia challenge
+            for fans of the post-apocalyptic television series
+            <em>Z Nation</em>. It tests how well you remember
+            the characters, zombies, missions, locations and
+            memorable events from the series.
+        </p>
 
-    <p>
-        Questions include major characters such as Murphy,
-        Warren, 10K, Citizen Z, Addy and Garnett, along with
-        details about the dangerous world they travel through.
-        The quiz also includes questions about zombies,
-        important missions, locations and events that fans
-        may remember from watching the series.
-    </p>
+        <p>
+            Questions include major characters such as Murphy,
+            Warren, 10K, Citizen Z, Addy and Garnett, along with
+            details about the dangerous world they travel through.
+            The quiz also includes questions about zombies,
+            important missions, locations and events that fans
+            may remember from watching the series.
+        </p>
 
-    <p>
-        Whether you watched <em>Z Nation</em> casually or
-        followed the characters and their journey closely,
-        the quiz gives you a chance to test your memory.
-        Some questions focus on familiar characters and
-        major events, while others require you to remember
-        specific details from the show.
-    </p>
+        <p>
+            Whether you watched <em>Z Nation</em> casually or
+            followed the characters and their journey closely,
+            the quiz gives you a chance to test your memory.
+            Some questions focus on familiar characters and
+            major events, while others require you to remember
+            specific details from the show.
+        </p>
 
-</section>
-
-
-
-<!-- HOW THE QUIZ WORKS -->
-
-<section class="home-info">
-
-    <h2>
-        How the Z Nation Quiz Works
-    </h2>
-
-    <p>
-        The quiz contains 30 questions. Each question has
-        four possible choices, but only one answer is
-        correct. Read each question carefully and select
-        the answer you believe is correct before continuing.
-    </p>
-
-    <p>
-        Every correct answer gives you 1 point, while an
-        incorrect answer gives you 0 points. Your score is
-        calculated from your total correct answers and
-        converted into a percentage. The highest possible
-        result is 100%.
-    </p>
-
-    <p>
-        Your final percentage represents your level of
-        knowledge about <em>Z Nation</em>. A high score means
-        you remember a large number of characters, events
-        and details from the series, while a lower score
-        means there may be more of the zombie-filled world
-        left to rediscover.
-    </p>
-
-</section>
+    </section>
 
 
+    <!-- Z NATION DETAILS -->
 
-<!-- QUIZ NAVIGATION -->
+    <section class="home-info">
 
-<section class="home-info">
+        <h2>
+            Z Nation Series Details
+        </h2>
 
-    <h2>
-        Quiz Navigation
-    </h2>
+        <p>
+            <em>Z Nation</em> is a post-apocalyptic television
+            series centered on a group of survivors attempting
+            to transport Murphy, a man who may hold the key to
+            a possible cure, across a zombie-infested United States.
+        </p>
 
-    <h3>
-        Starting the quiz
-    </h3>
+        <p>
+            The series follows characters including Roberta Warren,
+            Murphy, 10K, Addy, Doc, Citizen Z and other survivors
+            as they encounter zombies, hostile groups, strange
+            mutations and dangerous communities.
+        </p>
 
-    <p>
-        Select START QUIZ on the opening screen to begin.
-        The first question will appear with four possible
-        answers.
-    </p>
+        <p>
+            Across its story, the survivors encounter locations,
+            organizations and events that continually change the
+            nature of the zombie apocalypse.
+        </p>
 
-    <h3>
-        Selecting an answer
-    </h3>
-
-    <p>
-        Choose the answer you think is correct. Take your
-        time to read the question and all four choices,
-        especially when several answers seem familiar.
-    </p>
-
-    <h3>
-        Next and Back buttons
-    </h3>
-
-    <p>
-        Use Next to move forward through the quiz. The Back
-        button allows you to return to an earlier question
-        and review your previous selection. Your progress
-        and current question number are displayed while you
-        play.
-    </p>
-
-    <h3>
-        Finishing the quiz
-    </h3>
-
-    <p>
-        Continue through all 30 questions and answer every
-        question. When you reach the end, the quiz will allow
-        you to submit your answers and view your final
-        percentage and Z Nation knowledge result.
-    </p>
-
-    <h3>
-        Try Again and Challenge Friends
-    </h3>
-
-    <p>
-        After seeing your result, select TRY AGAIN if you
-        want another attempt. You can also use SHARE MY
-        RESULT or CHALLENGE YOUR FRIENDS to share your
-        achievement and see whether other fans can beat
-        your score.
-    </p>
-
-</section>
+    </section>
 
 
+    <!-- WHAT THE QUIZ COVERS -->
 
-<!-- FAQ -->
+    <section class="home-info">
 
-<section class="home-info">
+        <h2>
+            What This Quiz Covers
+        </h2>
 
-    <h2>
-        Z Nation Quiz FAQ
-    </h2>
+        <p>
+            Questions cover major characters including Murphy,
+            Warren, 10K, Citizen Z, Addy, Garnett, Vasquez,
+            Kurian and other important figures.
+        </p>
 
-    <h3>
-        How many questions are in the quiz?
-    </h3>
+        <p>
+            The quiz also covers zombies, zombie-human hybrids,
+            missions, locations, military operations, survivor
+            groups and important events throughout the series.
+        </p>
 
-    <p>
-        There are 30 questions in total. Each question has
-        four possible choices, with one correct answer.
-    </p>
+        <p>
+            Some questions focus on memorable details that may
+            be easier to forget, making the quiz suitable for
+            viewers who followed the series closely.
+        </p>
 
-    <h3>
-        What is the maximum score?
-    </h3>
+    </section>
 
-    <p>
-        The maximum result is 100%. Each correct answer is
-        worth 1 point, and your total score is converted
-        into a percentage.
-    </p>
 
-    <h3>
-        What does the quiz cover?
-    </h3>
+    <!-- HOW THE QUIZ WORKS -->
 
-    <p>
-        Questions cover characters such as Murphy, Warren,
-        10K, Citizen Z, Addy and Garnett, as well as zombies,
-        missions, locations and memorable events from
-        <em>Z Nation</em>.
-    </p>
+    <section class="home-info">
 
-    <h3>
-        What does my final score mean?
-    </h3>
+        <h2>
+            How the Z Nation Quiz Works
+        </h2>
 
-    <p>
-        Your percentage shows how many of the questions you
-        answered correctly and is used to determine your
-        Z Nation Knowledge level.
-    </p>
+        <p>
+            The quiz contains 30 questions. Each question has
+            four possible choices, but only one answer is
+            correct. Read each question carefully and select
+            the answer you believe is correct before continuing.
+        </p>
 
-    <h3>
-        Can I take the quiz again?
-    </h3>
+        <p>
+            Every correct answer gives you 1 point, while an
+            incorrect answer gives you 0 points. Your score is
+            calculated from your total correct answers and
+            converted into a percentage. The highest possible
+            result is 100%.
+        </p>
 
-    <p>
-        Yes. Select TRY AGAIN after completing the quiz to
-        start another attempt and try to improve your score.
-    </p>
+        <p>
+            Your final percentage represents your level of
+            knowledge about <em>Z Nation</em>. A high score means
+            you remember a large number of characters, events
+            and details from the series, while a lower score
+            means there may be more of the zombie-filled world
+            left to rediscover.
+        </p>
 
-    <h3>
-        Can I challenge my friends?
-    </h3>
+    </section>
 
-    <p>
-        Yes. Select CHALLENGE YOUR FRIENDS after completing
-        the quiz to challenge other fans and see who knows
-        <em>Z Nation</em> best.
-    </p>
 
-</section>
+    <!-- QUIZ NAVIGATION -->
 
-<!-- =====================================================
-     SPOILER WARNING
-     ===================================================== -->
+    <section class="home-info">
 
-<section class="home-info spoiler-warning">
+        <h2>
+            Quiz Navigation
+        </h2>
 
-    <h2>
-        Spoiler Warning
-    </h2>
+        <h3>
+            Starting the quiz
+        </h3>
 
-    <p>
-        This quiz contains spoilers for the movie, series, or
-        season it is based on. Some questions may reveal
-        important characters, events, relationships, locations,
-        discoveries, and other story details.
-    </p>
+        <p>
+            Select START QUIZ on the opening screen to begin.
+            The first question will appear with four possible
+            answers.
+        </p>
 
-    <p>
-        If you have not finished watching the relevant movie,
-        series, or season, consider completing it before taking
-        the quiz to avoid having important plot details spoiled.
-    </p>
+        <h3>
+            Selecting an answer
+        </h3>
 
-</section>
+        <p>
+            Choose the answer you think is correct. Take your
+            time to read the question and all four choices,
+            especially when several answers seem familiar.
+        </p>
+
+        <h3>
+            Next and Back buttons
+        </h3>
+
+        <p>
+            Use Next to move forward through the quiz. The Back
+            button allows you to return to an earlier question
+            and review your previous selection. Your progress
+            and current question number are displayed while you
+            play.
+        </p>
+
+        <h3>
+            Finishing the quiz
+        </h3>
+
+        <p>
+            Continue through all 30 questions and answer every
+            question. When you reach the end, the quiz will allow
+            you to submit your answers and view your final
+            percentage and Z Nation knowledge result.
+        </p>
+
+        <h3>
+            Try Again and Challenge Friends
+        </h3>
+
+        <p>
+            After seeing your result, select TRY AGAIN if you
+            want another attempt. You can also use SHARE MY
+            RESULT or CHALLENGE YOUR FRIENDS to share your
+            achievement and see whether other fans can beat
+            your score.
+        </p>
+
+    </section>
+
+
+    <!-- FAQ -->
+
+    <section class="home-info">
+
+        <h2>
+            Z Nation Quiz FAQ
+        </h2>
+
+        <h3>
+            How many questions are in the quiz?
+        </h3>
+
+        <p>
+            There are 30 questions in total. Each question has
+            four possible choices, with one correct answer.
+        </p>
+
+        <h3>
+            What is the maximum score?
+        </h3>
+
+        <p>
+            The maximum result is 100%. Each correct answer is
+            worth 1 point, and your total score is converted
+            into a percentage.
+        </p>
+
+        <h3>
+            What does the quiz cover?
+        </h3>
+
+        <p>
+            Questions cover characters such as Murphy, Warren,
+            10K, Citizen Z, Addy and Garnett, as well as zombies,
+            missions, locations and memorable events from
+            <em>Z Nation</em>.
+        </p>
+
+        <h3>
+            What does my final score mean?
+        </h3>
+
+        <p>
+            Your percentage shows how many of the questions you
+            answered correctly and is used to determine your
+            Z Nation Knowledge level.
+        </p>
+
+        <h3>
+            Can I take the quiz again?
+        </h3>
+
+        <p>
+            Yes. Select TRY AGAIN after completing the quiz to
+            start another attempt and try to improve your score.
+        </p>
+
+        <h3>
+            Can I challenge my friends?
+        </h3>
+
+        <p>
+            Yes. Select CHALLENGE YOUR FRIENDS after completing
+            the quiz to challenge other fans and see who knows
+            <em>Z Nation</em> best.
+        </p>
+
+    </section>
+
+
+    <!-- SPOILER WARNING -->
+
+    <section class="home-info spoiler-warning">
+
+        <h2>
+            Spoiler Warning
+        </h2>
+
+        <p>
+            This quiz contains spoilers for <em>Z Nation</em>.
+            Some questions may reveal important characters,
+            events, relationships, locations, discoveries and
+            other story details.
+        </p>
+
+        <p>
+            If you have not finished watching the relevant
+            episodes or seasons, consider completing them before
+            taking the quiz to avoid having important plot details
+            spoiled.
+        </p>
+
+    </section>
+
 </div>
-
 
 </main>
 
