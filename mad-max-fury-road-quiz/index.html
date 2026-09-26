@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 
@@ -43,7 +42,6 @@
     </script>
 
     <!-- Google AdSense -->
-
     <script async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2285244517360573"
         crossorigin="anonymous"></script>
@@ -56,23 +54,23 @@
 
 <header class="site-header">
 
-<button
-    class="menu-toggle"
-    id="menu-toggle"
-    type="button"
-    aria-label="Open navigation"
-    aria-expanded="false"
-    aria-controls="site-menu">
+    <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="site-menu">
 
-    <span></span>
-    <span></span>
-    <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
-</button>
+    </button>
 
-<div class="site-title">
-    APOCALYPSE QUIZZES
-</div>
+    <div class="site-title">
+        APOCALYPSE QUIZZES
+    </div>
 
 </header>
 
@@ -83,39 +81,39 @@
     aria-label="Main navigation"
     hidden>
 
-<div class="menu-links">
+    <div class="menu-links">
 
-<a href="/">
-    🏠 Home
-</a>
+        <a href="/">
+            🏠 Home
+        </a>
 
-<a href="/search/">
-    🔎 Search Quizzes
-</a>
+        <a href="/search/">
+            🔎 Search Quizzes
+        </a>
 
-<a href="/categories/">
-    📂 Categories
-</a>
+        <a href="/categories/">
+            📂 Categories
+        </a>
 
-<div class="menu-divider"></div>
+        <div class="menu-divider"></div>
 
-<a href="/about.html">
-    About
-</a>
+        <a href="/about.html">
+            About
+        </a>
 
-<a href="/privacy.html">
-    Privacy Policy
-</a>
+        <a href="/privacy.html">
+            Privacy Policy
+        </a>
 
-<a href="/disclaimer.html">
-    Disclaimer
-</a>
+        <a href="/disclaimer.html">
+            Disclaimer
+        </a>
 
-<a href="/contact.html">
-    Contact
-</a>
+        <a href="/contact.html">
+            Contact
+        </a>
 
-</div>
+    </div>
 
 </nav>
 
@@ -123,257 +121,375 @@
 <main class="container">
 
 
-<!-- START SCREEN -->
+<!-- =====================================================
+     START SCREEN
+     ===================================================== -->
 
 <section id="start-screen">
 
-<div class="intro-card">
+    <div class="intro-card">
 
-<img
-    src="../images/fury.png"
-    alt="Mad Max: Fury Road Movie Quiz"
-    class="quiz-start-image"
->
+        <img
+            src="../images/fury.png"
+            class="quiz-start-image"
+        >
 
-<p class="subtitle">
-    Think you can survive the Wasteland?
-    Test your knowledge of Max, Furiosa,
-    Immortan Joe, the War Rig, the five wives,
-    the Citadel and major events from
-    Mad Max: Fury Road.
-</p>
+        <div class="quiz-category">
+            POST-APOCALYPTIC • MOVIE TRIVIA
+        </div>
 
-<div class="info">
+        <h1>
+            Mad Max: Fury Road Quiz
+        </h1>
 
-<span>30 Questions</span>
+        <p class="subtitle">
+            Think you can survive the Wasteland?
+            Test your knowledge of Max, Furiosa,
+            Immortan Joe, the War Rig, the five wives,
+            the Citadel and major events from
+            <em>Mad Max: Fury Road</em>.
+        </p>
 
-<span>•</span>
+        <div class="info">
 
-<span>~6 Minutes</span>
+            <span>30 Questions</span>
 
-<span>•</span>
+            <span>•</span>
 
-<span>4 Possible Choices</span>
+            <span>~6 Minutes</span>
 
-</div>
+            <span>•</span>
 
-<button id="start-btn">
-    START QUIZ
-</button>
+            <span>4 Choices</span>
 
-</div>
+        </div>
+
+        <p class="start-note">
+            Ready? See how much you remember about
+            Max, Furiosa and the Wasteland.
+        </p>
+
+        <button id="start-btn" type="button">
+            START QUIZ
+        </button>
+
+        <div class="spoiler-warning start-spoiler">
+
+            <p>
+                This quiz contains spoilers for
+                <em>Mad Max: Fury Road</em>.
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- QUIZ SCREEN -->
+<!-- =====================================================
+     QUIZ SCREEN
+     ===================================================== -->
 
 <section id="quiz-screen" class="screen hidden">
 
-<div class="quiz-header">
+    <div class="quiz-header">
 
-<span id="question-number">
-    Question 1 of 30
-</span>
+        <span id="question-number">
+            Question 1 of 30
+        </span>
 
-<span id="score-display">
-    Mad Max: Fury Road Movie Trivia
-</span>
+        <span id="score-display">
+            Mad Max Trivia
+        </span>
 
-</div>
-
-
-<div class="progress">
-
-<div id="progress-bar"></div>
-
-</div>
+    </div>
 
 
-<h2 id="question"></h2>
+    <div class="progress">
 
-<div id="answers"></div>
+        <div id="progress-bar"></div>
 
-
-<div class="quiz-navigation">
-
-<button
-    id="back-btn"
-    class="nav-btn"
-    type="button"
-    disabled>
-
-    ← Back
-
-</button>
+    </div>
 
 
-<button
-    id="next-btn"
-    class="nav-btn"
-    type="button"
-    disabled>
+    <h2 id="question"></h2>
 
-    Next →
-
-</button>
+    <div id="answers"></div>
 
 
-<button
-    id="submit-btn"
-    class="nav-btn submit-btn hidden"
-    type="button"
-    disabled>
+    <div class="quiz-navigation">
 
-    Answer All Questions
+        <button
+            id="back-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
 
-</button>
+            ← Back
 
-</div>
+        </button>
+
+
+        <button
+            id="next-btn"
+            class="nav-btn"
+            type="button"
+            disabled>
+
+            Next →
+
+        </button>
+
+
+        <button
+            id="submit-btn"
+            class="nav-btn submit-btn hidden"
+            type="button"
+            disabled>
+
+            Answer All Questions
+
+        </button>
+
+    </div>
 
 </section>
 
 
-<!-- RESULT SCREEN -->
+<!-- =====================================================
+     RESULT SCREEN
+     ===================================================== -->
 
 <section id="result-screen" class="screen hidden">
 
-<div id="result-icon" class="icon">
-    🚗
-</div>
+    <p class="result-label">
+        YOUR RESULT
+    </p>
 
-<p class="result-label">
-    YOUR RESULT
-</p>
+    <h1 id="result-title"></h1>
 
-<h1 id="result-title"></h1>
+    <div class="result-score">
 
-<div class="result-score">
+        <span id="final-score"></span>
 
-<span id="final-score"></span>
+    </div>
 
-</div>
-
-<p id="result-description"></p>
-
-<div class="survival-box">
-
-<strong>
-    Mad Max: Fury Road Knowledge
-</strong>
-
-<span id="knowledge-level"></span>
-
-</div>
+    <p id="result-description"></p>
 
 
-<button id="restart-btn">
-    TRY AGAIN
-</button>
+    <div class="survival-box">
 
-<button id="share-btn">
-    📤 SHARE MY RESULT
-</button>
+        <strong>
+            Mad Max: Fury Road Knowledge
+        </strong>
 
-<button id="challenge-btn">
-    🚗 CHALLENGE YOUR FRIENDS
-</button>
+        <span id="knowledge-level"></span>
+
+    </div>
 
 
-<!-- =================================================
- SUGGESTED QUIZZES
- ================================================= -->
+    <!-- RESULT BREAKDOWN -->
 
-<section class="suggested-quizzes">
+    <div class="result-breakdown">
 
-<h2>
-    Suggested Quizzes
-</h2>
+        <div class="result-stat">
 
-<p class="suggested-subtitle">
-    Survived the Wasteland? Try another apocalypse quiz.
-</p>
+            <span class="result-stat-label">
+                Correct
+            </span>
 
+            <strong id="correct-count">
+                —
+            </strong>
 
-<div class="suggested-grid">
-
-
-<!-- FURIOSA: A MAD MAX SAGA QUIZ-->
-        <a href="/furiosa-a-mad-max-saga-quiz/" class="suggested-card">
-                        <img
-                            src="../images/furiosa.png "
-                            alt=" Furiosa: A Mad Max Saga Quiz"
-                            class="suggested-image"
-                        >
-                        <span class="suggested-title">
-                            Furiosa: A Mad Max Saga Quiz
-          </span>
-                        <span class="suggested-description">
-                            Take the journey with Furiosa, find out how much you know about Furiosa: a mad max saga
-                        </span>
-                    </a>
+        </div>
 
 
+        <div class="result-stat">
 
-<!—I AM LEGEND QUIZ-->
-        <a href="/i-am-legend-quiz/" class="suggested-card">
-                        <img
-                            src="../images/legend.png "
-                            alt="I Am Legend Quiz"
-                            class="suggested-image"
-                        >
-                        <span class="suggested-title">
-                            I Am Legend Quiz         
-          </span>
-                        <span class="suggested-description">
-                            How Well Do You Know the movie I am Legend?
-                        </span>
-                    </a>
+            <span class="result-stat-label">
+                Incorrect
+            </span>
+
+            <strong id="incorrect-count">
+                —
+            </strong>
+
+        </div>
 
 
+        <div class="result-stat">
 
-<!-- STATION ELEVEN QUIZ-->
-        <a href="/station-eleven-quiz/" class="suggested-card">
-                        <img
-                            src="../images/station-eleven.png"
-                            alt="Station Eleven Quiz"
-                            class="suggested-image"
-                        >
-                        <span class="suggested-title">
-                            Station Eleven Quiz              
-          </span>
-                        <span class="suggested-description">
-                            How Well Do You Know the series Station Eleven?
-                        </span>
-                    </a>
+            <span class="result-stat-label">
+                Total
+            </span>
 
-</div>
+            <strong id="total-count">
+                30
+            </strong>
 
+        </div>
+
+
+        <div class="result-stat">
+
+            <span class="result-stat-label">
+                Accuracy
+            </span>
+
+            <strong id="accuracy-percent">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- RESULT ACTIONS -->
+
+    <div class="result-actions">
+
+        <button id="restart-btn" type="button">
+            TRY AGAIN
+        </button>
+
+        <button id="share-btn" type="button">
+            📤 SHARE MY RESULT
+        </button>
+
+        <button id="challenge-btn" type="button">
+            🚗 CHALLENGE YOUR FRIENDS
+        </button>
+
+    </div>
 </section>
 
 
-<!-- MORE QUIZZES CTA -->
+    <!-- =================================================
+         SUGGESTED QUIZZES
+         ================================================= -->
 
-<div class="more-quizzes-card">
+    <section
+        id="suggestions-card"
+        class="suggestions-card hidden">
 
-<h3>
-    Explore More Quizzes
-</h3>
+        <div class="suggested-quizzes">
 
-<p>
-    Discover more apocalypse, zombie, survival and
-    disaster movie quizzes.
-</p>
+            <h2>
+                Suggested Quizzes
+            </h2>
 
-<a
-    href="/"
-    class="more-quizzes-btn">
+            <p class="suggested-subtitle">
+                Survived the Wasteland? Try another apocalypse quiz.
+            </p>
 
-🧟 APOCALYPSE QUIZZES
 
-</a>
+            <div class="suggested-grid">
 
-</div>
+
+                <!-- THE LAST OF US QUIZ -->
+
+                <a
+                    href="/last-of-us-quiz/"
+                    class="suggested-card">
+
+                    <img
+                        src="../images/last-of-us-quiz.png"
+                        alt="The Last of Us Quiz"
+                        class="suggested-image"
+                    >
+
+                    <span class="suggested-title">
+                        The Last of Us Quiz
+                    </span>
+
+                    <span class="suggested-description">
+                        How well do you know the series
+                        <em>The Last of Us</em>? Test your knowledge
+                        of the characters and story.
+                    </span>
+
+                </a>
+
+
+                <!-- I AM LEGEND QUIZ -->
+
+                <a
+                    href="/i-am-legend-quiz/"
+                    class="suggested-card">
+
+                    <img
+                        src="../images/legend.png"
+                        alt="I Am Legend Quiz"
+                        class="suggested-image"
+                    >
+
+                    <span class="suggested-title">
+                        I Am Legend Quiz
+                    </span>
+
+                    <span class="suggested-description">
+                        How well do you know the movie
+                        <em>I Am Legend</em>? Test your knowledge
+                        of Robert Neville and the infected.
+                    </span>
+
+                </a>
+
+
+                <!-- STATION ELEVEN QUIZ -->
+
+                <a
+                    href="/station-eleven-quiz/"
+                    class="suggested-card">
+
+                    <img
+                        src="../images/station-eleven.png"
+                        alt="Station Eleven Quiz"
+                        class="suggested-image"
+                    >
+
+                    <span class="suggested-title">
+                        Station Eleven Quiz
+                    </span>
+
+                    <span class="suggested-description">
+                        How well do you know the series
+                        <em>Station Eleven</em>? Test your knowledge
+                        of the post-pandemic world and its survivors.
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- MORE QUIZZES CTA -->
+
+        <div class="more-quizzes-section">
+
+            <h3>
+                Explore More Quizzes
+            </h3>
+
+            <p>
+                Discover more apocalypse, zombie, survival,
+                science-fiction and disaster movie quizzes.
+            </p>
+
+            <a
+                href="/"
+                class="more-quizzes-btn">
+
+                🧟 APOCALYPSE QUIZZES
+
+            </a>
+
+        </div>
 
 </section>
 
@@ -385,268 +501,393 @@
 <div id="home-info">
 
 
-<!-- ABOUT THE QUIZ -->
+    <!-- ABOUT THE QUIZ -->
+
+    <section class="home-info">
+
+        <h2>
+            About the Mad Max: Fury Road Movie Quiz
+        </h2>
+
+        <p>
+            The Mad Max: Fury Road Movie Quiz is a
+            30-question trivia challenge for fans of the
+            2015 post-apocalyptic action movie
+            <em>Mad Max: Fury Road</em>. The film follows
+            Max Rockatansky and Imperator Furiosa as they
+            attempt to escape Immortan Joe and cross the
+            Wasteland.
+        </p>
+
+        <p>
+            The questions cover Max, Furiosa, Immortan Joe,
+            Nux, the five wives, the War Rig, the Citadel,
+            Gastown, the Bullet Farm, the Green Place,
+            the Vuvalini and major events during the chase.
+        </p>
 
-<section class="home-info">
+        <p>
+            Some questions test major plot details, while
+            others focus on smaller facts, vehicles,
+            characters and locations that are easier to
+            forget. If you remember the desperate journey
+            across the Wasteland, this quiz gives you a
+            chance to test your memory.
+        </p>
+
+    </section>
 
-<h2>
-    About the Mad Max: Fury Road Movie Quiz
-</h2>
-
-<p>
-    The Mad Max: Fury Road Movie Quiz is a 30-question
-    trivia challenge for fans of the 2015 post-apocalyptic
-    action movie <em>Mad Max: Fury Road</em>. The film
-    follows Max Rockatansky and Imperator Furiosa as they
-    attempt to escape Immortan Joe and cross the Wasteland.
-</p>
 
-<p>
-    The questions cover Max, Furiosa, Immortan Joe,
-    Nux, the five wives, the War Rig, the Citadel,
-    Gastown, the Bullet Farm, the Green Place,
-    the Vuvalini and major events during the chase.
-</p>
+    <!-- MOVIE DETAILS -->
+
+    <section class="home-info">
 
-<p>
-    Some questions test major plot details, while others
-    focus on smaller facts, vehicles, characters and
-    locations that are easier to forget. If you remember
-    the desperate journey across the Wasteland, this quiz
-    gives you a chance to test your memory.
-</p>
-
-</section>
-
-
-<!-- HOW THE QUIZ WORKS -->
+        <h2>
+            Mad Max: Fury Road Movie Details
+        </h2>
+
+        <p>
+            <em>Mad Max: Fury Road</em> is a 2015
+            post-apocalyptic action film directed by
+            George Miller and starring Tom Hardy as
+            Max Rockatansky and Charlize Theron as
+            Imperator Furiosa.
+        </p>
 
-<section class="home-info">
+        <p>
+            The story follows Furiosa as she attempts
+            to escape Immortan Joe's Citadel with his
+            five wives while Max becomes involved in
+            the dangerous pursuit across the Wasteland.
+        </p>
 
-<h2>
-    How the Mad Max: Fury Road Movie Quiz Works
-</h2>
+        <p>
+            The film features the Citadel, the War Rig,
+            Gastown, the Bullet Farm, the Green Place,
+            the Vuvalini and numerous vehicles and groups
+            involved in the chase.
+        </p>
 
-<p>
-    The quiz contains 30 questions. Every question has
-    four possible choices, but only one answer is correct.
-    Read each question carefully and select the answer you
-    believe is correct before continuing.
-</p>
+    </section>
 
-<p>
-    Each correct answer gives you 1 point, while an
-    incorrect answer gives you 0 points. With 30 questions
-    in total, your number of correct answers is converted
-    into a final percentage out of 100%.
-</p>
+
+    <!-- WHAT THE QUIZ COVERS -->
+
+    <section class="home-info">
+
+        <h2>
+            What This Quiz Covers
+        </h2>
+
+        <h3>
+            Max Rockatansky
+        </h3>
+
+        <p>
+            Questions about Max's capture, his visions,
+            his relationship with Furiosa and his role
+            during the escape and final battle.
+        </p>
 
-<p>
-    Your final result represents your knowledge of the
-    movie based on your performance. A high score means
-    you successfully remembered many of the characters,
-    vehicles, locations, Wasteland events and escape
-    moments featured in <em>Mad Max: Fury Road</em>.
-</p>
 
-</section>
+        <h3>
+            Furiosa and the Five Wives
+        </h3>
 
+        <p>
+            The quiz covers Furiosa's position, her
+            escape plan, the five wives, their
+            relationships and important events during
+            the journey.
+        </p>
 
-<!-- QUIZ NAVIGATION -->
 
-<section class="home-info">
+        <h3>
+            The Citadel
+        </h3>
 
-<h2>
-    Quiz Navigation
-</h2>
+        <p>
+            Questions include Immortan Joe, his forces,
+            the War Boys, the Citadel and the resources
+            controlled by Joe's settlement.
+        </p>
 
-<h3>
-    Starting the quiz
-</h3>
 
-<p>
-    Select START QUIZ on the opening screen to begin.
-    The first question will appear with four possible
-    answers.
-</p>
+        <h3>
+            Vehicles and the Wasteland
+        </h3>
 
+        <p>
+            Test your memory of the War Rig, Gigahorse,
+            Doof Wagon, pursuit vehicles, the Polecats
+            and other vehicles and groups encountered
+            during the chase.
+        </p>
 
-<h3>
-    Selecting an answer
-</h3>
 
-<p>
-    Read the question and all four choices before making
-    your decision. Select the answer you believe is
-    correct and continue through the quiz.
-</p>
+        <h3>
+            Gastown and the Bullet Farm
+        </h3>
 
+        <p>
+            Several questions cover the settlements
+            supplying fuel and ammunition to Immortan
+            Joe's forces.
+        </p>
 
-<h3>
-    Next and Back buttons
-</h3>
 
-<p>
-    Use Next to move forward through the questions. The
-    Back button allows you to return to an earlier
-    question and review your selection. Your current
-    question number and progress are displayed as you
-    move through the quiz.
-</p>
+        <h3>
+            The Green Place and the Vuvalini
+        </h3>
 
+        <p>
+            The quiz also explores Furiosa's connection
+            to the Vuvalini, the search for the Green
+            Place and what happens when the group
+            discovers its fate.
+        </p>
 
-<h3>
-    Finishing the quiz
-</h3>
+    </section>
 
-<p>
-    Continue until you have answered all 30 questions.
-    When you reach the end, submit your answers to finish
-    the quiz and view your final percentage and
-    Mad Max: Fury Road Movie Knowledge result.
-</p>
 
+    <!-- HOW THE QUIZ WORKS -->
 
-<h3>
-    Try Again and Challenge Friends
-</h3>
+    <section class="home-info">
 
-<p>
-    After viewing your result, select TRY AGAIN to replay
-    the quiz and attempt a higher score. You can also use
-    SHARE MY RESULT or CHALLENGE YOUR FRIENDS to share
-    your result and challenge other fans.
-</p>
+        <h2>
+            How the Mad Max: Fury Road Movie Quiz Works
+        </h2>
 
-</section>
+        <p>
+            The quiz contains 30 questions. Every question
+            has four possible choices, but only one answer
+            is correct. Read each question carefully and
+            select the answer you believe is correct before
+            continuing.
+        </p>
 
+        <p>
+            Each correct answer gives you 1 point, while
+            an incorrect answer gives you 0 points. With
+            30 questions in total, your number of correct
+            answers is converted into a final percentage
+            out of 100%.
+        </p>
 
-<!-- FAQ -->
+        <p>
+            Your final result represents your knowledge of
+            the movie based on your performance. The result
+            screen also shows your correct answers,
+            incorrect answers, total questions and
+            accuracy percentage.
+        </p>
 
-<section class="home-info">
+    </section>
 
-<h2>
-    Mad Max: Fury Road Movie Quiz FAQ
-</h2>
 
+    <!-- QUIZ NAVIGATION -->
 
-<h3>
-    How many questions are in the quiz?
-</h3>
+    <section class="home-info">
 
-<p>
-    There are 30 questions in total, and every question
-    has four possible choices.
-</p>
+        <h2>
+            Quiz Navigation
+        </h2>
 
+        <h3>
+            Starting the Quiz
+        </h3>
 
-<h3>
-    What is the maximum score?
-</h3>
+        <p>
+            Select START QUIZ on the opening screen to
+            begin. The first question will appear with
+            four possible answers.
+        </p>
 
-<p>
-    The maximum result is 100%. Each correct answer
-    contributes 1 point before the score is converted
-    into a percentage.
-</p>
 
+        <h3>
+            Selecting an Answer
+        </h3>
 
-<h3>
-    What topics are covered?
-</h3>
+        <p>
+            Read the question and all four choices before
+            making your decision. Select the answer you
+            believe is correct and continue through the
+            quiz.
+        </p>
 
-<p>
-    The quiz focuses on <em>Mad Max: Fury Road</em>,
-    including Max, Furiosa, Immortan Joe, Nux, the five
-    wives, the War Rig, the Citadel, Gastown, the Bullet
-    Farm, the Green Place, the Vuvalini and major story
-    details.
-</p>
 
+        <h3>
+            Next and Back Buttons
+        </h3>
 
-<h3>
-    Is this quiz about the characters?
-</h3>
+        <p>
+            Use Next to move forward through the questions.
+            The Back button allows you to return to an
+            earlier question and review your selection.
+            Your current question number and progress are
+            displayed as you move through the quiz.
+        </p>
 
-<p>
-    The quiz includes questions about important characters,
-    but it also covers vehicles, locations, the Wasteland,
-    the War Rig, Immortan Joe's forces and other major
-    details from the movie.
-</p>
 
+        <h3>
+            Finishing the Quiz
+        </h3>
 
-<h3>
-    Which movie does this quiz cover?
-</h3>
+        <p>
+            Continue until you have answered all 30
+            questions. When you reach the end, submit
+            your answers to finish the quiz and view
+            your final percentage and Mad Max: Fury Road
+            Movie Knowledge result.
+        </p>
 
-<p>
-    This quiz focuses on the 2015 post-apocalyptic action
-    movie <em>Mad Max: Fury Road</em>, directed by George
-    Miller and starring Tom Hardy as Max Rockatansky and
-    Charlize Theron as Imperator Furiosa.
-</p>
 
+        <h3>
+            Try Again and Challenge Friends
+        </h3>
 
-<h3>
-    What does my score mean?
-</h3>
+        <p>
+            After viewing your result, select TRY AGAIN
+            to replay the quiz and attempt a higher score.
+            You can also use SHARE MY RESULT or CHALLENGE
+            YOUR FRIENDS to share your result and challenge
+            other fans.
+        </p>
 
-<p>
-    Your percentage shows how many of the 30 movie-related
-    questions you answered correctly. A higher score
-    indicates stronger knowledge of <em>Mad Max: Fury Road</em>.
-</p>
+    </section>
 
 
-<h3>
-    Can I take the quiz again?
-</h3>
+    <!-- FAQ -->
 
-<p>
-    Yes. Select TRY AGAIN after completing the quiz to
-    start another attempt and try to improve your score.
-</p>
+    <section class="home-info">
 
+        <h2>
+            Mad Max: Fury Road Movie Quiz FAQ
+        </h2>
 
-<h3>
-    Can I challenge my friends?
-</h3>
 
-<p>
-    Yes. Select CHALLENGE YOUR FRIENDS after completing
-    the quiz to share the challenge and see whether your
-    friends can beat your score.
-</p>
+        <h3>
+            How many questions are in the quiz?
+        </h3>
 
-</section>
+        <p>
+            There are 30 questions in total, and every
+            question has four possible choices.
+        </p>
 
 
-<!-- =====================================================
-     SPOILER WARNING
-     ===================================================== -->
+        <h3>
+            What is the maximum score?
+        </h3>
 
-<section class="home-info spoiler-warning">
+        <p>
+            The maximum result is 100%. Each correct
+            answer contributes 1 point before the score
+            is converted into a percentage.
+        </p>
 
-<h2>
-    Spoiler Warning
-</h2>
 
-<p>
-    This quiz contains spoilers for <em>Mad Max: Fury Road</em>.
-    Questions may reveal major characters, Furiosa's plan,
-    Immortan Joe, the five wives, the War Rig, the Citadel,
-    the Green Place, the final chase and other important
-    details from the movie.
-</p>
+        <h3>
+            What topics are covered?
+        </h3>
 
-<p>
-    If you have not watched <em>Mad Max: Fury Road</em>,
-    consider watching the movie before taking the quiz to
-    avoid having important story details spoiled.
-</p>
+        <p>
+            The quiz focuses on <em>Mad Max: Fury Road</em>,
+            including Max, Furiosa, Immortan Joe, Nux,
+            the five wives, the War Rig, the Citadel,
+            Gastown, the Bullet Farm, the Green Place,
+            the Vuvalini and major story details.
+        </p>
 
-</section>
+
+        <h3>
+            Is this quiz about the characters?
+        </h3>
+
+        <p>
+            The quiz includes questions about important
+            characters, but it also covers vehicles,
+            locations, the Wasteland, the War Rig,
+            Immortan Joe's forces and other major details
+            from the movie.
+        </p>
+
+
+        <h3>
+            Which movie does this quiz cover?
+        </h3>
+
+        <p>
+            This quiz focuses on the 2015 post-apocalyptic
+            action movie <em>Mad Max: Fury Road</em>,
+            directed by George Miller and starring Tom
+            Hardy as Max Rockatansky and Charlize Theron
+            as Imperator Furiosa.
+        </p>
+
+
+        <h3>
+            What does my score mean?
+        </h3>
+
+        <p>
+            Your percentage shows how many of the 30
+            movie-related questions you answered correctly.
+            A higher score indicates stronger knowledge of
+            <em>Mad Max: Fury Road</em>.
+        </p>
+
+
+        <h3>
+            Can I take the quiz again?
+        </h3>
+
+        <p>
+            Yes. Select TRY AGAIN after completing the quiz
+            to start another attempt and try to improve
+            your score.
+        </p>
+
+
+        <h3>
+            Can I challenge my friends?
+        </h3>
+
+        <p>
+            Yes. Select CHALLENGE YOUR FRIENDS after
+            completing the quiz to share the challenge
+            and see whether your friends can beat your
+            score.
+        </p>
+
+    </section>
+
+
+    <!-- SPOILER WARNING -->
+
+    <section class="home-info spoiler-warning">
+
+        <h2>
+            Spoiler Warning
+        </h2>
+
+        <p>
+            This quiz contains spoilers for
+            <em>Mad Max: Fury Road</em>. Questions may
+            reveal major characters, Furiosa's plan,
+            Immortan Joe, the five wives, the War Rig,
+            the Citadel, the Green Place, the final chase
+            and other important details from the movie.
+        </p>
+
+        <p>
+            If you have not watched <em>Mad Max: Fury Road</em>,
+            consider watching the movie before taking the
+            quiz to avoid having important story details
+            spoiled.
+        </p>
+
+    </section>
 
 
 </div>
@@ -654,41 +895,45 @@
 </main>
 
 
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
 <footer class="site-footer">
 
-<div class="footer-inner">
+    <div class="footer-inner">
 
-<div class="footer-brand">
-    APOCALYPSE QUIZZES
-</div>
-
-
-<div class="footer-links">
-
-    <a href="/about.html">
-        About
-    </a>
-
-    <a href="/privacy.html">
-        Privacy Policy
-    </a>
-
-    <a href="/disclaimer.html">
-        Disclaimer
-    </a>
-
-    <a href="/contact.html">
-        Contact
-    </a>
-
-</div>
+        <div class="footer-brand">
+            APOCALYPSE QUIZZES
+        </div>
 
 
-<div class="copyright">
-    © 2026 Apocalypse Quizzes
-</div>
+        <div class="footer-links">
 
-</div>
+            <a href="/about.html">
+                About
+            </a>
+
+            <a href="/privacy.html">
+                Privacy Policy
+            </a>
+
+            <a href="/disclaimer.html">
+                Disclaimer
+            </a>
+
+            <a href="/contact.html">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 Apocalypse Quizzes
+        </div>
+
+    </div>
 
 </footer>
 
